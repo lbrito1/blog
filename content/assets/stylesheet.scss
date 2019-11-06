@@ -1,6 +1,6 @@
 // Palette
 $color1: #000;
-$color2: #444;
+$color2: #111;
 $color3: #999;
 $color4: #BBB;
 $color5: #EEE;
@@ -22,13 +22,12 @@ aside { font-family:  $font-serif; }
 body {
   color: #222;
   font-family:  $font-serif;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .text {
   font-family:  $font-serif;
   color: $color2;
-  line-height: 1.6em;
 }
 
 // Navigation
