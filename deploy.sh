@@ -3,9 +3,9 @@
 # These variables are useful in case you use a different repo for different branches
 # E.g., I do that to push local branches to my personal blog's repo, which is
 # different from this one.
-local_development_branch="blog-dev"
-local_master_branch="blog-master"
-remote="blog"
+local_development_branch="development"
+local_master_branch="master"
+remote="origin"
 
 # Make sure we're in the correct dir
 git checkout $local_development_branch
