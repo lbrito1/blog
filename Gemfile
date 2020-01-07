@@ -10,6 +10,7 @@ gem 'sass'
 gem 'rouge'
 gem 'nokogiri'
 gem 'nokogumbo'
+gem 'builder'
 
 group :nanoc do
   gem 'guard-nanoc'
