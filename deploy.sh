@@ -10,13 +10,13 @@ remote="origin"
 # Make sure we're in the correct dir
 git checkout $local_development_branch
 
+# Compile output pages/assets
+nanoc
+
 # Update remote
 git add .
 git commit -m "Updates development branch. (automated commit)"
 git push $remote $local_development_branch:development
-
-# Compile output pages/assets
-nanoc
 
 # Switch to Github Pages branch
 git checkout $local_master_branch
