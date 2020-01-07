@@ -25,7 +25,7 @@ git rm * -r
 # Copy nanoc output to root
 git checkout $local_development_branch output/ README.md
 cp -r output/* ./
-rm -rf ./output/*
+rm -rf ./output ./crash.log ./deploy.sh
 
 # Send changes to remote (production branch)
 git add .
