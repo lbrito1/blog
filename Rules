@@ -63,6 +63,11 @@ compile '/**/*.md' do
   write ext: 'html'
 end
 
+# rss feed
+compile "/feed.erb" do
+  filter :erb
+  write "/feed.xml"
+end
 
 # Assets
 
