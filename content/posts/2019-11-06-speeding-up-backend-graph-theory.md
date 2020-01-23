@@ -11,7 +11,7 @@ tags:
 ---
 
 
-![](/assets/images/2019/0076-final-results.png)
+<%= render('/image.*', src: '/assets/images/2019/0076-final-results.png', alt: "", caption: "") %>
 
 
 Here at Sensor Tower we handle large volumes of data, so to keep things snappy for our customers we need to think carefully about how we process and serve that data.
