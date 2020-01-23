@@ -18,6 +18,8 @@
 
       gtag('config', 'UA-155745231-1');
     </script>
+
+    <script src="../../assets/yall.min.js"></script>
   </head>
   <body>
     <div id="layout">
@@ -109,7 +111,19 @@
 
 <p>As an example, here’s how the algorithm works for the following graph (excerpt from the test output with _DEBUG flag):</p>
 
-<p><a href="../../assets/images/codedeposit/2014/04/graph1.png"><img src="../../assets/images/codedeposit/2014/04/graph1.png" alt="graph1"></a></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2014/04/graph1.png" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2014/04/graph1.png" alt="">
+      <noscript>
+        <img src="../../assets/images/codedeposit/2014/04/graph1.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">graph</div>
+  
+</div>
 
 <p>**Weights (last parameter): **</p>
 
@@ -263,6 +277,10 @@ vert[5] 4</code></pre></div>
 
     </div>
   
+
+  <script>
+    document.addEventListener("DOMContentLoaded", yall);
+  </script>
 
 
 </body></html>

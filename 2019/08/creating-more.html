@@ -18,6 +18,8 @@
 
       gtag('config', 'UA-155745231-1');
     </script>
+
+    <script src="../../assets/yall.min.js"></script>
   </head>
   <body>
     <div id="layout">
@@ -82,10 +84,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/fan_page_screenshot.png" target="_blank">
-      <img src="../../assets/images/fan_page_screenshot.png" alt="View of an old website about Pokemon">
+      <img class="lazy" data-src="/assets/images/fan_page_screenshot.png" alt="View of an old website about Pokemon">
+      <noscript>
+        <img src="../../assets/images/fan_page_screenshot.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption">We're soooo cooler than this in 2019.</div>
+  
+    <div class="image-caption">We're soooo cooler than this in 2019.</div>
+  
 </div>
 
 <p><em>Wrong.</em></p>
@@ -124,6 +131,10 @@
 
     </div>
   
+
+  <script>
+    document.addEventListener("DOMContentLoaded", yall);
+  </script>
 
 
 </body></html>

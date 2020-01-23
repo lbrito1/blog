@@ -18,6 +18,8 @@
 
       gtag('config', 'UA-155745231-1');
     </script>
+
+    <script src="../../assets/yall.min.js"></script>
   </head>
   <body>
     <div id="layout">
@@ -62,7 +64,19 @@
     <h1>Speeding Up the Backend with Graph Theory</h1>
     <article class="text">
       
-<p><img src="../../assets/images/2019/0076-final-results.png" alt=""></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/2019/0076-final-results.png" target="_blank">
+      <img class="lazy" data-src="/assets/images/2019/0076-final-results.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0076-final-results.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
 
 <p>Here at Sensor Tower we handle large volumes of data, so to keep things snappy for our customers we need to think carefully about how we process and serve that data.</p>
 
@@ -81,10 +95,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/2019/0070-sadface-backend.png" target="_blank">
-      <img src="../../assets/images/2019/0070-sadface-backend.png" alt="">
+      <img class="lazy" data-src="/assets/images/2019/0070-sadface-backend.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0070-sadface-backend.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption"></div>
+  
+    <div class="image-caption"></div>
+  
 </div>
 
 <p>The customer doesn’t look very happy up there! So, we decided to take some time and do an in-depth analysis of that endpoint.</p>
@@ -94,10 +113,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/2019/0070-diagram.png" target="_blank">
-      <img src="../../assets/images/2019/0070-diagram.png" alt="">
+      <img class="lazy" data-src="/assets/images/2019/0070-diagram.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0070-diagram.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption"></div>
+  
+    <div class="image-caption"></div>
+  
 </div>
 
 <p>The numbered steps in the diagram above perform the following operations:
@@ -114,10 +138,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/2019/0070-profiler.png" target="_blank">
-      <img src="../../assets/images/2019/0070-profiler.png" alt="">
+      <img class="lazy" data-src="/assets/images/2019/0070-profiler.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0070-profiler.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption"></div>
+  
+    <div class="image-caption"></div>
+  
 </div>
 
 <p>While a profiler is a useful tool to identify potential problems, it has its limitations. Profiling helps you visualize data from <em>a single run</em> through your code. That might be fine if you’re analyzing a simple algorithm that deals with very homogeneous input, but is not really enough in the case of our back-end service, which receives thousands of very different inputs every hour.</p>
@@ -139,10 +168,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/2019/0071-decode-encode.png" target="_blank">
-      <img src="../../assets/images/2019/0071-decode-encode.png" alt="">
+      <img class="lazy" data-src="/assets/images/2019/0071-decode-encode.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0071-decode-encode.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption">*Those Strings aren't really Protobuf -- because it is a binary encoding, it isn't too easy on the eyes, so for the sake of readability we're using this pseudo-JSON representation.</div>
+  
+    <div class="image-caption">*Those Strings aren't really Protobuf -- because it is a binary encoding, it isn't too easy on the eyes, so for the sake of readability we're using this pseudo-JSON representation.</div>
+  
 </div>
 
 <p>There are two things we need to point out about this decoding/encoding process that might not be obvious:</p>
@@ -159,10 +193,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/2019/0072-decode-encode-detail.png" target="_blank">
-      <img src="../../assets/images/2019/0072-decode-encode-detail.png" alt="">
+      <img class="lazy" data-src="/assets/images/2019/0072-decode-encode-detail.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0072-decode-encode-detail.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption"></div>
+  
+    <div class="image-caption"></div>
+  
 </div>
 
 <p>One of the most fundamental steps of any optimization is avoiding repeated work. If we look closely, we can see that the nodes in blue (A, B, D) <em>were not modified</em>: Look at the strings generated by decode (left side, in yellow) and compare them with the ones generated by encode (blue, to the right)—they’re identical! Conversely, nodes in red (C, F) were indeed modified: The strings are different. So, now we know there is some potentially repeated work going on.</p>
@@ -176,10 +215,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/2019/0073-result-optim-1.png" target="_blank">
-      <img src="../../assets/images/2019/0073-result-optim-1.png" alt="">
+      <img class="lazy" data-src="/assets/images/2019/0073-result-optim-1.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0073-result-optim-1.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption"></div>
+  
+    <div class="image-caption"></div>
+  
 </div>
 
 <h2 id="second-optimization-finding-a-node">Second Optimization: Finding a Node</h2>
@@ -207,10 +251,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/2019/0070-paths-log.png" target="_blank">
-      <img src="../../assets/images/2019/0070-paths-log.png" alt="">
+      <img class="lazy" data-src="/assets/images/2019/0070-paths-log.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0070-paths-log.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption"></div>
+  
+    <div class="image-caption"></div>
+  
 </div>
 
 <p>Without going into too much detail about that chart, just notice that it is <em>very logarithmic!</em> This is excellent for us, because it means that with a relatively small amount of paths we can find a very large percentage of the total nodes we want to find (and for the few we don’t, not finding them is okay). The next chart compares what we actually found (logarithmically growing paths) with the worst possible scenario mentioned previously:</p>
@@ -218,10 +267,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/2019/0070-worst-case.png" target="_blank">
-      <img src="../../assets/images/2019/0070-worst-case.png" alt="">
+      <img class="lazy" data-src="/assets/images/2019/0070-worst-case.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0070-worst-case.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption"></div>
+  
+    <div class="image-caption"></div>
+  
 </div>
 
 <p>So, the second optimization was, in the end, also very simple: We simply collected a large enough amount of different paths and then traversed to them in logarithmic time instead of doing a full tree traversal that takes linear time to find the nodes we wanted to modify. This was responsible for a 300 percent speedup:</p>
@@ -229,10 +283,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/2019/0075-result-optim-2.png" target="_blank">
-      <img src="../../assets/images/2019/0075-result-optim-2.png" alt="">
+      <img class="lazy" data-src="/assets/images/2019/0075-result-optim-2.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0075-result-optim-2.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption"></div>
+  
+    <div class="image-caption"></div>
+  
 </div>
 
 <h2 id="caveats">Caveats</h2>
@@ -250,10 +309,15 @@
 <div class="image-box">
   <div>
     <a href="../../assets/images/2019/0076-final-results.png" target="_blank">
-      <img src="../../assets/images/2019/0076-final-results.png" alt="">
+      <img class="lazy" data-src="/assets/images/2019/0076-final-results.png" alt="">
+      <noscript>
+        <img src="../../assets/images/2019/0076-final-results.png" alt="Alternative text to describe image.">
+      </noscript>
     </a>
   </div>
-  <div class="image-caption"></div>
+  
+    <div class="image-caption"></div>
+  
 </div>
 
 <p>We effectively reduced execution time from 300-500ms to 80ms with almost no impact to the user.</p>
@@ -282,6 +346,10 @@
 
     </div>
   
+
+  <script>
+    document.addEventListener("DOMContentLoaded", yall);
+  </script>
 
 
 </body></html>

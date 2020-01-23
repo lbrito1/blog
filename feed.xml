@@ -16,7 +16,19 @@
     <updated>2019-11-06T22:29:15Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2019/11/speeding-up-backend-graph-theory.html" type="text/html"/>
     <content type="html">
-&lt;p&gt;&lt;img src="/assets/images/2019/0076-final-results.png" alt=""&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/2019/0076-final-results.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0076-final-results.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Here at Sensor Tower we handle large volumes of data, so to keep things snappy for our customers we need to think carefully about how we process and serve that data.&lt;/p&gt;
 
@@ -35,10 +47,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/2019/0070-sadface-backend.png" target="_blank"&gt;
-      &lt;img src="/assets/images/2019/0070-sadface-backend.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0070-sadface-backend.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0070-sadface-backend.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;p&gt;The customer doesn’t look very happy up there! So, we decided to take some time and do an in-depth analysis of that endpoint.&lt;/p&gt;
@@ -48,10 +65,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/2019/0070-diagram.png" target="_blank"&gt;
-      &lt;img src="/assets/images/2019/0070-diagram.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0070-diagram.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0070-diagram.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;p&gt;The numbered steps in the diagram above perform the following operations:
@@ -68,10 +90,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/2019/0070-profiler.png" target="_blank"&gt;
-      &lt;img src="/assets/images/2019/0070-profiler.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0070-profiler.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0070-profiler.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;p&gt;While a profiler is a useful tool to identify potential problems, it has its limitations. Profiling helps you visualize data from &lt;em&gt;a single run&lt;/em&gt; through your code. That might be fine if you’re analyzing a simple algorithm that deals with very homogeneous input, but is not really enough in the case of our back-end service, which receives thousands of very different inputs every hour.&lt;/p&gt;
@@ -93,10 +120,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/2019/0071-decode-encode.png" target="_blank"&gt;
-      &lt;img src="/assets/images/2019/0071-decode-encode.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0071-decode-encode.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0071-decode-encode.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;*Those Strings aren't really Protobuf -- because it is a binary encoding, it isn't too easy on the eyes, so for the sake of readability we're using this pseudo-JSON representation.&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;*Those Strings aren't really Protobuf -- because it is a binary encoding, it isn't too easy on the eyes, so for the sake of readability we're using this pseudo-JSON representation.&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;p&gt;There are two things we need to point out about this decoding/encoding process that might not be obvious:&lt;/p&gt;
@@ -113,10 +145,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/2019/0072-decode-encode-detail.png" target="_blank"&gt;
-      &lt;img src="/assets/images/2019/0072-decode-encode-detail.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0072-decode-encode-detail.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0072-decode-encode-detail.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;p&gt;One of the most fundamental steps of any optimization is avoiding repeated work. If we look closely, we can see that the nodes in blue (A, B, D) &lt;em&gt;were not modified&lt;/em&gt;: Look at the strings generated by decode (left side, in yellow) and compare them with the ones generated by encode (blue, to the right)—they’re identical! Conversely, nodes in red (C, F) were indeed modified: The strings are different. So, now we know there is some potentially repeated work going on.&lt;/p&gt;
@@ -130,10 +167,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/2019/0073-result-optim-1.png" target="_blank"&gt;
-      &lt;img src="/assets/images/2019/0073-result-optim-1.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0073-result-optim-1.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0073-result-optim-1.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;h2 id="second-optimization-finding-a-node"&gt;Second Optimization: Finding a Node&lt;/h2&gt;
@@ -161,10 +203,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/2019/0070-paths-log.png" target="_blank"&gt;
-      &lt;img src="/assets/images/2019/0070-paths-log.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0070-paths-log.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0070-paths-log.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;p&gt;Without going into too much detail about that chart, just notice that it is &lt;em&gt;very logarithmic!&lt;/em&gt; This is excellent for us, because it means that with a relatively small amount of paths we can find a very large percentage of the total nodes we want to find (and for the few we don’t, not finding them is okay). The next chart compares what we actually found (logarithmically growing paths) with the worst possible scenario mentioned previously:&lt;/p&gt;
@@ -172,10 +219,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/2019/0070-worst-case.png" target="_blank"&gt;
-      &lt;img src="/assets/images/2019/0070-worst-case.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0070-worst-case.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0070-worst-case.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;p&gt;So, the second optimization was, in the end, also very simple: We simply collected a large enough amount of different paths and then traversed to them in logarithmic time instead of doing a full tree traversal that takes linear time to find the nodes we wanted to modify. This was responsible for a 300 percent speedup:&lt;/p&gt;
@@ -183,10 +235,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/2019/0075-result-optim-2.png" target="_blank"&gt;
-      &lt;img src="/assets/images/2019/0075-result-optim-2.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0075-result-optim-2.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0075-result-optim-2.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;h2 id="caveats"&gt;Caveats&lt;/h2&gt;
@@ -204,10 +261,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/2019/0076-final-results.png" target="_blank"&gt;
-      &lt;img src="/assets/images/2019/0076-final-results.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/assets/images/2019/0076-final-results.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;p&gt;We effectively reduced execution time from 300-500ms to 80ms with almost no impact to the user.&lt;/p&gt;
@@ -250,10 +312,15 @@
 &lt;div class="image-box"&gt;
   &lt;div&gt;
     &lt;a href="/assets/images/fan_page_screenshot.png" target="_blank"&gt;
-      &lt;img src="/assets/images/fan_page_screenshot.png" alt="View of an old website about Pokemon"&gt;
+      &lt;img class="lazy" data-src="/assets/images/fan_page_screenshot.png" alt="View of an old website about Pokemon"&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/fan_page_screenshot.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
-  &lt;div class="image-caption"&gt;We're soooo cooler than this in 2019.&lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;We're soooo cooler than this in 2019.&lt;/div&gt;
+  
 &lt;/div&gt;
 
 &lt;p&gt;&lt;em&gt;Wrong.&lt;/em&gt;&lt;/p&gt;
@@ -379,7 +446,17 @@
     <published>2018-06-12T00:00:00Z</published>
     <updated>2018-06-12T00:00:00Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2018/06/working-remotely-in-a-non-remote-company.html" type="text/html"/>
-    <content type="html">&lt;p&gt;&lt;img src="/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" alt=""&gt;&lt;/p&gt;
+    <content type="html">&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;We’re a small team here at Guava, and we’ve always considered ourselves &lt;em&gt;remote friendly.&lt;/em&gt; Most of us work remotely every now and then pushed by varied &lt;em&gt;force majeure&lt;/em&gt; situations— be it the flu, the need to supervise renovation or construction work at home, flash floods near the office, receiving guests at home or any number of other situations. We’ve also had a few of us working remotely for a few days or weeks while traveling to or back from a conference, or when visiting relatives that live out of town. In other words, remote working has always been a very temporary and circumstantial thing among us.&lt;/p&gt;
 
@@ -647,14 +724,25 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
     <link rel="alternate" href="https://lbrito1.github.io/blog/2017/06/how-a-Unix-CLI-tool-made-me-care-about-software-feedback.html" type="text/html"/>
     <content type="html">&lt;p&gt;Providing feedback is one of the most important parts of any software. Unfortunately, more often than not we tend to downplay or ignore the very simple yet crucial task of letting the user know what is going on. In this article I’ll use a short cautionary tale of how the lack of proper user feedback (and some laziness, I admit) almost cost me an entire HDD with years of personal data.&lt;/p&gt;
 
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Can you tell by the output of dd that the device will be completely and irrevocably wiped out? Hint: while the operation is running (i.e. before hitting CTRL+C), there _is no output.&lt;/div&gt;
+  
+&lt;/div&gt;
+
 &lt;!-- more --&gt;
 
 &lt;p&gt;It was late at night and I was trying to clean up an SD card with some vacation photos. However, a silly media-detection Ubuntu process had hanged at some point and locked down the card, impeding any write operations on it. So I did what any lazy developer would do at 1AM: hastily search StackOverflow and paste into the terminal the first possibly applicable code snippet. Albeit totally overkill, the answer was legit: zero-filling (writing &lt;code&gt;0&lt;/code&gt;s in the disk, effectively deleting data) the device with the &lt;code&gt;dd&lt;/code&gt; program. So I copy-pasted the command, hit Enter and waited — without properly understanding what I had just typed, I might add. The command seemed to take too long so I killed it after a few seconds. Much to my surprise, on reboot the OS wouldn’t load.&lt;/p&gt;
 
 &lt;p&gt;The command I had copy-pasted from StackOverflow used &lt;code&gt;dev/sdb&lt;/code&gt; as the destination device to be zero-filled, which must have been the original poster’s SD card device name. Unfortunately for me, that was the name of my secondary HDD, while my SD card was probably something like &lt;code&gt;/dev/sdc&lt;/code&gt;. The &lt;code&gt;dd&lt;/code&gt; program had zero-filled the beginning of the HDD, which contains the partition table information, making it unmountable. After some tinkering around I removed the HDD entry from &lt;code&gt;/etc/fstab&lt;/code&gt; and was able to boot into Ubuntu. After some research I found out the correct tools to restore the disk’s partition table and everything was fine (except for the hours of sleep I lost on that day).&lt;/p&gt;
-
-&lt;p&gt;&lt;img src="/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" alt="Can you tell by the output of dd that the device will be completely and irrevocably wiped out? Hint: while the operation is running (i.e. before hitting CTRL+C), there _is no output._"&gt;
-Can you tell by the output of dd that the device will be completely and irrevocably wiped out? Hint: while the operation is running (i.e. before hitting CTRL+C), there &lt;em&gt;is no output.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;The first and obvious lesson learned here is, of course, don’t copy-paste and immediately run things from the Internet. It is potentially dangerous and just plain bad practice. The thing is, though, users will &lt;em&gt;always&lt;/em&gt; do something that is bad practice. Real-world users will find themselves tired and frustrated at 1AM, like myself, and will do stuff they’re “not supposed to do”. That is why feedback is so important: a simple confirmation dialog saying something like “this command will completely overwrite the destination file at device x, are you sure you want to continue?” might have made me think twice, and I might have saved a couple of hours of sleep.&lt;/p&gt;
 
@@ -694,7 +782,17 @@ Can you tell by the output of dd that the device will be completely and irrevoca
 
 &lt;p&gt;Back to our concrete case: we had a massive and steadily-increasing set of highly normalized data on a RDB. Adding insult to injury, the input data was incredibly sparse, with batch-like data peaks followed by several hours with little activity. The data distribution made it clear that we would have to do some kind of pagination. The following figure shows our input data distribution, where the x-axis units represent 1 hour worth of data, and the y-axis represents the data count in that hour:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src="/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt=""&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;As we can see in the chart, many 1-hour blocks had nearly no data at all, and the great majority of blocks had less than 100k entries. A few blocks have a huge amount of data, surpassing 700k entries. This chart has 1-hour precision, but if we zoom in and investigate the same data set with 1-minute precision, the chart would look more or less the same. This is only a small sample of the data set we were dealing with: the full set had over 20M entries, growing at a rate of about 1M entries per month.&lt;/p&gt;
 
@@ -836,7 +934,19 @@ Can you tell by the output of dd that the device will be completely and irrevoca
     <published>2015-10-28T22:01:29Z</published>
     <updated>2015-10-28T22:01:29Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2015/10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html" type="text/html"/>
-    <content type="html">&lt;p&gt;&lt;a href="/assets/images/codedeposit/2015/10/pathfinding.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt="pathfinding"&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/pathfinding.png?w=660" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;pathfindin&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 1&lt;/p&gt;
 
@@ -963,14 +1073,20 @@ Can you tell by the output of dd that the device will be completely and irrevoca
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dist_mat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dists&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;interpolation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'nearest'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cmap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'gist_rainbow'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/figure_1.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/figure_1.png?w=300" alt="figure_1"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/figure_2.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/figure_2.png?w=300" alt="figure_2"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/figure_1.png?w=300" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/figure_1.png?w=300" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/figure_1.png?w=300" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;figure_&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 2&lt;/p&gt;
 
@@ -1008,14 +1124,20 @@ Can you tell by the output of dd that the device will be completely and irrevoca
 
 &lt;p&gt;What would an “average case” look like? Hard to say; depend on what is average for your application. It might just be the case that sequences are the average case. Since we can’t define a “universal” average case and for the sake of simplicity, we will define the average case as a sequence of random numbers drawn from C’s rand() function (one might argue that this is actually the “best” case since on the long run the BST will “naturally” become quite reasonably balanced, but let’s not get picky about terminology).&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/average-case_search.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt="Average case_search"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/average-case_insert.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/average-case_insert.png?w=300" alt="Average case_insert"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/average-case_search.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Average case_search&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 1&lt;/p&gt;
 
@@ -1025,27 +1147,39 @@ Can you tell by the output of dd that the device will be completely and irrevoca
 
 &lt;p&gt;Now let’s see in Figure 2 how the trees perform in our worst-case scenario:&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst-case_search.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="Worst case_search"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst-case_search.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="Worst case_search"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Worst case_search&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 2&lt;/p&gt;
 
 &lt;p&gt;Figure 2 reminds us why self-balancing trees were invented. BST quickly degenerated into a $latex O(n)$-time &lt;a href="%7B%%20link%20_posts/2014-02-14-3.markdown%20%%7D%7D"&gt;linked list&lt;/a&gt;, which made the other two trees’ performance invisible. Let’s use a log plot to see how well R&amp;amp;B and AVL performed:&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst-case-log_search.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt="Worst case (log)_search"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst-case-log_insert.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst-case-log_insert.png?w=739" alt="Worst case (log)_insert"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Worst case (log)_search&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 3&lt;/p&gt;
 
@@ -1053,14 +1187,20 @@ Can you tell by the output of dd that the device will be completely and irrevoca
 
 &lt;p&gt;The huge difference in performance between average and worst case are easily understood by looking at Figure 4. While BST height does increase more than the other trees’ height on the average case, they all have the same order of magnitude. Not on the worst case, though: BST height increases linearly while AVL and RB are clearly logarithmic.&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/average-case_height.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt="Average case_height"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst-case-log_height.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst-case-log_height.png?w=739" alt="Worst case (log)_height"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/average-case_height.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Average case_height&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 4&lt;/p&gt;
 
@@ -1068,18 +1208,36 @@ Can you tell by the output of dd that the device will be completely and irrevoca
 
 &lt;p&gt;Figure 5 shows only Red-black and AVL heights. Note that they are close to the theoretical bounds, which suggests that our worst case is indeed a worst case. Take n = 80000 as an example: for the AVL tree we expect a height always smaller than $latex 1.44~log_{2}(80000) \approx 23.45$, while the observed was 20. For the Red-black tree, the upper bound is $latex log_{2}(n) \approx 32.57$, also close to the observed (30). Although these differences may seem big, they aren’t enough to significantly change observed search and insertion times (Figure 6). That’s what makes Big O so great!&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst_heights.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt="worst_heights"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/worst_heights.png?w=300" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;worst_height&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 5&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst_searches.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt="worst_searches"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst_inserts.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst_inserts.png?w=300" alt="worst_inserts"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/worst_searches.png?w=300" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;worst_searches&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 6&lt;/p&gt;
 
@@ -1111,15 +1269,51 @@ Can you tell by the output of dd that the device will be completely and irrevoca
 
 &lt;p&gt;Unlike AVL trees, Red-black trees have only two of rotations, left and right, depicted in the figure below:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt="red_black_tree_rotation"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;red_black_tree_rotatio&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;As you may have figured, these rotations can potentially violate rules 3 and 4, so after each rotation we’ll have to check the resulting subtree nodes’ colors for violations. Let’s see some examples before going through the code:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2015/10/red_black_right_rotate.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt="red_black_right_rotate"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/red_black_right_rotate.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;red_black_right_rotat&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Here we have a Red-black tree rooted on node &lt;strong&gt;W&lt;/strong&gt; (which is black). We then add &lt;strong&gt;M&lt;/strong&gt; to the tree. Since M &amp;lt; P &amp;lt; W, it is added as a left child of P. All new nodes are red², so rule 3 is violated (P is red and has a red child, M); thus, a right-rotate is performed on W (on our diagram, Y = W, X = P, alpha = M and the rest are null pointers). For convenience, the tree root is always painted black after each insertion (to avoid violation of rule 3). Let’s see another example, now with left rotation:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2015/10/red_black_left_rotate.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt="red_black_left_rotate"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/red_black_left_rotate.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;red_black_left_rotat&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Node &lt;strong&gt;U&lt;/strong&gt; is inserted as a right child of S, violating rule 3 again, and the subtree K &amp;lt; S &amp;lt; U is left-rotated. However, even after rotation rule 3 is still violated, since S and U are both red. Rule 4 is violated as well: since K is black and U is red, S has paths with different amounts of black nodes (2 on the left and 1 on the right - remember than null leafs count as black nodes). This is fixed by swapping K and S’s colors (‘Case 3 R’ as seen in the terminal).&lt;/p&gt;
 
@@ -1898,7 +2092,19 @@ Finished checking node 79 &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o
 
 &lt;p&gt;As an example, here’s how the algorithm works for the following graph (excerpt from the test output with _DEBUG flag):&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2014/04/graph1.png"&gt;&lt;img src="/assets/images/codedeposit/2014/04/graph1.png" alt="graph1"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2014/04/graph1.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2014/04/graph1.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2014/04/graph1.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;graph&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;**Weights (last parameter): **&lt;/p&gt;
 
@@ -2045,9 +2251,21 @@ vert[5] 4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     <published>2014-03-31T22:02:09Z</published>
     <updated>2014-03-31T22:02:09Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2014/03/trees-part-i.html" type="text/html"/>
-    <content type="html">&lt;p&gt;&lt;a href="/assets/images/codedeposit/2014/03/tree1.jpg"&gt;&lt;img src="/assets/images/codedeposit/2014/03/tree1.jpg" alt="tree"&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2014/03/tree1.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2014/03/tree1.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2014/03/tree1.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;tre&lt;/div&gt;
+  
+&lt;/div&gt;
 
-&lt;p&gt;&lt;a href="http://commons.wikimedia.org/wiki/File%3ABright_green_tree_-_Waikato.jpg"&gt;&lt;img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-_Waikato.jpg/512px-Bright_green_tree_-_Waikato.jpg" alt="Bright green tree - Waikato"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;render(‘/image.*’, caption: ‘Bright green tree - Waikat’, src: ‘//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-_Waikato.jpg/512px-Bright_green_tree_-_Waikato.jpg)](http://commons.wikimedia.org/wiki/File%3ABright_green_tree_-_Waikato.jpg)&lt;/p&gt;
 
 &lt;p&gt;We used trees to build the &lt;a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D"&gt;heap data structure&lt;/a&gt; before, but we didn’t bother with the theory behind trees, which are abstract and concrete data structures themselves. There’s a huge range of material to cover so I’ll split this in several posts.&lt;/p&gt;
 
@@ -2240,7 +2458,19 @@ Visited node &lt;span class="c"&gt;#91&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;
     <link rel="alternate" href="https://lbrito1.github.io/blog/2014/03/graph.html" type="text/html"/>
     <content type="html">&lt;p&gt;Mathematically, a graph is a set of vertices and edges, thus a graph &lt;code&gt;G&lt;/code&gt; is usually written as &lt;code&gt;G(V,E)&lt;/code&gt;. Besides linking vertices in the graph, edges can also carry a specific value which may be interpreted as cost, weight, distance etc.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2014/03/graph1.jpg"&gt;&lt;img src="/assets/images/codedeposit/2014/03/graph1.jpg" alt="graph viewed with BurgerGFX"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2014/03/graph1.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2014/03/graph1.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2014/03/graph1.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;graph viewed with BurgerGF&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;In computer science, we’re interested in the (abstract) data structure used to implement the graph mathematical concept. Let’s first discuss the basic elements in a graph - vertices and edges:&lt;/p&gt;
 
@@ -2491,8 +2721,19 @@ This software is free software; you can redistribute it and/or modify
 
 &lt;p&gt;Heaps are complete (i.e. all levels except possibly the last are filled) binary trees that work as PQs by maintaining the following property: children nodes always have a smaller priority than their parent, i.e. for any node A with children B and C, priority(B) &amp;lt; priority(A) &amp;amp;&amp;amp; priority(C) &amp;lt; priority(A). Note that there is no assumed relation between siblings or cousins.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2014/03/heap.jpg"&gt;&lt;img src="/assets/images/codedeposit/2014/03/heap.jpg" alt="max-heap and corresponding array."&gt;&lt;/a&gt;
-&lt;em&gt;max-heap and corresponding array.&lt;/em&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2014/03/heap.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2014/03/heap.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/assets/images/codedeposit/2014/03/heap.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;max-heap and corresponding array.&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Each element of a heap has two pieces of information: a key and a value, hence we call them key-value (KV) pair. The key identifies the specific element, and the value determines the element’s priority within the heap. Heaps can be min-heaps (low value = high priority) or max-heaps (high value = high priority).&lt;/p&gt;
 

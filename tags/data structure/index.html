@@ -18,6 +18,8 @@
 
       gtag('config', 'UA-155745231-1');
     </script>
+
+    <script src="../../assets/yall.min.js"></script>
   </head>
   <body>
     <div id="layout">
@@ -72,8 +74,19 @@
 
 <p>Heaps are complete (i.e. all levels except possibly the last are filled) binary trees that work as PQs by maintaining the following property: children nodes always have a smaller priority than their parent, i.e. for any node A with children B and C, priority(B) &lt; priority(A) &amp;&amp; priority(C) &lt; priority(A). Note that there is no assumed relation between siblings or cousins.</p>
 
-<p><a href="../../assets/images/codedeposit/2014/03/heap.jpg"><img src="../../assets/images/codedeposit/2014/03/heap.jpg" alt="max-heap and corresponding array."></a>
-<em>max-heap and corresponding array.</em></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2014/03/heap.jpg" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2014/03/heap.jpg" alt="">
+      <noscript>
+        <img src="../../assets/images/codedeposit/2014/03/heap.jpg" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">max-heap and corresponding array.</div>
+  
+</div>
 
 <p>Each element of a heap has two pieces of information: a key and a value, hence we call them key-value (KV) pair. The key identifies the specific element, and the value determines the element’s priority within the heap. Heaps can be min-heaps (low value = high priority) or max-heaps (high value = high priority).</p>
 
@@ -98,9 +111,21 @@
       <h2><a href="../../2014/03/trees-part-i.html">Trees - Part I</a></h2>
 
       <article class="text">
-          <p><a href="../../assets/images/codedeposit/2014/03/tree1.jpg"><img src="../../assets/images/codedeposit/2014/03/tree1.jpg" alt="tree"></a></p>
+          <div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2014/03/tree1.jpg" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2014/03/tree1.jpg" alt="">
+      <noscript>
+        <img src="../../assets/images/codedeposit/2014/03/tree1.jpg" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">tre</div>
+  
+</div>
 
-<p><a href="http://commons.wikimedia.org/wiki/File%3ABright_green_tree_-_Waikato.jpg"><img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-_Waikato.jpg/512px-Bright_green_tree_-_Waikato.jpg" alt="Bright green tree - Waikato"></a></p>
+<p>render(‘/image.*’, caption: ‘Bright green tree - Waikat’, src: ‘//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-_Waikato.jpg/512px-Bright_green_tree_-_Waikato.jpg)](http://commons.wikimedia.org/wiki/File%3ABright_green_tree_-_Waikato.jpg)</p>
 
 <p>We used trees to build the <a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D">heap data structure</a> before, but we didn’t bother with the theory behind trees, which are abstract and concrete data structures themselves. There’s a huge range of material to cover so I’ll split this in several posts.</p>
 
@@ -136,7 +161,19 @@
       <article class="text">
           <p>Mathematically, a graph is a set of vertices and edges, thus a graph <code>G</code> is usually written as <code>G(V,E)</code>. Besides linking vertices in the graph, edges can also carry a specific value which may be interpreted as cost, weight, distance etc.</p>
 
-<p><a href="../../assets/images/codedeposit/2014/03/graph1.jpg"><img src="../../assets/images/codedeposit/2014/03/graph1.jpg" alt="graph viewed with BurgerGFX"></a></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2014/03/graph1.jpg" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2014/03/graph1.jpg" alt="">
+      <noscript>
+        <img src="../../assets/images/codedeposit/2014/03/graph1.jpg" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">graph viewed with BurgerGF</div>
+  
+</div>
 
 <p>In computer science, we’re interested in the (abstract) data structure used to implement the graph mathematical concept. Let’s first discuss the basic elements in a graph - vertices and edges:</p>
 
@@ -239,7 +276,19 @@
 
 <p>A pointer to the head element is enough to define a linked list. Each element consists of one pointer to the subsequent element in the list and one pointer to the element’s data:</p>
 
-<p><a href="../../assets/images/codedeposit/2014/02/linkedlist.png"><img src="../../assets/images/codedeposit/2014/02/linkedlist.png?w=450" alt="linkedlist"></a></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2014/02/linkedlist.png?w=450" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2014/02/linkedlist.png?w=450" alt="">
+      <noscript>
+        <img src="../../assets/images/codedeposit/2014/02/linkedlist.png?w=450" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">linkedlis</div>
+  
+</div>
 
 
         <div class="post-tags">
@@ -289,7 +338,19 @@
       <article class="text">
           <p>A doubly linked list is like our previously implemented Linked List, but instead of only having pointers to the next element, it also has pointers to the _previous _element:</p>
 
-<p><a href="../../assets/images/codedeposit/2014/03/610px-doubly-linked-list-svg.png"><img src="../../assets/images/codedeposit/2014/03/610px-doubly-linked-list-svg.png" alt="610px-Doubly-linked-list.svg"></a></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2014/03/610px-doubly-linked-list-svg.png" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2014/03/610px-doubly-linked-list-svg.png" alt="">
+      <noscript>
+        <img src="../../assets/images/codedeposit/2014/03/610px-doubly-linked-list-svg.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">610px-Doubly-linked-list.sv</div>
+  
+</div>
 
 <p>This property makes the doubly linked list very useful as a base for other data structures such as the stack: having a previous pointer means we can quickly (O(1)) remove objects from the list’s tail, which would be impossible with a linked list.</p>
 
@@ -318,7 +379,19 @@
       <article class="text">
           <p>Using our implementation of a doubly linked (DL) list, we can very simply build the most basic LIFO (last in, first out) data structure: the stack.</p>
 
-<p><a href="../../assets/images/codedeposit/2014/03/stack.png"><img src="../../assets/images/codedeposit/2014/03/stack.png?w=300" alt="stack"></a></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2014/03/stack.png?w=300" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2014/03/stack.png?w=300" alt="">
+      <noscript>
+        <img src="../../assets/images/codedeposit/2014/03/stack.png?w=300" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">stac</div>
+  
+</div>
 
 <p>Stacks have two basic operations: push and pop. Push pushes data onto the stack (i.e., end of the DL list) and pop pops data off the list’s tail, which is only possible because we can set the new tail as tail-&gt;prev, since we’re using a DL list, with previous pointers. Another useful function is peek, which returns a pointer to the stack’s top.</p>
 
@@ -349,6 +422,10 @@
 
     </div>
   
+
+  <script>
+    document.addEventListener("DOMContentLoaded", yall);
+  </script>
 
 
 </body></html>
