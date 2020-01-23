@@ -58,7 +58,7 @@ As you may have noticed, Dijkstra's algorithm calculates the shortest path from 
 
 As an example, here's how the algorithm works for the following graph (excerpt from the test output with _DEBUG flag):
 
-[![graph1](/assets/images/codedeposit/2014/04/graph1.png)](/assets/images/codedeposit/2014/04/graph1.png)
+<%= render('/image.*', caption: 'graph', src: '/assets/images/codedeposit/2014/04/graph1.png') %>
 
 **Weights (last parameter): **
 

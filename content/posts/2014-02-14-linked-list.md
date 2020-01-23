@@ -16,7 +16,7 @@ Here's a very simple implementation of the linked list data structure.
 
 A pointer to the head element is enough to define a linked list. Each element consists of one pointer to the subsequent element in the list and one pointer to the element's data:
 
-[![linkedlist](/assets/images/codedeposit/2014/02/linkedlist.png?w=450)](/assets/images/codedeposit/2014/02/linkedlist.png)
+<%= render('/image.*', caption: 'linkedlis', src: '/assets/images/codedeposit/2014/02/linkedlist.png?w=450') %>
 
 <!-- more -->
 

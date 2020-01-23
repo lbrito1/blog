@@ -82,15 +82,42 @@
 
 <p>Unlike AVL trees, Red-black trees have only two of rotations, left and right, depicted in the figure below:</p>
 
-<p><a href="../../assets/images/codedeposit/2015/10/red_black_tree_rotation1.png"><img src="../../assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt="red_black_tree_rotation"></a></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt="">
+    </a>
+  </div>
+  
+    <div class="image-caption">red_black_tree_rotatio</div>
+  
+</div>
 
 <p>As you may have figured, these rotations can potentially violate rules 3 and 4, so after each rotation we’ll have to check the resulting subtree nodes’ colors for violations. Let’s see some examples before going through the code:</p>
 
-<p><a href="../../assets/images/codedeposit/2015/10/red_black_right_rotate.png"><img src="../../assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt="red_black_right_rotate"></a></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2015/10/red_black_right_rotate.png" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt="">
+    </a>
+  </div>
+  
+    <div class="image-caption">red_black_right_rotat</div>
+  
+</div>
 
 <p>Here we have a Red-black tree rooted on node <strong>W</strong> (which is black). We then add <strong>M</strong> to the tree. Since M &lt; P &lt; W, it is added as a left child of P. All new nodes are red², so rule 3 is violated (P is red and has a red child, M); thus, a right-rotate is performed on W (on our diagram, Y = W, X = P, alpha = M and the rest are null pointers). For convenience, the tree root is always painted black after each insertion (to avoid violation of rule 3). Let’s see another example, now with left rotation:</p>
 
-<p><a href="../../assets/images/codedeposit/2015/10/red_black_left_rotate.png"><img src="../../assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt="red_black_left_rotate"></a></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2015/10/red_black_left_rotate.png" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt="">
+    </a>
+  </div>
+  
+    <div class="image-caption">red_black_left_rotat</div>
+  
+</div>
 
 <p>Node <strong>U</strong> is inserted as a right child of S, violating rule 3 again, and the subtree K &lt; S &lt; U is left-rotated. However, even after rotation rule 3 is still violated, since S and U are both red. Rule 4 is violated as well: since K is black and U is red, S has paths with different amounts of black nodes (2 on the left and 1 on the right - remember than null leafs count as black nodes). This is fixed by swapping K and S’s colors (‘Case 3 R’ as seen in the terminal).</p>
 

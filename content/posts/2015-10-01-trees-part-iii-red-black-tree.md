@@ -28,15 +28,15 @@ These four properties are sufficient to enforce that tree height is always less 
 
 Unlike AVL trees, Red-black trees have only two of rotations, left and right, depicted in the figure below:
 
-[![red_black_tree_rotation](/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625)](/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png)
+<%= render('/image.*', caption: 'red_black_tree_rotatio', src: '/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625') %>
 
 As you may have figured, these rotations can potentially violate rules 3 and 4, so after each rotation we'll have to check the resulting subtree nodes' colors for violations. Let's see some examples before going through the code:
 
-[![red_black_right_rotate](/assets/images/codedeposit/2015/10/red_black_right_rotate.png)](/assets/images/codedeposit/2015/10/red_black_right_rotate.png)
+<%= render('/image.*', caption: 'red_black_right_rotat', src: '/assets/images/codedeposit/2015/10/red_black_right_rotate.png') %>
 
 Here we have a Red-black tree rooted on node **W** (which is black). We then add **M** to the tree. Since M < P < W, it is added as a left child of P. All new nodes are red², so rule 3 is violated (P is red and has a red child, M); thus, a right-rotate is performed on W (on our diagram, Y = W, X = P, alpha = M and the rest are null pointers). For convenience, the tree root is always painted black after each insertion (to avoid violation of rule 3). Let's see another example, now with left rotation:
 
-[![red_black_left_rotate](/assets/images/codedeposit/2015/10/red_black_left_rotate.png)](/assets/images/codedeposit/2015/10/red_black_left_rotate.png)
+<%= render('/image.*', caption: 'red_black_left_rotat', src: '/assets/images/codedeposit/2015/10/red_black_left_rotate.png') %>
 
 Node **U** is inserted as a right child of S, violating rule 3 again, and the subtree K < S < U is left-rotated. However, even after rotation rule 3 is still violated, since S and U are both red. Rule 4 is violated as well: since K is black and U is red, S has paths with different amounts of black nodes (2 on the left and 1 on the right - remember than null leafs count as black nodes). This is fixed by swapping K and S's colors ('Case 3 R' as seen in the terminal).
 

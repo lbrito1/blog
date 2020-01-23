@@ -73,14 +73,17 @@
 
 <p>What would an “average case” look like? Hard to say; depend on what is average for your application. It might just be the case that sequences are the average case. Since we can’t define a “universal” average case and for the sake of simplicity, we will define the average case as a sequence of random numbers drawn from C’s rand() function (one might argue that this is actually the “best” case since on the long run the BST will “naturally” become quite reasonably balanced, but let’s not get picky about terminology).</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><a href="../../assets/images/codedeposit/2015/10/average-case_search.png"><img src="../../assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt="Average case_search"></a></td>
-      <td><a href="../../assets/images/codedeposit/2015/10/average-case_insert.png"><img src="../../assets/images/codedeposit/2015/10/average-case_insert.png?w=300" alt="Average case_insert"></a></td>
-    </tr>
-  </tbody>
-</table>
+<p>:————————-:|:————————-:</p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2015/10/average-case_search.png?w=739" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt="">
+    </a>
+  </div>
+  
+    <div class="image-caption">Average case_search</div>
+  
+</div>
 
 <p>Figure 1</p>
 
@@ -90,27 +93,33 @@
 
 <p>Now let’s see in Figure 2 how the trees perform in our worst-case scenario:</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><a href="../../assets/images/codedeposit/2015/10/worst-case_search.png"><img src="../../assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="Worst case_search"></a></td>
-      <td><a href="../../assets/images/codedeposit/2015/10/worst-case_search.png"><img src="../../assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="Worst case_search"></a></td>
-    </tr>
-  </tbody>
-</table>
+<p>:————————-:|:————————-:</p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2015/10/worst-case_search.png?w=739" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="">
+    </a>
+  </div>
+  
+    <div class="image-caption">Worst case_search</div>
+  
+</div>
 
 <p>Figure 2</p>
 
 <p>Figure 2 reminds us why self-balancing trees were invented. BST quickly degenerated into a $latex O(n)$-time <a href="%7B%%20link%20_posts/2014-02-14-3.markdown%20%%7D%7D">linked list</a>, which made the other two trees’ performance invisible. Let’s use a log plot to see how well R&amp;B and AVL performed:</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><a href="../../assets/images/codedeposit/2015/10/worst-case-log_search.png"><img src="../../assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt="Worst case (log)_search"></a></td>
-      <td><a href="../../assets/images/codedeposit/2015/10/worst-case-log_insert.png"><img src="../../assets/images/codedeposit/2015/10/worst-case-log_insert.png?w=739" alt="Worst case (log)_insert"></a></td>
-    </tr>
-  </tbody>
-</table>
+<p>:————————-:|:————————-:</p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt="">
+    </a>
+  </div>
+  
+    <div class="image-caption">Worst case (log)_search</div>
+  
+</div>
 
 <p>Figure 3</p>
 
@@ -118,14 +127,17 @@
 
 <p>The huge difference in performance between average and worst case are easily understood by looking at Figure 4. While BST height does increase more than the other trees’ height on the average case, they all have the same order of magnitude. Not on the worst case, though: BST height increases linearly while AVL and RB are clearly logarithmic.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><a href="../../assets/images/codedeposit/2015/10/average-case_height.png"><img src="../../assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt="Average case_height"></a></td>
-      <td><a href="../../assets/images/codedeposit/2015/10/worst-case-log_height.png"><img src="../../assets/images/codedeposit/2015/10/worst-case-log_height.png?w=739" alt="Worst case (log)_height"></a></td>
-    </tr>
-  </tbody>
-</table>
+<p>:————————-:|:————————-:</p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2015/10/average-case_height.png?w=739" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt="">
+    </a>
+  </div>
+  
+    <div class="image-caption">Average case_height</div>
+  
+</div>
 
 <p>Figure 4</p>
 
@@ -133,18 +145,30 @@
 
 <p>Figure 5 shows only Red-black and AVL heights. Note that they are close to the theoretical bounds, which suggests that our worst case is indeed a worst case. Take n = 80000 as an example: for the AVL tree we expect a height always smaller than $latex 1.44~log_{2}(80000) \approx 23.45$, while the observed was 20. For the Red-black tree, the upper bound is $latex log_{2}(n) \approx 32.57$, also close to the observed (30). Although these differences may seem big, they aren’t enough to significantly change observed search and insertion times (Figure 6). That’s what makes Big O so great!</p>
 
-<p><a href="../../assets/images/codedeposit/2015/10/worst_heights.png"><img src="../../assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt="worst_heights"></a></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2015/10/worst_heights.png?w=300" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt="">
+    </a>
+  </div>
+  
+    <div class="image-caption">worst_height</div>
+  
+</div>
 
 <p>Figure 5</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td><a href="../../assets/images/codedeposit/2015/10/worst_searches.png"><img src="../../assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt="worst_searches"></a></td>
-      <td><a href="../../assets/images/codedeposit/2015/10/worst_inserts.png"><img src="../../assets/images/codedeposit/2015/10/worst_inserts.png?w=300" alt="worst_inserts"></a></td>
-    </tr>
-  </tbody>
-</table>
+<p>:————————-:|:————————-:</p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2015/10/worst_searches.png?w=300" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt="">
+    </a>
+  </div>
+  
+    <div class="image-caption">worst_searches</div>
+  
+</div>
 
 <p>Figure 6</p>
 

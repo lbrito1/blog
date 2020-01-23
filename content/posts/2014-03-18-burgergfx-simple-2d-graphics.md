@@ -14,7 +14,7 @@ tags:
 - graphics
 ---
 
-[![sample code and output](/assets/images/codedeposit/2014/03/burger_gfx1.jpg)](/assets/images/codedeposit/2014/03/burger_gfx1.jpg)
+<%= render('/image.*', caption: 'sample code and outpu', src: '/assets/images/codedeposit/2014/03/burger_gfx1.jpg') %>
 
 Several times I find myself wanting to visualize something in 2D, but can't bother to fire up OpenGL or other cumbersome API.
 

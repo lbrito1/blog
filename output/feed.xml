@@ -889,7 +889,16 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
     <published>2015-10-28T22:01:29Z</published>
     <updated>2015-10-28T22:01:29Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2015/10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html" type="text/html"/>
-    <content type="html">&lt;p&gt;&lt;a href="/assets/images/codedeposit/2015/10/pathfinding.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt="pathfinding"&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/pathfinding.png?w=660" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;pathfindin&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 1&lt;/p&gt;
 
@@ -1016,14 +1025,17 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;imshow&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dist_mat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dists&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;interpolation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'nearest'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cmap&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;'gist_rainbow'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/figure_1.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/figure_1.png?w=300" alt="figure_1"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/figure_2.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/figure_2.png?w=300" alt="figure_2"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/figure_1.png?w=300" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/figure_1.png?w=300" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;figure_&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 2&lt;/p&gt;
 
@@ -1061,14 +1073,17 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;p&gt;What would an “average case” look like? Hard to say; depend on what is average for your application. It might just be the case that sequences are the average case. Since we can’t define a “universal” average case and for the sake of simplicity, we will define the average case as a sequence of random numbers drawn from C’s rand() function (one might argue that this is actually the “best” case since on the long run the BST will “naturally” become quite reasonably balanced, but let’s not get picky about terminology).&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/average-case_search.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt="Average case_search"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/average-case_insert.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/average-case_insert.png?w=300" alt="Average case_insert"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/average-case_search.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Average case_search&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 1&lt;/p&gt;
 
@@ -1078,27 +1093,33 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;p&gt;Now let’s see in Figure 2 how the trees perform in our worst-case scenario:&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst-case_search.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="Worst case_search"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst-case_search.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="Worst case_search"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Worst case_search&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 2&lt;/p&gt;
 
 &lt;p&gt;Figure 2 reminds us why self-balancing trees were invented. BST quickly degenerated into a $latex O(n)$-time &lt;a href="%7B%%20link%20_posts/2014-02-14-3.markdown%20%%7D%7D"&gt;linked list&lt;/a&gt;, which made the other two trees’ performance invisible. Let’s use a log plot to see how well R&amp;amp;B and AVL performed:&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst-case-log_search.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt="Worst case (log)_search"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst-case-log_insert.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst-case-log_insert.png?w=739" alt="Worst case (log)_insert"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Worst case (log)_search&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 3&lt;/p&gt;
 
@@ -1106,14 +1127,17 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;p&gt;The huge difference in performance between average and worst case are easily understood by looking at Figure 4. While BST height does increase more than the other trees’ height on the average case, they all have the same order of magnitude. Not on the worst case, though: BST height increases linearly while AVL and RB are clearly logarithmic.&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/average-case_height.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt="Average case_height"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst-case-log_height.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst-case-log_height.png?w=739" alt="Worst case (log)_height"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/average-case_height.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Average case_height&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 4&lt;/p&gt;
 
@@ -1121,18 +1145,30 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;p&gt;Figure 5 shows only Red-black and AVL heights. Note that they are close to the theoretical bounds, which suggests that our worst case is indeed a worst case. Take n = 80000 as an example: for the AVL tree we expect a height always smaller than $latex 1.44~log_{2}(80000) \approx 23.45$, while the observed was 20. For the Red-black tree, the upper bound is $latex log_{2}(n) \approx 32.57$, also close to the observed (30). Although these differences may seem big, they aren’t enough to significantly change observed search and insertion times (Figure 6). That’s what makes Big O so great!&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst_heights.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt="worst_heights"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/worst_heights.png?w=300" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;worst_height&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 5&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst_searches.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt="worst_searches"&gt;&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href="/assets/images/codedeposit/2015/10/worst_inserts.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/worst_inserts.png?w=300" alt="worst_inserts"&gt;&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/worst_searches.png?w=300" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;worst_searches&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Figure 6&lt;/p&gt;
 
@@ -1164,15 +1200,42 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;p&gt;Unlike AVL trees, Red-black trees have only two of rotations, left and right, depicted in the figure below:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt="red_black_tree_rotation"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;red_black_tree_rotatio&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;As you may have figured, these rotations can potentially violate rules 3 and 4, so after each rotation we’ll have to check the resulting subtree nodes’ colors for violations. Let’s see some examples before going through the code:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2015/10/red_black_right_rotate.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt="red_black_right_rotate"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/red_black_right_rotate.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;red_black_right_rotat&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Here we have a Red-black tree rooted on node &lt;strong&gt;W&lt;/strong&gt; (which is black). We then add &lt;strong&gt;M&lt;/strong&gt; to the tree. Since M &amp;lt; P &amp;lt; W, it is added as a left child of P. All new nodes are red², so rule 3 is violated (P is red and has a red child, M); thus, a right-rotate is performed on W (on our diagram, Y = W, X = P, alpha = M and the rest are null pointers). For convenience, the tree root is always painted black after each insertion (to avoid violation of rule 3). Let’s see another example, now with left rotation:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2015/10/red_black_left_rotate.png"&gt;&lt;img src="/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt="red_black_left_rotate"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2015/10/red_black_left_rotate.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;red_black_left_rotat&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Node &lt;strong&gt;U&lt;/strong&gt; is inserted as a right child of S, violating rule 3 again, and the subtree K &amp;lt; S &amp;lt; U is left-rotated. However, even after rotation rule 3 is still violated, since S and U are both red. Rule 4 is violated as well: since K is black and U is red, S has paths with different amounts of black nodes (2 on the left and 1 on the right - remember than null leafs count as black nodes). This is fixed by swapping K and S’s colors (‘Case 3 R’ as seen in the terminal).&lt;/p&gt;
 
@@ -1951,7 +2014,16 @@ Finished checking node 79 &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o
 
 &lt;p&gt;As an example, here’s how the algorithm works for the following graph (excerpt from the test output with _DEBUG flag):&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2014/04/graph1.png"&gt;&lt;img src="/assets/images/codedeposit/2014/04/graph1.png" alt="graph1"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2014/04/graph1.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2014/04/graph1.png" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;graph&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;**Weights (last parameter): **&lt;/p&gt;
 
@@ -2098,9 +2170,18 @@ vert[5] 4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     <published>2014-03-31T22:02:09Z</published>
     <updated>2014-03-31T22:02:09Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2014/03/trees-part-i.html" type="text/html"/>
-    <content type="html">&lt;p&gt;&lt;a href="/assets/images/codedeposit/2014/03/tree1.jpg"&gt;&lt;img src="/assets/images/codedeposit/2014/03/tree1.jpg" alt="tree"&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2014/03/tree1.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2014/03/tree1.jpg" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;tre&lt;/div&gt;
+  
+&lt;/div&gt;
 
-&lt;p&gt;&lt;a href="http://commons.wikimedia.org/wiki/File%3ABright_green_tree_-_Waikato.jpg"&gt;&lt;img src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-_Waikato.jpg/512px-Bright_green_tree_-_Waikato.jpg" alt="Bright green tree - Waikato"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;render(‘/image.*’, caption: ‘Bright green tree - Waikat’, src: ‘//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-_Waikato.jpg/512px-Bright_green_tree_-_Waikato.jpg)](http://commons.wikimedia.org/wiki/File%3ABright_green_tree_-_Waikato.jpg)&lt;/p&gt;
 
 &lt;p&gt;We used trees to build the &lt;a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D"&gt;heap data structure&lt;/a&gt; before, but we didn’t bother with the theory behind trees, which are abstract and concrete data structures themselves. There’s a huge range of material to cover so I’ll split this in several posts.&lt;/p&gt;
 
@@ -2293,7 +2374,16 @@ Visited node &lt;span class="c"&gt;#91&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;
     <link rel="alternate" href="https://lbrito1.github.io/blog/2014/03/graph.html" type="text/html"/>
     <content type="html">&lt;p&gt;Mathematically, a graph is a set of vertices and edges, thus a graph &lt;code&gt;G&lt;/code&gt; is usually written as &lt;code&gt;G(V,E)&lt;/code&gt;. Besides linking vertices in the graph, edges can also carry a specific value which may be interpreted as cost, weight, distance etc.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2014/03/graph1.jpg"&gt;&lt;img src="/assets/images/codedeposit/2014/03/graph1.jpg" alt="graph viewed with BurgerGFX"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2014/03/graph1.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2014/03/graph1.jpg" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;graph viewed with BurgerGF&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;In computer science, we’re interested in the (abstract) data structure used to implement the graph mathematical concept. Let’s first discuss the basic elements in a graph - vertices and edges:&lt;/p&gt;
 
@@ -2544,8 +2634,16 @@ This software is free software; you can redistribute it and/or modify
 
 &lt;p&gt;Heaps are complete (i.e. all levels except possibly the last are filled) binary trees that work as PQs by maintaining the following property: children nodes always have a smaller priority than their parent, i.e. for any node A with children B and C, priority(B) &amp;lt; priority(A) &amp;amp;&amp;amp; priority(C) &amp;lt; priority(A). Note that there is no assumed relation between siblings or cousins.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href="/assets/images/codedeposit/2014/03/heap.jpg"&gt;&lt;img src="/assets/images/codedeposit/2014/03/heap.jpg" alt="max-heap and corresponding array."&gt;&lt;/a&gt;
-&lt;em&gt;max-heap and corresponding array.&lt;/em&gt;&lt;/p&gt;
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/assets/images/codedeposit/2014/03/heap.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/assets/images/codedeposit/2014/03/heap.jpg" alt=""&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;max-heap and corresponding array.&lt;/div&gt;
+  
+&lt;/div&gt;
 
 &lt;p&gt;Each element of a heap has two pieces of information: a key and a value, hence we call them key-value (KV) pair. The key identifies the specific element, and the value determines the element’s priority within the heap. Heaps can be min-heaps (low value = high priority) or max-heaps (high value = high priority).&lt;/p&gt;
 

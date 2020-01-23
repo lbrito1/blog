@@ -18,7 +18,7 @@ tags:
 - shared library
 ---
 
-[![pathfinding](/assets/images/codedeposit/2015/10/pathfinding.png?w=660)](/assets/images/codedeposit/2015/10/pathfinding.png)
+<%= render('/image.*', caption: 'pathfindin', src: '/assets/images/codedeposit/2015/10/pathfinding.png?w=660') %>
 
 Figure 1
 
@@ -156,7 +156,7 @@ plt.show()
 </code></pre></div>
 
 :-------------------------:|:-------------------------:
-[![figure_1](/assets/images/codedeposit/2015/10/figure_1.png?w=300)](/assets/images/codedeposit/2015/10/figure_1.png) | [![figure_2](/assets/images/codedeposit/2015/10/figure_2.png?w=300)](/assets/images/codedeposit/2015/10/figure_2.png)
+<%= render('/image.*', caption: 'figure_', src: '/assets/images/codedeposit/2015/10/figure_1.png?w=300') %>
 
 
 Figure 2

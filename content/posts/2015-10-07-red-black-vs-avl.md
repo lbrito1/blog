@@ -22,7 +22,7 @@ First off, we need at least two cases: worst and average case. As we know from t
 What would an "average case" look like? Hard to say; depend on what is average for your application. It might just be the case that sequences are the average case. Since we can't define a "universal" average case and for the sake of simplicity, we will define the average case as a sequence of random numbers drawn from C's rand() function (one might argue that this is actually the "best" case since on the long run the BST will "naturally" become quite reasonably balanced, but let's not get picky about terminology).
 
 :-------------------------:|:-------------------------:
-[![Average case_search](/assets/images/codedeposit/2015/10/average-case_search.png?w=739)](/assets/images/codedeposit/2015/10/average-case_search.png)  |  [![Average case_insert](/assets/images/codedeposit/2015/10/average-case_insert.png?w=300)](/assets/images/codedeposit/2015/10/average-case_insert.png)
+<%= render('/image.*', caption: 'Average case_search', src: '/assets/images/codedeposit/2015/10/average-case_search.png?w=739') %>
 
 Figure 1
 
@@ -35,14 +35,14 @@ Now let's see in Figure 2 how the trees perform in our worst-case scenario:
 
 
 :-------------------------:|:-------------------------:
-[![Worst case_search](/assets/images/codedeposit/2015/10/worst-case_search.png?w=739)](/assets/images/codedeposit/2015/10/worst-case_search.png) | [![Worst case_search](/assets/images/codedeposit/2015/10/worst-case_search.png?w=739)](/assets/images/codedeposit/2015/10/worst-case_search.png)
+<%= render('/image.*', caption: 'Worst case_search', src: '/assets/images/codedeposit/2015/10/worst-case_search.png?w=739') %>
 
 Figure 2
 
 Figure 2 reminds us why self-balancing trees were invented. BST quickly degenerated into a $latex O(n)$-time [linked list]({% link _posts/2014-02-14-3.markdown %}}), which made the other two trees' performance invisible. Let's use a log plot to see how well R&B and AVL performed:
 
 :-------------------------:|:-------------------------:
-[![Worst case (log)_search](/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739)](/assets/images/codedeposit/2015/10/worst-case-log_search.png) | [![Worst case (log)_insert](/assets/images/codedeposit/2015/10/worst-case-log_insert.png?w=739)](/assets/images/codedeposit/2015/10/worst-case-log_insert.png)
+<%= render('/image.*', caption: 'Worst case (log)_search', src: '/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739') %>
 
 Figure 3
 
@@ -51,7 +51,7 @@ Figure 3 shows the same results as Figure 2 but with a logarithmic plot. As we c
 The huge difference in performance between average and worst case are easily understood by looking at Figure 4. While BST height does increase more than the other trees' height on the average case, they all have the same order of magnitude. Not on the worst case, though: BST height increases linearly while AVL and RB are clearly logarithmic.
 
 :-------------------------:|:-------------------------:
-[![Average case_height](/assets/images/codedeposit/2015/10/average-case_height.png?w=739)](/assets/images/codedeposit/2015/10/average-case_height.png) | [![Worst case (log)_height](/assets/images/codedeposit/2015/10/worst-case-log_height.png?w=739)](/assets/images/codedeposit/2015/10/worst-case-log_height.png)
+<%= render('/image.*', caption: 'Average case_height', src: '/assets/images/codedeposit/2015/10/average-case_height.png?w=739') %>
 
 Figure 4
 
@@ -59,12 +59,12 @@ We are also able to notice the difference between AVL and Red-black factors in F
 
 Figure 5 shows only Red-black and AVL heights. Note that they are close to the theoretical bounds, which suggests that our worst case is indeed a worst case. Take n = 80000 as an example: for the AVL tree we expect a height always smaller than $latex 1.44~log_{2}(80000) \approx 23.45$, while the observed was 20. For the Red-black tree, the upper bound is $latex log_{2}(n) \approx 32.57$, also close to the observed (30). Although these differences may seem big, they aren't enough to significantly change observed search and insertion times (Figure 6). That's what makes Big O so great!
 
-[![worst_heights](/assets/images/codedeposit/2015/10/worst_heights.png?w=300)](/assets/images/codedeposit/2015/10/worst_heights.png)
+<%= render('/image.*', caption: 'worst_height', src: '/assets/images/codedeposit/2015/10/worst_heights.png?w=300') %>
 
 Figure 5
 
 :-------------------------:|:-------------------------:
-[![worst_searches](/assets/images/codedeposit/2015/10/worst_searches.png?w=300)](/assets/images/codedeposit/2015/10/worst_searches.png) | [![worst_inserts](/assets/images/codedeposit/2015/10/worst_inserts.png?w=300)](/assets/images/codedeposit/2015/10/worst_inserts.png)
+<%= render('/image.*', caption: 'worst_searches', src: '/assets/images/codedeposit/2015/10/worst_searches.png?w=300') %>
 
 Figure 6
 

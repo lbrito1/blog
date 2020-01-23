@@ -18,9 +18,9 @@ tags:
 - tree
 ---
 
-[![tree](/assets/images/codedeposit/2014/03/tree1.jpg)](/assets/images/codedeposit/2014/03/tree1.jpg)
+<%= render('/image.*', caption: 'tre', src: '/assets/images/codedeposit/2014/03/tree1.jpg') %>
 
-[![Bright green tree - Waikato](//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-_Waikato.jpg/512px-Bright_green_tree_-_Waikato.jpg)](http://commons.wikimedia.org/wiki/File%3ABright_green_tree_-_Waikato.jpg)
+<%= render('/image.*', caption: 'Bright green tree - Waikat', src: '//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-_Waikato.jpg/512px-Bright_green_tree_-_Waikato.jpg)](http://commons.wikimedia.org/wiki/File%3ABright_green_tree_-_Waikato.jpg)
 
 We used trees to build the [heap data structure]({% link _posts/2014-03-21-heap-priority-queues.markdown %}) before, but we didn't bother with the theory behind trees, which are abstract and concrete data structures themselves. There's a huge range of material to cover so I'll split this in several posts.
 

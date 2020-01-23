@@ -65,7 +65,16 @@
     <article class="text">
       <p>Using our implementation of a doubly linked (DL) list, we can very simply build the most basic LIFO (last in, first out) data structure: the stack.</p>
 
-<p><a href="../../assets/images/codedeposit/2014/03/stack.png"><img src="../../assets/images/codedeposit/2014/03/stack.png?w=300" alt="stack"></a></p>
+<div class="image-box">
+  <div>
+    <a href="../../assets/images/codedeposit/2014/03/stack.png?w=300" target="_blank">
+      <img class="lazy" data-src="/assets/images/codedeposit/2014/03/stack.png?w=300" alt="">
+    </a>
+  </div>
+  
+    <div class="image-caption">stac</div>
+  
+</div>
 
 <p>Stacks have two basic operations: push and pop. Push pushes data onto the stack (i.e., end of the DL list) and pop pops data off the list’s tail, which is only possible because we can set the new tail as tail-&gt;prev, since we’re using a DL list, with previous pointers. Another useful function is peek, which returns a pointer to the stack’s top.</p>
 

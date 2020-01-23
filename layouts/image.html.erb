@@ -1,7 +1,7 @@
 <div class="image-box">
   <div>
     <a href="<%= src %>" target="_blank">
-      <img class="lazy" data-src="<%= src %>" alt="<%= alt %>">
+      <img class="lazy" data-src="<%= src %>" alt="<%= defined?(alt) ? alt : '' %>">
     </a>
   </div>
   <% if defined?(caption) %>
