@@ -18,7 +18,7 @@ tags:
 - tree
 ---
 
-<%= render('/image.*', caption: 'tre', src: '/assets/images/codedeposit/2014/03/tree1.jpg') %>
+<%= render('/image.*', caption: 'tre', src: '/blog/assets/images/codedeposit/2014/03/tree1.jpg') %>
 
 <%= render('/image.*', caption: 'Bright green tree - Waikat', src: '//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-_Waikato.jpg/512px-Bright_green_tree_-_Waikato.jpg)](http://commons.wikimedia.org/wiki/File%3ABright_green_tree_-_Waikato.jpg)
 

@@ -23,7 +23,7 @@ The naïve way of implementing a PQ consists of using an unsorted list or array 
 
 Heaps are complete (i.e. all levels except possibly the last are filled) binary trees that work as PQs by maintaining the following property: children nodes always have a smaller priority than their parent, i.e. for any node A with children B and C, priority(B) < priority(A) && priority(C) < priority(A). Note that there is no assumed relation between siblings or cousins.
 
-<%= render('/image.*', caption: 'max-heap and corresponding array.', src: '/assets/images/codedeposit/2014/03/heap.jpg') %>
+<%= render('/image.*', caption: 'max-heap and corresponding array.', src: '/blog/assets/images/codedeposit/2014/03/heap.jpg') %>
 
 Each element of a heap has two pieces of information: a key and a value, hence we call them key-value (KV) pair. The key identifies the specific element, and the value determines the element’s priority within the heap. Heaps can be min-heaps (low value = high priority) or max-heaps (high value = high priority).
 

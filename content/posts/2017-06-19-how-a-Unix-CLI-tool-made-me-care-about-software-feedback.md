@@ -14,7 +14,7 @@ tags:
 
 Providing feedback is one of the most important parts of any software. Unfortunately, more often than not we tend to downplay or ignore the very simple yet crucial task of letting the user know what is going on. In this article I'll use a short cautionary tale of how the lack of proper user feedback (and some laziness, I admit) almost cost me an entire HDD with years of personal data.
 
-<%= render('/image.*', src: '/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg', alt: '', caption: 'Can you tell by the output of dd that the device will be completely and irrevocably wiped out? Hint: while the operation is running (i.e. before hitting CTRL+C), there _is no output.') %>
+<%= render('/image.*', src: '/blog/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg', alt: '', caption: 'Can you tell by the output of dd that the device will be completely and irrevocably wiped out? Hint: while the operation is running (i.e. before hitting CTRL+C), there _is no output.') %>
 
 <!-- more -->
 

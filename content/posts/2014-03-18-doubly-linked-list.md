@@ -16,7 +16,7 @@ tags:
 
 A doubly linked list is like our previously implemented Linked List, but instead of only having pointers to the next element, it also has pointers to the _previous _element:
 
-<%= render('/image.*', caption: '610px-Doubly-linked-list.sv', src: '/assets/images/codedeposit/2014/03/610px-doubly-linked-list-svg.png') %>
+<%= render('/image.*', caption: '610px-Doubly-linked-list.sv', src: '/blog/assets/images/codedeposit/2014/03/610px-doubly-linked-list-svg.png') %>
 
 This property makes the doubly linked list very useful as a base for other data structures such as the stack: having a previous pointer means we can quickly (O(1)) remove objects from the list's tail, which would be impossible with a linked list.
 

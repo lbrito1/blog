@@ -24,7 +24,7 @@ As [many others](https://code.divshot.com/geo-bootstrap/), I have fond memories 
 But why? What is not to like in our world of beautiful walled gardens? Surely it is better than those gross-looking Web 1.0 fan sites about some crappy GameBoy game, right? ...Right?
 
 
-<%= render('/image.*', src: '/assets/images/fan_page_screenshot.png', alt: 'View of an old website about Pokemon', caption: 'We\'re soooo cooler than this in 2019.') %>
+<%= render('/image.*', src: '/blog/assets/images/fan_page_screenshot.png', alt: 'View of an old website about Pokemon', caption: 'We\'re soooo cooler than this in 2019.') %>
 
 *Wrong.*
 
