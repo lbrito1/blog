@@ -88,7 +88,7 @@
 
 <p>First of all we need a Linux environment in our phone. Termux is a terminal emulator and Linux environment for Android. It’s available on Google Play Store. No additional configuration is needed after installation.</p>
 
-<h2 id="set-up-ssh">1. Set up SSH</h2>
+<h2 id="set-up-ssh">2. Set up SSH</h2>
 
 <p>You won’t want to type a lot of commands into a tiny touchscreen, so let’s set up ssh so that we can log into Termux remotely.</p>
 
@@ -117,13 +117,19 @@ New password was successfully set.
 ssh android-ip-address -p 8022
 </code></p>
 
-<h2 id="set-up-static-ip-address-on-android">Set up static IP address on Android</h2>
+<h2 id="set-up-static-ip-address-on-android">3. Set up static IP address on Android</h2>
 
 <p>Go to wifi settings, disable DHCP and assign an IP address for your phone.</p>
 
-<h2 id="install-ruby-bundler-sinatra-and-puma">Install Ruby, Bundler, Sinatra and Puma</h2>
+<p>This is necessary so that your router won’t assign a new IP address to your phone every few hours/days, which would make configuration a lot harder.</p>
+
+<h2 id="install-ruby-bundler-sinatra-and-puma">4. Install Ruby, Bundler, Sinatra and Puma</h2>
 
 <p>Sinatra is a lightweight web application framework, and Puma is a web server.</p>
+
+<p>Ruby is, well Ruby!</p>
+
+<p>Of course, Sinatra and Puma are just suggestions – you could even use full-blown Rails on your phone, as described in <a href="https://mbobin.me/ruby/2017/02/25/ruby-on-rails-on-android.html">this neat tutorial</a>. Just <a href="https://devcenter.heroku.com/articles/ruby-default-web-server#why-not-webrick">don’t use WEBRick</a>, the default Rails web server in development – it is single-process, single-threaded and thus not suitable for production environments (it is fine for small experiments though).</p>
 
 <h4 id="android-2">Android</h4>
 <p><code>bash

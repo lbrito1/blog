@@ -16,6 +16,7 @@ Posts like "I got rejected from X company", however, are much more elusive. Judg
 I'd like to share a few of my failures, though.
 
 <!-- The Office gif fail -->
+<!-- more -->
 
 ## Google (2013)
 

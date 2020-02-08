@@ -39,7 +39,7 @@
 
 &lt;p&gt;First of all we need a Linux environment in our phone. Termux is a terminal emulator and Linux environment for Android. It’s available on Google Play Store. No additional configuration is needed after installation.&lt;/p&gt;
 
-&lt;h2 id="set-up-ssh"&gt;1. Set up SSH&lt;/h2&gt;
+&lt;h2 id="set-up-ssh"&gt;2. Set up SSH&lt;/h2&gt;
 
 &lt;p&gt;You won’t want to type a lot of commands into a tiny touchscreen, so let’s set up ssh so that we can log into Termux remotely.&lt;/p&gt;
 
@@ -68,13 +68,19 @@ New password was successfully set.
 ssh android-ip-address -p 8022
 &lt;/code&gt;&lt;/p&gt;
 
-&lt;h2 id="set-up-static-ip-address-on-android"&gt;Set up static IP address on Android&lt;/h2&gt;
+&lt;h2 id="set-up-static-ip-address-on-android"&gt;3. Set up static IP address on Android&lt;/h2&gt;
 
 &lt;p&gt;Go to wifi settings, disable DHCP and assign an IP address for your phone.&lt;/p&gt;
 
-&lt;h2 id="install-ruby-bundler-sinatra-and-puma"&gt;Install Ruby, Bundler, Sinatra and Puma&lt;/h2&gt;
+&lt;p&gt;This is necessary so that your router won’t assign a new IP address to your phone every few hours/days, which would make configuration a lot harder.&lt;/p&gt;
+
+&lt;h2 id="install-ruby-bundler-sinatra-and-puma"&gt;4. Install Ruby, Bundler, Sinatra and Puma&lt;/h2&gt;
 
 &lt;p&gt;Sinatra is a lightweight web application framework, and Puma is a web server.&lt;/p&gt;
+
+&lt;p&gt;Ruby is, well Ruby!&lt;/p&gt;
+
+&lt;p&gt;Of course, Sinatra and Puma are just suggestions – you could even use full-blown Rails on your phone, as described in &lt;a href="https://mbobin.me/ruby/2017/02/25/ruby-on-rails-on-android.html"&gt;this neat tutorial&lt;/a&gt;. Just &lt;a href="https://devcenter.heroku.com/articles/ruby-default-web-server#why-not-webrick"&gt;don’t use WEBRick&lt;/a&gt;, the default Rails web server in development – it is single-process, single-threaded and thus not suitable for production environments (it is fine for small experiments though).&lt;/p&gt;
 
 &lt;h4 id="android-2"&gt;Android&lt;/h4&gt;
 &lt;p&gt;&lt;code&gt;bash
@@ -142,6 +148,7 @@ pkg install nginx
 &lt;p&gt;I’d like to share a few of my failures, though.&lt;/p&gt;
 
 &lt;!-- The Office gif fail --&gt;
+&lt;!-- more --&gt;
 
 &lt;h2 id="google-2013"&gt;Google (2013)&lt;/h2&gt;
 

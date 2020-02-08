@@ -2,7 +2,7 @@
 title: Repurposing an old Android phone as a Ruby web server
 created_at: 2020-02-05 09:24:41 -0300
 kind: article
-published: false
+published: true
 ---
 
 <%= render('/image.*', src: '/blog/assets/images/2020/old-android.jpg', alt: "Old smartphones on a desk.", caption: "CC-BY Carlos Varela, https://www.flickr.com/photos/c32/7755470064") %>
@@ -15,12 +15,11 @@ This is a short tutorial on how to repurpose an Android device as a web server -
 
 <!-- more -->
 
-
 ## 1. Install Termux
 
 First of all we need a Linux environment in our phone. Termux is a terminal emulator and Linux environment for Android. It's available on Google Play Store. No additional configuration is needed after installation.
 
-## 1. Set up SSH
+## 2. Set up SSH
 
 You won't want to type a lot of commands into a tiny touchscreen, so let's set up ssh so that we can log into Termux remotely.
 
@@ -49,13 +48,19 @@ Go ahead and test the connection:
 ssh android-ip-address -p 8022
 ```
 
-## Set up static IP address on Android
+## 3. Set up static IP address on Android
 
 Go to wifi settings, disable DHCP and assign an IP address for your phone.
 
-## Install Ruby, Bundler, Sinatra and Puma
+This is necessary so that your router won't assign a new IP address to your phone every few hours/days, which would make configuration a lot harder.
+
+## 4. Install Ruby, Bundler, Sinatra and Puma
 
 Sinatra is a lightweight web application framework, and Puma is a web server.
+
+Ruby is, well Ruby!
+
+Of course, Sinatra and Puma are just suggestions -- you could even use full-blown Rails on your phone, as described in [this neat tutorial](https://mbobin.me/ruby/2017/02/25/ruby-on-rails-on-android.html). Just [don't use WEBRick](https://devcenter.heroku.com/articles/ruby-default-web-server#why-not-webrick), the default Rails web server in development -- it is single-process, single-threaded and thus not suitable for production environments (it is fine for small experiments though).
 
 #### Android
 ```bash
