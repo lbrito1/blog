@@ -2,7 +2,7 @@
 title: "Speeding Up the Backend with Graph Theory"
 created_at: 2019-11-06 19:29:15 -0300
 kind: article
-published: false
+published: true
 tags:
 - Web development
 - Backend
