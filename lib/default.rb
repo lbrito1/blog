@@ -18,7 +18,7 @@ end
 def all_tags
   tags = {}
 
-  published_posts.each do |i|
+  published_items.each do |i|
     i[:tags]&.each do |tag|
       tags[tag] ||= 0
       tags[tag] += 1
@@ -31,7 +31,7 @@ end
 def all_years
   years = {}
 
-  published_posts.each do |i|
+  published_items.each do |i|
     next unless i[:created_at]
     years[i[:created_at].year] ||= 0
     years[i[:created_at].year] += 1
@@ -41,9 +41,13 @@ def all_years
 end
 
 def posts_in_year(year)
-  published_posts.select { |item| item[:created_at]&.year == year }
+  published_items.select { |item| item[:created_at]&.year == year }
+end
+
+def published_items
+  @items.select { |x| x.attributes[:published].nil? || x.attributes[:published] }
 end
 
 def published_posts
-  @items.select { |x| x.attributes[:published].nil? || x.attributes[:published] }
+  posts.select { |x| x.attributes[:published].nil? || x.attributes[:published] }
 end

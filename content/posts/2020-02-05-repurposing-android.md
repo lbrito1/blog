@@ -26,27 +26,27 @@ You won't want to type a lot of commands into a tiny touchscreen, so let's set u
 There are [several ways](https://wiki.termux.com/wiki/Remote_Access) of doing this, but I've found that the easiest way is through a software called **Dropbear**:
 
 #### Android
-```bash
+<div class="highlight"><pre><code class="language-bash">
 pkg upgrade
 pkg install dropbear
-```
+</code></pre></div>
 
 You can use password-based authentication or public key authentication. You should use key-based authentication, but for testing purposes password-based is easiest. Run this on Android:
 
 #### Android
-```bash
+<div class="highlight"><pre><code class="language-bash">
 passwd
 New password:
 Retype new password:
 New password was successfully set.
-```
+</code></pre></div>
 
 Go ahead and test the connection:
 
 #### Desktop
-```bash
+<div class="highlight"><pre><code class="language-bash">
 ssh android-ip-address -p 8022
-```
+</code></pre></div>
 
 ## 3. Set up static IP address on Android
 
@@ -63,19 +63,19 @@ Ruby is, well Ruby!
 Of course, Sinatra and Puma are just suggestions -- you could even use full-blown Rails on your phone, as described in [this neat tutorial](https://mbobin.me/ruby/2017/02/25/ruby-on-rails-on-android.html). Just [don't use WEBRick](https://devcenter.heroku.com/articles/ruby-default-web-server#why-not-webrick), the default Rails web server in development -- it is single-process, single-threaded and thus not suitable for production environments (it is fine for small experiments though).
 
 #### Android
-```bash
+<div class="highlight"><pre><code class="language-bash">
 pkg install ruby
 gem install sinatra puma
-```
+</code></pre></div>
 
 ## Install nginx
 
 nginx is a web server, reverse-proxy and load balancer. Although most useful in multi-server setups where it is used to distribute requests among different instances, nginx is also a good idea in our setup because of the embedded DDoS protection and static file serving that it provides.
 
 #### Android
-```bash
+<div class="highlight"><pre><code class="language-bash">
 pkg install nginx
-```
+</code></pre></div>
 
 Now the slightly tricky part is configuring nginx to work with Puma. [This gist](https://gist.github.com/ctalkington/4448153) is a pretty good start -- copy & paste `nginx.conf` and change `appdir` to your webapp's root dir. In my case, for example, that would be `/data/data/com.termux/files/home/android-sinatra`.
 
