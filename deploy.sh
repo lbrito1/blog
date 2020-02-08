@@ -11,6 +11,7 @@ remote="origin"
 git checkout $local_development_branch
 
 # Compile output pages/assets
+ENV="production" # necessary for assets in production
 nanoc
 
 # Update remote

@@ -1,1 +1,1 @@
-<%= atom_feed limit: 20, articles: sorted_articles, title: "A Developer's Notebook" %>
+<%= atom_feed limit: 20, articles: sorted_articles.select { |x| x.attributes[:published].nil? || x.attributes[:published] != false }, title: "A Developer's Notebook" %>

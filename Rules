@@ -80,8 +80,12 @@ end
 # Wildcards
 
 compile '/**/*' do
-  write item.identifier.to_s
-  write "/blog#{item.identifier.to_s}"
+  if ENV['PRODUCTION']
+    write item.identifier.to_s
+  else
+    write item.identifier.to_s
+    write "/blog#{item.identifier.to_s}"
+  end
 end
 
 layout '/**/*', :erb

@@ -7,11 +7,13 @@ published: true
 
 <%= render('/image.*', src: '/blog/assets/images/2020/old-android.jpg', alt: "Old smartphones on a desk.", caption: "CC-BY Carlos Varela, https://www.flickr.com/photos/c32/7755470064") %>
 
-Do you have an old Android phone? Sure you do! There's a mind-blowing amount of electronic waste of all kinds, and with the average person in developed countries [discarding their phones every couple of years](https://www.cnbc.com/2019/05/17/smartphone-users-are-waiting-longer-before-upgrading-heres-why.html), pretty much everyone has at least one old smartphone lying around.
+Do you have an old Android phone? Sure you do! There's a mind-blowing amount of electronic waste of all kinds, and with the average person in developed countries [discarding their phones every couple of years](https://www.cnbc.com/2019/05/17/smartphone-users-are-waiting-longer-before-upgrading-heres-why.html), discarded smartphones are probably one of the most common forms of e-waste.
 
 I had an old Motorola G5 Cedric gathering dust, so I decided to do something with it -- it is now running a Puma web server with a simple Sinatra webapp.
 
-This is a short tutorial on how to repurpose an Android device as a web server -- or any number of different things, really.
+Now, before going any further, you might be thinking: what is the real, practical use of all this? An old Android phone probably isn't going to have a stellar performance, but neither do those `t2.nano`s, honestly. I'm yet to deploy any "real" code on an Android, but even the cheaper and older phones do commonly have quad-core or even octa-core CPUs, and at least 2GB RAM, so at least in theory a phone _should_ be close -- ballpartk, at least -- to the most modest cloud IaaS offers our there (`t2.nano` has 512MB for instance). Of course, a phone has an ARM processor while IaaS usually are x86, but still -- we're talking ballpark estimates here.
+
+Anyway, this is a short tutorial on how to repurpose an Android device as a web server -- or any number of different things, really.
 
 <!-- more -->
 
@@ -25,7 +27,7 @@ You won't want to type a lot of commands into a tiny touchscreen, so let's set u
 
 There are [several ways](https://wiki.termux.com/wiki/Remote_Access) of doing this, but I've found that the easiest way is through a software called **Dropbear**:
 
-#### Android
+**Run this on Android:**
 <div class="highlight"><pre><code class="language-bash">
 pkg upgrade
 pkg install dropbear
@@ -33,7 +35,7 @@ pkg install dropbear
 
 You can use password-based authentication or public key authentication. You should use key-based authentication, but for testing purposes password-based is easiest. Run this on Android:
 
-#### Android
+**Run this on Android:**
 <div class="highlight"><pre><code class="language-bash">
 passwd
 New password:
@@ -41,9 +43,14 @@ Retype new password:
 New password was successfully set.
 </code></pre></div>
 
-Go ahead and test the connection:
+**Bonus points:** install a terminal multiplexer like `tmux` or `screen`. This will make your life much easier when running stuff via ssh:
 
-#### Desktop
+<div class="highlight"><pre><code class="language-bash">
+pkg install tmux
+</code></pre></div>
+
+Now go ahead and test the connection on your desktop:
+
 <div class="highlight"><pre><code class="language-bash">
 ssh android-ip-address -p 8022
 </code></pre></div>
@@ -62,7 +69,7 @@ Ruby is, well Ruby!
 
 Of course, Sinatra and Puma are just suggestions -- you could even use full-blown Rails on your phone, as described in [this neat tutorial](https://mbobin.me/ruby/2017/02/25/ruby-on-rails-on-android.html). Just [don't use WEBRick](https://devcenter.heroku.com/articles/ruby-default-web-server#why-not-webrick), the default Rails web server in development -- it is single-process, single-threaded and thus not suitable for production environments (it is fine for small experiments though).
 
-#### Android
+**Run this on Android:**
 <div class="highlight"><pre><code class="language-bash">
 pkg install ruby
 gem install sinatra puma
@@ -72,7 +79,7 @@ gem install sinatra puma
 
 nginx is a web server, reverse-proxy and load balancer. Although most useful in multi-server setups where it is used to distribute requests among different instances, nginx is also a good idea in our setup because of the embedded DDoS protection and static file serving that it provides.
 
-#### Android
+**Run this on Android:**
 <div class="highlight"><pre><code class="language-bash">
 pkg install nginx
 </code></pre></div>
@@ -96,3 +103,5 @@ After setting up a DDNS, you'll have to configure your router as well so that it
 ## Hello world!
 
 <%= render('/image.*', src: '/blog/assets/images/2020/android-web-server.jpg', alt: "Puma and nginx running on a Motorola G5.", caption: "Puma and nginx running on a Motorola G5.") %>
+
+## Under siege
