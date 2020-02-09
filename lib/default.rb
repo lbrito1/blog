@@ -25,7 +25,7 @@ def all_tags
     end
   end
 
-  tags
+  tags.sort
 end
 
 def all_years
