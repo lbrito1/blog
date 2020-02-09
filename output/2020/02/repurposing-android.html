@@ -80,7 +80,7 @@
 
 <p>I had an old Motorola G5 Cedric gathering dust, so I decided to do something with it – it is now running a Puma web server with a simple Sinatra webapp.</p>
 
-<p>Now, before going any further, you might be thinking: what is the real, practical use of all this? An old Android phone probably isn’t going to have a stellar performance, but neither do those <code>t2.nano</code>s, honestly. I’m yet to deploy any “real” code on an Android, but even the cheaper and older phones do commonly have quad-core or even octa-core CPUs, and at least 2GB RAM, so at least in theory a phone <em>should</em> be close – ballpartk, at least – to the most modest cloud IaaS offers our there (<code>t2.nano</code> has 512MB for instance). Of course, a phone has an ARM processor while IaaS usually are x86, but still – we’re talking ballpark estimates here.</p>
+<p>Now, before going any further, you might be thinking: what is the real, practical use of all this? An old Android phone probably isn’t going to have a stellar performance, but neither do those <code>t2.nano</code>s, honestly. I’m yet to deploy any “real” code on an Android, but even the cheaper and older phones do commonly have quad-core or even octa-core CPUs, and at least 2GB RAM, so at least in theory a phone <em>should</em> be close – ballpark, at least – to the most modest cloud IaaS offers our there (<code>t2.nano</code> has 512MB for instance). Of course, a phone has an ARM processor while IaaS usually are x86; memory management is entirely different as well, but still – we’re talking ballpark estimates here.</p>
 
 <p>Anyway, this is a short tutorial on how to repurpose an Android device as a web server – or any number of different things, really.</p>
 
@@ -173,8 +173,44 @@ gem <span class="nb">install </span>sinatra puma</code></pre></div>
 
 <h2 id="under-siege">Under siege</h2>
 
+<p>You can simulate real-world usage through <a href="https://www.joedog.org/siege-home/"><code>siege</code></a>, a http load testing software. Here’s a screenshot of <code>siege</code> running on my setup with 3 concurrent users (real tests would use bigger numbers):</p>
+
+<div class="image-box">
+  <div>
+    <img class="lazy" data-src="/blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal.">
+    <noscript>
+      <img src="../../blog/assets/images/2020/siege.jpg" alt="Alternative text to describe image.">
+    </noscript>
+  </div>
+  
+    <div class="image-caption">siege running in the foreground; nginx logs and top on remote (android) running in the background terminals.</div>
+  
+</div>
+
+<p>The numbers in that screenshot don’t matter much because our webapp was serving a simple 100-char response with a timestamp, but it is enough to at least know that the server can handle a few concurrent users.</p>
+
+<h2 id="epilogue-safety">Epilogue: safety</h2>
+
+<p>If you’ve watched <a href="https://en.wikipedia.org/wiki/Mr._Robot">Mr Robot</a>, you know that the internet can be a dangerous place. That is a lot more true if you have a web server open to the internet.</p>
+
+<p>Within a few hours of opening up the server, it was already being crawled by all sorts of things. Most are innocuous indexing robots, but some are definitively not so nice, like these two requests:</p>
+
+<div class="image-box">
+  <div>
+    <img class="lazy" data-src="/blog/assets/images/2020/siege.jpg" alt="nginx logs showing port scanning attacks.">
+    <noscript>
+      <img src="../../blog/assets/images/2020/siege.jpg" alt="Alternative text to describe image.">
+    </noscript>
+  </div>
+  
+    <div class="image-caption">Most of those requests seem fine, but the two in red are probably some kind of attack.</div>
+  
+</div>
+
+<p>So the headline here is: keep all software updated, keep an eye on access logs and maybe go through nginx safety guides such as <a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html">this</a> and <a href="https://geekflare.com/nginx-webserver-security-hardening-guide/">this</a>.</p>
+
     </article>
-    <aside>Posted at: Feb 05, 2020</aside>
+    <aside>Posted Feb 05, 2020</aside>
     <div class="post-footer">
       <a href="../../index.html">Back</a>
     </div>

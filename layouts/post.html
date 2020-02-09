@@ -4,7 +4,7 @@
     <article class="text">
       <%= yield %>
     </article>
-    <aside>Posted at: <%= item[:created_at]&.strftime('%b %d, %Y') %></aside>
+    <aside>Posted <%= item[:created_at]&.strftime('%b %d, %Y') %></aside>
     <div class="post-footer">
       <%= link_to("Back", '/index.html') %>
     </div>

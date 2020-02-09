@@ -11,7 +11,7 @@ Do you have an old Android phone? Sure you do! There's a mind-blowing amount of 
 
 I had an old Motorola G5 Cedric gathering dust, so I decided to do something with it -- it is now running a Puma web server with a simple Sinatra webapp.
 
-Now, before going any further, you might be thinking: what is the real, practical use of all this? An old Android phone probably isn't going to have a stellar performance, but neither do those `t2.nano`s, honestly. I'm yet to deploy any "real" code on an Android, but even the cheaper and older phones do commonly have quad-core or even octa-core CPUs, and at least 2GB RAM, so at least in theory a phone _should_ be close -- ballpartk, at least -- to the most modest cloud IaaS offers our there (`t2.nano` has 512MB for instance). Of course, a phone has an ARM processor while IaaS usually are x86, but still -- we're talking ballpark estimates here.
+Now, before going any further, you might be thinking: what is the real, practical use of all this? An old Android phone probably isn't going to have a stellar performance, but neither do those `t2.nano`s, honestly. I'm yet to deploy any "real" code on an Android, but even the cheaper and older phones do commonly have quad-core or even octa-core CPUs, and at least 2GB RAM, so at least in theory a phone _should_ be close -- ballpark, at least -- to the most modest cloud IaaS offers our there (`t2.nano` has 512MB for instance). Of course, a phone has an ARM processor while IaaS usually are x86; memory management is entirely different as well, but still -- we're talking ballpark estimates here.
 
 Anyway, this is a short tutorial on how to repurpose an Android device as a web server -- or any number of different things, really.
 
@@ -105,3 +105,19 @@ After setting up a DDNS, you'll have to configure your router as well so that it
 <%= render('/image.*', src: '/blog/assets/images/2020/android-web-server.jpg', alt: "Puma and nginx running on a Motorola G5.", caption: "Puma and nginx running on a Motorola G5.") %>
 
 ## Under siege
+
+You can simulate real-world usage through [`siege`](https://www.joedog.org/siege-home/), a http load testing software. Here's a screenshot of `siege` running on my setup with 3 concurrent users (real tests would use bigger numbers):
+
+<%= render('/image.*', src: '/blog/assets/images/2020/siege.jpg', alt: "Screenshot of siege running on a terminal.", caption: "siege running in the foreground; nginx logs and top on remote (android) running in the background terminals.") %>
+
+The numbers in that screenshot don't matter much because our webapp was serving a simple 100-char response with a timestamp, but it is enough to at least know that the server can handle a few concurrent users.
+
+## Epilogue: safety
+
+If you've watched [Mr Robot](https://en.wikipedia.org/wiki/Mr._Robot), you know that the internet can be a dangerous place. That is a lot more true if you have a web server open to the internet.
+
+Within a few hours of opening up the server, it was already being crawled by all sorts of things. Most are innocuous indexing robots, but some are definitively not so nice, like these two requests:
+
+<%= render('/image.*', src: '/blog/assets/images/2020/siege.jpg', alt: "nginx logs showing port scanning attacks.", caption: "Most of those requests seem fine, but the two in red are probably some kind of attack.") %>
+
+So the headline here is: keep all software updated, keep an eye on access logs and maybe go through nginx safety guides such as [this](https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html) and [this](https://geekflare.com/nginx-webserver-security-hardening-guide/).

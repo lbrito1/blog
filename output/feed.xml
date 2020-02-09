@@ -31,7 +31,7 @@
 
 &lt;p&gt;I had an old Motorola G5 Cedric gathering dust, so I decided to do something with it – it is now running a Puma web server with a simple Sinatra webapp.&lt;/p&gt;
 
-&lt;p&gt;Now, before going any further, you might be thinking: what is the real, practical use of all this? An old Android phone probably isn’t going to have a stellar performance, but neither do those &lt;code&gt;t2.nano&lt;/code&gt;s, honestly. I’m yet to deploy any “real” code on an Android, but even the cheaper and older phones do commonly have quad-core or even octa-core CPUs, and at least 2GB RAM, so at least in theory a phone &lt;em&gt;should&lt;/em&gt; be close – ballpartk, at least – to the most modest cloud IaaS offers our there (&lt;code&gt;t2.nano&lt;/code&gt; has 512MB for instance). Of course, a phone has an ARM processor while IaaS usually are x86, but still – we’re talking ballpark estimates here.&lt;/p&gt;
+&lt;p&gt;Now, before going any further, you might be thinking: what is the real, practical use of all this? An old Android phone probably isn’t going to have a stellar performance, but neither do those &lt;code&gt;t2.nano&lt;/code&gt;s, honestly. I’m yet to deploy any “real” code on an Android, but even the cheaper and older phones do commonly have quad-core or even octa-core CPUs, and at least 2GB RAM, so at least in theory a phone &lt;em&gt;should&lt;/em&gt; be close – ballpark, at least – to the most modest cloud IaaS offers our there (&lt;code&gt;t2.nano&lt;/code&gt; has 512MB for instance). Of course, a phone has an ARM processor while IaaS usually are x86; memory management is entirely different as well, but still – we’re talking ballpark estimates here.&lt;/p&gt;
 
 &lt;p&gt;Anyway, this is a short tutorial on how to repurpose an Android device as a web server – or any number of different things, really.&lt;/p&gt;
 
@@ -123,6 +123,42 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 &lt;/div&gt;
 
 &lt;h2 id="under-siege"&gt;Under siege&lt;/h2&gt;
+
+&lt;p&gt;You can simulate real-world usage through &lt;a href="https://www.joedog.org/siege-home/"&gt;&lt;code&gt;siege&lt;/code&gt;&lt;/a&gt;, a http load testing software. Here’s a screenshot of &lt;code&gt;siege&lt;/code&gt; running on my setup with 3 concurrent users (real tests would use bigger numbers):&lt;/p&gt;
+
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;img class="lazy" data-src="/blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal."&gt;
+    &lt;noscript&gt;
+      &lt;img src="/blog/assets/images/2020/siege.jpg" alt="Alternative text to describe image."&gt;
+    &lt;/noscript&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;siege running in the foreground; nginx logs and top on remote (android) running in the background terminals.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;The numbers in that screenshot don’t matter much because our webapp was serving a simple 100-char response with a timestamp, but it is enough to at least know that the server can handle a few concurrent users.&lt;/p&gt;
+
+&lt;h2 id="epilogue-safety"&gt;Epilogue: safety&lt;/h2&gt;
+
+&lt;p&gt;If you’ve watched &lt;a href="https://en.wikipedia.org/wiki/Mr._Robot"&gt;Mr Robot&lt;/a&gt;, you know that the internet can be a dangerous place. That is a lot more true if you have a web server open to the internet.&lt;/p&gt;
+
+&lt;p&gt;Within a few hours of opening up the server, it was already being crawled by all sorts of things. Most are innocuous indexing robots, but some are definitively not so nice, like these two requests:&lt;/p&gt;
+
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;img class="lazy" data-src="/blog/assets/images/2020/siege.jpg" alt="nginx logs showing port scanning attacks."&gt;
+    &lt;noscript&gt;
+      &lt;img src="/blog/assets/images/2020/siege.jpg" alt="Alternative text to describe image."&gt;
+    &lt;/noscript&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Most of those requests seem fine, but the two in red are probably some kind of attack.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;So the headline here is: keep all software updated, keep an eye on access logs and maybe go through nginx safety guides such as &lt;a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html"&gt;this&lt;/a&gt; and &lt;a href="https://geekflare.com/nginx-webserver-security-hardening-guide/"&gt;this&lt;/a&gt;.&lt;/p&gt;
 </content>
   </entry>
   <entry>
