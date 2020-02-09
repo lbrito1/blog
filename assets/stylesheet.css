@@ -6,7 +6,7 @@ h1 {
   font-weight: 300; }
 
 h2 {
-  font-weight: 300; }
+  font-weight: 600; }
 
 aside {
   font-family: "Didot", serif; }
@@ -106,6 +106,9 @@ article img {
   font-size: 70%; }
 
 .image-box {
+  left: -10%;
+  position: relative;
+  width: 120%;
   text-align: center; }
   .image-box .image-caption {
     color: #999;
