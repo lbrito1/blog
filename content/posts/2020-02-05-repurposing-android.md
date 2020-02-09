@@ -118,6 +118,6 @@ If you've watched [Mr Robot](https://en.wikipedia.org/wiki/Mr._Robot), you know 
 
 Within a few hours of opening up the server, it was already being crawled by all sorts of things. Most are innocuous indexing robots, but some are definitively not so nice, like these two requests:
 
-<%= render('/image.*', src: '/blog/assets/images/2020/siege.jpg', alt: "nginx logs showing port scanning attacks.", caption: "Most of those requests seem fine, but the two in red are probably some kind of attack.") %>
+<%= render('/image.*', src: '/blog/assets/images/2020/scanners.jpg', alt: "nginx logs showing port scanning attacks.", caption: "Most of those requests seem fine, but the two in red are probably some kind of attack.") %>
 
 So the headline here is: keep all software updated, keep an eye on access logs and maybe go through nginx safety guides such as [this](https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html) and [this](https://geekflare.com/nginx-webserver-security-hardening-guide/).

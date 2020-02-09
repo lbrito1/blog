@@ -17,10 +17,12 @@
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html" type="text/html"/>
     <content type="html">&lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk."&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2020/old-android.jpg" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2020/old-android.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/old-android.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;CC-BY Carlos Varela, https://www.flickr.com/photos/c32/7755470064&lt;/div&gt;
@@ -112,10 +114,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2020/android-web-server.jpg" alt="Puma and nginx running on a Motorola G5."&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2020/android-web-server.jpg" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2020/android-web-server.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/android-web-server.jpg" alt="Puma and nginx running on a Motorola G5."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/android-web-server.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;Puma and nginx running on a Motorola G5.&lt;/div&gt;
@@ -128,10 +132,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal."&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2020/siege.jpg" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2020/siege.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/siege.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;siege running in the foreground; nginx logs and top on remote (android) running in the background terminals.&lt;/div&gt;
@@ -148,10 +154,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2020/siege.jpg" alt="nginx logs showing port scanning attacks."&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2020/siege.jpg" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2020/scanners.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/scanners.jpg" alt="nginx logs showing port scanning attacks."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/scanners.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;Most of those requests seem fine, but the two in red are probably some kind of attack.&lt;/div&gt;
@@ -170,10 +178,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
     <content type="html">
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0076-final-results.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;&lt;/div&gt;
@@ -196,10 +206,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-sadface-backend.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0070-sadface-backend.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0070-sadface-backend.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-sadface-backend.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0070-sadface-backend.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;&lt;/div&gt;
@@ -212,10 +224,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-diagram.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0070-diagram.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0070-diagram.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-diagram.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0070-diagram.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;&lt;/div&gt;
@@ -235,10 +249,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-profiler.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0070-profiler.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0070-profiler.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-profiler.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0070-profiler.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;&lt;/div&gt;
@@ -263,10 +279,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0071-decode-encode.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0071-decode-encode.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0071-decode-encode.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0071-decode-encode.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0071-decode-encode.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;*Those Strings aren't really Protobuf -- because it is a binary encoding, it isn't too easy on the eyes, so for the sake of readability we're using this pseudo-JSON representation.&lt;/div&gt;
@@ -286,10 +304,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0072-decode-encode-detail.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0072-decode-encode-detail.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0072-decode-encode-detail.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0072-decode-encode-detail.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0072-decode-encode-detail.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;&lt;/div&gt;
@@ -306,10 +326,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0073-result-optim-1.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0073-result-optim-1.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0073-result-optim-1.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0073-result-optim-1.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0073-result-optim-1.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;&lt;/div&gt;
@@ -340,10 +362,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-paths-log.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0070-paths-log.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0070-paths-log.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-paths-log.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0070-paths-log.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;&lt;/div&gt;
@@ -354,10 +378,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-worst-case.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0070-worst-case.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0070-worst-case.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-worst-case.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0070-worst-case.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;&lt;/div&gt;
@@ -368,10 +394,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0075-result-optim-2.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0075-result-optim-2.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0075-result-optim-2.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0075-result-optim-2.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0075-result-optim-2.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;&lt;/div&gt;
@@ -392,10 +420,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/2019/0076-final-results.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;&lt;/div&gt;
@@ -441,10 +471,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/fan_page_screenshot.png" alt="View of an old website about Pokemon"&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/fan_page_screenshot.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/fan_page_screenshot.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/fan_page_screenshot.png" alt="View of an old website about Pokemon"&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/fan_page_screenshot.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;We're soooo cooler than this in 2019.&lt;/div&gt;
@@ -576,10 +608,12 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
     <link rel="alternate" href="https://lbrito1.github.io/blog/2018/06/working-remotely-in-a-non-remote-company.html" type="text/html"/>
     <content type="html">&lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
 &lt;/div&gt;
@@ -852,10 +886,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;Can you tell by the output of dd that the device will be completely and irrevocably wiped out? Hint: while the operation is running (i.e. before hitting CTRL+C), there _is no output.&lt;/div&gt;
@@ -908,10 +944,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
 &lt;/div&gt;
@@ -1058,10 +1096,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
     <link rel="alternate" href="https://lbrito1.github.io/blog/2015/10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html" type="text/html"/>
     <content type="html">&lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;pathfindin&lt;/div&gt;
@@ -1196,10 +1236,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/figure_1.png?w=300" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/figure_1.png?w=300" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/figure_1.png?w=300" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/figure_1.png?w=300" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/figure_1.png?w=300" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;figure_&lt;/div&gt;
@@ -1245,10 +1287,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;Average case_search&lt;/div&gt;
@@ -1266,10 +1310,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;Worst case_search&lt;/div&gt;
@@ -1283,10 +1329,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;Worst case (log)_search&lt;/div&gt;
@@ -1302,10 +1350,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;Average case_height&lt;/div&gt;
@@ -1320,10 +1370,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;worst_height&lt;/div&gt;
@@ -1335,10 +1387,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;worst_searches&lt;/div&gt;
@@ -1377,10 +1431,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;red_black_tree_rotatio&lt;/div&gt;
@@ -1391,10 +1447,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/red_black_right_rotate.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;red_black_right_rotat&lt;/div&gt;
@@ -1405,10 +1463,12 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2015/10/red_black_left_rotate.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;red_black_left_rotat&lt;/div&gt;
@@ -2194,10 +2254,12 @@ Finished checking node 79 &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2014/04/graph1.png" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2014/04/graph1.png" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2014/04/graph1.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2014/04/graph1.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2014/04/graph1.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;graph&lt;/div&gt;
@@ -2351,10 +2413,12 @@ vert[5] 4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     <link rel="alternate" href="https://lbrito1.github.io/blog/2014/03/trees-part-i.html" type="text/html"/>
     <content type="html">&lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2014/03/tree1.jpg" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2014/03/tree1.jpg" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2014/03/tree1.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2014/03/tree1.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2014/03/tree1.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;tre&lt;/div&gt;
@@ -2556,10 +2620,12 @@ Visited node &lt;span class="c"&gt;#91&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2014/03/graph1.jpg" alt=""&gt;
-    &lt;noscript&gt;
-      &lt;img src="/blog/assets/images/codedeposit/2014/03/graph1.jpg" alt="Alternative text to describe image."&gt;
-    &lt;/noscript&gt;
+    &lt;a href="/blog/assets/images/codedeposit/2014/03/graph1.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2014/03/graph1.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/codedeposit/2014/03/graph1.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
   &lt;/div&gt;
   
     &lt;div class="image-caption"&gt;graph viewed with BurgerGF&lt;/div&gt;

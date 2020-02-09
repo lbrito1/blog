@@ -106,6 +106,9 @@ article img {
   font-size: 70%; }
 
 .image-box {
+  left: -10%;
+  position: relative;
+  width: 120%;
   text-align: center; }
   .image-box .image-caption {
     color: #999;
