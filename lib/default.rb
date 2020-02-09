@@ -37,7 +37,7 @@ def all_years
     years[i[:created_at].year] += 1
   end
 
-  years
+  years.sort
 end
 
 def posts_in_year(year)
