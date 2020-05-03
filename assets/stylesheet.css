@@ -9,15 +9,15 @@ h2 {
   font-weight: 600; }
 
 aside {
-  font-family: "Didot", serif; }
+  font-family: "Garamond", serif; }
 
 body {
   color: #222;
-  font-family: "Didot", serif;
-  font-size: 20px; }
+  font-family: "Garamond", serif;
+  font-size: 24px; }
 
 .text {
-  font-family: "Didot", serif;
+  font-family: "Garamond", serif;
   color: #111; }
 
 nav {
@@ -26,7 +26,7 @@ nav {
   border-bottom: 1px solid #999;
   margin-bottom: 1em; }
   nav a {
-    font-family: "Didot", serif;
+    font-family: "Garamond", serif;
     font-size: 95%;
     color: #000; }
   nav .contact {
@@ -64,27 +64,26 @@ nav {
   .header h1 {
     margin: 0.2em 0;
     font-weight: 300;
-    font-size: 300%; }
+    font-size: 250%; }
   .header a {
     color: #000; }
 
 .post-index {
   border-bottom: 1px solid #999;
-  padding: 1.5em 0; }
+  padding: 1em 0; }
   .post-index .post-tags {
     display: inline-block;
     margin: 10px 0; }
   .post-index h2 a {
-    font-family: "Didot", serif;
+    font-family: "Garamond", serif;
     color: #111;
     font-weight: 300; }
   .post-index aside {
     color: #999; }
-  .post-index .read-more {
-    font-size: 90%; }
   .post-index .tags {
-    font-family: "Didot", serif;
-    color: #999; }
+    font-family: "Garamond", serif;
+    color: #999;
+    font-size: 1.5em; }
   .post-index .post-meta {
     text-align: right;
     font-size: 90%; }
@@ -124,16 +123,19 @@ article img {
   .content {
     margin: 0.5em;
     max-width: 100%;
-    line-height: 2.4em; }
+    line-height: 2em; }
 
-  * {
-    font-size: 120%; }
+  body {
+    font-size: 48px; }
 
   h2 {
     font-size: 180%;
-    line-height: 1.5em; }
+    line-height: 1.2em;
+    margin: 20px 0; }
 
   nav a {
     font-size: 120%; }
+  nav .links {
+    font-size: 32px; }
   nav .links-icon {
-    font-size: 90%; } }
+    font-size: 48px; } }
