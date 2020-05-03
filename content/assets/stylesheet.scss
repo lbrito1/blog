@@ -1,21 +1,19 @@
 // Palette
-$color1: #000;
-$color2: #111;
-$color3: #999;
-$color4: #BBB;
-$color5: #EEE;
-
-$color-hyperlink: #5aafdb;
+$dark: #000;
+$lightgrey: #999;
+$secondary: #142850;
+$color-hyperlink: #00909e;
 
 $font-serif: "Garamond", serif;
+
+$content-width: 800px;
 
 a {
   color: $color-hyperlink;
   text-decoration: none;
 }
 
-h1 { font-weight: 300; }
-h2 { font-weight: 600; }
+h2 { font-weight: 100; }
 
 aside { font-family:  $font-serif; }
 
@@ -27,31 +25,7 @@ body {
 
 .text {
   font-family: $font-serif;
-  color: $color2;
-}
-
-// Navigation
-nav {
-  padding: 1em 0;
-  color: $color2;
-  border-bottom: 1px solid $color3;
-  margin-bottom: 1em;
-  a {
-    font-family:  $font-serif;
-    font-size: 95%;
-    color: $color1;
-  }
-
-  .contact {
-    img {
-      width: 1em;
-      height: 1em;
-    }
-    float: right;
-    span {
-      margin: 2px;
-    }
-  }
+  color: $dark;
 }
 
 // Layout
@@ -65,14 +39,14 @@ nav {
 .content {
   margin: 0 auto;
   padding: 0 1em;
-  max-width: 800px;
+  max-width: $content-width;
   margin-bottom: 50px;
   line-height: 2.0em;
   h1 { text-align: center; }
 
   .footer {
     margin: 20px 0;
-    color: $color2;
+    color: $dark;
     font-size: 90%;
     text-align: center;
   }
@@ -81,8 +55,8 @@ nav {
 .header {
   margin: 0;
   color: #333;
-  text-align: center;
-  padding: 2.5em 2em 0;
+  padding-top: 2em;
+  padding-bottom: 0.2em;
   // background-image: linear-gradient(to left top, #bfcbe1, #b4c5e2, #aabee4, #9fb8e5, #94b1e6, #8aa9e4, #7fa2e2, #759ae0, #688fda, #5b84d4, #4e7ace, #406fc8);
 
   // Site title
@@ -92,33 +66,70 @@ nav {
     font-size: 250%;
   }
   a {
-    color: $color1;
+    color: $dark;
+  }
+  // Navigation
+  nav {
+    padding: 1em 0;
+    color: $dark;
+    border-bottom: 1px solid $lightgrey;
+    margin-bottom: 1em;
+    max-width: $content-width;
+    a {
+      font-family:  $font-serif;
+      font-size: 95%;
+      color: $dark;
+    }
+
+    .contact {
+      img {
+        width: 1em;
+        height: 1em;
+      }
+      float: right;
+      span {
+        margin: 2px;
+      }
+    }
   }
 }
 
 // Post (Index)
 .post-index {
-  border-bottom: 1px solid $color3;
-  padding: 3em 0;
+  // border-bottom: 1px solid $lightgrey;
+  margin-bottom: em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+
   .post-tags {
     display: inline-block;
     margin: 10px 0;
   }
   h2 a {
     font-family:  $font-serif;
-    color: $color2;
-    font-weight: 300;
+    color: $dark;
+    line-height: 1em;
+    padding-top: 10px;
+  }
+  h2 {
+    margin: 0 !important;
   }
   aside {
-    color: $color3;
+    color: $lightgrey;
   }
   .read-more {
     // font-size: 90%;
   }
   .tags {
     font-family:  $font-serif;
-    color: $color3;
+    color: $lightgrey;
     font-size: 1.5em;
+
+    a {
+      margin: 10px;
+      background-color: $secondary;
+      color: white;
+    }
   }
   .post-meta {
     text-align: right;
@@ -132,12 +143,12 @@ nav {
 .post-show {
   h1 {
     text-align: center;
-    color: $color2;
+    color: $dark;
     font-weight: 300;
   }
   aside {
     font-style: italic;
-    color: $color3;
+    color: $lightgrey;
   }
   .post-footer {
     padding: 40px 0;
@@ -155,12 +166,11 @@ article {
 }
 
 .image-box {
-  left: -10%;
   position: relative;
-  width: 120%;
+  width: 100%;
   text-align: center;
   .image-caption {
-    color: $color3;
+    color: $lightgrey;
     font-style: italic;
     text-align: center;
     font-size: 70%;
@@ -180,7 +190,7 @@ article {
     max-width: 100%;
     line-height: 2em;
   }
-  body { font-size: 48px; }
+  body { font-size: 36px; }
   h2 {
     font-size: 180%;
     line-height: 1.2em;
@@ -194,7 +204,7 @@ article {
       font-size: 32px;
     }
     .links-icon {
-      font-size: 48px;
+      font-size: 64px;
     }
   }
 }
