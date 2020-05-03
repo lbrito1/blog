@@ -47,7 +47,7 @@ nav {
   padding: 0 1em;
   max-width: 800px;
   margin-bottom: 50px;
-  line-height: 1.8em; }
+  line-height: 2.0em; }
   .content h1 {
     text-align: center; }
   .content .footer {
@@ -123,14 +123,17 @@ article img {
 @media (max-width: 1000px) {
   .content {
     margin: 0.5em;
-    max-width: 100%; }
+    max-width: 100%;
+    line-height: 2.4em; }
 
   * {
-    font-size: 110%; }
+    font-size: 120%; }
 
   h2 {
     font-size: 180%;
     line-height: 1.5em; }
 
   nav a {
-    font-size: 120%; } }
+    font-size: 120%; }
+  nav .links-icon {
+    font-size: 90%; } }
