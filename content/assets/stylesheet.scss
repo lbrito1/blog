@@ -7,14 +7,17 @@ $color5: #EEE;
 
 $color-hyperlink: #5aafdb;
 
-$font-serif: "Didot", serif;
+$font-serif: "Garamond", serif;
 
 a {
   color: $color-hyperlink;
   text-decoration: none;
 }
 
-h1 { font-weight: 300; }
+h1 {
+  font-weight: 300;
+
+}
 h2 { font-weight: 600; }
 
 aside { font-family:  $font-serif; }
@@ -26,7 +29,7 @@ body {
 }
 
 .text {
-  font-family:  $font-serif;
+  font-family: $font-serif;
   color: $color2;
 }
 
@@ -99,7 +102,7 @@ nav {
 // Post (Index)
 .post-index {
   border-bottom: 1px solid $color3;
-  padding: 1.5em 0;
+  padding: 1em 0;
   .post-tags {
     display: inline-block;
     margin: 10px 0;
@@ -113,11 +116,12 @@ nav {
     color: $color3;
   }
   .read-more {
-    font-size: 90%;
+    // font-size: 90%;
   }
   .tags {
     font-family:  $font-serif;
     color: $color3;
+    font-size: 1.5em;
   }
   .post-meta {
     text-align: right;
@@ -177,9 +181,9 @@ article {
   .content {
     margin: 0.5em;
     max-width: 100%;
-    line-height: 2.4em;
+    line-height: 2em;
   }
-  * { font-size: 120%; }
+  body { font-size: 36px; }
   h2 {
     font-size: 180%;
     line-height: 1.5em;
@@ -188,8 +192,11 @@ article {
     a {
       font-size: 120%;
     }
+    .links {
+      font-size: 32px;
+    }
     .links-icon {
-      font-size: 90%;
+      font-size: 48px;
     }
   }
 }
