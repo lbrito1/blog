@@ -67,7 +67,7 @@ nav {
   padding: 0 1em;
   max-width: 800px;
   margin-bottom: 50px;
-  line-height: 1.8em;
+  line-height: 2.0em;
   h1 { text-align: center; }
 
   .footer {
@@ -177,8 +177,9 @@ article {
   .content {
     margin: 0.5em;
     max-width: 100%;
+    line-height: 2.4em;
   }
-  * { font-size: 110%; }
+  * { font-size: 120%; }
   h2 {
     font-size: 180%;
     line-height: 1.5em;
@@ -186,6 +187,9 @@ article {
   nav {
     a {
       font-size: 120%;
+    }
+    .links-icon {
+      font-size: 90%;
     }
   }
 }
