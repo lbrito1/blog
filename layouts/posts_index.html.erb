@@ -2,9 +2,16 @@
   <% published_posts.each do |post| %>
     <div class='post-index pure-u-1-1'>
       <h2><%= link_to post[:title], post.path %></h2>
+      <aside class=""><%= post[:created_at]&.strftime('%b %d, %Y') %></aside>
+
 
       <article class="text">
           <%= get_post_start(post) %>
+          <div class="pure-g post-footer">
+          <div class = pure-u-1-2>
+              <a class='read-more' href='<%= post.path %>'>Continue reading &rsaquo;</a>
+          </div>
+        </div>
         <div class="post-tags">
           <% if post[:tags] && show_tags %>
             <div class="tags">
@@ -13,16 +20,6 @@
             <% end %>
             </div>
           <% end %>
-        </div>
-
-        <div class="pure-g post-footer">
-          <div class = pure-u-1-2>
-              <a class='read-more' href='<%= post.path %>'>Continue reading &rsaquo;</a>
-          </div>
-          <div class="pure-u-1-2 post-meta">
-            <aside>Posted <%= post[:created_at]&.strftime('%b %d, %Y') %></aside>
-
-          </div>
         </div>
       </article>
     </div>
