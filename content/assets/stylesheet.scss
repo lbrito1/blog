@@ -22,7 +22,7 @@ aside { font-family:  $font-serif; }
 body {
   color: #222;
   font-family:  $font-serif;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .text {
@@ -99,7 +99,7 @@ nav {
 // Post (Index)
 .post-index {
   border-bottom: 1px solid $color3;
-  padding: 1em 0;
+  padding: 3em 0;
   .post-tags {
     display: inline-block;
     margin: 10px 0;
