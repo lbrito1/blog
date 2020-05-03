@@ -1,12 +1,9 @@
 a {
-  color: #5aafdb;
+  color: #00909e;
   text-decoration: none; }
 
-h1 {
-  font-weight: 300; }
-
 h2 {
-  font-weight: 600; }
+  font-weight: 100; }
 
 aside {
   font-family: "Garamond", serif; }
@@ -14,28 +11,11 @@ aside {
 body {
   color: #222;
   font-family: "Garamond", serif;
-  font-size: 24px; }
+  font-size: 20px; }
 
 .text {
   font-family: "Garamond", serif;
-  color: #111; }
-
-nav {
-  padding: 1em 0;
-  color: #111;
-  border-bottom: 1px solid #999;
-  margin-bottom: 1em; }
-  nav a {
-    font-family: "Garamond", serif;
-    font-size: 95%;
-    color: #000; }
-  nav .contact {
-    float: right; }
-    nav .contact img {
-      width: 1em;
-      height: 1em; }
-    nav .contact span {
-      margin: 2px; }
+  color: #000; }
 
 #layout {
   position: relative;
@@ -52,45 +32,70 @@ nav {
     text-align: center; }
   .content .footer {
     margin: 20px 0;
-    color: #111;
+    color: #000;
     font-size: 90%;
     text-align: center; }
 
 .header {
   margin: 0;
   color: #333;
-  text-align: center;
-  padding: 2.5em 2em 0; }
+  padding-top: 2em;
+  padding-bottom: 0.2em; }
   .header h1 {
     margin: 0.2em 0;
     font-weight: 300;
     font-size: 250%; }
   .header a {
     color: #000; }
+  .header nav {
+    padding: 1em 0;
+    color: #000;
+    border-bottom: 1px solid #999;
+    margin-bottom: 1em;
+    max-width: 800px; }
+    .header nav a {
+      font-family: "Garamond", serif;
+      font-size: 95%;
+      color: #000; }
+    .header nav .contact {
+      float: right; }
+      .header nav .contact img {
+        width: 1em;
+        height: 1em; }
+      .header nav .contact span {
+        margin: 2px; }
 
 .post-index {
-  border-bottom: 1px solid #999;
-  padding: 1em 0; }
+  margin-bottom: em;
+  padding-top: 3em;
+  padding-bottom: 3em; }
   .post-index .post-tags {
     display: inline-block;
     margin: 10px 0; }
   .post-index h2 a {
     font-family: "Garamond", serif;
-    color: #111;
-    font-weight: 300; }
+    color: #000;
+    line-height: 1em;
+    padding-top: 10px; }
+  .post-index h2 {
+    margin: 0 !important; }
   .post-index aside {
     color: #999; }
   .post-index .tags {
     font-family: "Garamond", serif;
     color: #999;
     font-size: 1.5em; }
+    .post-index .tags a {
+      margin: 10px;
+      background-color: #142850;
+      color: white; }
   .post-index .post-meta {
     text-align: right;
     font-size: 90%; }
 
 .post-show h1 {
   text-align: center;
-  color: #111;
+  color: #000;
   font-weight: 300; }
 .post-show aside {
   font-style: italic;
@@ -105,9 +110,8 @@ article img {
   font-size: 70%; }
 
 .image-box {
-  left: -10%;
   position: relative;
-  width: 120%;
+  width: 100%;
   text-align: center; }
   .image-box .image-caption {
     color: #999;
@@ -126,7 +130,7 @@ article img {
     line-height: 2em; }
 
   body {
-    font-size: 48px; }
+    font-size: 36px; }
 
   h2 {
     font-size: 180%;
@@ -138,4 +142,4 @@ article img {
   nav .links {
     font-size: 32px; }
   nav .links-icon {
-    font-size: 48px; } }
+    font-size: 64px; } }
