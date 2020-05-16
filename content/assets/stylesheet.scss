@@ -2,6 +2,7 @@
 $dark: #000;
 $lightgrey: #999;
 $secondary: #142850;
+$third: #DDD;
 $color-hyperlink: #00909e;
 
 $font-main: "Arial";
@@ -14,7 +15,7 @@ a {
   text-decoration: none;
 }
 
-h2 { font-weight: 100; }
+h2 { font-weight: 400; }
 
 aside {
   font-family:  $font-title;
@@ -110,7 +111,7 @@ body {
     margin: 10px 0;
   }
   h2 a {
-    font-family:  $font-title;
+    // font-family:  $font-t;
     font-size: 120%;
     color: $dark;
     line-height: 1em;
@@ -147,7 +148,7 @@ body {
 // Post (Show)
 .post-show {
   h1 {
-    text-align: center;
+    text-align: left;
     color: $dark;
     font-weight: 300;
   }
@@ -158,6 +159,12 @@ body {
   .post-footer {
     padding: 40px 0;
   }
+}
+
+blockquote {
+  font-style: italic;
+  background-color: $third;
+  padding: 1px 16px;
 }
 
 article {
@@ -184,8 +191,10 @@ article {
 
 // Syntax highlighting
 .highlight {
-  padding: 0 10px;
+  padding: 1px 20px;
   font-size: 80%;
+  line-height: 1.5;
+  background-color: $secondary !important;
 }
 
 // Responsive media queries
