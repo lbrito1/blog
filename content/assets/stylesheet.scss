@@ -4,7 +4,8 @@ $lightgrey: #999;
 $secondary: #142850;
 $color-hyperlink: #00909e;
 
-$font-serif: "Garamond", serif;
+$font-main: "Arial";
+$font-title: "Times";
 
 $content-width: 800px;
 
@@ -15,16 +16,18 @@ a {
 
 h2 { font-weight: 100; }
 
-aside { font-family:  $font-serif; }
+aside {
+  font-family:  $font-title;
+}
 
 body {
   color: #222;
-  font-family:  $font-serif;
-  font-size: 20px;
+  font-family:  $font-main;
+  font-size: 18px;
 }
 
 .text {
-  font-family: $font-serif;
+  font-family: $font-main;
   color: $dark;
 }
 
@@ -64,6 +67,7 @@ body {
     margin: 0.2em 0;
     font-weight: 300;
     font-size: 250%;
+    font-family: $font-title;
   }
   a {
     color: $dark;
@@ -76,7 +80,7 @@ body {
     margin-bottom: 1em;
     max-width: $content-width;
     a {
-      font-family:  $font-serif;
+      font-family:  $font-main;
       font-size: 95%;
       color: $dark;
     }
@@ -106,7 +110,8 @@ body {
     margin: 10px 0;
   }
   h2 a {
-    font-family:  $font-serif;
+    font-family:  $font-title;
+    font-size: 120%;
     color: $dark;
     line-height: 1em;
     padding-top: 10px;
@@ -121,7 +126,7 @@ body {
     // font-size: 90%;
   }
   .tags {
-    font-family:  $font-serif;
+    font-family:  $font-main;
     color: $lightgrey;
     font-size: 1.5em;
 
