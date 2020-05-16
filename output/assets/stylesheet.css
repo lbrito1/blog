@@ -6,15 +6,15 @@ h2 {
   font-weight: 100; }
 
 aside {
-  font-family: "Garamond", serif; }
+  font-family: "Times"; }
 
 body {
   color: #222;
-  font-family: "Garamond", serif;
-  font-size: 20px; }
+  font-family: "Arial";
+  font-size: 18px; }
 
 .text {
-  font-family: "Garamond", serif;
+  font-family: "Arial";
   color: #000; }
 
 #layout {
@@ -44,7 +44,8 @@ body {
   .header h1 {
     margin: 0.2em 0;
     font-weight: 300;
-    font-size: 250%; }
+    font-size: 250%;
+    font-family: "Times"; }
   .header a {
     color: #000; }
   .header nav {
@@ -54,7 +55,7 @@ body {
     margin-bottom: 1em;
     max-width: 800px; }
     .header nav a {
-      font-family: "Garamond", serif;
+      font-family: "Arial";
       font-size: 95%;
       color: #000; }
     .header nav .contact {
@@ -73,7 +74,8 @@ body {
     display: inline-block;
     margin: 10px 0; }
   .post-index h2 a {
-    font-family: "Garamond", serif;
+    font-family: "Times";
+    font-size: 120%;
     color: #000;
     line-height: 1em;
     padding-top: 10px; }
@@ -82,7 +84,7 @@ body {
   .post-index aside {
     color: #999; }
   .post-index .tags {
-    font-family: "Garamond", serif;
+    font-family: "Arial";
     color: #999;
     font-size: 1.5em; }
     .post-index .tags a {
