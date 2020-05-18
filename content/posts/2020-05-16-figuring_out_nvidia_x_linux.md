@@ -5,7 +5,7 @@ kind: article
 published: true
 ---
 
-<%= render('/image.*', src: '/blog/assets/images/2020/power.png', alt: "", caption: "") %>
+<%= render('/image.*', src: '/blog/assets/images/2020/power.png', alt: "Ubuntu power consumption chart.", caption: "Ubuntu's power rate over time.") %>
 
 I've struggled with some kind of problem with Nvidia graphics cards on Linux since forever.
 
@@ -48,9 +48,15 @@ Then install it:
 $ sudo apt install nvidia-440
 </code></pre></div>
 
-Another option is to run Ubuntu's `software updater` and then pick the driver in the Additional Drivers tab of the `Softwares & Updates` tool:
+Another option is to pick the driver in the Additional Drivers tab of the `Softwares & Updates` tool:
 
-<%= render('/image.*', src: '/blog/assets/images/2020/2020-05-16-05-04.nvidia.png', alt: "", caption: "") %>
+<%= render('/image.*', src: '/blog/assets/images/2020/2020-05-16-05-04.nvidia.png', alt: "Nvidia proprietary driver option in Ubuntu's Additional Drivers menu.", caption: "Nvidia proprietary driver option in Ubuntu's Additional Drivers menu.") %>
+
+Nvidia's proprietary driver lets you choose if you want to use the dedicated or integrated GPU, which you can try setting:
+
+<%= render('/image.*', src: '/blog/assets/images/2020/nvidia-setting.png', alt: "Nvidia proprietary driver's GPU selection menu.", caption: "Nvidia proprietary driver's GPU selection menu.") %>
+
+Now if you're lucky this might be enough. Check the power usag using Ubuntu's `Power Statistics` tool or `powertop`: if the Nvidia card is successfully turned off, then typical power usage is somewhere between 8-14W. If, like me, this changed nothing in your power usage, read on.
 
 ### 2. Install and configure bbswitch
 
@@ -112,9 +118,9 @@ After creating this file and restarting, my system was finally using only the In
 
 Here's a chart of my laptop's power rate:
 
-<%= render('/image.*', src: '/blog/assets/images/2020/power.png', alt: "", caption: "") %>
+<%= render('/image.*', src: '/blog/assets/images/2020/power.png', alt: "Ubuntu power consumption chart.", caption: "Ubuntu's power rate over time.") %>
 
-Using the integrated Intel GPU, the rate stays around 10W. When the Nvidia card kicks in, which is what was going on around the middle of the chart, it jumps to 40W+.
+Using the integrated Intel GPU, the rate fluctuates around 10W. When the Nvidia card kicks in, which is what was going on around the middle of the chart, it jumps to 40W+.
 
 ### References
 
