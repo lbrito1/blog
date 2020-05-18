@@ -3,6 +3,10 @@ title: Figuring out the Nvidia x Linux puzzle
 created_at: 2020-05-16 16:48:00 -0300
 kind: article
 published: true
+tags:
+- Linux
+- Ubuntu
+- Nvidia
 ---
 
 <%= render('/image.*', src: '/blog/assets/images/2020/power.png', alt: "Ubuntu power consumption chart.", caption: "Ubuntu's power rate over time.") %>
