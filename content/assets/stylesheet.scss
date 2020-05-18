@@ -3,7 +3,7 @@ $dark: #000;
 $lightgrey: #999;
 $secondary: #142850;
 $third: #DDD;
-$color-hyperlink: #00909e;
+$color-hyperlink: #FD5200;
 
 $font-main: "Arial";
 $font-title: "Times";
@@ -13,7 +13,9 @@ $content-width: 800px;
 a {
   color: $color-hyperlink;
   text-decoration: none;
+  // text-decoration-style: dashed;
 }
+
 
 h2 { font-weight: 400; }
 
@@ -67,8 +69,9 @@ body {
   h1 {
     margin: 0.2em 0;
     font-weight: 300;
-    font-size: 250%;
+    font-size: 350%;
     font-family: $font-title;
+    line-height: 1em;
   }
   a {
     color: $dark;
@@ -199,6 +202,12 @@ article {
 
 // Responsive media queries
 @media(max-width: 1000px) {
+  .header {
+    padding-top: 0;
+    h1 {
+      font-size: 300%;
+    }
+  }
   .content {
     margin: 0.5em;
     max-width: 100%;
