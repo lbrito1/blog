@@ -1,9 +1,9 @@
 a {
-  color: #00909e;
+  color: #FD5200;
   text-decoration: none; }
 
 h2 {
-  font-weight: 100; }
+  font-weight: 400; }
 
 aside {
   font-family: "Times"; }
@@ -44,8 +44,9 @@ body {
   .header h1 {
     margin: 0.2em 0;
     font-weight: 300;
-    font-size: 250%;
-    font-family: "Times"; }
+    font-size: 350%;
+    font-family: "Times";
+    line-height: 1em; }
   .header a {
     color: #000; }
   .header nav {
@@ -74,7 +75,6 @@ body {
     display: inline-block;
     margin: 10px 0; }
   .post-index h2 a {
-    font-family: "Times";
     font-size: 120%;
     color: #000;
     line-height: 1em;
@@ -96,7 +96,7 @@ body {
     font-size: 90%; }
 
 .post-show h1 {
-  text-align: center;
+  text-align: left;
   color: #000;
   font-weight: 300; }
 .post-show aside {
@@ -104,6 +104,11 @@ body {
   color: #999; }
 .post-show .post-footer {
   padding: 40px 0; }
+
+blockquote {
+  font-style: italic;
+  background-color: #DDD;
+  padding: 1px 16px; }
 
 article img {
   width: 100%; }
@@ -122,10 +127,17 @@ article img {
     font-size: 70%; }
 
 .highlight {
-  padding: 0 10px;
-  font-size: 80%; }
+  padding: 1px 20px;
+  font-size: 80%;
+  line-height: 1.5;
+  background-color: #142850 !important; }
 
 @media (max-width: 1000px) {
+  .header {
+    padding-top: 0; }
+    .header h1 {
+      font-size: 300%; }
+
   .content {
     margin: 0.5em;
     max-width: 100%;
