@@ -52,7 +52,7 @@ body {
 
   .footer {
     margin: 20px 0;
-    color: $dark;
+    color: #333;
     font-size: 90%;
     text-align: center;
   }
@@ -201,7 +201,7 @@ article {
 }
 
 // Responsive media queries
-@media(max-width: 1000px) {
+@media(max-width: 940px) {
   .header {
     padding-top: 0;
     h1 {
