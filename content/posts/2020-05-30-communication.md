@@ -5,6 +5,8 @@ kind: article
 published: true
 ---
 
+<%= render('/image.*', src: '/blog/assets/images/2020/bridge.jpg', alt: "San Francisco Bay bridge.", caption: "We're all remote -- for now.") %>
+
 Communicating well with your co-workers and managers is supremely important to a software developer, and even more so for the remote one. With a lot more remote workers due to the COVID-19 pandemic, this topic became a lot more relevant.
 
 I've seen people hint at this more than a few times over the years, but I didn't really "get it" until I started working as fully remote engineer. I find it important to understand not only what we should be doing to achieve efficient communication, but also why.
