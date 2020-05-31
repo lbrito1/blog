@@ -53,7 +53,6 @@ body {
   .footer {
     margin: 20px 0;
     color: #333;
-    // font-size: 90%;
     text-align: center;
   }
 }
@@ -69,7 +68,6 @@ body {
   h1 {
     margin: 0.2em 0;
     font-weight: 300;
-    // font-size: 350%;
     font-family: $font-title;
     line-height: 1em;
   }
@@ -84,7 +82,6 @@ body {
     margin-bottom: 1em;
     a {
       font-family:  $font-main;
-      // font-size: 95%;
       color: $dark;
     }
 
@@ -105,16 +102,14 @@ body {
 .post-index {
   // border-bottom: 1px solid $lightgrey;
   margin-bottom: em;
-  padding-top: 3em;
-  padding-bottom: 3em;
+  padding-top: 2em;
+  padding-bottom: 2em;
 
   .post-tags {
     display: inline-block;
     margin: 10px 0;
   }
   h2 a {
-    // font-family:  $font-t;
-    // font-size: 120%;
     color: $dark;
     line-height: 1em;
     padding-top: 10px;
@@ -131,7 +126,6 @@ body {
   .tags {
     font-family:  $font-main;
     color: $lightgrey;
-    // font-size: 1.5em;
 
     a {
       margin: 10px;
@@ -141,7 +135,6 @@ body {
   }
   .post-meta {
     text-align: right;
-    // font-size: 90%;
   }
   .post-footer {
   }
@@ -175,9 +168,7 @@ article {
   }
 }
 
-.button-xsmall {
-    // font-size: 70%;
-}
+.tag-button { border-radius: 6px; }
 
 .image-box {
   position: relative;
@@ -187,14 +178,12 @@ article {
     color: $lightgrey;
     font-style: italic;
     text-align: center;
-    // font-size: 70%;
   }
 }
 
 // Syntax highlighting
 .highlight {
   padding: 1px 20px;
-  // font-size: 80%;
   line-height: 1.5;
   background-color: $secondary !important;
 }

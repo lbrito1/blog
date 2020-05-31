@@ -6,6 +6,6 @@ title: Years
 
 <% all_years.each do |year, count| %>
   <% year_page = published_items.find { |i| i.identifier == "/years/#{year}" } %>
-  <h2><%= link_to(year.to_s, year_page) %> (<%= count %> post<%= 's' if count > 1 %>)
-  </h2>
+  <p><%= link_to(year.to_s, year_page) %> (<%= count %> post<%= 's' if count > 1 %>)
+  </p>
 <% end %>
