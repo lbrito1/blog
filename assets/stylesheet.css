@@ -25,15 +25,14 @@ body {
 .content {
   margin: 0 auto;
   padding: 0 1em;
-  max-width: 800px;
+  max-width: 768px;
   margin-bottom: 50px;
   line-height: 2.0em; }
   .content h1 {
     text-align: center; }
   .content .footer {
     margin: 20px 0;
-    color: #000;
-    font-size: 90%;
+    color: #333;
     text-align: center; }
 
 .header {
@@ -44,7 +43,6 @@ body {
   .header h1 {
     margin: 0.2em 0;
     font-weight: 300;
-    font-size: 350%;
     font-family: "Times";
     line-height: 1em; }
   .header a {
@@ -53,11 +51,9 @@ body {
     padding: 1em 0;
     color: #000;
     border-bottom: 1px solid #999;
-    margin-bottom: 1em;
-    max-width: 800px; }
+    margin-bottom: 1em; }
     .header nav a {
       font-family: "Arial";
-      font-size: 95%;
       color: #000; }
     .header nav .contact {
       float: right; }
@@ -75,7 +71,6 @@ body {
     display: inline-block;
     margin: 10px 0; }
   .post-index h2 a {
-    font-size: 120%;
     color: #000;
     line-height: 1em;
     padding-top: 10px; }
@@ -83,17 +78,17 @@ body {
     margin: 0 !important; }
   .post-index aside {
     color: #999; }
+  .post-index .read-more {
+    font-size: 90%; }
   .post-index .tags {
     font-family: "Arial";
-    color: #999;
-    font-size: 1.5em; }
+    color: #999; }
     .post-index .tags a {
       margin: 10px;
       background-color: #142850;
       color: white; }
   .post-index .post-meta {
-    text-align: right;
-    font-size: 90%; }
+    text-align: right; }
 
 .post-show h1 {
   text-align: left;
@@ -113,9 +108,6 @@ blockquote {
 article img {
   width: 100%; }
 
-.button-xsmall {
-  font-size: 70%; }
-
 .image-box {
   position: relative;
   width: 100%;
@@ -123,16 +115,14 @@ article img {
   .image-box .image-caption {
     color: #999;
     font-style: italic;
-    text-align: center;
-    font-size: 70%; }
+    text-align: center; }
 
 .highlight {
   padding: 1px 20px;
-  font-size: 80%;
   line-height: 1.5;
   background-color: #142850 !important; }
 
-@media (max-width: 1000px) {
+@media (max-width: 480px) {
   .header {
     padding-top: 0; }
     .header h1 {
@@ -144,10 +134,9 @@ article img {
     line-height: 2em; }
 
   body {
-    font-size: 36px; }
+    font-size: 2em; }
 
   h2 {
-    font-size: 180%;
     line-height: 1.2em;
     margin: 20px 0; }
 
@@ -156,4 +145,4 @@ article img {
   nav .links {
     font-size: 32px; }
   nav .links-icon {
-    font-size: 64px; } }
+    font-size: 48px; } }
