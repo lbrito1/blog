@@ -16,7 +16,7 @@
           <% if post[:tags] && show_tags %>
             <div class="tags">
             <% post[:tags].each.with_index do |tag, i| %>
-              <a class="pure-button button-xsmall" href="/tags/<%= tag %>"><%= tag %></a>
+              <a class="pure-button button-xsmall tag-button" href="/tags/<%= tag %>"><%= tag.downcase %></a>
             <% end %>
             </div>
           <% end %>

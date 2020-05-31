@@ -25,7 +25,7 @@ def all_tags
     end
   end
 
-  tags.sort
+  tags.sort_by { |label, _count| label.downcase }
 end
 
 def all_years
