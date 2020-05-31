@@ -2,7 +2,7 @@
 title: Communication tips for remote developers
 created_at: 2020-05-30 12:16:00 -0300
 kind: article
-published: true
+published: false
 ---
 
 <%= render('/image.*', src: '/blog/assets/images/2020/bridge.jpg', alt: "San Francisco Bay bridge.", caption: "We're all remote -- for now.") %>

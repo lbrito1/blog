@@ -8,7 +8,7 @@ $color-hyperlink: #FD5200;
 $font-main: "Arial";
 $font-title: "Times";
 
-$content-width: 800px;
+$content-width: 768px;
 
 a {
   color: $color-hyperlink;
@@ -53,7 +53,7 @@ body {
   .footer {
     margin: 20px 0;
     color: #333;
-    font-size: 90%;
+    // font-size: 90%;
     text-align: center;
   }
 }
@@ -69,7 +69,7 @@ body {
   h1 {
     margin: 0.2em 0;
     font-weight: 300;
-    font-size: 350%;
+    // font-size: 350%;
     font-family: $font-title;
     line-height: 1em;
   }
@@ -82,10 +82,9 @@ body {
     color: $dark;
     border-bottom: 1px solid $lightgrey;
     margin-bottom: 1em;
-    max-width: $content-width;
     a {
       font-family:  $font-main;
-      font-size: 95%;
+      // font-size: 95%;
       color: $dark;
     }
 
@@ -115,7 +114,7 @@ body {
   }
   h2 a {
     // font-family:  $font-t;
-    font-size: 120%;
+    // font-size: 120%;
     color: $dark;
     line-height: 1em;
     padding-top: 10px;
@@ -127,12 +126,12 @@ body {
     color: $lightgrey;
   }
   .read-more {
-    // font-size: 90%;
+    font-size: 90%;
   }
   .tags {
     font-family:  $font-main;
     color: $lightgrey;
-    font-size: 1.5em;
+    // font-size: 1.5em;
 
     a {
       margin: 10px;
@@ -142,7 +141,7 @@ body {
   }
   .post-meta {
     text-align: right;
-    font-size: 90%;
+    // font-size: 90%;
   }
   .post-footer {
   }
@@ -177,7 +176,7 @@ article {
 }
 
 .button-xsmall {
-    font-size: 70%;
+    // font-size: 70%;
 }
 
 .image-box {
@@ -188,20 +187,20 @@ article {
     color: $lightgrey;
     font-style: italic;
     text-align: center;
-    font-size: 70%;
+    // font-size: 70%;
   }
 }
 
 // Syntax highlighting
 .highlight {
   padding: 1px 20px;
-  font-size: 80%;
+  // font-size: 80%;
   line-height: 1.5;
   background-color: $secondary !important;
 }
 
 // Responsive media queries
-@media(max-width: 940px) {
+@media(max-width: 480px) {
   .header {
     padding-top: 0;
     h1 {
@@ -213,9 +212,8 @@ article {
     max-width: 100%;
     line-height: 2em;
   }
-  body { font-size: 36px; }
+  body { font-size: 2em; }
   h2 {
-    font-size: 180%;
     line-height: 1.2em;
     margin: 20px 0;
   }
@@ -227,7 +225,7 @@ article {
       font-size: 32px;
     }
     .links-icon {
-      font-size: 64px;
+      font-size: 48px;
     }
   }
 }
