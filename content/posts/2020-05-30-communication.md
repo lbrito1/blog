@@ -9,7 +9,7 @@ published: false
 
 Communicating well with your co-workers and managers is supremely important to a software developer, and even more so for the remote one. With a lot more remote workers due to the COVID-19 pandemic, this topic became a lot more relevant.
 
-I've seen people hint at this more than a few times over the years, but I didn't really "get it" until I started working as fully remote engineer. I also find it important to understand not only _what_ we should be doing to achieve efficient communication, but also _why_ we should be doing those things in those ways.
+I've seen people hint at this more than a few times over the years, but I didn't really "get it" until I started working as a fully remote engineer. I also find it important to understand not only _what_ we should be doing to achieve efficient communication, but also _why_ we should be doing those things in those ways.
 
 To me, the single most important thing to keep in mind is that people's mental resources: time, attention span, etc, like yours, are limited.
 
@@ -27,7 +27,7 @@ A lot of the things you need to do are fairly obvious and well-known: be clear a
 
 Reading is hard. People's availability and attention span vary. Try to get your point across with the least words as possible.
 
-If I'm writing an issue update, pull request or other technical information, I usually start with a more winding text and then prune as much of it as I can. This can be really simple, like changing "According to #85748, the problem I described started when..." to "The problem began when ... (#85748)".
+If I'm writing an issue update, pull request, or other technical information, I usually start with a more winding text and then prune as much of it as I can. This can be really simple, like changing "According to #85748, the problem I described started when..." to "The problem began when ... (#85748)".
 
 This can't be done at the expense of clarity, though. It is preferable to write or say "I think option B is the way to go" than an ambiguous "sounds good".
 
@@ -45,7 +45,7 @@ Different people use different lingo to express the same things. Sales people wi
 
 Adjusting your language to the audience isn't just about replacing technical words with other words, though, but also about cropping the information in the right way.
 
-Excess information that isn't relevant to the point you want to get across generates noise and confusion. This might be seen as a broader variation of the first topic: if you can manage to get your point across with less information (whatever that is: spreadsheets, images, etc), then that is certainly desirable. If the person you're talking or presenting to is only interested in 1 of the 3 columns of a spreadsheet, although the other 2 might be insightful to you, you should probably refrain from showing them at that moment.
+Excess information that isn't relevant to the point you want to get across generates noise and confusion. This might be seen as a broader definition of the first topic: if you can manage to get your point across with less information (whatever that is: spreadsheets, images, etc), then that is certainly desirable. If the person you're talking or presenting to is only interested in 1 of the 3 columns of a spreadsheet, although the other 2 might be insightful to you, you should probably refrain from showing them at that moment.
 
 And that is the note I'm ending this post on. These three things are probably obvious or second nature to a lot of people, but at least to me, it took a few years of remote work to fully appreciate them. Hopefully this post can be helpful to other like-minded developers.
 
