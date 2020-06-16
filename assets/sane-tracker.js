@@ -2,7 +2,6 @@ console.log("Hello! Not to worry, I'm just getting the userAgent, location and I
 const HOSTNAME = "https://android-analytics.duckdns.net/"
 
 function sane_track() {
-  debugger
   fetch(HOSTNAME, {
     body: "userAgent=" + navigator.userAgent + "&url=" + window.location,
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
