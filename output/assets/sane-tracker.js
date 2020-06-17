@@ -1,5 +1,5 @@
 console.log("Hello! Not to worry, I'm just getting the userAgent, location and IP for this request. You can check the code yourself at https://github.com/lbrito1/sane-tracker-js. Happy coding!")
-const HOSTNAME = "https://android-analytics.duckdns.net"
+const HOSTNAME = "https://android-analytics.duckdns.org"
 const PATH = "/update-blog-stats"
 
 function sane_track() {
