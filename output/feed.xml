@@ -167,7 +167,7 @@ server {
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/05/communication.html" type="text/html"/>
     <content type="html">&lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/bridge.jpg" target="_blank"&gt;
+    &lt;a href="/2020/05/communication.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/bridge.jpg" alt="San Francisco Bay bridge."&gt;
       &lt;noscript&gt;
         &lt;img src="/blog/assets/images/2020/bridge.jpg" alt="Alternative text to describe image."&gt;
@@ -231,7 +231,7 @@ server {
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/05/figuring_out_nvidia_x_linux.html" type="text/html"/>
     <content type="html">&lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/power.png" target="_blank"&gt;
+    &lt;a href="/2020/05/figuring_out_nvidia_x_linux.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart."&gt;
       &lt;noscript&gt;
         &lt;img src="/blog/assets/images/2020/power.png" alt="Alternative text to describe image."&gt;
@@ -400,7 +400,7 @@ blacklist nvidia_modeset
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html" type="text/html"/>
     <content type="html">&lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/old-android.jpg" target="_blank"&gt;
+    &lt;a href="/2020/02/repurposing-android.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk."&gt;
       &lt;noscript&gt;
         &lt;img src="/blog/assets/images/2020/old-android.jpg" alt="Alternative text to describe image."&gt;
@@ -561,7 +561,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
     <content type="html">
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0076-final-results.png" target="_blank"&gt;
+    &lt;a href="/2019/11/speeding-up-backend-graph-theory.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
       &lt;noscript&gt;
         &lt;img src="/blog/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image."&gt;

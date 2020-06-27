@@ -9,7 +9,7 @@ tags:
 - Nvidia
 ---
 
-<%= render('/image.*', src: '/blog/assets/images/2020/power.png', alt: "Ubuntu power consumption chart.", caption: "Ubuntu's power rate over time.") %>
+<%= render('/post_hero.*', src: '/blog/assets/images/2020/power.png', alt: "Ubuntu power consumption chart.", caption: "Ubuntu's power rate over time.") %>
 
 I've struggled with some kind of problem with Nvidia graphics cards on Linux since forever.
 

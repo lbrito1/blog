@@ -5,7 +5,7 @@ kind: article
 published: true
 ---
 
-<%= render('/image.*', src: '/blog/assets/images/2020/old-android.jpg', alt: "Old smartphones on a desk.", caption: "CC-BY Carlos Varela, https://www.flickr.com/photos/c32/7755470064") %>
+<%= render('/post_hero.*', src: '/blog/assets/images/2020/old-android.jpg', alt: "Old smartphones on a desk.", caption: "CC-BY Carlos Varela, https://www.flickr.com/photos/c32/7755470064") %>
 
 Do you have an old Android phone? Sure you do! There's a mind-blowing amount of electronic waste of all kinds, and with the average person in developed countries [discarding their phones every couple of years](https://www.cnbc.com/2019/05/17/smartphone-users-are-waiting-longer-before-upgrading-heres-why.html), discarded smartphones are probably one of the most common forms of e-waste.
 
