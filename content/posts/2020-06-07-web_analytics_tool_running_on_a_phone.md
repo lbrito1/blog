@@ -4,7 +4,16 @@ created_at: 2020-06-07 14:45:40 -0300
 kind: article
 published: false
 ---
+try this:
 
+wget https://github.com/termux/termux-packages/files/2912002/fix-ruby-bigdecimal.sh.txt
+bash fix-ruby-bigdecimal.sh.txt
+
+and this after the one above:
+
+$PREFIX/lib/ruby/2.6.0/aarch64-linux-android/bigdecimal/util.so
+
+THANKS TO XEFFYR
 NGINX monitoring
 $request_time
 
