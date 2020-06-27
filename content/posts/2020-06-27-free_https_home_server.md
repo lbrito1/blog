@@ -1,11 +1,11 @@
 ---
-title: Setting up a HTTPS home server for free
+title: Setting up a free HTTPS home server
 created_at: 2020-06-27 19:48:21 -0300
 kind: article
 published: true
 ---
 
-<%= render('/image.*', src: '/blog/assets/images/2020/cool-background.png', alt: "", caption: "") %>
+<%= render('/post_hero.*', src: '/blog/assets/images/2020/cool-background.png', alt: "", caption: "") %>
 
 Try searching for "free dynamic dns https", "free domain with SSL" or anything similar. There won't be a lot of meaningful results. Sure, some of the results are pretty close, like [this guide](https://www.freecodecamp.org/news/free-https-c051ca570324/) on how to get free SSL certification from Cloudflare, or [this one](https://medium.com/@jeremygale/how-to-set-up-a-free-dynamic-hostname-with-ssl-cert-using-google-domains-58929fdfbb7a) on setting up a free dynamic hostname with SSL, but they all assume you _already own a domain_. If you're looking for a completely free domain that you can use for your personal web server that also has verified SSL, there are very few results.
 

@@ -1,0 +1,13 @@
+<div class="image-box">
+  <div>
+    <a href="<%= item.path %>" target="_blank">
+      <img class="lazy" data-src="<%= src %>" alt="<%= defined?(alt) ? alt : '' %>">
+      <noscript>
+        <img src="<%= src %>" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  <% if defined?(caption) %>
+    <div class="image-caption"><%= caption %></div>
+  <% end %>
+</div>
