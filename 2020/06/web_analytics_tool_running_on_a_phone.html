@@ -14,16 +14,6 @@
     <!-- you don't need to keep this, but it's cool for stats! -->
     <meta name="generator" content="Nanoc 4.11.16">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-155745231-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-155745231-1');
-    </script>
-
     <script src="../../assets/yall.min.js"></script>
     <script src="../../assets/sane-tracker.js"></script>
   </head>
@@ -68,7 +58,17 @@
   <div class="post-show">
     <h1>Web analytics tool running on a phone</h1>
     <article class="text">
-      <p>NGINX monitoring
+      <p>try this:</p>
+
+<p>wget https://github.com/termux/termux-packages/files/2912002/fix-ruby-bigdecimal.sh.txt
+bash fix-ruby-bigdecimal.sh.txt</p>
+
+<p>and this after the one above:</p>
+
+<p>$PREFIX/lib/ruby/2.6.0/aarch64-linux-android/bigdecimal/util.so</p>
+
+<p>THANKS TO XEFFYR
+NGINX monitoring
 $request_time</p>
 
 <p>https://www.nginx.com/products/nginx-amplify/</p>
@@ -361,7 +361,7 @@ Shortest transaction:         0.01</p>
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    document.addEventListener("DOMContentLoaded", sane_track);
+    fetch("https://android-analytics.duckdns.org/damn_fine_coffee", { method: "GET" });
   </script>
 
 

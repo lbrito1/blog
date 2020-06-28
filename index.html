@@ -14,16 +14,6 @@
     <!-- you don't need to keep this, but it's cool for stats! -->
     <meta name="generator" content="Nanoc 4.11.16">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-155745231-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-155745231-1');
-    </script>
-
     <script src="assets/yall.min.js"></script>
     <script src="assets/sane-tracker.js"></script>
   </head>
@@ -67,6 +57,48 @@
         <div class="pure-g">
   
     <div class="post-index pure-u-1-1">
+      <h2><a href="2020/06/free_https_home_server.html">Setting up a free HTTPS home server</a></h2>
+      <aside class="">Jun 27, 2020</aside>
+
+
+      <article class="text">
+          <div class="image-box">
+  <div>
+    <a href="2020/06/free_https_home_server.html" target="_blank">
+      <img class="lazy" data-src="/blog/assets/images/2020/cool-background.png" alt="">
+      <noscript>
+        <img src="blog/assets/images/2020/cool-background.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<p>Try searching for “free dynamic dns https”, “free domain with SSL” or anything similar. There won’t be a lot of meaningful results. Sure, some of the results are pretty close, like <a href="https://www.freecodecamp.org/news/free-https-c051ca570324/">this guide</a> on how to get free SSL certification from Cloudflare, or <a href="https://medium.com/@jeremygale/how-to-set-up-a-free-dynamic-hostname-with-ssl-cert-using-google-domains-58929fdfbb7a">this one</a> on setting up a free dynamic hostname with SSL, but they all assume you <em>already own a domain</em>. If you’re looking for a completely free domain that you can use for your personal web server that also has verified SSL, there are very few results.</p>
+
+<p>But why was I even looking for this?</p>
+
+<p>I’m working on a side project. It has a web server that communicates with a static web page hosted on Github Pages. There are a lot of ways of setting that up; in my particular case, I have a local (as in in my house) HTTP web server accepting traffic on a non-standard port (port <code>80</code> is blocked by my ISP <a href="https://www.reddit.com/r/InternetBrasil/comments/e9v5o0/abertura_das_portas_80_e_443_na_claronet/">for commercial reasons</a> – this detail is of paramount importance, but more on that later). It is accessible through my external IP (which is dynamic), which can be mapped to a dynamic DNS domain.</p>
+
+<p>I wanted to run a simple API on the web server and access it through static pages (like this blog) hosted on Github Pages (which has a verified SSL certificate). <a href="https://stackoverflow.com/questions/62378047/is-it-possible-to-make-a-cross-domain-javascript-request-to-http-from-https">I asked the Internet</a> if it is possible to call from a SSL-verified page (in JavaScript) a different server that does not have a verified SSL certificate (that is, my aforementioned webapp running in my home server). It isn’t, so the conclusion was that I needed somehow to get a verified SSL certificate for my dynamic DNS domain.</p>
+
+<p>Having no idea whether this was possible, I started to research.</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="2020/06/free_https_home_server.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
       <h2><a href="2020/05/communication.html">Communication tips for remote developers</a></h2>
       <aside class="">May 30, 2020</aside>
 
@@ -74,7 +106,7 @@
       <article class="text">
           <div class="image-box">
   <div>
-    <a href="blog/assets/images/2020/bridge.jpg" target="_blank">
+    <a href="2020/05/communication.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/bridge.jpg" alt="San Francisco Bay bridge.">
       <noscript>
         <img src="blog/assets/images/2020/bridge.jpg" alt="Alternative text to describe image.">
@@ -112,7 +144,7 @@
       <article class="text">
           <div class="image-box">
   <div>
-    <a href="blog/assets/images/2020/power.png" target="_blank">
+    <a href="2020/05/figuring_out_nvidia_x_linux.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart.">
       <noscript>
         <img src="blog/assets/images/2020/power.png" alt="Alternative text to describe image.">
@@ -160,7 +192,7 @@
       <article class="text">
           <div class="image-box">
   <div>
-    <a href="blog/assets/images/2020/old-android.jpg" target="_blank">
+    <a href="2020/02/repurposing-android.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk.">
       <noscript>
         <img src="blog/assets/images/2020/old-android.jpg" alt="Alternative text to describe image.">
@@ -201,7 +233,7 @@
           
 <div class="image-box">
   <div>
-    <a href="blog/assets/images/2019/0076-final-results.png" target="_blank">
+    <a href="2019/11/speeding-up-backend-graph-theory.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt="">
       <noscript>
         <img src="blog/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image.">
@@ -1285,7 +1317,7 @@ grammar phrase: 10</code></pre></div>
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    document.addEventListener("DOMContentLoaded", sane_track);
+    fetch("https://android-analytics.duckdns.org/damn_fine_coffee", { method: "GET" });
   </script>
 
 </body></html>

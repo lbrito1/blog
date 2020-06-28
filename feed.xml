@@ -2,13 +2,163 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2020-05-30T15:16:00Z</updated>
+  <updated>2020-06-27T22:48:21Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2020-06-27:/blog/2020/06/free_https_home_server.html</id>
+    <title type="html">Setting up a free HTTPS home server</title>
+    <published>2020-06-27T22:48:21Z</published>
+    <updated>2020-06-27T22:48:21Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2020/06/free_https_home_server.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/2020/06/free_https_home_server.html" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/cool-background.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/cool-background.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;Try searching for “free dynamic dns https”, “free domain with SSL” or anything similar. There won’t be a lot of meaningful results. Sure, some of the results are pretty close, like &lt;a href="https://www.freecodecamp.org/news/free-https-c051ca570324/"&gt;this guide&lt;/a&gt; on how to get free SSL certification from Cloudflare, or &lt;a href="https://medium.com/@jeremygale/how-to-set-up-a-free-dynamic-hostname-with-ssl-cert-using-google-domains-58929fdfbb7a"&gt;this one&lt;/a&gt; on setting up a free dynamic hostname with SSL, but they all assume you &lt;em&gt;already own a domain&lt;/em&gt;. If you’re looking for a completely free domain that you can use for your personal web server that also has verified SSL, there are very few results.&lt;/p&gt;
+
+&lt;p&gt;But why was I even looking for this?&lt;/p&gt;
+
+&lt;p&gt;I’m working on a side project. It has a web server that communicates with a static web page hosted on Github Pages. There are a lot of ways of setting that up; in my particular case, I have a local (as in in my house) HTTP web server accepting traffic on a non-standard port (port &lt;code&gt;80&lt;/code&gt; is blocked by my ISP &lt;a href="https://www.reddit.com/r/InternetBrasil/comments/e9v5o0/abertura_das_portas_80_e_443_na_claronet/"&gt;for commercial reasons&lt;/a&gt; – this detail is of paramount importance, but more on that later). It is accessible through my external IP (which is dynamic), which can be mapped to a dynamic DNS domain.&lt;/p&gt;
+
+&lt;p&gt;I wanted to run a simple API on the web server and access it through static pages (like this blog) hosted on Github Pages (which has a verified SSL certificate). &lt;a href="https://stackoverflow.com/questions/62378047/is-it-possible-to-make-a-cross-domain-javascript-request-to-http-from-https"&gt;I asked the Internet&lt;/a&gt; if it is possible to call from a SSL-verified page (in JavaScript) a different server that does not have a verified SSL certificate (that is, my aforementioned webapp running in my home server). It isn’t, so the conclusion was that I needed somehow to get a verified SSL certificate for my dynamic DNS domain.&lt;/p&gt;
+
+&lt;p&gt;Having no idea whether this was possible, I started to research.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="setting-up-dynamic-dns"&gt;Setting up Dynamic DNS&lt;/h2&gt;
+
+&lt;p&gt;Most ISPs provide dynamic IP addresses for their residential customers, while static IP addresses are usually reserved to the “commercial” or “business” tier. That means your public IP address changes (usually every &lt;a href="https://vicimediainc.com/often-ip-addresses-change/"&gt;14 days&lt;/a&gt;), so DNS servers will have to keep track of your changing IP somehow. That kind of service is called Dynamic DNS, or DDNS for short.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://free-for.dev/#/?id=dns"&gt;Several companies&lt;/a&gt; provide DDNS service for free. Some of them also provide a free subdomain, which is useful if you don’t own a domain yourself (I don’t). I’ve tried out most of the free DDNS providers, the most prominent seeming to be Hurricane Electric, No-ip, Dynu and DuckDNS. If you’re up for it there are even several blog posts out there explaining &lt;a href="https://blog.heckel.io/2016/12/31/your-own-dynamic-dns-server-powerdns-mysql/"&gt;how to set up your own dynamic DNS server&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I wasn’t feeling too adventurous so I decided to set up shop with DuckDNS. It is really easy to set up, comes with a great HTTP API for updating the domain’s TXT, provides free subdomains that don’t expire (No-ip for instance has subdomains that expire after 30 days), and has a valid SSL certificate. They have a page &lt;a href="https://www.duckdns.org/install.jsp"&gt;explaining how to set up the actual DDNS service&lt;/a&gt;, so I’ll skip that.&lt;/p&gt;
+
+&lt;h3 id="caveat-carrier-grade-nat"&gt;Caveat: carrier-grade NAT&lt;/h3&gt;
+
+&lt;p&gt;One big potential problem in the DDNS setup is whether you’re behind a &lt;a href="https://www.wikiwand.com/en/Carrier-grade_NAT"&gt;carrier-grade NAT (CGNAT)&lt;/a&gt;, which some ISPs unfortunately do. In short, being in a CGNAT boils down to not having a public IP address – you’re part of your ISP’s private network, and your router’s “public” IP address is actually a private IP address within that private network, which the ISP translates to and from the Internet.&lt;/p&gt;
+
+&lt;p&gt;CGNATs suck, and it essentially &lt;a href="https://www.reddit.com/r/HomeNetworking/comments/6ahcp6/rtn66u_isp_changed_to_cgnat_broke_ddns/"&gt;makes using DDNS impossible&lt;/a&gt;. You can find out if you’re behind a CGNAT by comparing your WAN IP address (displayed in the router admin page) and your public IP. If they differ, you’re probably behind a CGNAT&lt;/p&gt;
+
+&lt;h2 id="setting-up-a-verified-ssl"&gt;Setting up a verified SSL&lt;/h2&gt;
+
+&lt;p&gt;I had set up the dynamic DNS service, and the next step was finding out if it was even possible to obtain a free valid SSL certificate for my subdomain.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://letsencrypt.org/getting-started/"&gt;Let’s Encrypt&lt;/a&gt; provides free valid SSL certificates, which are usually obtained by using &lt;a href="https://certbot.eff.org/"&gt;Certbot&lt;/a&gt;, a handy software that will handle most of the complicated SSL verification process you. There are &lt;a href="https://letsencrypt.org/docs/client-options/"&gt;several other&lt;/a&gt; alternative tools that implement the same protocol used by Let’s Encrypt, but I really recommend using Certbot – it has much better out-of-the-box functionality than all the other tools I tried out, and the community is much bigger. The only caveat I could find is that you need &lt;code&gt;sudo&lt;/code&gt; access to use it properly.&lt;/p&gt;
+
+&lt;p&gt;One thing I’d wish someone had told me before I spent hours looking for alternatives to Certbot is that &lt;strong&gt;it doesn’t have to be executed in the host that is ultimately going to obtain the SSL certificate&lt;/strong&gt;. This might be a crucial bit of information if you can’t run as root on the actual host that will obtain the SSL certificate, which was my case. It is perfectly fine to run Certbot on a separate computer, obtain the SSL certificates and then &lt;code&gt;scp&lt;/code&gt; them to the correct host.&lt;/p&gt;
+
+&lt;p&gt;Now, as I mentioned, my ISP blocks incoming traffic to port &lt;code&gt;80&lt;/code&gt; for their residential customers. This is relevant because Let’s Encrypt uses by default the &lt;strong&gt;HTTP-01 challenge&lt;/strong&gt; in the SSL verification process, and it requires the ports &lt;code&gt;80&lt;/code&gt; and &lt;code&gt;443&lt;/code&gt; to be open. However, LE also offers the alternative &lt;strong&gt;&lt;a href="https://letsencrypt.org/docs/challenge-types/"&gt;DNS-01 challenge&lt;/a&gt;&lt;/strong&gt; which &lt;strong&gt;does not&lt;/strong&gt; require those ports to be open (but requires the ability to update TXT domain records, which not all DDNS service providers allow – No-ip, for instance, does not). I happened to find out about this by reading &lt;a href="https://www.splitbrain.org/blog/2017-08/10-homeassistant_duckdns_letsencrypt"&gt;this very helpful post&lt;/a&gt; from someone in a similar predicament (home server, port &lt;code&gt;80&lt;/code&gt; not available) saying he used this alternative challenge successfully with DuckDNS (thank you!). In &lt;a href="https://serverfault.com/a/812038/578968"&gt;this Server Fault answer&lt;/a&gt;, the poster explains how to use Certbot with the DNS-01 challenge (thank you!).&lt;/p&gt;
+
+&lt;h3 id="running-certbot-with-dns-01-and-duckdns"&gt;Running Certbot with DNS-01 and DuckDNS&lt;/h3&gt;
+
+&lt;p&gt;DNS-01 works by confirming that you can modify the DNS TXT record of your domain.&lt;/p&gt;
+
+&lt;p&gt;Here’s the command to start SSL verification with Certbot using DNS-01 and a DuckDNS subdomain, and the expected output:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;sudo &lt;/span&gt;certbot &lt;span class="nt"&gt;-d&lt;/span&gt;  my-subdomain.duckdns.org &lt;span class="nt"&gt;--manual&lt;/span&gt; &lt;span class="nt"&gt;--preferred-challenges&lt;/span&gt; dns certonly
+
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator manual, Installer None
+Obtaining a new certificate
+Performing the following challenges:
+dns-01 challenge &lt;span class="k"&gt;for &lt;/span&gt;my-subdomain.duckdns.org
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+NOTE: The IP of this machine will be publicly logged as having requested this
+certificate. If you&lt;span class="s1"&gt;'re running certbot in manual mode on a machine that is not
+your server, please ensure you'&lt;/span&gt;re okay with that.
+
+Are you OK with your IP being logged?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+&lt;span class="o"&gt;(&lt;/span&gt;Y&lt;span class="o"&gt;)&lt;/span&gt;es/&lt;span class="o"&gt;(&lt;/span&gt;N&lt;span class="o"&gt;)&lt;/span&gt;o: Y
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please deploy a DNS TXT record under the name
+_acme-challenge.my-subdomain.duckdns.org with the following value:
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+Before continuing, verify the record is deployed.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Press Enter to Continue&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;At this point you have to do as the program says: update the DNS TXT record. Thankfully, this is exceedingly easy to do with DuckDNS (see their &lt;a href="https://www.duckdns.org/spec.jsp"&gt;spec page&lt;/a&gt; for instructions).&lt;/p&gt;
+
+&lt;p&gt;You can verify that the TXT was updated by running &lt;code&gt;dig&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;dig my-subdomain.duckdns.org TXT
+
+&lt;span class="p"&gt;;&lt;/span&gt; &amp;lt;&amp;lt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; DiG 9.11.3-1ubuntu1.12-Ubuntu &amp;lt;&amp;lt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; my-subdomain.duckdns.org TXT
+&lt;span class="p"&gt;;;&lt;/span&gt; global options: +cmd
+&lt;span class="p"&gt;;;&lt;/span&gt; Got answer:
+&lt;span class="p"&gt;;;&lt;/span&gt; -&amp;gt;&amp;gt;HEADER&lt;span class="o"&gt;&amp;lt;&amp;lt;-&lt;/span&gt; &lt;span class="no"&gt;opcode&lt;/span&gt;&lt;span class="sh"&gt;: QUERY, status: NOERROR, id: 21765
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;my-subdomain.duckdns.org. IN  TXT
+
+;; ANSWER SECTION:
+my-subdomain.duckdns.org. 59 IN  TXT "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+;; Query time: 335 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: Mon Jun 15 18:50:41 -03 2020
+;; MSG SIZE  rcvd: 114&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Once you confirmed the TXT value, the remainder of Certbot’s output should be this success message:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;Waiting &lt;span class="k"&gt;for &lt;/span&gt;verification...
+Cleaning up challenges
+
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /etc/letsencrypt/live/my-subdomain.duckdns.org/fullchain.pem
+   Your key file has been saved at:
+   /etc/letsencrypt/live/my-subdomain.duckdns.org/privkey.pem
+   Your cert will expire on 2020-09-13. To obtain a new or tweaked
+   version of this certificate &lt;span class="k"&gt;in &lt;/span&gt;the future, simply run certbot
+   again. To non-interactively renew &lt;span class="k"&gt;*&lt;/span&gt;all&lt;span class="k"&gt;*&lt;/span&gt; of your certificates, run
+   &lt;span class="s2"&gt;"certbot renew"&lt;/span&gt;
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let&lt;span class="s1"&gt;'s Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;All set! You now have a valid SSL certificate. You’ll still need to place it in the right place, which will vary depending on what web server you’re using. For example, if you’re using Nginx, the configuration file might look something like this:&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code&gt;
+server {
+  ssl_certificate /path/to/fullchain.pem;
+  ssl_certificate_key /path/to/privkey.pem;
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;There’s quite a lot of shady-looking websites out there offering for a monthly fee the exact same thing as I just wrote about. When researching this, not knowing too much about most of these topics, I was almost fooled into accepting that this just couldn’t be done for free for some unknown technical reason. There &lt;em&gt;had&lt;/em&gt; to be a reason why there were no Google results for this – maybe my case was too specific, or maybe other people are less cheap than I am and just pay for a domain and get the SSL stuff for free.&lt;/p&gt;
+
+&lt;p&gt;I still have no good explanation as to why the kind of guide I just wrote above didn’t show up in my research. Maybe people don’t care about home servers, or maybe I’m just not too good at searching (probably both). In any case, hopefully this post will make it clear that setting up a DDNS subdomain with SSL for free is not only possible, but really not that complicated.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2020-05-30:/blog/2020/05/communication.html</id>
     <title type="html">Communication tips for remote developers</title>
@@ -17,7 +167,7 @@
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/05/communication.html" type="text/html"/>
     <content type="html">&lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/bridge.jpg" target="_blank"&gt;
+    &lt;a href="/2020/05/communication.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/bridge.jpg" alt="San Francisco Bay bridge."&gt;
       &lt;noscript&gt;
         &lt;img src="/blog/assets/images/2020/bridge.jpg" alt="Alternative text to describe image."&gt;
@@ -81,7 +231,7 @@
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/05/figuring_out_nvidia_x_linux.html" type="text/html"/>
     <content type="html">&lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/power.png" target="_blank"&gt;
+    &lt;a href="/2020/05/figuring_out_nvidia_x_linux.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart."&gt;
       &lt;noscript&gt;
         &lt;img src="/blog/assets/images/2020/power.png" alt="Alternative text to describe image."&gt;
@@ -250,7 +400,7 @@ blacklist nvidia_modeset
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html" type="text/html"/>
     <content type="html">&lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/old-android.jpg" target="_blank"&gt;
+    &lt;a href="/2020/02/repurposing-android.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk."&gt;
       &lt;noscript&gt;
         &lt;img src="/blog/assets/images/2020/old-android.jpg" alt="Alternative text to describe image."&gt;
@@ -411,7 +561,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
     <content type="html">
 &lt;div class="image-box"&gt;
   &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0076-final-results.png" target="_blank"&gt;
+    &lt;a href="/2019/11/speeding-up-backend-graph-theory.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
       &lt;noscript&gt;
         &lt;img src="/blog/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image."&gt;
@@ -2429,213 +2579,6 @@ Finished checking node 79 &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o
 
 &lt;p&gt;You may have noticed we didn’t mention deletion. Correct - I chose not to implement it. Full code can be found on github.&lt;/p&gt;
 
-</content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2014-04-06:/blog/2014/04/shortest-path-part-i-dijkstras-algorithm.html</id>
-    <title type="html">Shortest path, part I - Dijkstra's algorithm</title>
-    <published>2014-04-06T23:21:02Z</published>
-    <updated>2014-04-06T23:21:02Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2014/04/shortest-path-part-i-dijkstras-algorithm.html" type="text/html"/>
-    <content type="html">&lt;p&gt;Now that we have a way to represent &lt;a href="%7B%%20link%20_posts/2014-03-23-graph.markdown%20%%7D"&gt;graphs&lt;/a&gt;, we can discuss one of the most important problems in graph theory: the shortest path problem (SPP). More or less formally, we’ll define SPP as:&lt;/p&gt;
-
-&lt;p&gt;Given a weighted graph G(V,E), find the sequence P = {v0, v1, v2, …, v(n-1)}, vi ∈ V, from vertex V0 to vertex V(n-1), such that the list of edges EP = {(v0,v1), (v1,v2), … (v(n-2), v(n-1))} exists and the summation of costs of all elements e ∈ EP is the smallest possible.&lt;/p&gt;
-
-&lt;p&gt;In other words, find the less expensive (ergo “shortest”) path between two vertices.&lt;/p&gt;
-
-&lt;p&gt;The trivial solution is using &lt;a href="%7B%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%%7D"&gt;BFS&lt;/a&gt; starting at vertex A and stopping when it reaches vertex B. However, BFS doesn’t look at the edge costs: it calculates the path with least edges, not the path with least total cost.&lt;/p&gt;
-
-&lt;p&gt;Although not necessarily the fastest, Dijkstra’s algorithm is probably the most popular way to solve the shortest path problem due to its simplicity and elegance. The algorithm relies heavily on &lt;a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D"&gt;priority queues&lt;/a&gt;, so make sure to take a look at that if you haven’t already.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Pseudocode&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;dist[from] &lt;span class="o"&gt;=&lt;/span&gt; 0
-&lt;span class="k"&gt;for &lt;/span&gt;v : G
-      &lt;span class="k"&gt;if &lt;/span&gt;v &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nb"&gt;source
-            &lt;/span&gt;dist[v] &lt;span class="o"&gt;=&lt;/span&gt; infinity
-      prev[v] &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;-1&lt;/span&gt;
-      PQ.add&lt;span class="o"&gt;(&lt;/span&gt;v, dist[v]&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;while &lt;/span&gt;PQ.hasNext&lt;span class="o"&gt;()&lt;/span&gt;
-      u &lt;span class="o"&gt;=&lt;/span&gt; PQ.pop&lt;span class="o"&gt;()&lt;/span&gt;
-      &lt;span class="k"&gt;for &lt;/span&gt;each neighbor v of u
-            alt &lt;span class="o"&gt;=&lt;/span&gt; dist[u] + length&lt;span class="o"&gt;(&lt;/span&gt;u, v&lt;span class="o"&gt;)&lt;/span&gt;
-            &lt;span class="k"&gt;if &lt;/span&gt;alt &amp;lt; dist[v]
-                  dist[v] &lt;span class="o"&gt;=&lt;/span&gt; alt
-                  prev[v] &lt;span class="o"&gt;=&lt;/span&gt; u
-                  PQ.decrease_key&lt;span class="o"&gt;(&lt;/span&gt;v,alt&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;return &lt;/span&gt;prev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;Lines 1-6 take care of initialization. Since we start at vertex “from”, it is marked as having distance = 0. We haven’t visited any other vertices yet, so we set there distances to infinity. prev[v] stores a pointer to vertex w such that by backtracking from v to prev[v] = w to prev[w] and so on we eventually arrive at vertex “from” by the shortest possible path. Since we don’t know the shortest paths yet, all prevs are set to -1 (i.e. unknown). Every key-value pair (vertex, dist[vertex]) is stored in the priority queue.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Lines 7-14 calculate the shortest paths. The main loop (line 7) repeats&lt;/td&gt;
-      &lt;td&gt;V&lt;/td&gt;
-      &lt;td&gt;times, since there are&lt;/td&gt;
-      &lt;td&gt;V&lt;/td&gt;
-      &lt;td&gt;elements in the PQ. The min element &lt;em&gt;u&lt;/em&gt; is extracted at line 8 and lines 10-14 update the distances from u to all of u’s neighbors (v), which is called edge relaxation: if dist[u] + length(u, v) is smaller than v’s current distance, that means we’ve found a shorter path to v by going through u, so we update dist[v] and set prev[v] = u. Since the key-value pair (v,dist[v]) has changed, we update the priority queue with a decrease-key call (line 14).&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;As you may have noticed, Dijkstra’s algorithm calculates the shortest path from one vertex to all the other vertices in the graph. So if we’re only interested in the distance from one vertex to another, we may safely stop the algorithm after we’ve finished updating our target’s neighbors, i.e. when u = target, because since it has been popped from the PQ, it won’t ever be checked again.&lt;/p&gt;
-
-&lt;p&gt;As an example, here’s how the algorithm works for the following graph (excerpt from the test output with _DEBUG flag):&lt;/p&gt;
-
-&lt;div class="image-box"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/codedeposit/2014/04/graph1.png" target="_blank"&gt;
-      &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2014/04/graph1.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/codedeposit/2014/04/graph1.png" alt="Alternative text to describe image."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;graph&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;**Weights (last parameter): **&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;      add_edge&lt;span class="o"&gt;(&lt;/span&gt;g, v0, v1, 2&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      add_edge&lt;span class="o"&gt;(&lt;/span&gt;g, v0, v2, 3&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      add_edge&lt;span class="o"&gt;(&lt;/span&gt;g, v1, v2, 1&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      add_edge&lt;span class="o"&gt;(&lt;/span&gt;g, v2, v3, 1&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      add_edge&lt;span class="o"&gt;(&lt;/span&gt;g, v4, v2, 1&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      add_edge&lt;span class="o"&gt;(&lt;/span&gt;g, v4, v1, 1&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      add_edge&lt;span class="o"&gt;(&lt;/span&gt;g, v5, v4, 1&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;**First iteration: ** since our starting point is v0, it gets popped first. Neighbors 1 and 2 are updated.&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;NEIGHBORS OF v[0]:
-&lt;span class="nt"&gt;--------------------&lt;/span&gt;
-v[1]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 2       prev dist &lt;span class="o"&gt;=&lt;/span&gt; 2147483647
-v[2]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 3       prev dist &lt;span class="o"&gt;=&lt;/span&gt; 2147483647&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;**2nd &amp;amp; 3rd iteration: ** v[1] had the smallest distance in PQ, followed by v[2]. Their neighbors are updated.&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;NEIGHBORS OF v[1]:
-&lt;span class="nt"&gt;--------------------&lt;/span&gt;
-v[0]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 4
-v[2]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 3
-v[4]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 3       prev dist &lt;span class="o"&gt;=&lt;/span&gt; 2147483647
-
-
-NEIGHBORS OF v[2]:
-&lt;span class="nt"&gt;--------------------&lt;/span&gt;
-v[0]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 6
-v[1]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 4
-v[3]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 4       prev dist &lt;span class="o"&gt;=&lt;/span&gt; 2147483647
-v[4]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;**All the rest: **&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;NEIGHBORS OF v[4]:
-&lt;span class="nt"&gt;--------------------&lt;/span&gt;
-v[2]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 4
-v[1]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 4
-v[5]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 4       prev dist &lt;span class="o"&gt;=&lt;/span&gt; 2147483647
-
-
-NEIGHBORS OF v[3]:
-&lt;span class="nt"&gt;--------------------&lt;/span&gt;
-v[2]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 5
-
-
-NEIGHBORS OF v[5]:
-&lt;span class="nt"&gt;--------------------&lt;/span&gt;
-v[4]     optimal dist &lt;span class="o"&gt;=&lt;/span&gt; 5&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Final output (prev[] array):&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;Previous
-&lt;span class="o"&gt;===============&lt;/span&gt;
-
-vert[0] &lt;span class="nt"&gt;-1&lt;/span&gt;
-vert[1] 0
-vert[2] 0
-vert[3] 2
-vert[4] 1
-vert[5] 4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;i.e. the shortest path from 0 to 5 is: 0, 1, 4, 5. Path cost can be found at dist[vert5]. Verify that that’s the shortest path: cost(0,1) = 2 (whilst cost(0,2) = 3), cost(1,4) = 1 and cost(4,5) = 1.&lt;/p&gt;
-
-&lt;p&gt;Below, the full code. We used our previously implemented &lt;a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D"&gt;priority queues&lt;/a&gt; working as the PQ, and made the stop-at-target modification mentioned above. As always, updated source code and companion test code can be found @ github.&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-c"&gt;&lt;span class="cp"&gt;#include 
-#include "../tests/graph_test.c"
-#include "../data_structures/heap.c"
-&lt;/span&gt;
-&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nf"&gt;dijkstra&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;graph&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-      &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;nv&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_nv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-      &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;dist&lt;/span&gt;         &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;malloc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;nv&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-      &lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;previous&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;malloc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;nv&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-      &lt;span class="n"&gt;heap&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;minheap&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new_heap&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nv&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ORD_ASC&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;compare_kv&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-      &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;nv&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;INT_MAX&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;previous&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;kv&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new_kv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;compare_integer&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minheap&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;val&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-            &lt;span class="cp"&gt;#ifdef _DEBUG
-&lt;/span&gt;                  &lt;span class="n"&gt;edge_iter&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;itd&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new_edge_it&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;get_vertex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
-                  &lt;span class="n"&gt;edge&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;next_edge&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;itd&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;%d&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s"&gt;E(%lu,%lu) = %d"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;itd&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;idx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;from&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;cost&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;free&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;itd&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="cp"&gt;#endif
-&lt;/span&gt;      &lt;span class="p"&gt;}&lt;/span&gt;
-
-
-      &lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;from&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;        &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="n"&gt;previous&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;from&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-      &lt;span class="n"&gt;kv&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;found&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(((&lt;/span&gt;&lt;span class="n"&gt;min&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minheap&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;found&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;u&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;min&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;visit_vert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-            &lt;span class="n"&gt;edge_iter&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new_edge_it&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;get_vertex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
-            &lt;span class="n"&gt;edge&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-
-            &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n\n\n&lt;/span&gt;&lt;span class="s"&gt;NEIGHBORS OF v[%d]:&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;--------------------"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;next_edge&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="p"&gt;{&lt;/span&gt;
-                  &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;ndist&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;cost&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;v[%d]"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-                  &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s"&gt; optimal dist = %d"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;ndist&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-                  &lt;span class="c1"&gt;//relax edge&lt;/span&gt;
-                  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;ndist&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ndist&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-                  &lt;span class="p"&gt;{&lt;/span&gt;
-                        &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s"&gt;prev dist = %d"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
-
-                        &lt;span class="n"&gt;dist&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;     &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ndist&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                        &lt;span class="n"&gt;previous&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-                        &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;vpos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                        &lt;span class="n"&gt;kv&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;candidate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_kv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minheap&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;minheap&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;heap_size&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;vpos&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-                        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;candidate&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;minheap&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vpos&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-                  &lt;span class="p"&gt;}&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;u&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;found&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TRUE&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="p"&gt;}&lt;/span&gt;
-
-      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;previous&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="o"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;pre&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class="n"&gt;div&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </content>
   </entry>
 </feed>
