@@ -9,6 +9,8 @@ tags:
 
 <%= render('/post_hero.*', src: '/blog/assets/images/2020/diagram.png', alt: "", caption: "") %>
 
+>**TLDR** I built [android-analytics](https://github.com/lbrito1/android-analytics), a web analytics tracker running on my phone.
+
 Say you run a blog, personal website, small-time business page or something of the sorts. Say you also want to keep an eye on how many visitors you're getting.
 
 The first thing that most people think at this point is "Google Analytics". It mostly works and is free. Its also hosted by Google, which makes it very easy to start using. There aren't many competitors that bring those points to the table, so Google Analytics usually wins by WO at this point.
@@ -16,6 +18,24 @@ The first thing that most people think at this point is "Google Analytics". It m
 I used to use Google Analytics to track this blog for those same reasons. But after finding out about [Termux](https://termux.com) and writing [this post](https://lbrito1.github.io/blog/2020/02/repurposing-android.html) about installing a web server on an Android phone, I started toying with the idea that I had this ARM-based, 2GB RAM, Linux-like device with Internet connectivity which must be more than enough for a simple webcounter-like application. After a few weeks of tinkering, here it is!
 
 <!-- more -->
+
+
+## Table of Contents
+
+* [Table of Contents](#table-of-contents)
+* [Motivation](#motivation)
+   * [Why even keep anything?](#why-even-keep-anything)
+   * [And then there is the data](#and-then-there-is-the-data)
+   * [The (lack of) competition](#the-lack-of-competition)
+* [Developing android-analytics](#developing-android-analytics)
+   * [Basis](#basis)
+   * [First iteration: Sinatra webapp](#first-iteration-sinatra-webapp)
+   * [Second iteration: Nginx log parser](#second-iteration-nginx-log-parser)
+   * [Third iteration: Adding a viewer](#third-iteration-adding-a-viewer)
+   * [Fourth iteration: Adding an installation script](#fourth-iteration-adding-an-installation-script)
+   * [Final architecture](#final-architecture)
+* [Conclusion](#conclusion)
+
 
 ## Motivation
 
@@ -125,6 +145,12 @@ Here's how the data looks like right now:
 
 <%= render('/image.*', src: '/blog/assets/images/2020/android-analytics-screenshot.png', alt: "blazer gem dashboard.", caption: "blazer gem dashboard.") %>
 
+### Fourth iteration: Adding an installation script
+
+So far I was playing by ear; I knew more or less how to reinstall the project on a new device, but I knew that after some time my memory would fade and the process would become a painstaking trial-and-error mess.
+
+I first compiled all the steps needed for this to work in the repo's README -- it took a total of [17 steps](https://github.com/lbrito1/android-analytics/commit/9487a54b37c727bdd60b7276469fc58a8fd0d47d#diff-04c6e90faac2675aa89e2176d2eec7d8) to get things running. Noticing that most of these steps could be automated, I wrote a [setup script](https://github.com/lbrito1/android-analytics/blob/master/bin/setup.sh) that should do most of the work. I tested it in a separate Android device to make sure it works -- hopefully it works for other people as well.
+
 ### Final architecture
 
 When someone accesses one of my tracked pages, this is roughly what happens:
@@ -135,23 +161,20 @@ When someone accesses one of my tracked pages, this is roughly what happens:
 3. My router receives that request and uses the NAT table to redirect it to my Android phone;
 4. On Android, Nginx receives the request and either logs it if the request comes from the right place (my list of tracked pages), or does nothing otherwise;
 5. A scheduled Cron job rotates Nginx logs and converts the "old" log into rows in a Postgresql table;
-6. I open `<my-android-local-ip>:3000` on my desktop's browser and see charts, maps etc.
+6. I open `<my-android-local-ip>:3000` on my desktop's browser and view the charts, maps etc.
 
 The diagram at the beginning of the post shows those same steps, more or less:
 
 <%= render('/image.*', src: '/blog/assets/images/2020/diagram.png', alt: "android-analytics diagram.", caption: "android-analytics diagram.") %>
 
-For a while now I'm using [android-analytics](https://github.com/lbrito1/android-analytics), a tool I built that runs
-
-I run my personal site, as well as this blog, on Github Pages. They're static sites - I write something (such as this blog post -- more on that in the [about page](https://lbrito1.github.io/blog/about.html)), run some compilers and the end result is an HTML page that is then served by Github Pages.
-
-There are pros and cons to this approach. A pretty good pro is that that Github Pages is free and very simple to use. I don't have to set up billing details or worry about how to deploy my page. I compile the markdown files, commit and push, and Github takes care of the rest (there's a [deploy script](https://github.com/lbrito1/sane-blog-builder/blob/development/deploy.sh) I wrote to make that a one-step process).
-
-A negative point is that I don't have a lot of control over the server that Github is kindly hosting and serving these pages. I'm curious about who, if anyone at all, is reading my posts and where they're from. Mind you, that's about it -- I could care less about the click heatmap, which div they interact with most or what their "online profile" is. In fact I would argue that most of those details are or lead to a lot of what is wrong with the Internet these days. I just think it is fun to know someone from Nepal or Iceland read my post about [using a phone as a Ruby server](https://lbrito1.github.io/blog/2020/02/repurposing-android.html).
-
 ## Conclusion
 
-Saying this is a "Google Analytics replacement" is like saying a bicycle is a replacement for a truck -- sometimes your really do need a truck, but a lot of times you just need to get from point A to point B, and a bike is really enough.
+Saying this is a "Google Analytics replacement" is like saying that a bicycle is a replacement for a truck. Sometimes you really need a truck, but a lot of times you just need to get from point A to point B, and a bike is more than enough. In fact, it is probably _better_: it is cheaper, easier to park and carry around, and has a smaller environmental footprint.
 
-This is the bike. There's absolutely no need to use a mammoth like Google Analytics for a silly blog, personal site or pet project. In fact one could say there's no need to use _any_ tracking system at all -- which I would say is true, but on the other hand it is kinda cool to see that a guy from Nepal accessed your blog post in the wee hours of the day.
+This project, [android-analytics](https://github.com/lbrito1/android-analytics), is a bike.
 
+There's absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful -- you're offering free data to Google.
+
+We generate tons of electronic waste all the time, so we might as well make better use of what processing power we have around us. Smartphones have amazing processing, networking and storage capabilities, yet for many reasons they turn old very quickly, which translates to getting sold (in the best case); shoved into oblivion in our designated cluttered drawer full of e-junk; or just discarded.
+
+I wish those two latter destinations were never the case. It is just sad that we have these tiny slabs of processing power that could [navigate Man to the Moon and back thousands of times over](https://www.realclearscience.com/articles/2019/07/02/your_mobile_phone_vs_apollo_11s_guidance_computer_111026.html), and we can't seem to quite find any better occupation for them other than sitting in a dusty drawer for years.

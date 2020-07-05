@@ -29,6 +29,10 @@
   
 &lt;/div&gt;
 
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt; I built &lt;a href="https://github.com/lbrito1/android-analytics"&gt;android-analytics&lt;/a&gt;, a web analytics tracker running on my phone.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;p&gt;Say you run a blog, personal website, small-time business page or something of the sorts. Say you also want to keep an eye on how many visitors you’re getting.&lt;/p&gt;
 
 &lt;p&gt;The first thing that most people think at this point is “Google Analytics”. It mostly works and is free. Its also hosted by Google, which makes it very easy to start using. There aren’t many competitors that bring those points to the table, so Google Analytics usually wins by WO at this point.&lt;/p&gt;
@@ -36,6 +40,32 @@
 &lt;p&gt;I used to use Google Analytics to track this blog for those same reasons. But after finding out about &lt;a href="https://termux.com"&gt;Termux&lt;/a&gt; and writing &lt;a href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html"&gt;this post&lt;/a&gt; about installing a web server on an Android phone, I started toying with the idea that I had this ARM-based, 2GB RAM, Linux-like device with Internet connectivity which must be more than enough for a simple webcounter-like application. After a few weeks of tinkering, here it is!&lt;/p&gt;
 
 &lt;!-- more --&gt;
+
+&lt;h2 id="table-of-contents"&gt;Table of Contents&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="#table-of-contents"&gt;Table of Contents&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href="#motivation"&gt;Motivation&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#why-even-keep-anything"&gt;Why even keep anything?&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#and-then-there-is-the-data"&gt;And then there is the data&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#the-lack-of-competition"&gt;The (lack of) competition&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+&lt;a href="#developing-android-analytics"&gt;Developing android-analytics&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#basis"&gt;Basis&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#first-iteration-sinatra-webapp"&gt;First iteration: Sinatra webapp&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#second-iteration-nginx-log-parser"&gt;Second iteration: Nginx log parser&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#third-iteration-adding-a-viewer"&gt;Third iteration: Adding a viewer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#fourth-iteration-adding-an-installation-script"&gt;Fourth iteration: Adding an installation script&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#final-architecture"&gt;Final architecture&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href="#conclusion"&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
 
@@ -206,6 +236,12 @@
   
 &lt;/div&gt;
 
+&lt;h3 id="fourth-iteration-adding-an-installation-script"&gt;Fourth iteration: Adding an installation script&lt;/h3&gt;
+
+&lt;p&gt;So far I was playing by ear; I knew more or less how to reinstall the project on a new device, but I knew that after some time my memory would fade and the process would become a painstaking trial-and-error mess.&lt;/p&gt;
+
+&lt;p&gt;I first compiled all the steps needed for this to work in the repo’s README – it took a total of &lt;a href="https://github.com/lbrito1/android-analytics/commit/9487a54b37c727bdd60b7276469fc58a8fd0d47d#diff-04c6e90faac2675aa89e2176d2eec7d8"&gt;17 steps&lt;/a&gt; to get things running. Noticing that most of these steps could be automated, I wrote a &lt;a href="https://github.com/lbrito1/android-analytics/blob/master/bin/setup.sh"&gt;setup script&lt;/a&gt; that should do most of the work. I tested it in a separate Android device to make sure it works – hopefully it works for other people as well.&lt;/p&gt;
+
 &lt;h3 id="final-architecture"&gt;Final architecture&lt;/h3&gt;
 
 &lt;p&gt;When someone accesses one of my tracked pages, this is roughly what happens:&lt;/p&gt;
@@ -216,7 +252,7 @@
   &lt;li&gt;My router receives that request and uses the NAT table to redirect it to my Android phone;&lt;/li&gt;
   &lt;li&gt;On Android, Nginx receives the request and either logs it if the request comes from the right place (my list of tracked pages), or does nothing otherwise;&lt;/li&gt;
   &lt;li&gt;A scheduled Cron job rotates Nginx logs and converts the “old” log into rows in a Postgresql table;&lt;/li&gt;
-  &lt;li&gt;I open &lt;code&gt;&amp;lt;my-android-local-ip&amp;gt;:3000&lt;/code&gt; on my desktop’s browser and see charts, maps etc.&lt;/li&gt;
+  &lt;li&gt;I open &lt;code&gt;&amp;lt;my-android-local-ip&amp;gt;:3000&lt;/code&gt; on my desktop’s browser and view the charts, maps etc.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;The diagram at the beginning of the post shows those same steps, more or less:&lt;/p&gt;
@@ -235,20 +271,17 @@
   
 &lt;/div&gt;
 
-&lt;p&gt;For a while now I’m using &lt;a href="https://github.com/lbrito1/android-analytics"&gt;android-analytics&lt;/a&gt;, a tool I built that runs&lt;/p&gt;
-
-&lt;p&gt;I run my personal site, as well as this blog, on Github Pages. They’re static sites - I write something (such as this blog post – more on that in the &lt;a href="https://lbrito1.github.io/blog/about.html"&gt;about page&lt;/a&gt;), run some compilers and the end result is an HTML page that is then served by Github Pages.&lt;/p&gt;
-
-&lt;p&gt;There are pros and cons to this approach. A pretty good pro is that that Github Pages is free and very simple to use. I don’t have to set up billing details or worry about how to deploy my page. I compile the markdown files, commit and push, and Github takes care of the rest (there’s a &lt;a href="https://github.com/lbrito1/sane-blog-builder/blob/development/deploy.sh"&gt;deploy script&lt;/a&gt; I wrote to make that a one-step process).&lt;/p&gt;
-
-&lt;p&gt;A negative point is that I don’t have a lot of control over the server that Github is kindly hosting and serving these pages. I’m curious about who, if anyone at all, is reading my posts and where they’re from. Mind you, that’s about it – I could care less about the click heatmap, which div they interact with most or what their “online profile” is. In fact I would argue that most of those details are or lead to a lot of what is wrong with the Internet these days. I just think it is fun to know someone from Nepal or Iceland read my post about &lt;a href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html"&gt;using a phone as a Ruby server&lt;/a&gt;.&lt;/p&gt;
-
 &lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;Saying this is a “Google Analytics replacement” is like saying a bicycle is a replacement for a truck – sometimes your really do need a truck, but a lot of times you just need to get from point A to point B, and a bike is really enough.&lt;/p&gt;
+&lt;p&gt;Saying this is a “Google Analytics replacement” is like saying that a bicycle is a replacement for a truck. Sometimes you really need a truck, but a lot of times you just need to get from point A to point B, and a bike is more than enough. In fact, it is probably &lt;em&gt;better&lt;/em&gt;: it is cheaper, easier to park and carry around, and has a smaller environmental footprint.&lt;/p&gt;
 
-&lt;p&gt;This is the bike. There’s absolutely no need to use a mammoth like Google Analytics for a silly blog, personal site or pet project. In fact one could say there’s no need to use &lt;em&gt;any&lt;/em&gt; tracking system at all – which I would say is true, but on the other hand it is kinda cool to see that a guy from Nepal accessed your blog post in the wee hours of the day.&lt;/p&gt;
+&lt;p&gt;This project, &lt;a href="https://github.com/lbrito1/android-analytics"&gt;android-analytics&lt;/a&gt;, is a bike.&lt;/p&gt;
 
+&lt;p&gt;There’s absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful – you’re offering free data to Google.&lt;/p&gt;
+
+&lt;p&gt;We generate tons of electronic waste all the time, so we might as well make better use of what processing power we have around us. Smartphones have amazing processing, networking and storage capabilities, yet for many reasons they turn old very quickly, which translates to getting sold (in the best case); shoved into oblivion in our designated cluttered drawer full of e-junk; or just discarded.&lt;/p&gt;
+
+&lt;p&gt;I wish those two latter destinations were never the case. It is just sad that we have these tiny slabs of processing power that could &lt;a href="https://www.realclearscience.com/articles/2019/07/02/your_mobile_phone_vs_apollo_11s_guidance_computer_111026.html"&gt;navigate Man to the Moon and back thousands of times over&lt;/a&gt;, and we can’t seem to quite find any better occupation for them other than sitting in a dusty drawer for years.&lt;/p&gt;
 </content>
   </entry>
   <entry>
