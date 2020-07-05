@@ -5,6 +5,8 @@ kind: article
 published: true
 tags:
 - Web development
+- android
+- termux
 ---
 
 <%= render('/post_hero.*', src: '/blog/assets/images/2020/diagram.png', alt: "", caption: "") %>
