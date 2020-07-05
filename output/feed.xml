@@ -77,7 +77,7 @@
 
 &lt;p&gt;It should be no surprise, then, that Google Analytics always felt immensely overkill.&lt;/p&gt;
 
-&lt;p&gt;Its heartwarming to know that some nerd from Bhutan read one of my posts in the wee hours of the morning, but that is pretty much all I’m interested in. I could care less about Acquisition Treemaps, Audience Cohort Analysis or Behavior Flow. I’m not making those up: they’re all real products available on Google Analytics. I have no idea of what any of those mean, and I’m 100% sure I don’t need them.&lt;/p&gt;
+&lt;p&gt;Its heartwarming to know that some nerd from Bhutan read one of my posts in the wee hours of the morning, but that is pretty much all I’m interested in. I could care less about Acquisition Treemaps, Audience Cohort Analysis or Behavior Flow. I’m not making those up: they’re all real products available on Google Analytics. I have no idea of what any of those mean, yet I’m 100% sure I don’t need them.&lt;/p&gt;
 
 &lt;div class="image-box"&gt;
   &lt;div&gt;
@@ -93,7 +93,7 @@
   
 &lt;/div&gt;
 
-&lt;p&gt;What I wanted was closer to the late 90s’ visitor count GIF above (minus the embarrassment of publicity) than the “I’m the SEO manager at a intersitial online advertising network conglomerate” feeling of Google Analytics’ unsightly dashboard:&lt;/p&gt;
+&lt;p&gt;What I wanted was closer to the late 90s’ visitor count GIF above (minus the embarrassment of publicity) than to the unsightly “Intersitial online advertising network conglomerate SEO dashboard” feeling of Google Analytics:&lt;/p&gt;
 
 &lt;div class="image-box stretch"&gt;
   &lt;div&gt;
@@ -131,9 +131,7 @@
   
 &lt;/div&gt;
 
-&lt;p&gt;They apparently need that to feed their Lovecraftian “Audience Cohort Analysis”-kind of products.&lt;/p&gt;
-
-&lt;p&gt;Fair enough, but I’m pretty sure that for my purposes, a several-kb payload is effectively using a sledgehammer to kill a fly.&lt;/p&gt;
+&lt;p&gt;Apparently they often need over 8kb per request to feed their Lovecraftian “Audience Cohort Analysis” line of products. Fair enough, but I’m pretty sure that for my purposes, a several-kb payload is effectively using a sledgehammer to kill a fly.&lt;/p&gt;
 
 &lt;p&gt;By using Google Analytics I was willfully sending Google who-knows-what kind of data designed to build up people’s advertising profile. The page views of my blog probably didn’t help Google too much in that aspect, sure, but the principle of the whole thing still bothered me enough to do something about it.&lt;/p&gt;
 
@@ -141,7 +139,7 @@
 
 &lt;p&gt;There are a lot of software similar to Google Analytics out there. The most prominent is probably &lt;a href="https://matomo.org/"&gt;Matomo&lt;/a&gt;, often &lt;a href="https://hn.algolia.com/?dateRange=all&amp;amp;page=0&amp;amp;prefix=true&amp;amp;query=matomo&amp;amp;sort=byPopularity&amp;amp;type=story"&gt;posted on Hacker News&lt;/a&gt;. It is free, open source and self-hosted (with cloud offerings for a monthly fee).&lt;/p&gt;
 
-&lt;p&gt;I would happily use Matomo, but it brings a conundrum:&lt;/p&gt;
+&lt;p&gt;I would happily use Matomo, but with it comes a conundrum:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Self-hosting implies I had to have some kind of publicly accessible Linux host, which would likely not be entirely free;&lt;/li&gt;
@@ -152,11 +150,14 @@
 
 &lt;h2 id="developing-android-analytics"&gt;Developing android-analytics&lt;/h2&gt;
 
-&lt;p&gt;These were the requirements I had for my tracker:
-1. Has to run on an old Android phone I have lying around;
-2. Has to work with Github Pages-hosted sites;
-3. Has a per-page view count;
-4. Nice to have: geo info.&lt;/p&gt;
+&lt;p&gt;These were the requirements I had for my tracker:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Has to run on an old Android phone I have lying around;&lt;/li&gt;
+  &lt;li&gt;Has to work with Github Pages-hosted sites;&lt;/li&gt;
+  &lt;li&gt;Has a per-page view count;&lt;/li&gt;
+  &lt;li&gt;Nice to have: geo info.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;These requirements are deceivingly simple, as I quickly learned.&lt;/p&gt;
 
@@ -170,7 +171,7 @@
 
 &lt;p&gt;Once I figured out the SSL thing, the rest was pretty much a breeze.&lt;/p&gt;
 
-&lt;h3 id="basis"&gt;Basis&lt;/h3&gt;
+&lt;h3 id="fundamentals"&gt;Fundamentals&lt;/h3&gt;
 
 &lt;p&gt;I tried out a few different ideas when developing this, but the overall architecture is always the same:&lt;/p&gt;
 
@@ -277,7 +278,7 @@
 
 &lt;p&gt;This project, &lt;a href="https://github.com/lbrito1/android-analytics"&gt;android-analytics&lt;/a&gt;, is a bike.&lt;/p&gt;
 
-&lt;p&gt;There’s absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful – you’re offering free data to Google.&lt;/p&gt;
+&lt;p&gt;There’s absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful – you’re offering free data to Google. Someone has to keep the data, of course, but I’d argue that a decentralized approach is much safer and probably more ethical than data monopoly by a single huge advertising company.&lt;/p&gt;
 
 &lt;p&gt;We generate tons of electronic waste all the time, so we might as well make better use of what processing power we have around us. Smartphones have amazing processing, networking and storage capabilities, yet for many reasons they turn old very quickly, which translates to getting sold (in the best case); shoved into oblivion in our designated cluttered drawer full of e-junk; or just discarded.&lt;/p&gt;
 

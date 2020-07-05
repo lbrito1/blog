@@ -47,11 +47,11 @@ The answer is simple: I really don't, I just enjoy seeing it. Call it a [vanity 
 
 It should be no surprise, then, that Google Analytics always felt immensely overkill.
 
-Its heartwarming to know that some nerd from Bhutan read one of my posts in the wee hours of the morning, but that is pretty much all I'm interested in. I could care less about Acquisition Treemaps, Audience Cohort Analysis or Behavior Flow. I'm not making those up: they're all real products available on Google Analytics. I have no idea of what any of those mean, and I'm 100% sure I don't need them.
+Its heartwarming to know that some nerd from Bhutan read one of my posts in the wee hours of the morning, but that is pretty much all I'm interested in. I could care less about Acquisition Treemaps, Audience Cohort Analysis or Behavior Flow. I'm not making those up: they're all real products available on Google Analytics. I have no idea of what any of those mean, yet I'm 100% sure I don't need them.
 
 <%= render('/image-nostretch.*', src: '/blog/assets/images/2020/visitor_count.jpeg', alt: "Visitor counter from the 90s.", caption: "Visitor counter from the 90s.") %>
 
-What I wanted was closer to the late 90s' visitor count GIF above (minus the embarrassment of publicity) than the "I'm the SEO manager at a intersitial online advertising network conglomerate" feeling of Google Analytics' unsightly dashboard:
+What I wanted was closer to the late 90s' visitor count GIF above (minus the embarrassment of publicity) than to the unsightly "Intersitial online advertising network conglomerate SEO dashboard" feeling of Google Analytics:
 
 <%= render('/image.*', src: '/blog/assets/images/2020/ga.png', alt: "Google Analytics dashboard.", caption: "Google Analytics dashboard.") %>
 
@@ -68,9 +68,7 @@ src: '/blog/assets/images/2020/ga_payload.png',
 alt: "Google search results for 'google analytics payload size is too large'. 642,000 results.",
 caption: "That's a lot of results.") %>
 
-They apparently need that to feed their Lovecraftian "Audience Cohort Analysis"-kind of products.
-
-Fair enough, but I'm pretty sure that for my purposes, a several-kb payload is effectively using a sledgehammer to kill a fly.
+Apparently they often need over 8kb per request to feed their Lovecraftian "Audience Cohort Analysis" line of products. Fair enough, but I'm pretty sure that for my purposes, a several-kb payload is effectively using a sledgehammer to kill a fly.
 
 By using Google Analytics I was willfully sending Google who-knows-what kind of data designed to build up people's advertising profile. The page views of my blog probably didn't help Google too much in that aspect, sure, but the principle of the whole thing still bothered me enough to do something about it.
 
@@ -78,7 +76,7 @@ By using Google Analytics I was willfully sending Google who-knows-what kind of 
 
 There are a lot of software similar to Google Analytics out there. The most prominent is probably [Matomo](https://matomo.org/), often [posted on Hacker News](https://hn.algolia.com/?dateRange=all&page=0&prefix=true&query=matomo&sort=byPopularity&type=story). It is free, open source and self-hosted (with cloud offerings for a monthly fee).
 
-I would happily use Matomo, but it brings a conundrum:
+I would happily use Matomo, but with it comes a conundrum:
 
 - Self-hosting implies I had to have some kind of publicly accessible Linux host, which would likely not be entirely free;
 - Cloud-hosting comes with a subscription fee.
@@ -88,10 +86,11 @@ Those points are trivial if you're running a lucrative business that _needs_ ana
 ## Developing android-analytics
 
 These were the requirements I had for my tracker:
-1. Has to run on an old Android phone I have lying around;
-2. Has to work with Github Pages-hosted sites;
-3. Has a per-page view count;
-4. Nice to have: geo info.
+
+  1. Has to run on an old Android phone I have lying around;
+  2. Has to work with Github Pages-hosted sites;
+  3. Has a per-page view count;
+  4. Nice to have: geo info.
 
 These requirements are deceivingly simple, as I quickly learned.
 
@@ -105,7 +104,7 @@ This lead me to the excruciating path of obtaining and using a verified SSL cert
 
 Once I figured out the SSL thing, the rest was pretty much a breeze.
 
-### Basis
+### Fundamentals
 
 I tried out a few different ideas when developing this, but the overall architecture is always the same:
 
@@ -173,7 +172,7 @@ Saying this is a "Google Analytics replacement" is like saying that a bicycle is
 
 This project, [android-analytics](https://github.com/lbrito1/android-analytics), is a bike.
 
-There's absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful -- you're offering free data to Google.
+There's absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful -- you're offering free data to Google. Someone has to keep the data, of course, but I'd argue that a decentralized approach is much safer and probably more ethical than data monopoly by a single huge advertising company.
 
 We generate tons of electronic waste all the time, so we might as well make better use of what processing power we have around us. Smartphones have amazing processing, networking and storage capabilities, yet for many reasons they turn old very quickly, which translates to getting sold (in the best case); shoved into oblivion in our designated cluttered drawer full of e-junk; or just discarded.
 
