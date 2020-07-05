@@ -3,6 +3,9 @@ title: Setting up a free HTTPS home server
 created_at: 2020-06-27 19:48:21 -0300
 kind: article
 published: true
+tags:
+- Web development
+- devops
 ---
 
 <%= render('/post_hero.*', src: '/blog/assets/images/2020/cool-background.png', alt: "", caption: "") %>

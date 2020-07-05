@@ -15,7 +15,6 @@
     <meta name="generator" content="Nanoc 4.11.16">
 
     <script src="../../assets/yall.min.js"></script>
-    <script src="../../assets/sane-tracker.js"></script>
   </head>
   <body>
     <div id="layout">
@@ -59,7 +58,7 @@
     <h1>Speeding Up the Backend with Graph Theory</h1>
     <article class="text">
       
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="speeding-up-backend-graph-theory.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt="">
@@ -87,7 +86,7 @@
 
 <p>A few months ago, we noticed that a particular and very important endpoint was very sluggish: While all the other endpoints of the same type had &lt;50ms latencies, this particular service took a leisurely 300 to 500ms to respond. Here’s a diagram of how that looked:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2019/0070-sadface-backend.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0070-sadface-backend.png" alt="">
@@ -105,7 +104,7 @@
 
 <p>Okay, now to a more serious diagram. Here’s what that endpoint looked like:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2019/0070-diagram.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0070-diagram.png" alt="">
@@ -130,7 +129,7 @@
 
 <p>With the help of <a href="https://ruby-prof.github.io">ruby-prof</a> (generate profile data) and <a href="https://kcachegrind.github.io">KCacheGrind</a> (view profile data), we were able to identify two methods, <code>#find_all</code> and <code>#encode</code>, that took a large portion of the CPU time:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2019/0070-profiler.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0070-profiler.png" alt="">
@@ -160,7 +159,7 @@
 
 <p>Before we dive into the first optimization, let’s first explain how exactly the encoding/decoding processing works. Here’s an overview of what they do:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2019/0071-decode-encode.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0071-decode-encode.png" alt="">
@@ -185,7 +184,7 @@
 
 <p>Let’s take a detailed look at the modification process:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2019/0072-decode-encode-detail.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0072-decode-encode-detail.png" alt="">
@@ -207,7 +206,7 @@
 
 <p>This optimization alone reduced the endpoint’s execution time by 30 percent. Here’s the execution time chart right after deploying the optimization:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2019/0073-result-optim-1.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0073-result-optim-1.png" alt="">
@@ -243,7 +242,7 @@
 
 <p>The truth lied somewhere in between those two extremes (thankfully for us, it leaned more towards the former rather than the latter). Here’s a chart of the amount of different paths we found over time (the two curves represent paths to two of the nodes we want to remove):</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2019/0070-paths-log.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0070-paths-log.png" alt="">
@@ -259,7 +258,7 @@
 
 <p>Without going into too much detail about that chart, just notice that it is <em>very logarithmic!</em> This is excellent for us, because it means that with a relatively small amount of paths we can find a very large percentage of the total nodes we want to find (and for the few we don’t, not finding them is okay). The next chart compares what we actually found (logarithmically growing paths) with the worst possible scenario mentioned previously:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2019/0070-worst-case.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0070-worst-case.png" alt="">
@@ -275,7 +274,7 @@
 
 <p>So, the second optimization was, in the end, also very simple: We simply collected a large enough amount of different paths and then traversed to them in logarithmic time instead of doing a full tree traversal that takes linear time to find the nodes we wanted to modify. This was responsible for a 300 percent speedup:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2019/0075-result-optim-2.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0075-result-optim-2.png" alt="">
@@ -301,7 +300,7 @@
 
 <p>Here’s a chart showing our execution time before and after we rolled out both optimizations:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2019/0076-final-results.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt="">
@@ -344,7 +343,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    fetch("https://android-analytics.duckdns.org/damn_fine_coffee", { method: "GET" });
+    fetch("https://android-analytics.duckdns.org/damn_fine_coffee");
   </script>
 
 

@@ -111,19 +111,29 @@ article img {
 .tag-button {
   border-radius: 6px; }
 
+.stretch img {
+  width: 100% !important; }
+
 .image-box {
   position: relative;
-  width: 100%;
   text-align: center; }
+  .image-box img {
+    width: auto; }
   .image-box .image-caption {
     color: #999;
     font-style: italic;
     text-align: center; }
 
+code {
+  background-color: #DDD; }
+
 .highlight {
   padding: 1px 20px;
   line-height: 1.5;
   background-color: #142850 !important; }
+  .highlight code {
+    background-color: #142850;
+    color: white; }
 
 @media only screen and (max-width: 480px) {
   .header {

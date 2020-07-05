@@ -170,9 +170,12 @@ article {
 
 .tag-button { border-radius: 6px; }
 
+.stretch {
+  img { width: 100% !important; }
+}
 .image-box {
+  img { width: auto; }
   position: relative;
-  width: 100%;
   text-align: center;
   .image-caption {
     color: $lightgrey;
@@ -182,7 +185,18 @@ article {
 }
 
 // Syntax highlighting
+// -- Inline
+code {
+  background-color: $third;
+}
+
+// -- Blocks
 .highlight {
+  code {
+    background-color: $secondary;
+    color: white;
+  }
+
   padding: 1px 20px;
   line-height: 1.5;
   background-color: $secondary !important;

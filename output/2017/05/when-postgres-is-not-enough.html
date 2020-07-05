@@ -15,7 +15,6 @@
     <meta name="generator" content="Nanoc 4.11.16">
 
     <script src="../../assets/yall.min.js"></script>
-    <script src="../../assets/sane-tracker.js"></script>
   </head>
   <body>
     <div id="layout">
@@ -70,7 +69,7 @@
 
 <p>Back to our concrete case: we had a massive and steadily-increasing set of highly normalized data on a RDB. Adding insult to injury, the input data was incredibly sparse, with batch-like data peaks followed by several hours with little activity. The data distribution made it clear that we would have to do some kind of pagination. The following figure shows our input data distribution, where the x-axis units represent 1 hour worth of data, and the y-axis represents the data count in that hour:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt="">
@@ -121,7 +120,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    fetch("https://android-analytics.duckdns.org/damn_fine_coffee", { method: "GET" });
+    fetch("https://android-analytics.duckdns.org/damn_fine_coffee");
   </script>
 
 
