@@ -1,6 +1,6 @@
 ---
 title: I replaced Google Analytics with a web server running on my phone
-created_at: 2020-07-01 14:45:40 -0300
+created_at: 2020-07-06 10:45:40 -0300
 kind: article
 published: true
 tags:
