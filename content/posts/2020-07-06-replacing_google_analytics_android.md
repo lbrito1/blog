@@ -9,7 +9,7 @@ tags:
 - termux
 ---
 
-<%= render('/post_hero.*', src: '/blog/assets/images/2020/diagram.png', alt: "", caption: "") %>
+<%= render('/post_hero.*', src: '/blog/assets/images/2020/simple_diagram.png', alt: "", caption: "") %>
 
 >**TLDR** I built [android-analytics](https://github.com/lbrito1/android-analytics), a web analytics tracker running on my phone.
 
@@ -164,7 +164,7 @@ When someone accesses one of my tracked pages, this is roughly what happens:
 5. A scheduled Cron job rotates Nginx logs and converts the "old" log into rows in a Postgresql table;
 6. I open `<my-android-local-ip>:3000` on my desktop's browser and view the charts, maps etc.
 
-The diagram at the beginning of the post shows those same steps, more or less:
+This diagram shows those same steps, more or less:
 
 <%= render('/image.*', src: '/blog/assets/images/2020/diagram.png', alt: "android-analytics diagram.", caption: "android-analytics diagram.") %>
 
