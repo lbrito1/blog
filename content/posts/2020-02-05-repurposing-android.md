@@ -3,6 +3,9 @@ title: Repurposing an old Android phone as a Ruby web server
 created_at: 2020-02-05 09:24:41 -0300
 kind: article
 published: true
+tags:
+- android
+- termux
 ---
 
 <%= render('/post_hero.*', src: '/blog/assets/images/2020/old-android.jpg', alt: "Old smartphones on a desk.", caption: "CC-BY Carlos Varela, https://www.flickr.com/photos/c32/7755470064") %>

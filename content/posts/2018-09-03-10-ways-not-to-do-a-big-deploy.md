@@ -8,7 +8,7 @@ excerpt: "Ideally, deploys should be small, concise and easily revertible. Howev
 categories:
 - Engineering
 tags:
-- Devops
+- devops
 ---
 
 Ideally, deploys should be small, concise, easily revertible, fast and with a small or nil footprint on the database. However, no matter how awesome you are, sometimes that is just unattainable and you end up needing to deploy something that is just the opposite: big, messy, hard to revert, painfully slow and rubbing the DB the wrong way. If the deploy messes with a mission-critical part of your software, all the worse for you.
