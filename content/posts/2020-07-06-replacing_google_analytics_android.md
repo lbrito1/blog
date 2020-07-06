@@ -168,14 +168,16 @@ The diagram at the beginning of the post shows those same steps, more or less:
 
 <%= render('/image.*', src: '/blog/assets/images/2020/diagram.png', alt: "android-analytics diagram.", caption: "android-analytics diagram.") %>
 
+I named the too (quite unimaginatively) android-analytics; code and set-up instructions are [available on Github](https://github.com/lbrito1/android-analytics).
+
 ## Conclusion
 
-Saying this is a "Google Analytics replacement" is like saying that a bicycle is a replacement for a truck. Sometimes you really need a truck, but a lot of times you just need to get from point A to point B, and a bike is more than enough. In fact, it is probably _better_: it is cheaper, easier to park and carry around, and has a smaller environmental footprint.
+I used the Google Analytics analogy because that's the tool that most people are familiar with, and most people will immediately understand what this thing is about, which probably wouldn't happen if instead of saying this was a "simple Google Analytics alternative", I said it was a "log-based web analytics tool".
 
-This project, [android-analytics](https://github.com/lbrito1/android-analytics), is a bike.
+But saying this is a "Google Analytics replacement" is like saying that a bicycle is a replacement for a truck. Although they are both transportation modes, they're different in every other aspect. The thing is: sometimes you really need a truck, but a lot of times you just need to get from point A to point B, and a bike is more than enough. In fact, it is probably _better_: it is cheaper, easier to park and carry around, and has a smaller environmental footprint. This project is a bike: for some people, that's all they will need.
 
-There's absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful -- you're offering free data to Google. Someone has to keep the data, of course, but I'd argue that a decentralized approach is much safer and probably more ethical than data monopoly by a single huge advertising company.
+There's absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful -- you're offering free data to Google in exchange for a fancy dashboard so you can play I'm-SEO-master-at-Adcorp-LLC. Someone has to keep the data, of course, but I'd argue that a decentralized approach is much safer and probably more ethical than data monopoly by a single huge advertising company.
 
-We generate tons of electronic waste all the time, so we might as well make better use of what processing power we have around us. Smartphones have amazing processing, networking and storage capabilities, yet for many reasons they turn old very quickly, which translates to getting sold (in the best case); shoved into oblivion in our designated cluttered drawer full of e-junk; or just discarded.
+So what are the alternatives? There are a few competitors -- we already discussed that in a [previous section](#the-lack-of-competition). But then we have all this processing power just lying around, free and unused; we might as well make better use of it. Smartphones have amazing processing, networking and storage capabilities, yet for many reasons they turn old very quickly, which translates to getting sold (in the best case); shoved into oblivion in our designated e-junk clutter drawer; or just discarded.
 
-I wish those two latter destinations were never the case. It is just sad that we have these tiny slabs of processing power that could [navigate Man to the Moon and back thousands of times over](https://www.realclearscience.com/articles/2019/07/02/your_mobile_phone_vs_apollo_11s_guidance_computer_111026.html), and we can't seem to quite find any better occupation for them other than sitting in a dusty drawer for years.
+It is just sad that we have these tiny slabs of processing power that could [navigate Man to the Moon and back thousands of times over](https://www.realclearscience.com/articles/2019/07/02/your_mobile_phone_vs_apollo_11s_guidance_computer_111026.html), and we can't seem to quite find any better occupation for them other than sitting in a dusty drawer for years or getting trashed. That is why even if it takes a little extra effort, I'd rather repurpose and reuse something I already own than subscribe to the fanciest new PaaS.

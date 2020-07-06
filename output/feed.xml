@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2020-07-01T17:45:40Z</updated>
+  <updated>2020-07-06T13:45:40Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
@@ -10,10 +10,10 @@
     <uri>https://lbrito1.github.io</uri>
   </author>
   <entry>
-    <id>tag:lbrito1.github.io,2020-07-01:/blog/2020/07/replacing_google_analytics_android.html</id>
+    <id>tag:lbrito1.github.io,2020-07-06:/blog/2020/07/replacing_google_analytics_android.html</id>
     <title type="html">I replaced Google Analytics with a web server running on my phone</title>
-    <published>2020-07-01T17:45:40Z</published>
-    <updated>2020-07-01T17:45:40Z</updated>
+    <published>2020-07-06T13:45:40Z</published>
+    <updated>2020-07-06T13:45:40Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/07/replacing_google_analytics_android.html" type="text/html"/>
     <content type="html">&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
@@ -272,17 +272,19 @@
   
 &lt;/div&gt;
 
+&lt;p&gt;I named the too (quite unimaginatively) android-analytics; code and set-up instructions are &lt;a href="https://github.com/lbrito1/android-analytics"&gt;available on Github&lt;/a&gt;.&lt;/p&gt;
+
 &lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
 
-&lt;p&gt;Saying this is a “Google Analytics replacement” is like saying that a bicycle is a replacement for a truck. Sometimes you really need a truck, but a lot of times you just need to get from point A to point B, and a bike is more than enough. In fact, it is probably &lt;em&gt;better&lt;/em&gt;: it is cheaper, easier to park and carry around, and has a smaller environmental footprint.&lt;/p&gt;
+&lt;p&gt;I used the Google Analytics analogy because that’s the tool that most people are familiar with, and most people will immediately understand what this thing is about, which probably wouldn’t happen if instead of saying this was a “simple Google Analytics alternative”, I said it was a “log-based web analytics tool”.&lt;/p&gt;
 
-&lt;p&gt;This project, &lt;a href="https://github.com/lbrito1/android-analytics"&gt;android-analytics&lt;/a&gt;, is a bike.&lt;/p&gt;
+&lt;p&gt;But saying this is a “Google Analytics replacement” is like saying that a bicycle is a replacement for a truck. Although they are both transportation modes, they’re different in every other aspect. The thing is: sometimes you really need a truck, but a lot of times you just need to get from point A to point B, and a bike is more than enough. In fact, it is probably &lt;em&gt;better&lt;/em&gt;: it is cheaper, easier to park and carry around, and has a smaller environmental footprint. This project is a bike: for some people, that’s all they will need.&lt;/p&gt;
 
-&lt;p&gt;There’s absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful – you’re offering free data to Google. Someone has to keep the data, of course, but I’d argue that a decentralized approach is much safer and probably more ethical than data monopoly by a single huge advertising company.&lt;/p&gt;
+&lt;p&gt;There’s absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful – you’re offering free data to Google in exchange for a fancy dashboard so you can play I’m-SEO-master-at-Adcorp-LLC. Someone has to keep the data, of course, but I’d argue that a decentralized approach is much safer and probably more ethical than data monopoly by a single huge advertising company.&lt;/p&gt;
 
-&lt;p&gt;We generate tons of electronic waste all the time, so we might as well make better use of what processing power we have around us. Smartphones have amazing processing, networking and storage capabilities, yet for many reasons they turn old very quickly, which translates to getting sold (in the best case); shoved into oblivion in our designated cluttered drawer full of e-junk; or just discarded.&lt;/p&gt;
+&lt;p&gt;So what are the alternatives? There are a few competitors – we already discussed that in a &lt;a href="#the-lack-of-competition"&gt;previous section&lt;/a&gt;. But then we have all this processing power just lying around, free and unused; we might as well make better use of it. Smartphones have amazing processing, networking and storage capabilities, yet for many reasons they turn old very quickly, which translates to getting sold (in the best case); shoved into oblivion in our designated e-junk clutter drawer; or just discarded.&lt;/p&gt;
 
-&lt;p&gt;I wish those two latter destinations were never the case. It is just sad that we have these tiny slabs of processing power that could &lt;a href="https://www.realclearscience.com/articles/2019/07/02/your_mobile_phone_vs_apollo_11s_guidance_computer_111026.html"&gt;navigate Man to the Moon and back thousands of times over&lt;/a&gt;, and we can’t seem to quite find any better occupation for them other than sitting in a dusty drawer for years.&lt;/p&gt;
+&lt;p&gt;It is just sad that we have these tiny slabs of processing power that could &lt;a href="https://www.realclearscience.com/articles/2019/07/02/your_mobile_phone_vs_apollo_11s_guidance_computer_111026.html"&gt;navigate Man to the Moon and back thousands of times over&lt;/a&gt;, and we can’t seem to quite find any better occupation for them other than sitting in a dusty drawer for years or getting trashed. That is why even if it takes a little extra effort, I’d rather repurpose and reuse something I already own than subscribe to the fanciest new PaaS.&lt;/p&gt;
 </content>
   </entry>
   <entry>
