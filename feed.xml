@@ -18,9 +18,9 @@
     <content type="html">&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/2020/07/replacing_google_analytics_android.html" target="_blank"&gt;
-      &lt;img class="lazy" data-src="/blog/assets/images/2020/diagram.png" alt=""&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/simple_diagram.png" alt=""&gt;
       &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2020/diagram.png" alt="Alternative text to describe image."&gt;
+        &lt;img src="/blog/assets/images/2020/simple_diagram.png" alt="Alternative text to describe image."&gt;
       &lt;/noscript&gt;
     &lt;/a&gt;
   &lt;/div&gt;
@@ -256,7 +256,7 @@
   &lt;li&gt;I open &lt;code&gt;&amp;lt;my-android-local-ip&amp;gt;:3000&lt;/code&gt; on my desktop’s browser and view the charts, maps etc.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The diagram at the beginning of the post shows those same steps, more or less:&lt;/p&gt;
+&lt;p&gt;This diagram shows those same steps, more or less:&lt;/p&gt;
 
 &lt;div class="image-box stretch"&gt;
   &lt;div&gt;
