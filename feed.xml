@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2020-06-27T22:48:21Z</updated>
+  <updated>2020-07-06T13:45:40Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
@@ -10,12 +10,290 @@
     <uri>https://lbrito1.github.io</uri>
   </author>
   <entry>
+    <id>tag:lbrito1.github.io,2020-07-06:/blog/2020/07/replacing_google_analytics_android.html</id>
+    <title type="html">I replaced Google Analytics with a web server running on my phone</title>
+    <published>2020-07-06T13:45:40Z</published>
+    <updated>2020-07-06T13:45:40Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2020/07/replacing_google_analytics_android.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/2020/07/replacing_google_analytics_android.html" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/diagram.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/diagram.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt; I built &lt;a href="https://github.com/lbrito1/android-analytics"&gt;android-analytics&lt;/a&gt;, a web analytics tracker running on my phone.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Say you run a blog, personal website, small-time business page or something of the sorts. Say you also want to keep an eye on how many visitors you’re getting.&lt;/p&gt;
+
+&lt;p&gt;The first thing that most people think at this point is “Google Analytics”. It mostly works and is free. Its also hosted by Google, which makes it very easy to start using. There aren’t many competitors that bring those points to the table, so Google Analytics usually wins by WO at this point.&lt;/p&gt;
+
+&lt;p&gt;I used to use Google Analytics to track this blog for those same reasons. But after finding out about &lt;a href="https://termux.com"&gt;Termux&lt;/a&gt; and writing &lt;a href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html"&gt;this post&lt;/a&gt; about installing a web server on an Android phone, I started toying with the idea that I had this ARM-based, 2GB RAM, Linux-like device with Internet connectivity which must be more than enough for a simple webcounter-like application. After a few weeks of tinkering, here it is!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="table-of-contents"&gt;Table of Contents&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="#table-of-contents"&gt;Table of Contents&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+&lt;a href="#motivation"&gt;Motivation&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#why-even-keep-anything"&gt;Why even keep anything?&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#and-then-there-is-the-data"&gt;And then there is the data&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#the-lack-of-competition"&gt;The (lack of) competition&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+&lt;a href="#developing-android-analytics"&gt;Developing android-analytics&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#basis"&gt;Basis&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#first-iteration-sinatra-webapp"&gt;First iteration: Sinatra webapp&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#second-iteration-nginx-log-parser"&gt;Second iteration: Nginx log parser&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#third-iteration-adding-a-viewer"&gt;Third iteration: Adding a viewer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#fourth-iteration-adding-an-installation-script"&gt;Fourth iteration: Adding an installation script&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#final-architecture"&gt;Final architecture&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href="#conclusion"&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+
+&lt;h3 id="why-even-keep-anything"&gt;Why even keep anything?&lt;/h3&gt;
+
+&lt;p&gt;Before going into this whole thing, there’s a very reasonable question to be answered: why do I even need to collect this data?&lt;/p&gt;
+
+&lt;p&gt;The answer is simple: I really don’t, I just enjoy seeing it. Call it a &lt;a href="https://techcrunch.com/2011/07/30/vanity-metrics/"&gt;vanity metric&lt;/a&gt;, but I think its just &lt;em&gt;plain cool&lt;/em&gt; to know that someone half across the planet read something I wrote months ago (maybe it was just a crawler; I’ll take it either way).&lt;/p&gt;
+
+&lt;p&gt;It should be no surprise, then, that Google Analytics always felt immensely overkill.&lt;/p&gt;
+
+&lt;p&gt;Its heartwarming to know that some nerd from Bhutan read one of my posts in the wee hours of the morning, but that is pretty much all I’m interested in. I could care less about Acquisition Treemaps, Audience Cohort Analysis or Behavior Flow. I’m not making those up: they’re all real products available on Google Analytics. I have no idea of what any of those mean, yet I’m 100% sure I don’t need them.&lt;/p&gt;
+
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2020/visitor_count.jpeg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/visitor_count.jpeg" alt="Visitor counter from the 90s."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/visitor_count.jpeg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Visitor counter from the 90s.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;What I wanted was closer to the late 90s’ visitor count GIF above (minus the embarrassment of publicity) than to the unsightly “Intersitial online advertising network conglomerate SEO dashboard” feeling of Google Analytics:&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2020/ga.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/ga.png" alt="Google Analytics dashboard."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/ga.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Google Analytics dashboard.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;In short, I wanted to geek out, not do advertisement arbitrage.&lt;/p&gt;
+
+&lt;h3 id="and-then-there-is-the-data"&gt;And then there is the data&lt;/h3&gt;
+
+&lt;p&gt;As aforementioned, Google Analytics is great, free, &lt;em&gt;and hosted by Google&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;They keep your data. I have no idea of what they do with that data, or even what exactly it is that their tracker is sending to their servers (judging from the number of articles showing how to keep the payload below the cap of 8kb, it must be a lot).&lt;/p&gt;
+
+&lt;div class="image-box"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2020/ga_payload.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/ga_payload.png" alt="Google search results for 'google analytics payload size is too large'. 642,000 results."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/ga_payload.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;That's a lot of results.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;Apparently they often need over 8kb per request to feed their Lovecraftian “Audience Cohort Analysis” line of products. Fair enough, but I’m pretty sure that for my purposes, a several-kb payload is effectively using a sledgehammer to kill a fly.&lt;/p&gt;
+
+&lt;p&gt;By using Google Analytics I was willfully sending Google who-knows-what kind of data designed to build up people’s advertising profile. The page views of my blog probably didn’t help Google too much in that aspect, sure, but the principle of the whole thing still bothered me enough to do something about it.&lt;/p&gt;
+
+&lt;h3 id="the-lack-of-competition"&gt;The (lack of) competition&lt;/h3&gt;
+
+&lt;p&gt;There are a lot of software similar to Google Analytics out there. The most prominent is probably &lt;a href="https://matomo.org/"&gt;Matomo&lt;/a&gt;, often &lt;a href="https://hn.algolia.com/?dateRange=all&amp;amp;page=0&amp;amp;prefix=true&amp;amp;query=matomo&amp;amp;sort=byPopularity&amp;amp;type=story"&gt;posted on Hacker News&lt;/a&gt;. It is free, open source and self-hosted (with cloud offerings for a monthly fee).&lt;/p&gt;
+
+&lt;p&gt;I would happily use Matomo, but with it comes a conundrum:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Self-hosting implies I had to have some kind of publicly accessible Linux host, which would likely not be entirely free;&lt;/li&gt;
+  &lt;li&gt;Cloud-hosting comes with a subscription fee.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Those points are trivial if you’re running a lucrative business that &lt;em&gt;needs&lt;/em&gt; analytics, but paying for this service sounds ludicrous when all you want is simple visitor stats for a personal blog.&lt;/p&gt;
+
+&lt;h2 id="developing-android-analytics"&gt;Developing android-analytics&lt;/h2&gt;
+
+&lt;p&gt;These were the requirements I had for my tracker:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Has to run on an old Android phone I have lying around;&lt;/li&gt;
+  &lt;li&gt;Has to work with Github Pages-hosted sites;&lt;/li&gt;
+  &lt;li&gt;Has a per-page view count;&lt;/li&gt;
+  &lt;li&gt;Nice to have: geo info.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;These requirements are deceivingly simple, as I quickly learned.&lt;/p&gt;
+
+&lt;p&gt;Termux makes it really easy to run many kinds of software on your Android phone, and &lt;a href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html"&gt;I had already tinkered&lt;/a&gt; with web servers with Termux. For something as simple as a page view, this should be pretty straightforward.&lt;/p&gt;
+
+&lt;p&gt;I had also already registered a dynamic DNS subdomain pointing to my phone, so it was ready to accept incoming traffic from the Internet.&lt;/p&gt;
+
+&lt;p&gt;The first major roadblock I faced was getting my Android-hosted web server to communicate with Github Pages. After a couple of days of research, I finally learned that it is basically impossible to make a request from an HTTPS website (which Github Pages is) to an HTTP address (my Dynamic DNS’s subdomain). To summarize, you can make that work, but at the cost of having the client browser do something (like actively mark a “allow mixed content” checkbox somewhere in the browser’s flags/advanced options).&lt;/p&gt;
+
+&lt;p&gt;This lead me to the excruciating path of obtaining and using a verified SSL certificate in my Android phone with a Dynamic DNS subdomain. This took me long enough to want to write a separate &lt;a href="https://lbrito1.github.io/blog/2020/06/free_https_home_server.html"&gt;blog post&lt;/a&gt; about it. The TLDR here is that it is entirely possible to get a verified SSL cert for a Dynamic DNS subdomain – all of it entirely for free. Depending on your ISP, you’ll have different choices of SSL challenges, but if you’re able to receive TCP requests on port &lt;code&gt;443&lt;/code&gt;, it is possible to get the certificate for free.&lt;/p&gt;
+
+&lt;p&gt;Once I figured out the SSL thing, the rest was pretty much a breeze.&lt;/p&gt;
+
+&lt;h3 id="fundamentals"&gt;Fundamentals&lt;/h3&gt;
+
+&lt;p&gt;I tried out a few different ideas when developing this, but the overall architecture is always the same:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;JavaScript code in my tracked page calls the Android host;&lt;/li&gt;
+  &lt;li&gt;Android host saves that information in a database;&lt;/li&gt;
+  &lt;li&gt;Some graphical tool is used to parse that data into something viewable (charts etc).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="first-iteration-sinatra-webapp"&gt;First iteration: Sinatra webapp&lt;/h3&gt;
+
+&lt;p&gt;I started with a &lt;a href="http://sinatrarb.com/"&gt;Sinatra&lt;/a&gt; webapp with a single &lt;code&gt;POST&lt;/code&gt; endpoint that would receive a request from the tracked page and immediately save it in a Postgres database. I used Nginx as a reverse-proxy that handled traffic before passing it to Sinatra.&lt;/p&gt;
+
+&lt;p&gt;This approach had the merit of being simple to understand and reliable. Also, it worked.&lt;/p&gt;
+
+&lt;p&gt;But after watching it work for a few days, I realized that the whole webapp part was superfluous. Nginx logs all accesses by default, and the logs contain all the information I need: what page was requested, at what time and from what IP. This lead naturally to the second iteration.&lt;/p&gt;
+
+&lt;h3 id="second-iteration-nginx-log-parser"&gt;Second iteration: Nginx log parser&lt;/h3&gt;
+
+&lt;p&gt;Nginx provides flexible, per-endpoint logs: logs are activated for the endpoint that I want (&lt;code&gt;/damn_fine_coffee&lt;/code&gt;) and deactivated for everything else. This is important because the Internet is full of crawlers that annoyingly hit the root path &lt;code&gt;/&lt;/code&gt;, which obviously shouldn’t count as a page view. As I learned, the web is also surprisingly full of smartypants trying to make their way into &lt;code&gt;/tp-link&lt;/code&gt;, &lt;code&gt;/admin&lt;/code&gt; and so on; I also wanted to just ignore those.&lt;/p&gt;
+
+&lt;p&gt;The logs provided all the &lt;em&gt;data&lt;/em&gt; I needed, but I still needed to transform that &lt;em&gt;data&lt;/em&gt; into useful &lt;em&gt;information&lt;/em&gt;. I found out about &lt;a href="https://goaccess.io/"&gt;GoAccess&lt;/a&gt; on Hacker News, and, perhaps surprisingly, it worked out of the box with Termux:&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2020/goaccess.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/goaccess.png" alt="GoAccess dashboard with my Android-hosted data."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/goaccess.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;GoAccess dashboard with my Android-hosted data.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;At this point I could settle for GoAccess, but it didn’t seem to provide any geo info, which I always thought would be a cool feature, so I kept working on my own tool.&lt;/p&gt;
+
+&lt;p&gt;I configured Nginx to print CSV-like logs, and &lt;a href="https://github.com/lbrito1/android-analytics/blob/master/app/compiler.rb"&gt;wrote a parser&lt;/a&gt; that transforms those log entries into DB entries with geographic information provided by the excellent &lt;a href="https://github.com/alexreisner/geocoder"&gt;geocoder&lt;/a&gt; gem, and also annonymizes the request IPs using MD5 hashing. The final step was adding a cron entry to run the parser regularly.&lt;/p&gt;
+
+&lt;p&gt;At this point I was getting regular traffic converted to rows in a Postgresql table. I still needed a more convenient way to look at the data, though.&lt;/p&gt;
+
+&lt;h3 id="third-iteration-adding-a-viewer"&gt;Third iteration: Adding a viewer&lt;/h3&gt;
+
+&lt;p&gt;I initially thought about using &lt;a href="https://grafana.com/"&gt;Grafana&lt;/a&gt; as a visualization tool. Its free, easy to use, flexible and I was already familiar with it. Unfortunately Grafana doesn’t have binaries available for Termux (there’s an &lt;a href="https://github.com/termux/termux-packages/issues/4801"&gt;issue&lt;/a&gt; open in Termux’s repo requesting that), and I wasn’t feeling like trying to compile it manually.&lt;/p&gt;
+
+&lt;p&gt;Thankfully I found the &lt;a href="https://github.com/ankane/blazer"&gt;blazer&lt;/a&gt; gem, which has a very similar concept compared with Grafana: you write SQL queries and it transforms them into charts. That was exactly what I was looking for. The downside is that it requires a full-fledged Rails application to run, but I was okay with that trade-off.&lt;/p&gt;
+
+&lt;p&gt;Here’s how the data looks like right now:&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2020/android-analytics-screenshot.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/android-analytics-screenshot.png" alt="blazer gem dashboard."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/android-analytics-screenshot.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;blazer gem dashboard.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;h3 id="fourth-iteration-adding-an-installation-script"&gt;Fourth iteration: Adding an installation script&lt;/h3&gt;
+
+&lt;p&gt;So far I was playing by ear; I knew more or less how to reinstall the project on a new device, but I knew that after some time my memory would fade and the process would become a painstaking trial-and-error mess.&lt;/p&gt;
+
+&lt;p&gt;I first compiled all the steps needed for this to work in the repo’s README – it took a total of &lt;a href="https://github.com/lbrito1/android-analytics/commit/9487a54b37c727bdd60b7276469fc58a8fd0d47d#diff-04c6e90faac2675aa89e2176d2eec7d8"&gt;17 steps&lt;/a&gt; to get things running. Noticing that most of these steps could be automated, I wrote a &lt;a href="https://github.com/lbrito1/android-analytics/blob/master/bin/setup.sh"&gt;setup script&lt;/a&gt; that should do most of the work. I tested it in a separate Android device to make sure it works – hopefully it works for other people as well.&lt;/p&gt;
+
+&lt;h3 id="final-architecture"&gt;Final architecture&lt;/h3&gt;
+
+&lt;p&gt;When someone accesses one of my tracked pages, this is roughly what happens:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;JavaScript on that page calls my domain (provided for free by &lt;a href="https://www.duckdns.org/"&gt;DuckDNS&lt;/a&gt;);&lt;/li&gt;
+  &lt;li&gt;DuckDNS translates that address to my router’s most recent IP;&lt;/li&gt;
+  &lt;li&gt;My router receives that request and uses the NAT table to redirect it to my Android phone;&lt;/li&gt;
+  &lt;li&gt;On Android, Nginx receives the request and either logs it if the request comes from the right place (my list of tracked pages), or does nothing otherwise;&lt;/li&gt;
+  &lt;li&gt;A scheduled Cron job rotates Nginx logs and converts the “old” log into rows in a Postgresql table;&lt;/li&gt;
+  &lt;li&gt;I open &lt;code&gt;&amp;lt;my-android-local-ip&amp;gt;:3000&lt;/code&gt; on my desktop’s browser and view the charts, maps etc.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The diagram at the beginning of the post shows those same steps, more or less:&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2020/diagram.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2020/diagram.png" alt="android-analytics diagram."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2020/diagram.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;android-analytics diagram.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;I named the too (quite unimaginatively) android-analytics; code and set-up instructions are &lt;a href="https://github.com/lbrito1/android-analytics"&gt;available on Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I used the Google Analytics analogy because that’s the tool that most people are familiar with, and most people will immediately understand what this thing is about, which probably wouldn’t happen if instead of saying this was a “simple Google Analytics alternative”, I said it was a “log-based web analytics tool”.&lt;/p&gt;
+
+&lt;p&gt;But saying this is a “Google Analytics replacement” is like saying that a bicycle is a replacement for a truck. Although they are both transportation modes, they’re different in every other aspect. The thing is: sometimes you really need a truck, but a lot of times you just need to get from point A to point B, and a bike is more than enough. In fact, it is probably &lt;em&gt;better&lt;/em&gt;: it is cheaper, easier to park and carry around, and has a smaller environmental footprint. This project is a bike: for some people, that’s all they will need.&lt;/p&gt;
+
+&lt;p&gt;There’s absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful – you’re offering free data to Google in exchange for a fancy dashboard so you can play I’m-SEO-master-at-Adcorp-LLC. Someone has to keep the data, of course, but I’d argue that a decentralized approach is much safer and probably more ethical than data monopoly by a single huge advertising company.&lt;/p&gt;
+
+&lt;p&gt;So what are the alternatives? There are a few competitors – we already discussed that in a &lt;a href="#the-lack-of-competition"&gt;previous section&lt;/a&gt;. But then we have all this processing power just lying around, free and unused; we might as well make better use of it. Smartphones have amazing processing, networking and storage capabilities, yet for many reasons they turn old very quickly, which translates to getting sold (in the best case); shoved into oblivion in our designated e-junk clutter drawer; or just discarded.&lt;/p&gt;
+
+&lt;p&gt;It is just sad that we have these tiny slabs of processing power that could &lt;a href="https://www.realclearscience.com/articles/2019/07/02/your_mobile_phone_vs_apollo_11s_guidance_computer_111026.html"&gt;navigate Man to the Moon and back thousands of times over&lt;/a&gt;, and we can’t seem to quite find any better occupation for them other than sitting in a dusty drawer for years or getting trashed. That is why even if it takes a little extra effort, I’d rather repurpose and reuse something I already own than subscribe to the fanciest new PaaS.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
     <id>tag:lbrito1.github.io,2020-06-27:/blog/2020/06/free_https_home_server.html</id>
     <title type="html">Setting up a free HTTPS home server</title>
     <published>2020-06-27T22:48:21Z</published>
     <updated>2020-06-27T22:48:21Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/06/free_https_home_server.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box"&gt;
+    <content type="html">&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/2020/06/free_https_home_server.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/cool-background.png" alt=""&gt;
@@ -165,7 +443,7 @@ server {
     <published>2020-05-30T15:16:00Z</published>
     <updated>2020-05-30T15:16:00Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/05/communication.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box"&gt;
+    <content type="html">&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/2020/05/communication.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/bridge.jpg" alt="San Francisco Bay bridge."&gt;
@@ -229,7 +507,7 @@ server {
     <published>2020-05-16T19:48:00Z</published>
     <updated>2020-05-16T19:48:00Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/05/figuring_out_nvidia_x_linux.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box"&gt;
+    <content type="html">&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/2020/05/figuring_out_nvidia_x_linux.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart."&gt;
@@ -282,7 +560,7 @@ driver   : backport-iwlwifi-dkms - distro free&lt;/code&gt;&lt;/pre&gt;&lt;/div&
 
 &lt;p&gt;Another option is to pick the driver in the Additional Drivers tab of the &lt;code&gt;Softwares &amp;amp; Updates&lt;/code&gt; tool:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2020/2020-05-16-05-04.nvidia.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/2020-05-16-05-04.nvidia.png" alt="Nvidia proprietary driver option in Ubuntu's Additional Drivers menu."&gt;
@@ -298,7 +576,7 @@ driver   : backport-iwlwifi-dkms - distro free&lt;/code&gt;&lt;/pre&gt;&lt;/div&
 
 &lt;p&gt;Nvidia’s proprietary driver lets you choose if you want to use the dedicated or integrated GPU, which you can try setting:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2020/nvidia-setting.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/nvidia-setting.png" alt="Nvidia proprietary driver's GPU selection menu."&gt;
@@ -366,7 +644,7 @@ blacklist nvidia_modeset
 
 &lt;p&gt;Here’s a chart of my laptop’s power rate:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2020/power.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart."&gt;
@@ -398,7 +676,7 @@ blacklist nvidia_modeset
     <published>2020-02-05T12:24:41Z</published>
     <updated>2020-02-05T12:24:41Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box"&gt;
+    <content type="html">&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/2020/02/repurposing-android.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk."&gt;
@@ -495,7 +773,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;h2 id="hello-world"&gt;Hello world!&lt;/h2&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2020/android-web-server.jpg" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/android-web-server.jpg" alt="Puma and nginx running on a Motorola G5."&gt;
@@ -513,7 +791,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;You can simulate real-world usage through &lt;a href="https://www.joedog.org/siege-home/"&gt;&lt;code&gt;siege&lt;/code&gt;&lt;/a&gt;, a http load testing software. Here’s a screenshot of &lt;code&gt;siege&lt;/code&gt; running on my setup with 3 concurrent users (real tests would use bigger numbers):&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2020/siege.jpg" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal."&gt;
@@ -535,7 +813,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;Within a few hours of opening up the server, it was already being crawled by all sorts of things. Most are innocuous indexing robots, but some are definitively not so nice, like these two requests:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2020/scanners.jpg" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/scanners.jpg" alt="nginx logs showing port scanning attacks."&gt;
@@ -559,7 +837,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
     <updated>2019-11-06T22:29:15Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2019/11/speeding-up-backend-graph-theory.html" type="text/html"/>
     <content type="html">
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/2019/11/speeding-up-backend-graph-theory.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
@@ -587,7 +865,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;A few months ago, we noticed that a particular and very important endpoint was very sluggish: While all the other endpoints of the same type had &amp;lt;50ms latencies, this particular service took a leisurely 300 to 500ms to respond. Here’s a diagram of how that looked:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2019/0070-sadface-backend.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-sadface-backend.png" alt=""&gt;
@@ -605,7 +883,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;Okay, now to a more serious diagram. Here’s what that endpoint looked like:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2019/0070-diagram.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-diagram.png" alt=""&gt;
@@ -630,7 +908,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;With the help of &lt;a href="https://ruby-prof.github.io"&gt;ruby-prof&lt;/a&gt; (generate profile data) and &lt;a href="https://kcachegrind.github.io"&gt;KCacheGrind&lt;/a&gt; (view profile data), we were able to identify two methods, &lt;code&gt;#find_all&lt;/code&gt; and &lt;code&gt;#encode&lt;/code&gt;, that took a large portion of the CPU time:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2019/0070-profiler.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-profiler.png" alt=""&gt;
@@ -660,7 +938,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;Before we dive into the first optimization, let’s first explain how exactly the encoding/decoding processing works. Here’s an overview of what they do:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2019/0071-decode-encode.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0071-decode-encode.png" alt=""&gt;
@@ -685,7 +963,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;Let’s take a detailed look at the modification process:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2019/0072-decode-encode-detail.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0072-decode-encode-detail.png" alt=""&gt;
@@ -707,7 +985,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;This optimization alone reduced the endpoint’s execution time by 30 percent. Here’s the execution time chart right after deploying the optimization:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2019/0073-result-optim-1.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0073-result-optim-1.png" alt=""&gt;
@@ -743,7 +1021,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;The truth lied somewhere in between those two extremes (thankfully for us, it leaned more towards the former rather than the latter). Here’s a chart of the amount of different paths we found over time (the two curves represent paths to two of the nodes we want to remove):&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2019/0070-paths-log.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-paths-log.png" alt=""&gt;
@@ -759,7 +1037,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;Without going into too much detail about that chart, just notice that it is &lt;em&gt;very logarithmic!&lt;/em&gt; This is excellent for us, because it means that with a relatively small amount of paths we can find a very large percentage of the total nodes we want to find (and for the few we don’t, not finding them is okay). The next chart compares what we actually found (logarithmically growing paths) with the worst possible scenario mentioned previously:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2019/0070-worst-case.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0070-worst-case.png" alt=""&gt;
@@ -775,7 +1053,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;So, the second optimization was, in the end, also very simple: We simply collected a large enough amount of different paths and then traversed to them in logarithmic time instead of doing a full tree traversal that takes linear time to find the nodes we wanted to modify. This was responsible for a 300 percent speedup:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2019/0075-result-optim-2.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0075-result-optim-2.png" alt=""&gt;
@@ -801,7 +1079,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;Here’s a chart showing our execution time before and after we rolled out both optimizations:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/2019/0076-final-results.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
@@ -852,7 +1130,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;But why? What is not to like in our world of beautiful walled gardens? Surely it is better than those gross-looking Web 1.0 fan sites about some crappy GameBoy game, right? …Right?&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/fan_page_screenshot.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/fan_page_screenshot.png" alt="View of an old website about Pokemon"&gt;
@@ -989,7 +1267,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
     <published>2018-06-12T00:00:00Z</published>
     <updated>2018-06-12T00:00:00Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2018/06/working-remotely-in-a-non-remote-company.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box"&gt;
+    <content type="html">&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" alt=""&gt;
@@ -1267,7 +1545,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
     <link rel="alternate" href="https://lbrito1.github.io/blog/2017/06/how-a-Unix-CLI-tool-made-me-care-about-software-feedback.html" type="text/html"/>
     <content type="html">&lt;p&gt;Providing feedback is one of the most important parts of any software. Unfortunately, more often than not we tend to downplay or ignore the very simple yet crucial task of letting the user know what is going on. In this article I’ll use a short cautionary tale of how the lack of proper user feedback (and some laziness, I admit) almost cost me an entire HDD with years of personal data.&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/goiabada/1*RUsq0P9vGjQQvjpsbov09g.jpeg" alt=""&gt;
@@ -1325,7 +1603,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;p&gt;Back to our concrete case: we had a massive and steadily-increasing set of highly normalized data on a RDB. Adding insult to injury, the input data was incredibly sparse, with batch-like data peaks followed by several hours with little activity. The data distribution made it clear that we would have to do some kind of pagination. The following figure shows our input data distribution, where the x-axis units represent 1 hour worth of data, and the y-axis represents the data count in that hour:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt=""&gt;
@@ -1477,7 +1755,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
     <published>2015-10-28T22:01:29Z</published>
     <updated>2015-10-28T22:01:29Z</updated>
     <link rel="alternate" href="https://lbrito1.github.io/blog/2015/10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box"&gt;
+    <content type="html">&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt=""&gt;
@@ -1617,7 +1895,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/figure_1.png?w=300" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/figure_1.png?w=300" alt=""&gt;
@@ -1668,7 +1946,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;What would an “average case” look like? Hard to say; depend on what is average for your application. It might just be the case that sequences are the average case. Since we can’t define a “universal” average case and for the sake of simplicity, we will define the average case as a sequence of random numbers drawn from C’s rand() function (one might argue that this is actually the “best” case since on the long run the BST will “naturally” become quite reasonably balanced, but let’s not get picky about terminology).&lt;/p&gt;
 
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt=""&gt;
@@ -1691,7 +1969,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;Now let’s see in Figure 2 how the trees perform in our worst-case scenario:&lt;/p&gt;
 
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt=""&gt;
@@ -1710,7 +1988,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;Figure 2 reminds us why self-balancing trees were invented. BST quickly degenerated into a $latex O(n)$-time &lt;a href="%7B%%20link%20_posts/2014-02-14-3.markdown%20%%7D%7D"&gt;linked list&lt;/a&gt;, which made the other two trees’ performance invisible. Let’s use a log plot to see how well R&amp;amp;B and AVL performed:&lt;/p&gt;
 
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt=""&gt;
@@ -1731,7 +2009,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;The huge difference in performance between average and worst case are easily understood by looking at Figure 4. While BST height does increase more than the other trees’ height on the average case, they all have the same order of magnitude. Not on the worst case, though: BST height increases linearly while AVL and RB are clearly logarithmic.&lt;/p&gt;
 
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt=""&gt;
@@ -1751,7 +2029,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;p&gt;Figure 5 shows only Red-black and AVL heights. Note that they are close to the theoretical bounds, which suggests that our worst case is indeed a worst case. Take n = 80000 as an example: for the AVL tree we expect a height always smaller than $latex 1.44~log_{2}(80000) \approx 23.45$, while the observed was 20. For the Red-black tree, the upper bound is $latex log_{2}(n) \approx 32.57$, also close to the observed (30). Although these differences may seem big, they aren’t enough to significantly change observed search and insertion times (Figure 6). That’s what makes Big O so great!&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt=""&gt;
@@ -1768,7 +2046,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;Figure 5&lt;/p&gt;
 
 &lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt=""&gt;
@@ -1812,7 +2090,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;p&gt;Unlike AVL trees, Red-black trees have only two of rotations, left and right, depicted in the figure below:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/red_black_tree_rotation1.png?w=625" alt=""&gt;
@@ -1828,7 +2106,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;p&gt;As you may have figured, these rotations can potentially violate rules 3 and 4, so after each rotation we’ll have to check the resulting subtree nodes’ colors for violations. Let’s see some examples before going through the code:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/red_black_right_rotate.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/red_black_right_rotate.png" alt=""&gt;
@@ -1844,7 +2122,7 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 
 &lt;p&gt;Here we have a Red-black tree rooted on node &lt;strong&gt;W&lt;/strong&gt; (which is black). We then add &lt;strong&gt;M&lt;/strong&gt; to the tree. Since M &amp;lt; P &amp;lt; W, it is added as a left child of P. All new nodes are red², so rule 3 is violated (P is red and has a red child, M); thus, a right-rotate is performed on W (on our diagram, Y = W, X = P, alpha = M and the rest are null pointers). For convenience, the tree root is always painted black after each insertion (to avoid violation of rule 3). Let’s see another example, now with left rotation:&lt;/p&gt;
 
-&lt;div class="image-box"&gt;
+&lt;div class="image-box stretch"&gt;
   &lt;div&gt;
     &lt;a href="/blog/assets/images/codedeposit/2015/10/red_black_left_rotate.png" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/red_black_left_rotate.png" alt=""&gt;
@@ -2174,411 +2452,6 @@ codex &lt;span class="s1"&gt;'phrase'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/
 &lt;p&gt;So that’s that: we successfully used some of Ruby’s core metaprogramming tools, &lt;code&gt;method_missing&lt;/code&gt; and &lt;code&gt;define_method&lt;/code&gt;, to improve our little program. &lt;a href="https://github.com/lbrito1/ruby_textgen/tree/part-1"&gt;Full code&lt;/a&gt; is hosted on Github - please not that it may differ slightly from what is presented here for didactic reasons.&lt;/p&gt;
 
 &lt;p&gt;In the next installment we’ll continue to improve our DSL using more interesting Ruby features.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2014-04-21:/blog/2014/04/trees-part-ii-avl-tree.html</id>
-    <title type="html">Trees, Part II: AVL Tree</title>
-    <published>2014-04-21T19:37:30Z</published>
-    <updated>2014-04-21T19:37:30Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2014/04/trees-part-ii-avl-tree.html" type="text/html"/>
-    <content type="html">&lt;p&gt;Masters classes started a few weeks ago, taking their toll on my productivity here. Sorry about that!&lt;/p&gt;
-
-&lt;p&gt;So we (pardon the &lt;a href="http://en.wikipedia.org/wiki/Nosism"&gt;nosism&lt;/a&gt;, but I think it sounds less egocentric than writing “I” all the time) hinted at AVL trees back on our &lt;a href="%7B%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%%7D"&gt;Trees, Part I&lt;/a&gt; post. Specifically, we learned that:&lt;/p&gt;
-
-&lt;blockquote&gt;a binary search tree (BST), provides O(h) time search, insert and delete operations (h is the tree height.&lt;/blockquote&gt;
-
-&lt;p&gt;Linear time (O(h)) doesn’t sound very good - if h is close to n, we’ll have the same performance as a &lt;a href="%7B%%20link%20_posts/2014-02-14-3.markdown%20%%7D%7D"&gt;linked list&lt;/a&gt;. What if there were a way to bound the tree height to some sub-linear factor? As it turns out, there are several ways to do so, and the general idea of somehow keeping the tree height limited to a certain factor of the number of elements it holds is called height &lt;strong&gt;balancing&lt;/strong&gt;. Ergo we’ll want to look into (height) &lt;strong&gt;balanced/self-balancing binary search trees **(BBST)&lt;/strong&gt;. **&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;                      Burger
-
-
-                          M
-                        &lt;span class="nb"&gt;.&lt;/span&gt;   &lt;span class="nb"&gt;.&lt;/span&gt;
-                      &lt;span class="nb"&gt;.&lt;/span&gt;       &lt;span class="nb"&gt;.&lt;/span&gt;
-                    &lt;span class="nb"&gt;.&lt;/span&gt;           &lt;span class="nb"&gt;.&lt;/span&gt;
-                  &lt;span class="nb"&gt;.&lt;/span&gt;               &lt;span class="nb"&gt;.&lt;/span&gt;
-                E &lt;span class="nb"&gt;.&lt;/span&gt;                 P &lt;span class="nb"&gt;.&lt;/span&gt;
-              &lt;span class="nb"&gt;.&lt;/span&gt;     &lt;span class="nb"&gt;.&lt;/span&gt;                   &lt;span class="nb"&gt;.&lt;/span&gt;
-            &lt;span class="nb"&gt;.&lt;/span&gt;         &lt;span class="nb"&gt;.&lt;/span&gt;                   &lt;span class="nb"&gt;.&lt;/span&gt;
-          &lt;span class="nb"&gt;.&lt;/span&gt;             &lt;span class="nb"&gt;.&lt;/span&gt;                   &lt;span class="nb"&gt;.&lt;/span&gt;
-      D &lt;span class="nb"&gt;.&lt;/span&gt;                 I                   Y
-                        &lt;span class="nb"&gt;.&lt;/span&gt;
-                      &lt;span class="nb"&gt;.&lt;/span&gt;
-                    &lt;span class="nb"&gt;.&lt;/span&gt;
-                  &lt;span class="nb"&gt;.&lt;/span&gt;
-                F&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;em&gt;AVL tree&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Since binary search trees have at most two children, the best tree height (i.e. smallest) we can achieve is log2 n (n being the number of elements in the tree). There are &lt;a href="http://en.wikipedia.org/wiki/Self-balancing_binary_search_tree"&gt;several &lt;/a&gt;self-balancing BSTs developed over the years. It seems that up there in the US college professors tend to prefer the red-black tree when studying BBSTs, whilst over here AVL is preferred. In any case, AVL tree was the first BBST ever devised, so we’ll adopt it as our BBST model.&lt;/p&gt;
-
-&lt;p&gt;AVL trees (named after its two Soviet inventors Adelson-Velsky and Landis) use a series of &lt;strong&gt;rotations&lt;/strong&gt; to keep the tree balanced. To keep track of when a certain subtree rooted at some node needs to be rotated, we maintain (or calculate) a &lt;strong&gt;balance factor&lt;/strong&gt; variable for each node, which is the difference between the node’s left and right children’s heights, i.e.:&lt;/p&gt;
-
-&lt;p&gt;balance_factor(n) = n.left_child.height - n.right_child.height&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;AVL trees allow balance factors of -1, 0 or +1. That means that for any given node, the difference between the heights of its left and right subtrees will be at most 1. &lt;a href="http://lcm.csa.iisc.ernet.in/dsa/node112.html"&gt;Doing the math&lt;/a&gt; on that, it can be proven that AVL trees have at most height 1.44log n, which is pretty good sub-linear time.&lt;/p&gt;
-
-&lt;p&gt;So how we keep every node’s balance factor between -1 and 1? Suppose a node has +1 balance factor and we insert data on the node’s left subtree in such a way that now the node has a balance factor of +2. If we could re-arrange the elements inside the node’s child subtrees in a way that the root node now had zero balance, that would solve our problem. If we did so for each node in the path between the inserted node and the tree root (which we call &lt;strong&gt;branch&lt;/strong&gt;), we would guarantee the AVL property.&lt;/p&gt;
-
-&lt;p&gt;This re-arrangement we talk of is called tree rotation. The goal of a tree rotation is always the same: given an unbalanced (i.e. balance factor greater than 1 or smaller than -1) node n, re-arrange its children in a manner that preserves BST property and makes n balanced, ideally with perfect (zero) balance.&lt;/p&gt;
-
-&lt;p&gt;Although rotation is always the same, to facilitate implementation and learning literature splits it in two groups: left (+2) and (-2) right rotation, each with two subgroups: left-left/left-right and right-right/right-left. Left and right rotation are symmetrical, so we only need to focus on one of them.&lt;/p&gt;
-
-&lt;p&gt;Suppose a node X with children Z (to the left) and D (right) has balance factor +2. Suppose that both Z and D are roots to subtrees that maintain AVL property, i.e. all of their nodes have -1, 0 or +1 balance factor.&lt;/p&gt;
-
-&lt;p&gt;Depending on Z’s balance factor, we’ll need to do a left-left or a left-right rotation. Left-left (and its symmetrical right-right) rotations are the easiest, whilst in left-right rotations we first rotate the tree in a way that we can do a left-left rotation, so we end up doing two rotations to get a balanced tree.&lt;/p&gt;
-
-&lt;p&gt;There is no easier way to explain rotations than by drawing them. The following drawing can be found in the code, commented:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;  LEFT-RIGHT CASE        LEFT-LEFT CASE             BALANCED
-  &lt;span class="o"&gt;(&lt;/span&gt;Y bal &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;-1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;            &lt;span class="o"&gt;(&lt;/span&gt;Y bal &lt;span class="o"&gt;=&lt;/span&gt; +1&lt;span class="o"&gt;)&lt;/span&gt;
-
-       +2                      +2                    &lt;span class="o"&gt;(&lt;/span&gt;0&lt;span class="o"&gt;)&lt;/span&gt;
-          X                       X                      Z
-         / &lt;span class="se"&gt;\ &lt;/span&gt;                    / &lt;span class="se"&gt;\ &lt;/span&gt;                   /  &lt;span class="se"&gt;\&lt;/span&gt;
-    &lt;span class="nt"&gt;-1&lt;/span&gt;  /   D               +1  /   D                  /    &lt;span class="se"&gt;\&lt;/span&gt;
-       Y            &lt;span class="se"&gt;\ &lt;/span&gt;         Z              &lt;span class="se"&gt;\ &lt;/span&gt;      Y      X
-      / &lt;span class="se"&gt;\ &lt;/span&gt;       &lt;span class="nt"&gt;----&lt;/span&gt;&lt;span class="se"&gt;\ &lt;/span&gt;       / &lt;span class="se"&gt;\ &lt;/span&gt;         &lt;span class="nt"&gt;----&lt;/span&gt;&lt;span class="se"&gt;\ &lt;/span&gt;    / &lt;span class="se"&gt;\ &lt;/span&gt;   / &lt;span class="se"&gt;\&lt;/span&gt;
-     A   &lt;span class="se"&gt;\ &lt;/span&gt;      &lt;span class="nt"&gt;----&lt;/span&gt;/       /   C         &lt;span class="nt"&gt;----&lt;/span&gt;/    A   B  C   D
-          Z         /       Y                 /
-         / &lt;span class="se"&gt;\ &lt;/span&gt;              / &lt;span class="se"&gt;\&lt;/span&gt;
-        B   C             A   B&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Rotation may seem somewhat esoteric at first, but once you focus on what is going on with the main nodes (X,Y,Z) all the rest unfolds naturally. In the left-left rotation, Z is the value between X and Y, so naturally we want to choose him as the new root, replacing X. By doing that, Y continues to be Z’s left child, but X, which is greater than Z and was its parent before, now is its right child. The same logic applies to subchildren A through D. Once you understand the mechanism behind rotations, you won’t even need to memorize anything.&lt;/p&gt;
-
-&lt;p&gt;Right-right and right-left rotations are symmetrical. You can find their graphics in the code comments.&lt;/p&gt;
-
-&lt;p&gt;As we mentioned before, rotations are all we need to maintain AVL property: each time we insert a node, we check for AVL violations (i.e. balance factor = +2 or -2) bottom-up starting at the inserted node and ending at the tree root. A correctly implemented AVL tree will never have balance factors greater than +2 or smaller than -2 even before rotations, so those are the only two cases you need to check for.&lt;/p&gt;
-
-&lt;p&gt;Here’s an example of a left-right rotation:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;BEFORE INSERTING E
-
-                    Burger
-
-
-
-
-
-                        M
-                      &lt;span class="nb"&gt;.&lt;/span&gt;   &lt;span class="nb"&gt;.&lt;/span&gt;
-                    &lt;span class="nb"&gt;.&lt;/span&gt;       &lt;span class="nb"&gt;.&lt;/span&gt;
-                  &lt;span class="nb"&gt;.&lt;/span&gt;           &lt;span class="nb"&gt;.&lt;/span&gt;
-                &lt;span class="nb"&gt;.&lt;/span&gt;               &lt;span class="nb"&gt;.&lt;/span&gt;
-              I                   P
-            &lt;span class="nb"&gt;.&lt;/span&gt;
-          &lt;span class="nb"&gt;.&lt;/span&gt;
-        &lt;span class="nb"&gt;.&lt;/span&gt;
-    D &lt;span class="nb"&gt;.&lt;/span&gt;
-
-
-
-AFTER INSERTING I AND MAKING A LR ROTATION
-
-                           Burger
-
-
-
-
-
-                               M
-                             &lt;span class="nb"&gt;.&lt;/span&gt;   &lt;span class="nb"&gt;.&lt;/span&gt;
-                           &lt;span class="nb"&gt;.&lt;/span&gt;       &lt;span class="nb"&gt;.&lt;/span&gt;
-                         &lt;span class="nb"&gt;.&lt;/span&gt;           &lt;span class="nb"&gt;.&lt;/span&gt;
-                       &lt;span class="nb"&gt;.&lt;/span&gt;               &lt;span class="nb"&gt;.&lt;/span&gt;
-                     E &lt;span class="nb"&gt;.&lt;/span&gt;                 P
-                   &lt;span class="nb"&gt;.&lt;/span&gt;     &lt;span class="nb"&gt;.&lt;/span&gt;
-                 &lt;span class="nb"&gt;.&lt;/span&gt;         &lt;span class="nb"&gt;.&lt;/span&gt;
-               &lt;span class="nb"&gt;.&lt;/span&gt;             &lt;span class="nb"&gt;.&lt;/span&gt;
-           D &lt;span class="nb"&gt;.&lt;/span&gt;                 I&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;And here’s a right-right rotation after inserting ‘T’:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;BEFORE
-               Burger
-
-
-
-
-
-                   I
-                 &lt;span class="nb"&gt;.&lt;/span&gt;   &lt;span class="nb"&gt;.&lt;/span&gt;
-               &lt;span class="nb"&gt;.&lt;/span&gt;       &lt;span class="nb"&gt;.&lt;/span&gt;
-             &lt;span class="nb"&gt;.&lt;/span&gt;           &lt;span class="nb"&gt;.&lt;/span&gt;
-           &lt;span class="nb"&gt;.&lt;/span&gt;               &lt;span class="nb"&gt;.&lt;/span&gt;
-         G                   O &lt;span class="nb"&gt;.&lt;/span&gt;
-                           &lt;span class="nb"&gt;.&lt;/span&gt;     &lt;span class="nb"&gt;.&lt;/span&gt;
-                         &lt;span class="nb"&gt;.&lt;/span&gt;         &lt;span class="nb"&gt;.&lt;/span&gt;
-                       &lt;span class="nb"&gt;.&lt;/span&gt;             &lt;span class="nb"&gt;.&lt;/span&gt;
-                   N &lt;span class="nb"&gt;.&lt;/span&gt;                 R
-
-
-
-
-AFTER
-                        Burger
-
-
-
-
-
-                            O
-                          &lt;span class="nb"&gt;.&lt;/span&gt;   &lt;span class="nb"&gt;.&lt;/span&gt;
-                        &lt;span class="nb"&gt;.&lt;/span&gt;       &lt;span class="nb"&gt;.&lt;/span&gt;
-                      &lt;span class="nb"&gt;.&lt;/span&gt;           &lt;span class="nb"&gt;.&lt;/span&gt;
-                    &lt;span class="nb"&gt;.&lt;/span&gt;               &lt;span class="nb"&gt;.&lt;/span&gt;
-                  I &lt;span class="nb"&gt;.&lt;/span&gt;                 R &lt;span class="nb"&gt;.&lt;/span&gt;
-                &lt;span class="nb"&gt;.&lt;/span&gt;     &lt;span class="nb"&gt;.&lt;/span&gt;                   &lt;span class="nb"&gt;.&lt;/span&gt;
-              &lt;span class="nb"&gt;.&lt;/span&gt;         &lt;span class="nb"&gt;.&lt;/span&gt;                   &lt;span class="nb"&gt;.&lt;/span&gt;
-            &lt;span class="nb"&gt;.&lt;/span&gt;             &lt;span class="nb"&gt;.&lt;/span&gt;                   &lt;span class="nb"&gt;.&lt;/span&gt;
-        G &lt;span class="nb"&gt;.&lt;/span&gt;                 N                   T&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Compiling the code with _DEBUGGING and _VERBOSE defined renders a very comprehensive analysis of what’s going on before, during and after each insert and rotation. If you’re learing AVL it can be a very useful tool - just run the test several times and look at what rotations are being made, and how they work. Just look at the output.&lt;/p&gt;
-
-&lt;p&gt;I’m not going to bother with full code this time, given that the nature of rotations makes the code extremely obnoxious both to implement, debug and even look at, mainly because of all the pointer swapping business with C. In Java it would probably look much nicer.&lt;/p&gt;
-
-&lt;p&gt;Just so you have an idea, this is what a left rotation looks like:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-c"&gt;&lt;span class="c1"&gt;// LEFT ROTATION&lt;/span&gt;
-      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;bal&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="c1"&gt;// LEFT-RIGHT&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;bal&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="p"&gt;{&lt;/span&gt;
-                  &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"LR ROTATION..."&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-                  &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-                  &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-                  &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-            &lt;span class="c1"&gt;// LEFT-LEFT&lt;/span&gt;
-
-            &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"LL ROTATION&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-            &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-            &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"XYZ = %c, %c, %c&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-            &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-
-            &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="p"&gt;{&lt;/span&gt;
-                  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-                        &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
-                        &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-            &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-
-            &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;
-                  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;fmax&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;
-                  &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;
-                  &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-            &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;
-                  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;fmax&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;
-                  &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;
-                  &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-            &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fmax&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-      &lt;span class="p"&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Not nice at all!&lt;/p&gt;
-
-&lt;p&gt;We are, however, going to take a brief look at the rebalance function, which does the basic housekeeping after each insertion and calls the appropriate rotation.&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-c"&gt;&lt;span class="cm"&gt;/**
- *  @brief Recalculate heights in all nodes
- *  affected by a insertion, i.e. every node
- *  in the branch traversed during insertion.
- *
- *  After recalculating lheight and rheight
- *  of a node, calculte balance (lh-rh) and
- *  call the apropriate rotation case if
- *  bal = -2 or +2. bal should always an
- *  element of the set {-2, -1, 0, 1, 2}.
- *
- *  Should be called after insertion.
- *
- *                ------------
- *                |   COST   |
- *                ------------
- *
- *  O(log n) worst case
- *
- *  Rebalance is called each time an insertion
- *  is done, and receives the inserted node
- *  as parameter. Of course, the inserted node
- *  is always a leaf (before the rotations).
- *
- *  In a balanced BST, the difference between
- *  any two leaves' depth (distance to tree root)
- *  is at most some constant k: in AVL trees, k
- *  is at most 1 - whenever k exceeds 1, we rotate
- *  the subtree.
- *
- *  Therefore the AVL tree is guaranteed to have
- *  height h = log2 n, where n is the number of
- *  elements currently in the tree. The loop in
- *  this function will repeat at most log2 n
- *  times, resulting in O(log n) worst case time.
- *
- *
- *  @param [in] bt   Parameter_Description
- *  @param [in] leaf Parameter_Description
- *  @return Return_Description
- */&lt;/span&gt;
-&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;rebalance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;binary_tree&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;bt&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;leaf&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-      &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s"&gt;STARTED CHECKING NODE %d (%c)&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;=====================&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-      &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;leaf&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;leaf&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-      &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;branch_h&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;leaf&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-      &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;node in path %d (%c)&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;-----------------&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-            &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;branch_h&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="p"&gt;{&lt;/span&gt;
-                  &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;branch_h&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Node %d new height: %d&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-
-
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="p"&gt;{&lt;/span&gt;
-                  &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;lh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;lh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;left_child&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;rh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;right_child&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;height&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-
-                  &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;bal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;lh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rh&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Node %d (%c)&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s"&gt;lh=%d, rh=%d&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s"&gt;BAL = %d&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                  &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lh&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;rh&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;bal&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-
-
-
-            &lt;span class="cp"&gt;#ifdef _VERBOSE
-&lt;/span&gt;            &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;====================&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;Before rotate&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;=============&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="n"&gt;clean_burger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;burg&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="n"&gt;print_tree&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;burg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;bt&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="n"&gt;print_burger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;burg&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="cp"&gt;#endif
-&lt;/span&gt;
-            &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;new_subtree_root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rotate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_subtree_root&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="p"&gt;{&lt;/span&gt;
-                  &lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;new_subtree_root&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-
-            &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;bt&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="p"&gt;{&lt;/span&gt;
-                  &lt;span class="n"&gt;bt&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                  &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"R %d&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-                  &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-
-            &lt;span class="cp"&gt;#ifdef _VERBOSE
-&lt;/span&gt;            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;new_subtree_root&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-            &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;====================&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;After rotate&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;=============&lt;/span&gt;&lt;span class="se"&gt;\n\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="n"&gt;clean_burger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;burg&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="n"&gt;print_tree&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;burg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;bt&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="n"&gt;print_burger&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;burg&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-            &lt;span class="cp"&gt;#endif
-&lt;/span&gt;
-            &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Finished checking node %d (%c), now checking "&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;parent&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s"&gt;node %d (%c)&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;DBG&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"(NULL - finished branch)&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-
-            &lt;span class="n"&gt;branch_h&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;The main while loop starts at the inserted node (leaf) and repeats until it reaches the tree root. The most important thing done here is updating each node’s height, which makes it possible to calculate node balance factor later. This is done in the first and second if, respectively. After the new balance factor is calculated, the node is passed to the rotate function, which decides based on its balance factor if it needs any of the four rotations. After the rotation, the tree root might have changed, so we make sure we keep the correct root (node* new_subtree_root and the subsequent while loop). Finally, if debugging is defined, we print the tree using &lt;a href="%7B%%20link%20_posts/2014-03-18-burgergfx-simple-2d-graphics.markdown%20%%7D"&gt;BurgerGFX&lt;/a&gt; and increment the loop (i.e. next = next-&amp;gt;parent and branch_height++).&lt;/p&gt;
-
-&lt;p&gt;You can see how this works by using the debug flags. For example, in the right-right rotation we showed above (inserting ‘T’ into the tree), here’s the console output which shows us what’s going on in the rebalance function:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;STARTED CHECKING NODE 84 &lt;span class="o"&gt;(&lt;/span&gt;T&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;=====================&lt;/span&gt;
-
-
-node &lt;span class="k"&gt;in &lt;/span&gt;path 84 &lt;span class="o"&gt;(&lt;/span&gt;T&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="nt"&gt;-----------------&lt;/span&gt;
-Node 84 &lt;span class="o"&gt;(&lt;/span&gt;T&lt;span class="o"&gt;)&lt;/span&gt;     &lt;span class="nv"&gt;lh&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0, &lt;span class="nv"&gt;rh&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0      BAL &lt;span class="o"&gt;=&lt;/span&gt; 0
-
-ROTATING NODE 84 &lt;span class="o"&gt;(&lt;/span&gt;T&lt;span class="o"&gt;)&lt;/span&gt;... R 73
-Finished checking node 84 &lt;span class="o"&gt;(&lt;/span&gt;T&lt;span class="o"&gt;)&lt;/span&gt;, now checking     node 82 &lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt;
-
-node &lt;span class="k"&gt;in &lt;/span&gt;path 82 &lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="nt"&gt;-----------------&lt;/span&gt;
-Node 82 new height: 1
-Node 82 &lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt;     &lt;span class="nv"&gt;lh&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0, &lt;span class="nv"&gt;rh&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1      BAL &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;-1&lt;/span&gt;
-
-ROTATING NODE 82 &lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt;... R 73
-Finished checking node 82 &lt;span class="o"&gt;(&lt;/span&gt;R&lt;span class="o"&gt;)&lt;/span&gt;, now checking     node 79 &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o"&gt;)&lt;/span&gt;
-
-node &lt;span class="k"&gt;in &lt;/span&gt;path 79 &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="nt"&gt;-----------------&lt;/span&gt;
-Node 79 new height: 2
-Node 79 &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o"&gt;)&lt;/span&gt;     &lt;span class="nv"&gt;lh&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1, &lt;span class="nv"&gt;rh&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;2      BAL &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;-1&lt;/span&gt;
-
-ROTATING NODE 79 &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o"&gt;)&lt;/span&gt;... R 73
-Finished checking node 79 &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o"&gt;)&lt;/span&gt;, now checking     node 73 &lt;span class="o"&gt;(&lt;/span&gt;I&lt;span class="o"&gt;)&lt;/span&gt;
-
-node &lt;span class="k"&gt;in &lt;/span&gt;path 73 &lt;span class="o"&gt;(&lt;/span&gt;I&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="nt"&gt;-----------------&lt;/span&gt;
-Node 73 new height: 3
-Node 73 &lt;span class="o"&gt;(&lt;/span&gt;I&lt;span class="o"&gt;)&lt;/span&gt;     &lt;span class="nv"&gt;lh&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1, &lt;span class="nv"&gt;rh&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;3      BAL &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;-2&lt;/span&gt;
-
-ROTATING NODE 73 &lt;span class="o"&gt;(&lt;/span&gt;I&lt;span class="o"&gt;)&lt;/span&gt;... RR ROTATION
-
-R 73    R 79
-Finished checking node 79 &lt;span class="o"&gt;(&lt;/span&gt;O&lt;span class="o"&gt;)&lt;/span&gt;, now checking &lt;span class="o"&gt;(&lt;/span&gt;NULL - finished branch&lt;span class="o"&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;You may have noticed we didn’t mention deletion. Correct - I chose not to implement it. Full code can be found on github.&lt;/p&gt;
-
 </content>
   </entry>
 </feed>

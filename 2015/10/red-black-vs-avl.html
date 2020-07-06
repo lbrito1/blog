@@ -15,7 +15,6 @@
     <meta name="generator" content="Nanoc 4.11.16">
 
     <script src="../../assets/yall.min.js"></script>
-    <script src="../../assets/sane-tracker.js"></script>
   </head>
   <body>
     <div id="layout">
@@ -69,7 +68,7 @@
 <p>What would an “average case” look like? Hard to say; depend on what is average for your application. It might just be the case that sequences are the average case. Since we can’t define a “universal” average case and for the sake of simplicity, we will define the average case as a sequence of random numbers drawn from C’s rand() function (one might argue that this is actually the “best” case since on the long run the BST will “naturally” become quite reasonably balanced, but let’s not get picky about terminology).</p>
 
 <p>:————————-:|:————————-:</p>
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt="">
@@ -92,7 +91,7 @@
 <p>Now let’s see in Figure 2 how the trees perform in our worst-case scenario:</p>
 
 <p>:————————-:|:————————-:</p>
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt="">
@@ -111,7 +110,7 @@
 <p>Figure 2 reminds us why self-balancing trees were invented. BST quickly degenerated into a $latex O(n)$-time <a href="%7B%%20link%20_posts/2014-02-14-3.markdown%20%%7D%7D">linked list</a>, which made the other two trees’ performance invisible. Let’s use a log plot to see how well R&amp;B and AVL performed:</p>
 
 <p>:————————-:|:————————-:</p>
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt="">
@@ -132,7 +131,7 @@
 <p>The huge difference in performance between average and worst case are easily understood by looking at Figure 4. While BST height does increase more than the other trees’ height on the average case, they all have the same order of magnitude. Not on the worst case, though: BST height increases linearly while AVL and RB are clearly logarithmic.</p>
 
 <p>:————————-:|:————————-:</p>
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt="">
@@ -152,7 +151,7 @@
 
 <p>Figure 5 shows only Red-black and AVL heights. Note that they are close to the theoretical bounds, which suggests that our worst case is indeed a worst case. Take n = 80000 as an example: for the AVL tree we expect a height always smaller than $latex 1.44~log_{2}(80000) \approx 23.45$, while the observed was 20. For the Red-black tree, the upper bound is $latex log_{2}(n) \approx 32.57$, also close to the observed (30). Although these differences may seem big, they aren’t enough to significantly change observed search and insertion times (Figure 6). That’s what makes Big O so great!</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt="">
@@ -169,7 +168,7 @@
 <p>Figure 5</p>
 
 <p>:————————-:|:————————-:</p>
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt="">
@@ -204,7 +203,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    fetch("https://android-analytics.duckdns.org/damn_fine_coffee", { method: "GET" });
+    fetch("https://android-analytics.duckdns.org/damn_fine_coffee");
   </script>
 
 

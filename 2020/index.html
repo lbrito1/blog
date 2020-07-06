@@ -15,7 +15,6 @@
     <meta name="generator" content="Nanoc 4.11.16">
 
     <script src="../assets/yall.min.js"></script>
-    <script src="../assets/sane-tracker.js"></script>
   </head>
   <body>
     <div id="layout">
@@ -65,7 +64,7 @@
 
 
       <article class="text">
-          <div class="image-box">
+          <div class="image-box stretch">
   <div>
     <a href="05/communication.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/bridge.jpg" alt="San Francisco Bay bridge.">
@@ -93,6 +92,12 @@
         </div>
         <div class="post-tags">
           
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/career">career</a>
+            
+            </div>
+          
         </div>
       </article>
     </div>
@@ -103,7 +108,7 @@
 
 
       <article class="text">
-          <div class="image-box">
+          <div class="image-box stretch">
   <div>
     <a href="02/repurposing-android.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk.">
@@ -133,6 +138,14 @@
         </div>
         <div class="post-tags">
           
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/android">android</a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/termux">termux</a>
+            
+            </div>
+          
         </div>
       </article>
     </div>
@@ -143,7 +156,7 @@
 
 
       <article class="text">
-          <div class="image-box">
+          <div class="image-box stretch">
   <div>
     <a href="06/free_https_home_server.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/cool-background.png" alt="">
@@ -175,6 +188,14 @@
         </div>
         <div class="post-tags">
           
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/Web development">web development</a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/devops">devops</a>
+            
+            </div>
+          
         </div>
       </article>
     </div>
@@ -185,7 +206,7 @@
 
 
       <article class="text">
-          <div class="image-box">
+          <div class="image-box stretch">
   <div>
     <a href="05/figuring_out_nvidia_x_linux.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart.">
@@ -227,6 +248,58 @@
       </article>
     </div>
   
+    <div class="post-index pure-u-1-1">
+      <h2><a href="07/replacing_google_analytics_android.html">I replaced Google Analytics with a web server running on my phone</a></h2>
+      <aside class="">Jul 06, 2020</aside>
+
+
+      <article class="text">
+          <div class="image-box stretch">
+  <div>
+    <a href="07/replacing_google_analytics_android.html" target="_blank">
+      <img class="lazy" data-src="/blog/assets/images/2020/diagram.png" alt="">
+      <noscript>
+        <img src="../blog/assets/images/2020/diagram.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<blockquote>
+  <p><strong>TLDR</strong> I built <a href="https://github.com/lbrito1/android-analytics">android-analytics</a>, a web analytics tracker running on my phone.</p>
+</blockquote>
+
+<p>Say you run a blog, personal website, small-time business page or something of the sorts. Say you also want to keep an eye on how many visitors you’re getting.</p>
+
+<p>The first thing that most people think at this point is “Google Analytics”. It mostly works and is free. Its also hosted by Google, which makes it very easy to start using. There aren’t many competitors that bring those points to the table, so Google Analytics usually wins by WO at this point.</p>
+
+<p>I used to use Google Analytics to track this blog for those same reasons. But after finding out about <a href="https://termux.com">Termux</a> and writing <a href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html">this post</a> about installing a web server on an Android phone, I started toying with the idea that I had this ARM-based, 2GB RAM, Linux-like device with Internet connectivity which must be more than enough for a simple webcounter-like application. After a few weeks of tinkering, here it is!</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="07/replacing_google_analytics_android.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/Web development">web development</a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/android">android</a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/termux">termux</a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
 </div>
 
 
@@ -240,7 +313,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    fetch("https://android-analytics.duckdns.org/damn_fine_coffee", { method: "GET" });
+    fetch("https://android-analytics.duckdns.org/damn_fine_coffee");
   </script>
 
 

@@ -15,7 +15,6 @@
     <meta name="generator" content="Nanoc 4.11.16">
 
     <script src="../../assets/yall.min.js"></script>
-    <script src="../../assets/sane-tracker.js"></script>
   </head>
   <body>
     <div id="layout">
@@ -58,7 +57,7 @@
   <div class="post-show">
     <h1>Figuring out the Nvidia x Linux puzzle</h1>
     <article class="text">
-      <div class="image-box">
+      <div class="image-box stretch">
   <div>
     <a href="figuring_out_nvidia_x_linux.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart.">
@@ -111,7 +110,7 @@ driver   : backport-iwlwifi-dkms - distro free</code></pre></div>
 
 <p>Another option is to pick the driver in the Additional Drivers tab of the <code>Softwares &amp; Updates</code> tool:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2020/2020-05-16-05-04.nvidia.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/2020-05-16-05-04.nvidia.png" alt="Nvidia proprietary driver option in Ubuntu's Additional Drivers menu.">
@@ -127,7 +126,7 @@ driver   : backport-iwlwifi-dkms - distro free</code></pre></div>
 
 <p>Nvidia’s proprietary driver lets you choose if you want to use the dedicated or integrated GPU, which you can try setting:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2020/nvidia-setting.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/nvidia-setting.png" alt="Nvidia proprietary driver's GPU selection menu.">
@@ -195,7 +194,7 @@ blacklist nvidia_modeset
 
 <p>Here’s a chart of my laptop’s power rate:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2020/power.png" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart.">
@@ -237,7 +236,7 @@ blacklist nvidia_modeset
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    fetch("https://android-analytics.duckdns.org/damn_fine_coffee", { method: "GET" });
+    fetch("https://android-analytics.duckdns.org/damn_fine_coffee");
   </script>
 
 

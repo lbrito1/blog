@@ -15,7 +15,6 @@
     <meta name="generator" content="Nanoc 4.11.16">
 
     <script src="../../assets/yall.min.js"></script>
-    <script src="../../assets/sane-tracker.js"></script>
   </head>
   <body>
     <div id="layout">
@@ -58,7 +57,7 @@
   <div class="post-show">
     <h1>Repurposing an old Android phone as a Ruby web server</h1>
     <article class="text">
-      <div class="image-box">
+      <div class="image-box stretch">
   <div>
     <a href="repurposing-android.html" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk.">
@@ -155,7 +154,7 @@ gem <span class="nb">install </span>sinatra puma</code></pre></div>
 
 <h2 id="hello-world">Hello world!</h2>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2020/android-web-server.jpg" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/android-web-server.jpg" alt="Puma and nginx running on a Motorola G5.">
@@ -173,7 +172,7 @@ gem <span class="nb">install </span>sinatra puma</code></pre></div>
 
 <p>You can simulate real-world usage through <a href="https://www.joedog.org/siege-home/"><code>siege</code></a>, a http load testing software. Here’s a screenshot of <code>siege</code> running on my setup with 3 concurrent users (real tests would use bigger numbers):</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2020/siege.jpg" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal.">
@@ -195,7 +194,7 @@ gem <span class="nb">install </span>sinatra puma</code></pre></div>
 
 <p>Within a few hours of opening up the server, it was already being crawled by all sorts of things. Most are innocuous indexing robots, but some are definitively not so nice, like these two requests:</p>
 
-<div class="image-box">
+<div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/2020/scanners.jpg" target="_blank">
       <img class="lazy" data-src="/blog/assets/images/2020/scanners.jpg" alt="nginx logs showing port scanning attacks.">
@@ -228,7 +227,7 @@ gem <span class="nb">install </span>sinatra puma</code></pre></div>
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    fetch("https://android-analytics.duckdns.org/damn_fine_coffee", { method: "GET" });
+    fetch("https://android-analytics.duckdns.org/damn_fine_coffee");
   </script>
 
 
