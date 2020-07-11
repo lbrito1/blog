@@ -2,11 +2,12 @@
 $dark: #000;
 $lightgrey: #999;
 $secondary: #142850;
-$third: #DDD;
+$third: #E6E6E6;
+$code-dark: #232528;
 $color-hyperlink: #FD5200;
 
 $font-main: "Arial";
-$font-title: "Times";
+$font-alt: "Mono";
 
 $content-width: 768px;
 
@@ -16,23 +17,8 @@ a {
   // text-decoration-style: dashed;
 }
 
-// Ideas
-// h2 {
-//   background-color: $secondary;
-//   font-family: monospace;
-//   color: white;
-//   padding: 12px;
-// }
-// h3 {
-//   font-weight: 400;
-//   background-color: $third;
-//   font-family: monospace;
-//   color: $dark;
-//   padding: 10px;
-// }
-
 aside {
-  font-family:  $font-title;
+  font-family:  $font-alt;
 }
 
 body {
@@ -80,7 +66,7 @@ body {
   h1 {
     margin: 0.2em 0;
     font-weight: 300;
-    font-family: $font-title;
+    font-family: $font-alt;
     line-height: 1em;
   }
   a {
@@ -93,7 +79,7 @@ body {
     border-bottom: 1px solid $lightgrey;
     margin-bottom: 1em;
     a {
-      font-family:  $font-main;
+      font-family:  $font-alt;
       color: $dark;
     }
 
@@ -123,7 +109,9 @@ body {
   }
   h2 a {
     color: $dark;
+    font-family: $font-alt;
     line-height: 1em;
+    font-size: 110%;
     padding-top: 10px;
     font-weight: 400;
   }
@@ -155,10 +143,21 @@ body {
 
 // Post (Show)
 .post-show {
-  h1 {
+  h2 {
     text-align: left;
-    color: $dark;
+    font-family: $font-alt;
+    // color: $dark;
     font-weight: 400;
+    // background-color: $third;
+    // color: white;
+    // padding: 12px;
+  }
+  h3 {
+    font-weight: 400;
+    // background-color: $third;
+    font-family: $font-alt;
+    // color: $dark;
+    // padding: 10px;
   }
   aside {
     font-style: italic;
@@ -171,7 +170,10 @@ body {
 
 blockquote {
   font-style: italic;
-  background-color: $third;
+  border-radius: 1px;
+  background-color: #EFEFEF;
+  border: 1px solid #7A82AB;
+  margin: 0 0;
   padding: 1px 16px;
 }
 
@@ -206,13 +208,13 @@ code {
 // -- Blocks
 .highlight {
   code {
-    background-color: $secondary;
+    background-color: $code-dark;
     color: white;
   }
 
   padding: 1px 20px;
   line-height: 1.5;
-  background-color: $secondary !important;
+  background-color: $code-dark !important;
 }
 
 // Responsive media queries

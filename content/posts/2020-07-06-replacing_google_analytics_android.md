@@ -24,7 +24,6 @@ I used to use Google Analytics to track this blog for those same reasons. But af
 
 ## Table of Contents
 
-* [Table of Contents](#table-of-contents)
 * [Motivation](#motivation)
    * [Why even keep anything?](#why-even-keep-anything)
    * [And then there is the data](#and-then-there-is-the-data)
