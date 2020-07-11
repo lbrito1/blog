@@ -3,7 +3,7 @@ a {
   text-decoration: none; }
 
 aside {
-  font-family: "Times"; }
+  font-family: "Mono"; }
 
 body {
   color: #222;
@@ -40,7 +40,7 @@ body {
   .header h1 {
     margin: 0.2em 0;
     font-weight: 300;
-    font-family: "Times";
+    font-family: "Mono";
     line-height: 1em; }
   .header a {
     color: #000; }
@@ -50,7 +50,7 @@ body {
     border-bottom: 1px solid #999;
     margin-bottom: 1em; }
     .header nav a {
-      font-family: "Arial";
+      font-family: "Mono";
       color: #000; }
     .header nav .contact {
       float: right; }
@@ -69,7 +69,9 @@ body {
     margin: 10px 0; }
   .post-index h2 a {
     color: #000;
+    font-family: "Mono";
     line-height: 1em;
+    font-size: 110%;
     padding-top: 10px;
     font-weight: 400; }
   .post-index h2 {
@@ -88,10 +90,13 @@ body {
   .post-index .post-meta {
     text-align: right; }
 
-.post-show h1 {
+.post-show h2 {
   text-align: left;
-  color: #000;
+  font-family: "Mono";
   font-weight: 400; }
+.post-show h3 {
+  font-weight: 400;
+  font-family: "Mono"; }
 .post-show aside {
   font-style: italic;
   color: #999; }
@@ -100,7 +105,10 @@ body {
 
 blockquote {
   font-style: italic;
-  background-color: #DDD;
+  border-radius: 1px;
+  background-color: #EFEFEF;
+  border: 1px solid #7A82AB;
+  margin: 0 0;
   padding: 1px 16px; }
 
 article img {
@@ -123,14 +131,14 @@ article img {
     text-align: center; }
 
 code {
-  background-color: #DDD; }
+  background-color: #E6E6E6; }
 
 .highlight {
   padding: 1px 20px;
   line-height: 1.5;
-  background-color: #142850 !important; }
+  background-color: #232528 !important; }
   .highlight code {
-    background-color: #142850;
+    background-color: #232528;
     color: white; }
 
 @media only screen and (max-width: 480px) {
