@@ -2,13 +2,94 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2020-07-06T13:45:40Z</updated>
+  <updated>2021-08-20T11:53:10Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2021-08-20:/blog/2021/08/efficient_resource_distribution.html</id>
+    <title type="html">Efficient resource distribution</title>
+    <published>2021-08-20T11:53:10Z</published>
+    <updated>2021-08-20T11:53:10Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2021/08/efficient_resource_distribution.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/2021/08/efficient_resource_distribution.html" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2021/resource-distribution.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2021/resource-distribution.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt; A simple metrics-based ranking system is good enough to decide who gets how many resources.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Computational resources – CPU time, memory usage, network traffic etc – are limited. This may be more or less of a problem depending on project/company size and so on; if you’re working on a smaller product with limited traffic, it might not be meaningful at all.&lt;/p&gt;
+
+&lt;p&gt;Once past a certain threshold though, expenses with such resources become non-trivial and it begins to make sense to spend some time thinking about how to distribute them as efficiently as possible.&lt;/p&gt;
+
+&lt;p&gt;Here’s the problem that got me thinking about this: at work, we had a computational resource that needed to be consumed by a large fleet of workers (think several thousand concurrent), but each &lt;em&gt;type&lt;/em&gt; of worker had different &lt;em&gt;productivity&lt;/em&gt;, and that productivity changed over time. How can we decide who gets what?&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;So the problem is: you have a set of &lt;em&gt;consumers&lt;/em&gt; that use the &lt;em&gt;same resource&lt;/em&gt;, for which you have a static budget. The consumers all solve the same problem, more or less (i.e. have the same &lt;em&gt;output&lt;/em&gt;), but come in different &lt;em&gt;types&lt;/em&gt; that have different &lt;em&gt;productivities&lt;/em&gt; (defined as &lt;em&gt;output per resource consumption&lt;/em&gt;). Additionally, although the consumer types solve the same problem, we want consumers to be as diverse as possible – we can’t just pick the best performing one and go with that.&lt;/p&gt;
+
+&lt;p&gt;First thought that comes to mind is &lt;em&gt;this seems ordinary enough; there must be an easy, well-known solution&lt;/em&gt;. There might be, but I couldn’t find any that was simple and effective for this use case. Closest I got were &lt;a href="https://www.wikiwand.com/en/PID_controller"&gt;PID controllers&lt;/a&gt;, which solve a similar problem, but 1) probably doesn’t solve the entire problem here, and 2) seems complicated.&lt;/p&gt;
+
+&lt;p&gt;I gave the problem some thought and came up with a reasonable solution that has been working well for a year now.&lt;/p&gt;
+
+&lt;p&gt;The problem boils down to two parts:
+1) Consistently keeping track of productivity among the different consumer types;
+2) Deciding how to share the resource among the consumers.&lt;/p&gt;
+
+&lt;p&gt;The concept that glues both parts is that of the &lt;em&gt;cycle&lt;/em&gt; – a repeating time period in which we measure productivity and distribute resources to be shared within that time frame, until the next cycle comes up and everything is recalculated.&lt;/p&gt;
+
+&lt;p&gt;Problem 1) boils down to maintaining a time series of how much output per resource each consumer type produced during the latest cycle.&lt;/p&gt;
+
+&lt;p&gt;Problem 2) comes almost as a corollary to the former problem: we want the best global output possible, and that can be guessed by using the productivity stats from the previous cycle. This won’t be perfect, because productivity varies over time within each consumer type, but basic &lt;a href="https://www.wikiwand.com/en/Volatility_clustering"&gt;statistic intuition&lt;/a&gt; says it will be good enough for our purposes.&lt;/p&gt;
+
+&lt;p&gt;So the first step of solving 2) is building a &lt;em&gt;ranking of consumers by productivity&lt;/em&gt;. We want a diverse set of consumer types, though, so we can’t just pick &lt;code&gt;type #1&lt;/code&gt; and give it 100% of the resources all the time. Also, the ranking might change each cycle, and we don’t want resource distribution to be too volatile – that might become hard to monitor and debug. We want something that is somewhat smooth, stable, convergent, but at the same time that reflects changes in productivity as quickly as possible, and that delivers good global output-per-resource-consumption.&lt;/p&gt;
+
+&lt;p&gt;We know that the top tier within the ranking probably deserves more than the the rest, while the bottom tier probably deserves less, and that is the gist of the solution to problem 2). We don’t know beforehand how each consumer will perform though, so it makes sense to start with equal resource distribution among them.&lt;/p&gt;
+
+&lt;p&gt;Here’s the complete solution I worked out:&lt;/p&gt;
+
+&lt;p&gt;Start the system by sharing an equal amount of resources among all consumers: let’s say every consumer has the same weight &lt;em&gt;W&lt;sub&gt;0&lt;/sub&gt;&lt;/em&gt;.
+For each cycle:
+1. Build the productivity-per-consumer-class ranking
+2. For the top &lt;em&gt;N%&lt;/em&gt; consumers, do &lt;em&gt;W += K&lt;/em&gt; (limited to a certain maximum)
+3. For the bottom &lt;em&gt;N%&lt;/em&gt; consumers, do &lt;em&gt;W -= K&lt;/em&gt; (limited to a certain minimum)
+4. Translate each &lt;em&gt;W&lt;/em&gt; to a real-world resource amount (e.g. “1GB RAM” or something). This involves the weights as well as the global resource budget per time cycle, such that we guarantee we won’t exceed the static budget.&lt;/p&gt;
+
+&lt;p&gt;The global sum of weights is kept more or less the same because we’re summing and subtracting the same amounts each cycle (although this isn’t perfect because we have min and max values), so the system is kept fairly stable over time while also reacting quickly to changes in productivity. Also, the system is robust, and blowing up the weights store is no big deal – weights will creep back to their previous values over a short time.&lt;/p&gt;
+
+&lt;p&gt;To finalize, here’s a chart showing the weights of different types of consumers over the last few months:&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2021/grafana.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2021/grafana.jpg" alt="Dashboard showing a chart with several colored lines representing the weights of each consumer class."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2021/grafana.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Consumer class weights over time.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2020-07-06:/blog/2020/07/replacing_google_analytics_android.html</id>
     <title type="html">I replaced Google Analytics with a web server running on my phone</title>
@@ -2267,190 +2348,6 @@ Final result:
 &lt;p&gt;And now we’re done! With only 2 classes (Grammar and Rule) and 1 additional file that defines a DSL (lero.rb), we were able to build a CFG-like text generator with the most important CFG properties.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href="https://github.com/lbrito1/ruby_textgen"&gt;Full code&lt;/a&gt; is available in the same repository.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2015-09-11:/blog/2015/09/ruby-dsl-metaprogramming-part-i.html</id>
-    <title type="html">Ruby DSL &amp; metaprogramming, part I</title>
-    <published>2015-09-11T21:30:30Z</published>
-    <updated>2015-09-11T21:30:30Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2015/09/ruby-dsl-metaprogramming-part-i.html" type="text/html"/>
-    <content type="html">&lt;p&gt;I’ve been working with Ruby for nearly a year now, which means I’m starting to feel the urge to tell people how awesome the language is. One of the most interesting aspects of Ruby to me is &lt;a href="https://en.wikipedia.org/wiki/Metaprogramming"&gt;metaprogramming&lt;/a&gt;, which it seems to have quite a vocation for.&lt;/p&gt;
-
-&lt;p&gt;Since college I have a fondness for automata and formal languages theory. One of the topics I particularly like is text generation (if you haven’t already, check out the excellent &lt;a href="http://pdos.csail.mit.edu/scigen/"&gt;SCIgen&lt;/a&gt; and the &lt;a href="http://dev.null.org/dadaengine/"&gt;Dada engine&lt;/a&gt;), so I thought that building a Context-free grammar (CFG)-like text generator in Ruby would be a nice little exercise and an opportunity to use some of the language’s coolest features. Also I’ve implemented one of those using Java several years ago, and it was &lt;em&gt;a mess&lt;/em&gt;, so I was curious as to how much of an improvement would Ruby offer.&lt;/p&gt;
-
-&lt;p&gt;Suppose the following script:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="n"&gt;dictionary&lt;/span&gt; &lt;span class="s1"&gt;'noun'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'dog'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'bus'&lt;/span&gt;
-&lt;span class="n"&gt;dictionary&lt;/span&gt; &lt;span class="s1"&gt;'verb'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'barked'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'parked'&lt;/span&gt;
-&lt;span class="n"&gt;dictionary&lt;/span&gt; &lt;span class="s1"&gt;'preposition'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'at'&lt;/span&gt;
-
-&lt;span class="n"&gt;rule&lt;/span&gt; &lt;span class="s1"&gt;'phrase'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'noun'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'verb'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'preposition'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'noun'&lt;/span&gt;
-
-&lt;span class="n"&gt;codex&lt;/span&gt; &lt;span class="s1"&gt;'phrase'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;We’d like &lt;code&gt;dictionary&lt;/code&gt; to store some words according to their classes, and &lt;code&gt;rule&lt;/code&gt; to define a specific ordering of words. For now let’s not worry about &lt;code&gt;codex&lt;/code&gt; (it’s just a collection of rules).&lt;/p&gt;
-
-&lt;p&gt;At this point the seasoned programmer is mentally sketching some kind of text parser. It’s an okay solution, but isn’t there something &lt;em&gt;nicer&lt;/em&gt; we can do? Well, there is: &lt;a href="https://en.wikipedia.org/wiki/Domain-specific_language"&gt;DSL&lt;/a&gt;s! In fact, Ruby is quite an excellent tool to build a DSL, and many famed Ruby-powered applications such as Rspec (and &lt;a href="http://www.leighhalliday.com/creating-ruby-dsl"&gt;many others&lt;/a&gt;) define some kind of DSL.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;Conveniently enough, our little script is actually valid Ruby code (Ruby doesn’t care for parenthesis or semicolons). So lets define the dictionary, rule and codex methods:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="c1"&gt;#!/usr/bin/env ruby&lt;/span&gt;
-&lt;span class="nb"&gt;require_relative&lt;/span&gt; &lt;span class="s1"&gt;'grammar'&lt;/span&gt;
-&lt;span class="nb"&gt;require_relative&lt;/span&gt; &lt;span class="s1"&gt;'dictionary'&lt;/span&gt;
-&lt;span class="nb"&gt;require_relative&lt;/span&gt; &lt;span class="s1"&gt;'rule'&lt;/span&gt;
-&lt;span class="nb"&gt;require_relative&lt;/span&gt; &lt;span class="s1"&gt;'codex'&lt;/span&gt;
-
-&lt;span class="vi"&gt;@grammar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;Grammar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;new&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;dictionary&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;
-  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Read dictionary with: &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-  &lt;span class="no"&gt;Dictionary&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;add&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;values&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;rule&lt;/span&gt; &lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;
-  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Read rule with: &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-  &lt;span class="vi"&gt;@grammar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;rules&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;Rule&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;new&lt;/span&gt; &lt;span class="n"&gt;keys&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;codex&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;rulenames&lt;/span&gt;
-  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Read codex with: &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;rulenames&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-  &lt;span class="vi"&gt;@grammar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;codex&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;Codex&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;new&lt;/span&gt; &lt;span class="n"&gt;rulenames&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;
-
-&lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="s1"&gt;'script.le'&lt;/span&gt;
-&lt;span class="vi"&gt;@grammar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;generate&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Notice the asterisks in the method definitions; they’re called splat operators (good reference &lt;a href="http://jacopretorius.net/2012/01/splat-operator-in-ruby.html"&gt;here&lt;/a&gt; and &lt;a href="https://endofline.wordpress.com/2011/01/21/the-strange-ruby-splat/"&gt;here&lt;/a&gt;). Splats are useful for several things; in our case, we’d like each dictionary entry to have one &lt;em&gt;key&lt;/em&gt; (e.g. ‘noun’) and several &lt;em&gt;values&lt;/em&gt;: splat takes an arbitrary number of arguments and slurps them into one variable.&lt;/p&gt;
-
-&lt;p&gt;So the basic structure is: a &lt;code&gt;Grammar&lt;/code&gt; has one &lt;code&gt;Dictionary&lt;/code&gt; and several &lt;code&gt;Rules&lt;/code&gt; and &lt;code&gt;Codices&lt;/code&gt;. Text is generated by going running each codex, which applies each of its rules, which combines words together. Simple enough. Here’s what output looks like:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;lbrito@lbrito:~/Documents/ruby_textgen&lt;span class="nv"&gt;$ &lt;/span&gt;ruby lero.rb
-Read dictionary with: noun &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"dog"&lt;/span&gt;, &lt;span class="s2"&gt;"bus"&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
-Read dictionary with: verb &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"barked"&lt;/span&gt;, &lt;span class="s2"&gt;"parked"&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
-Read dictionary with: preposition &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"at"&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
-Read rule with: phrase &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"noun"&lt;/span&gt;, &lt;span class="s2"&gt;"verb"&lt;/span&gt;, &lt;span class="s2"&gt;"preposition"&lt;/span&gt;, &lt;span class="s2"&gt;"noun"&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
-Read codex with: &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;"phrase"&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
-Codex is applying phrase
-Applying rule with key: noun
-Fetching noun from dictionary
-Applying rule with key: verb
-Fetching verb from dictionary
-Applying rule with key: preposition
-Fetching preposition from dictionary
-Applying rule with key: noun
-Fetching noun from dictionary
-Final result:
-&lt;span class="o"&gt;=======&lt;/span&gt;
-bus barked at dog
-&lt;span class="o"&gt;=======&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Nonsensical, but still pretty cool.&lt;/p&gt;
-
-&lt;p&gt;Let’s take a look at our DSL script for a while. It works fine, but isn’t very &lt;a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself"&gt;DRY&lt;/a&gt;. Wouldn’t it be nice to add some structure and be less repetitious? Let’s try to define Dictionary and Rule entries as functions:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;dictionary
-  noun &lt;span class="s1"&gt;'dog'&lt;/span&gt;, &lt;span class="s1"&gt;'bus'&lt;/span&gt;
-  verb &lt;span class="s1"&gt;'barked'&lt;/span&gt;, &lt;span class="s1"&gt;'parked'&lt;/span&gt;
-  preposition &lt;span class="s1"&gt;'at'&lt;/span&gt;
-
-rule
-  phrase &lt;span class="s1"&gt;'noun'&lt;/span&gt;, &lt;span class="s1"&gt;'verb'&lt;/span&gt;, &lt;span class="s1"&gt;'preposition'&lt;/span&gt;, &lt;span class="s1"&gt;'noun'&lt;/span&gt;
-
-codex &lt;span class="s1"&gt;'phrase'&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Much better. But what if we wanted different nouns to belong in different dictionary entries, say, &lt;code&gt;animal_nouns&lt;/code&gt; and &lt;code&gt;vehicle_nouns&lt;/code&gt;? Are we supposed to define every possible word class as a separate method? That’s not very DRY!&lt;/p&gt;
-
-&lt;p&gt;Here’s where things start getting beautiful: Ruby has a method called &lt;code&gt;method_missing&lt;/code&gt; (good material &lt;a href="http://rubylearning.com/satishtalim/ruby_method_missing.html"&gt;here&lt;/a&gt; and &lt;a href="http://www.alef1.org/ruby/method_missing/"&gt;here&lt;/a&gt;), which by default raises a NoMethodError, but can be overridden to do some cool stuff. Let’s leverage the power of &lt;code&gt;method_missing&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="o"&gt;...&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;dictionary&lt;/span&gt;
-  &lt;span class="vi"&gt;@state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:dictionary&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;rule&lt;/span&gt;
-  &lt;span class="vi"&gt;@state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:rule&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;codex&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;rulenames&lt;/span&gt;
-  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Read codex with: &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;rulenames&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-  &lt;span class="vi"&gt;@grammar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;codex&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;Codex&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;new&lt;/span&gt; &lt;span class="n"&gt;rulenames&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;
-
-&lt;span class="vi"&gt;@state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:idle&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;method_missing&lt;/span&gt; &lt;span class="nb"&gt;method&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;block&lt;/span&gt;
-  &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="vi"&gt;@state&lt;/span&gt;
-  &lt;span class="k"&gt;when&lt;/span&gt; &lt;span class="ss"&gt;:dictionary&lt;/span&gt;
-    &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Read dictionary with: &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="nb"&gt;method&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-    &lt;span class="no"&gt;Dictionary&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;add&lt;/span&gt; &lt;span class="nb"&gt;method&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;
-  &lt;span class="k"&gt;when&lt;/span&gt; &lt;span class="ss"&gt;:rule&lt;/span&gt;
-    &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Read rule with: &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="nb"&gt;method&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-    &lt;span class="vi"&gt;@grammar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;rules&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;method&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;Rule&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;new&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="k"&gt;when&lt;/span&gt; &lt;span class="ss"&gt;:idle&lt;/span&gt;
-  &lt;span class="k"&gt;else&lt;/span&gt;
-    &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Boom! Something went wrong. I don't know what to do with &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="vi"&gt;@state&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;."&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Now &lt;code&gt;method_missing&lt;/code&gt; captures undefined methods and the appropriate entries are created depending on which function was last called (i.e. &lt;code&gt;dictionary&lt;/code&gt; or &lt;code&gt;rule&lt;/code&gt;). This relieves us from defining methods for &lt;code&gt;noun&lt;/code&gt;, &lt;code&gt;verb&lt;/code&gt;, etc. Pretty great, but we can do better. We still have some very trivial-looking method definitions in our DSL:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;dictionary&lt;/span&gt;
-  &lt;span class="vi"&gt;@state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:dictionary&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;rule&lt;/span&gt;
-  &lt;span class="vi"&gt;@state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:rule&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;What if we decide later on to add some new functionality to our DSL that works analogously to rules and dictionaries? We’d have to write more method definitions that just set the @&lt;code&gt;state&lt;/code&gt; variable. Once more, Ruby offers us some DRYing magic: we can dynamically define methods just as if they were objects.&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="o"&gt;...&lt;/span&gt;
-
-&lt;span class="sx"&gt;%w'rule dictionary'&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;each&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;keyword&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
-  &lt;span class="n"&gt;define_method&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;keyword&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="vi"&gt;@state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;keyword&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_sym&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;The resulting methods are identical to the ones we defined statically with &lt;code&gt;def&lt;/code&gt;. This may not seem like a great advantage over our previous code, but imagine if there were not 2 but 20 similar methods which could be dynamically defined - quite an improvement! There’s still room for improvement using &lt;code&gt;define_method&lt;/code&gt;. Instead of storing strings in a Dictionary, we might as well define a function that chooses an entry at random. Here’s the Dictionary class:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;'singleton'&lt;/span&gt;
-
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Dictionary&lt;/span&gt;
-  &lt;span class="kp"&gt;include&lt;/span&gt; &lt;span class="no"&gt;Singleton&lt;/span&gt;
-
-
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;add&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;values&lt;/span&gt;
-    &lt;span class="vi"&gt;@dicts&lt;/span&gt; &lt;span class="o"&gt;||=&lt;/span&gt; &lt;span class="p"&gt;{}&lt;/span&gt;
-    &lt;span class="vi"&gt;@dicts&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;values&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fetch&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;
-    &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Fetching &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; from dictionary"&lt;/span&gt;
-    &lt;span class="vi"&gt;@dicts&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="nf"&gt;sample&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-
-&lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;We can eliminate the need for that entire class by defining methods dynamically using a single line of code:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="o"&gt;...&lt;/span&gt;
-
-&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;method_missing&lt;/span&gt; &lt;span class="nb"&gt;method&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;block&lt;/span&gt;
-  &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="vi"&gt;@state&lt;/span&gt;
-  &lt;span class="k"&gt;when&lt;/span&gt; &lt;span class="ss"&gt;:dictionary&lt;/span&gt;
-    &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Read dictionary with: &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="nb"&gt;method&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-    &lt;span class="n"&gt;define_method&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;method&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;sample&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-
-&lt;span class="o"&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;If you’re wondering, &lt;code&gt;sample&lt;/code&gt; picks an array element at random.&lt;/p&gt;
-
-&lt;p&gt;So that’s that: we successfully used some of Ruby’s core metaprogramming tools, &lt;code&gt;method_missing&lt;/code&gt; and &lt;code&gt;define_method&lt;/code&gt;, to improve our little program. &lt;a href="https://github.com/lbrito1/ruby_textgen/tree/part-1"&gt;Full code&lt;/a&gt; is hosted on Github - please not that it may differ slightly from what is presented here for didactic reasons.&lt;/p&gt;
-
-&lt;p&gt;In the next installment we’ll continue to improve our DSL using more interesting Ruby features.&lt;/p&gt;
 </content>
   </entry>
 </feed>
