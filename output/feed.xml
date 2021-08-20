@@ -43,19 +43,22 @@
 
 &lt;p&gt;So the problem is: you have a set of &lt;em&gt;consumers&lt;/em&gt; that use the &lt;em&gt;same resource&lt;/em&gt;, for which you have a static budget. The consumers all solve the same problem, more or less (i.e. have the same &lt;em&gt;output&lt;/em&gt;), but come in different &lt;em&gt;types&lt;/em&gt; that have different &lt;em&gt;productivities&lt;/em&gt; (defined as &lt;em&gt;output per resource consumption&lt;/em&gt;). Additionally, although the consumer types solve the same problem, we want consumers to be as diverse as possible – we can’t just pick the best performing one and go with that.&lt;/p&gt;
 
-&lt;p&gt;First thought that comes to mind is &lt;em&gt;this seems ordinary enough; there must be an easy, well-known solution&lt;/em&gt;. There might be, but I couldn’t find any that was simple and effective for this use case. Closest I got were &lt;a href="https://www.wikiwand.com/en/PID_controller"&gt;PID controllers&lt;/a&gt;, which solve a similar problem, but 1) probably doesn’t solve the entire problem here, and 2) seems complicated.&lt;/p&gt;
+&lt;p&gt;First thought that comes to mind is &lt;em&gt;this seems ordinary enough; there must be an easy, well-known solution&lt;/em&gt;. There might be, but I couldn’t find any that was simple and effective for this use case. Closest I got were &lt;a href="https://www.wikiwand.com/en/PID_controller"&gt;PID controllers&lt;/a&gt;, which solve a similar problem, but probably doesn’t solve the entire problem here (and also seems complicated).&lt;/p&gt;
 
 &lt;p&gt;I gave the problem some thought and came up with a reasonable solution that has been working well for a year now.&lt;/p&gt;
 
-&lt;p&gt;The problem boils down to two parts:
-1) Consistently keeping track of productivity among the different consumer types;
-2) Deciding how to share the resource among the consumers.&lt;/p&gt;
+&lt;p&gt;The problem boils down to two parts:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Consistently keeping track of productivity among the different consumer types;&lt;/li&gt;
+  &lt;li&gt;Deciding how to share the resource among the consumers.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;The concept that glues both parts is that of the &lt;em&gt;cycle&lt;/em&gt; – a repeating time period in which we measure productivity and distribute resources to be shared within that time frame, until the next cycle comes up and everything is recalculated.&lt;/p&gt;
 
 &lt;p&gt;Problem 1) boils down to maintaining a time series of how much output per resource each consumer type produced during the latest cycle.&lt;/p&gt;
 
-&lt;p&gt;Problem 2) comes almost as a corollary to the former problem: we want the best global output possible, and that can be guessed by using the productivity stats from the previous cycle. This won’t be perfect, because productivity varies over time within each consumer type, but basic &lt;a href="https://www.wikiwand.com/en/Volatility_clustering"&gt;statistic intuition&lt;/a&gt; says it will be good enough for our purposes.&lt;/p&gt;
+&lt;p&gt;Problem 2) comes almost as a corollary to the former problem: we want the best global output possible, and that can be guessed by using the productivity stats from the previous cycle. This won’t be perfect, because productivity varies over time within each consumer type, but basic &lt;a href="https://www.wikiwand.com/en/Volatility_clustering"&gt;statistical intuition&lt;/a&gt; says it will be good enough for our purposes.&lt;/p&gt;
 
 &lt;p&gt;So the first step of solving 2) is building a &lt;em&gt;ranking of consumers by productivity&lt;/em&gt;. We want a diverse set of consumer types, though, so we can’t just pick &lt;code&gt;type #1&lt;/code&gt; and give it 100% of the resources all the time. Also, the ranking might change each cycle, and we don’t want resource distribution to be too volatile – that might become hard to monitor and debug. We want something that is somewhat smooth, stable, convergent, but at the same time that reflects changes in productivity as quickly as possible, and that delivers good global output-per-resource-consumption.&lt;/p&gt;
 
@@ -63,12 +66,16 @@
 
 &lt;p&gt;Here’s the complete solution I worked out:&lt;/p&gt;
 
-&lt;p&gt;Start the system by sharing an equal amount of resources among all consumers: let’s say every consumer has the same weight &lt;em&gt;W&lt;sub&gt;0&lt;/sub&gt;&lt;/em&gt;.
-For each cycle:
-1. Build the productivity-per-consumer-class ranking
-2. For the top &lt;em&gt;N%&lt;/em&gt; consumers, do &lt;em&gt;W += K&lt;/em&gt; (limited to a certain maximum)
-3. For the bottom &lt;em&gt;N%&lt;/em&gt; consumers, do &lt;em&gt;W -= K&lt;/em&gt; (limited to a certain minimum)
-4. Translate each &lt;em&gt;W&lt;/em&gt; to a real-world resource amount (e.g. “1GB RAM” or something). This involves the weights as well as the global resource budget per time cycle, such that we guarantee we won’t exceed the static budget.&lt;/p&gt;
+&lt;p&gt;Start the system by sharing an equal amount of resources among all consumers: let’s say every consumer has the same weight &lt;em&gt;W&lt;sub&gt;0&lt;/sub&gt;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then, for each cycle:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Build the productivity-per-consumer-class ranking&lt;/li&gt;
+  &lt;li&gt;For the top &lt;em&gt;N%&lt;/em&gt; consumers, do &lt;em&gt;W += K&lt;/em&gt; (limited to a certain maximum)&lt;/li&gt;
+  &lt;li&gt;For the bottom &lt;em&gt;N%&lt;/em&gt; consumers, do &lt;em&gt;W -= K&lt;/em&gt; (limited to a certain minimum)&lt;/li&gt;
+  &lt;li&gt;Translate each &lt;em&gt;W&lt;/em&gt; to a real-world resource amount (e.g. “1GB RAM” or something). This involves the weights as well as the global resource budget per time cycle, such that we guarantee we won’t exceed the static budget.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;The global sum of weights is kept more or less the same because we’re summing and subtracting the same amounts each cycle (although this isn’t perfect because we have min and max values), so the system is kept fairly stable over time while also reacting quickly to changes in productivity. Also, the system is robust, and blowing up the weights store is no big deal – weights will creep back to their previous values over a short time.&lt;/p&gt;
 

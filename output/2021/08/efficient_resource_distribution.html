@@ -85,19 +85,22 @@
 
 <p>So the problem is: you have a set of <em>consumers</em> that use the <em>same resource</em>, for which you have a static budget. The consumers all solve the same problem, more or less (i.e. have the same <em>output</em>), but come in different <em>types</em> that have different <em>productivities</em> (defined as <em>output per resource consumption</em>). Additionally, although the consumer types solve the same problem, we want consumers to be as diverse as possible – we can’t just pick the best performing one and go with that.</p>
 
-<p>First thought that comes to mind is <em>this seems ordinary enough; there must be an easy, well-known solution</em>. There might be, but I couldn’t find any that was simple and effective for this use case. Closest I got were <a href="https://www.wikiwand.com/en/PID_controller">PID controllers</a>, which solve a similar problem, but 1) probably doesn’t solve the entire problem here, and 2) seems complicated.</p>
+<p>First thought that comes to mind is <em>this seems ordinary enough; there must be an easy, well-known solution</em>. There might be, but I couldn’t find any that was simple and effective for this use case. Closest I got were <a href="https://www.wikiwand.com/en/PID_controller">PID controllers</a>, which solve a similar problem, but probably doesn’t solve the entire problem here (and also seems complicated).</p>
 
 <p>I gave the problem some thought and came up with a reasonable solution that has been working well for a year now.</p>
 
-<p>The problem boils down to two parts:
-1) Consistently keeping track of productivity among the different consumer types;
-2) Deciding how to share the resource among the consumers.</p>
+<p>The problem boils down to two parts:</p>
+
+<ol>
+  <li>Consistently keeping track of productivity among the different consumer types;</li>
+  <li>Deciding how to share the resource among the consumers.</li>
+</ol>
 
 <p>The concept that glues both parts is that of the <em>cycle</em> – a repeating time period in which we measure productivity and distribute resources to be shared within that time frame, until the next cycle comes up and everything is recalculated.</p>
 
 <p>Problem 1) boils down to maintaining a time series of how much output per resource each consumer type produced during the latest cycle.</p>
 
-<p>Problem 2) comes almost as a corollary to the former problem: we want the best global output possible, and that can be guessed by using the productivity stats from the previous cycle. This won’t be perfect, because productivity varies over time within each consumer type, but basic <a href="https://www.wikiwand.com/en/Volatility_clustering">statistic intuition</a> says it will be good enough for our purposes.</p>
+<p>Problem 2) comes almost as a corollary to the former problem: we want the best global output possible, and that can be guessed by using the productivity stats from the previous cycle. This won’t be perfect, because productivity varies over time within each consumer type, but basic <a href="https://www.wikiwand.com/en/Volatility_clustering">statistical intuition</a> says it will be good enough for our purposes.</p>
 
 <p>So the first step of solving 2) is building a <em>ranking of consumers by productivity</em>. We want a diverse set of consumer types, though, so we can’t just pick <code>type #1</code> and give it 100% of the resources all the time. Also, the ranking might change each cycle, and we don’t want resource distribution to be too volatile – that might become hard to monitor and debug. We want something that is somewhat smooth, stable, convergent, but at the same time that reflects changes in productivity as quickly as possible, and that delivers good global output-per-resource-consumption.</p>
 
@@ -105,12 +108,16 @@
 
 <p>Here’s the complete solution I worked out:</p>
 
-<p>Start the system by sharing an equal amount of resources among all consumers: let’s say every consumer has the same weight <em>W<sub>0</sub></em>.
-For each cycle:
-1. Build the productivity-per-consumer-class ranking
-2. For the top <em>N%</em> consumers, do <em>W += K</em> (limited to a certain maximum)
-3. For the bottom <em>N%</em> consumers, do <em>W -= K</em> (limited to a certain minimum)
-4. Translate each <em>W</em> to a real-world resource amount (e.g. “1GB RAM” or something). This involves the weights as well as the global resource budget per time cycle, such that we guarantee we won’t exceed the static budget.</p>
+<p>Start the system by sharing an equal amount of resources among all consumers: let’s say every consumer has the same weight <em>W<sub>0</sub></em>.</p>
+
+<p>Then, for each cycle:</p>
+
+<ol>
+  <li>Build the productivity-per-consumer-class ranking</li>
+  <li>For the top <em>N%</em> consumers, do <em>W += K</em> (limited to a certain maximum)</li>
+  <li>For the bottom <em>N%</em> consumers, do <em>W -= K</em> (limited to a certain minimum)</li>
+  <li>Translate each <em>W</em> to a real-world resource amount (e.g. “1GB RAM” or something). This involves the weights as well as the global resource budget per time cycle, such that we guarantee we won’t exceed the static budget.</li>
+</ol>
 
 <p>The global sum of weights is kept more or less the same because we’re summing and subtracting the same amounts each cycle (although this isn’t perfect because we have min and max values), so the system is kept fairly stable over time while also reacting quickly to changes in productivity. Also, the system is robust, and blowing up the weights store is no big deal – weights will creep back to their previous values over a short time.</p>
 
