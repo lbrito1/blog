@@ -3,6 +3,7 @@
     <a href="<%= item.path %>" target="_blank">
       <img class="lazy" data-src="<%= src %>" alt="<%= defined?(alt) ? alt : '' %>">
       <noscript>
+        <meta name="image" property="og:image" content="<%= src %>">
         <img src="<%= src %>" alt="Alternative text to describe image.">
       </noscript>
     </a>
