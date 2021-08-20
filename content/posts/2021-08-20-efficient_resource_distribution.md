@@ -22,13 +22,14 @@ Here's the problem that got me thinking about this: at work, we had a computatio
 
 So the problem is: you have a set of _consumers_ that use the _same resource_, for which you have a static budget. The consumers all solve the same problem, more or less (i.e. have the same _output_), but come in different _types_ that have different _productivities_ (defined as _output per resource consumption_). Additionally, although the consumer types solve the same problem, we want consumers to be as diverse as possible -- we can't just pick the best performing one and go with that.
 
-First thought that comes to mind is _this seems ordinary enough; there must be an easy, well-known solution_. There might be, but I couldn't find any that was simple and effective for this use case. Closest I got were [PID controllers](https://www.wikiwand.com/en/PID_controller), which solve a similar problem, but 1) probably doesn't solve the entire problem here, and 2) seems complicated.
+First thought that comes to mind is _this seems ordinary enough; there must be an easy, well-known solution_. There might be, but I couldn't find any that was simple and effective for this use case. Closest I got were [PID controllers](https://www.wikiwand.com/en/PID_controller), which solve a similar problem, but probably doesn't solve the entire problem here (and also seems complicated).
 
 I gave the problem some thought and came up with a reasonable solution that has been working well for a year now.
 
 The problem boils down to two parts:
-1) Consistently keeping track of productivity among the different consumer types;
-2) Deciding how to share the resource among the consumers.
+
+1. Consistently keeping track of productivity among the different consumer types;
+2. Deciding how to share the resource among the consumers.
 
 The concept that glues both parts is that of the _cycle_ -- a repeating time period in which we measure productivity and distribute resources to be shared within that time frame, until the next cycle comes up and everything is recalculated.
 
@@ -43,7 +44,9 @@ We know that the top tier within the ranking probably deserves more than the the
 Here's the complete solution I worked out:
 
 Start the system by sharing an equal amount of resources among all consumers: let's say every consumer has the same weight _W<sub>0</sub>_.
-For each cycle:
+
+Then, for each cycle:
+
 1. Build the productivity-per-consumer-class ranking
 2. For the top _N%_ consumers, do _W += K_ (limited to a certain maximum)
 3. For the bottom _N%_ consumers, do _W -= K_ (limited to a certain minimum)
