@@ -1,5 +1,6 @@
 ---
 title: Efficient resource distribution
+description: A simple ranking-based approach to distributing resources among similar consumers.
 created_at: 2021-08-20 08:53:10 -0300
 kind: article
 published: true
