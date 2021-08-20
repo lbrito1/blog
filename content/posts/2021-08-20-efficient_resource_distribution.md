@@ -2,13 +2,13 @@
 title: Efficient resource distribution
 created_at: 2021-08-20 08:53:10 -0300
 kind: article
-published: false
+published: true
 tags:
 - Web development
 - Algorithms
 ---
 
-<%= render('/post_hero.*', src: '/blog/assets/images/2020/simple_diagram.png', alt: "", caption: "") %>
+<%= render('/post_hero.*', src: '/blog/assets/images/2021/resource-distribution.png', alt: "", caption: "") %>
 
 >**TLDR** A simple metrics-based ranking system is good enough to decide who gets how many resources.
 
