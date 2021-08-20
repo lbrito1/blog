@@ -8,7 +8,7 @@ tags:
 - Algorithms
 ---
 
-<%= render('/post_hero.*', src: '/blog/assets/images/2021/resource-distribution.png', alt: "", caption: "") %>
+<%= render('/post_hero.*', src: '/blog/assets/images/2021/resource-distribution.jpg', alt: "", caption: "") %>
 
 >**TLDR** A simple metrics-based ranking system is good enough to decide who gets how many resources.
 
@@ -53,4 +53,4 @@ The global sum of weights is kept more or less the same because we're summing an
 
 To finalize, here's a chart showing the weights of different types of consumers over the last few months:
 
-<%= render('/image.*', src: '/blog/assets/images/2021/grafana.png', alt: "Dashboard showing a chart with several colored lines representing the weights of each consumer class.", caption: "Consumer class weights over time.") %>
+<%= render('/image.*', src: '/blog/assets/images/2021/grafana.jpg', alt: "Dashboard showing a chart with several colored lines representing the weights of each consumer class.", caption: "Consumer class weights over time.") %>
