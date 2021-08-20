@@ -35,7 +35,7 @@ The concept that glues both parts is that of the _cycle_ -- a repeating time per
 
 Problem 1) boils down to maintaining a time series of how much output per resource each consumer type produced during the latest cycle.
 
-Problem 2) comes almost as a corollary to the former problem: we want the best global output possible, and that can be guessed by using the productivity stats from the previous cycle. This won't be perfect, because productivity varies over time within each consumer type, but basic [statistic intuition](https://www.wikiwand.com/en/Volatility_clustering) says it will be good enough for our purposes.
+Problem 2) comes almost as a corollary to the former problem: we want the best global output possible, and that can be guessed by using the productivity stats from the previous cycle. This won't be perfect, because productivity varies over time within each consumer type, but basic [statistical intuition](https://www.wikiwand.com/en/Volatility_clustering) says it will be good enough for our purposes.
 
 So the first step of solving 2) is building a _ranking of consumers by productivity_. We want a diverse set of consumer types, though, so we can't just pick `type #1` and give it 100% of the resources all the time. Also, the ranking might change each cycle, and we don't want resource distribution to be too volatile -- that might become hard to monitor and debug. We want something that is somewhat smooth, stable, convergent, but at the same time that reflects changes in productivity as quickly as possible, and that delivers good global output-per-resource-consumption.
 
