@@ -4,7 +4,6 @@
       <h2><%= link_to post[:title], post.path %></h2>
       <aside class=""><%= post[:created_at]&.strftime('%b %d, %Y') %></aside>
 
-
       <article class="text">
           <%= get_post_start(post) %>
           <div class="pure-g post-footer">

@@ -17,6 +17,10 @@
     <!-- you don't need to keep this, but it's cool for stats! -->
     <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
 
+    <% if (url = linkedin_img(@item)) %>
+      <meta name="image" property="og:image" content="<%= url %>" >
+    <% end %>
+
     <script src="/assets/yall.min.js"></script>
   </head>
   <body>

@@ -8,6 +8,10 @@ include Nanoc::Helpers::LinkTo
 
 SITE_TITLE = "A Developer's Notebook"
 
+def linkedin_img(post)
+  post.compiled_content[/<img.+data-src="(.+)"\s+/,1]
+end
+
 def get_post_start(post)
   content = post.compiled_content
   return content.partition('<!-- more -->').first if content =~ /\s<!-- more -->\s/

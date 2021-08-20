@@ -13,7 +13,4 @@ As far as this company is concerned, I was a foreigner. I took one cab trip to m
 
 The _60 hours_ of commuting alone is more than one work week; if you factor in the actual onsite, then we're well into _two workweeks_ of effort put into a supposedly trivial interview. Elapsed wall time is also at least one full business week.
 
-
-
-
-
+Surprisingly, "onsites" are still a thing during the covid pandemic --
