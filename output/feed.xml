@@ -20,6 +20,7 @@
     &lt;a href="/2021/08/efficient_resource_distribution.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2021/resource-distribution.jpg" alt=""&gt;
       &lt;noscript&gt;
+        &lt;meta name="image" property="og:image" content="/blog/assets/images/2021/resource-distribution.jpg"&gt;
         &lt;img src="/blog/assets/images/2021/resource-distribution.jpg" alt="Alternative text to describe image."&gt;
       &lt;/noscript&gt;
     &lt;/a&gt;
@@ -108,6 +109,7 @@
     &lt;a href="/2020/07/replacing_google_analytics_android.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/simple_diagram.png" alt=""&gt;
       &lt;noscript&gt;
+        &lt;meta name="image" property="og:image" content="/blog/assets/images/2020/simple_diagram.png"&gt;
         &lt;img src="/blog/assets/images/2020/simple_diagram.png" alt="Alternative text to describe image."&gt;
       &lt;/noscript&gt;
     &lt;/a&gt;
@@ -385,6 +387,7 @@
     &lt;a href="/2020/06/free_https_home_server.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/cool-background.png" alt=""&gt;
       &lt;noscript&gt;
+        &lt;meta name="image" property="og:image" content="/blog/assets/images/2020/cool-background.png"&gt;
         &lt;img src="/blog/assets/images/2020/cool-background.png" alt="Alternative text to describe image."&gt;
       &lt;/noscript&gt;
     &lt;/a&gt;
@@ -535,6 +538,7 @@ server {
     &lt;a href="/2020/05/communication.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/bridge.jpg" alt="San Francisco Bay bridge."&gt;
       &lt;noscript&gt;
+        &lt;meta name="image" property="og:image" content="/blog/assets/images/2020/bridge.jpg"&gt;
         &lt;img src="/blog/assets/images/2020/bridge.jpg" alt="Alternative text to describe image."&gt;
       &lt;/noscript&gt;
     &lt;/a&gt;
@@ -599,6 +603,7 @@ server {
     &lt;a href="/2020/05/figuring_out_nvidia_x_linux.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart."&gt;
       &lt;noscript&gt;
+        &lt;meta name="image" property="og:image" content="/blog/assets/images/2020/power.png"&gt;
         &lt;img src="/blog/assets/images/2020/power.png" alt="Alternative text to describe image."&gt;
       &lt;/noscript&gt;
     &lt;/a&gt;
@@ -768,6 +773,7 @@ blacklist nvidia_modeset
     &lt;a href="/2020/02/repurposing-android.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk."&gt;
       &lt;noscript&gt;
+        &lt;meta name="image" property="og:image" content="/blog/assets/images/2020/old-android.jpg"&gt;
         &lt;img src="/blog/assets/images/2020/old-android.jpg" alt="Alternative text to describe image."&gt;
       &lt;/noscript&gt;
     &lt;/a&gt;
@@ -929,6 +935,7 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
     &lt;a href="/2019/11/speeding-up-backend-graph-theory.html" target="_blank"&gt;
       &lt;img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
       &lt;noscript&gt;
+        &lt;meta name="image" property="og:image" content="/blog/assets/images/2019/0076-final-results.png"&gt;
         &lt;img src="/blog/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image."&gt;
       &lt;/noscript&gt;
     &lt;/a&gt;

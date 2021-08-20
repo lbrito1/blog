@@ -1,6 +1,6 @@
 desc "Create a new post"
 task :new_post, :title do |t, args|
-  mkdir_p './content/posts'
+  # mkdir_p './content/posts'
   args.with_defaults(:title => 'New Post')
   title = args.title
   filename = "./content/posts/#{Time.now.strftime('%Y-%m-%d')}-#{title.downcase.gsub(/\s/, "_")}.md"
