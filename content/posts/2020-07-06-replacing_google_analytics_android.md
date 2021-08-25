@@ -169,6 +169,12 @@ This diagram shows those same steps, more or less:
 
 I named the too (quite unimaginatively) android-analytics; code and set-up instructions are [available on Github](https://github.com/lbrito1/android-analytics).
 
+### August 2021 Update
+
+I managed to install Grafana on Termux by using [AnLinux](https://f-droid.org/en/packages/exa.lnx.a/); thus, the Viewer part of the project is no longer needed.
+
+Also, by using [Ngrok](https://ngrok.com/) (free tier), the project now works if you're behind CGNAT, which is my case. No need for dynamic DNS or port forwarding as well.
+
 ## Conclusion
 
 I used the Google Analytics analogy because that's the tool that most people are familiar with, and most people will immediately understand what this thing is about, which probably wouldn't happen if instead of saying this was a "simple Google Analytics alternative", I said it was a "log-based web analytics tool".
