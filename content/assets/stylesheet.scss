@@ -185,7 +185,15 @@ article {
   }
 }
 
-.tag-button { border-radius: 6px; }
+.tag-button {
+  border-radius: 6px;
+  font-family: $font-alt;
+  font-size: 90%;
+}
+
+.tag-count {
+  color: white;
+}
 
 .stretch {
   img { width: 100% !important; }
