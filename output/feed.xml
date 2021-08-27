@@ -2,13 +2,141 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2021-08-20T11:53:10Z</updated>
+  <updated>2021-08-27T21:33:00Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2021-08-27:/blog/2021/08/onsites.html</id>
+    <title type="html">Onsites considered harmful</title>
+    <published>2021-08-27T21:33:00Z</published>
+    <updated>2021-08-27T21:33:00Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2021/08/onsites.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;meta name="image" property="og:image" content="/blog/assets/images/2021/onsite-sm.jpg"&gt;
+  &lt;div&gt;
+    &lt;a href="/2021/08/onsites.html" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2021/onsite-sm.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2021/onsite-sm.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;A couple of years ago I interviewed at one of the largest Ruby shops out there. Screening went well, and some days later I was invited for an onsite.&lt;/p&gt;
+
+&lt;p&gt;These were the good old pre-covid days, so an onsite really meant &lt;em&gt;onsite&lt;/em&gt;. You had to travel to the office, wherever that was.&lt;/p&gt;
+
+&lt;p&gt;The thing is, an onsite is actually radically different depending on &lt;em&gt;where you live&lt;/em&gt;. It follows that onsites introduce further bias into our industry’s already problematic hiring process. I’d like to argue that although onsites have some advantages, they’re mostly a waste of time (and money).&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;If you’re a local, an onsite probably means taking a bus, metro, taxi, walking, whatever. If you’re not local but are at least within the same country that you’re interviewing, it might take a day trip or maybe a short flight. If you’re a foreigner it might take travel visas and a week of travel.&lt;/p&gt;
+
+&lt;p&gt;Without getting too philosophical, we all know we have a limited amount of sand grains in our hourglass. &lt;a href="https://www.wikiwand.com/en/Sunk_cost"&gt;Fallacies apart&lt;/a&gt;, anyone can &lt;em&gt;feel&lt;/em&gt; that the more we pour into something – be it renovating a kitchen or traveling for an onsite – the higher the stakes become.&lt;/p&gt;
+
+&lt;p&gt;Its glaringly obvious that someone who invested a 30 minute bus ride to an onsite will be much more at ease than someone who flew godless hours on a red-eye. It doesn’t really matter how much pampering the latter is treated with: exquisite hotels, meal allowances… investing a week of your time will always drive up anxiety a lot more than taking an afternoon off work.&lt;/p&gt;
+
+&lt;p&gt;Back to my story: I was interviewing for a company overseas. I happened to have a valid visa for that country, which already puts me in some advantage compared to others. Physically getting to the company building for the interview, however, took some effort: I drove to the local airport, where I arrived &lt;a href="https://www.theonion.com/dad-suggests-arriving-at-airport-14-hours-early-1819573933"&gt;more than a couple of hours early&lt;/a&gt;, flew down to São Paulo, then took two more flights until I reached my final destination, some &lt;em&gt;thirty hours&lt;/em&gt; after I stepped out of my house, then I took another cab to the fancy hotel booked by my not-to-be future company and collapsed for the night.&lt;/p&gt;
+
+&lt;p&gt;Next day I had the onsite (which took basically the full business hours), then back to the hotel, collapsed again. On the third day I backtracked through the 30 hours of cabs, airports and flights back home. This was late December, by the way, so airports were &lt;em&gt;packed&lt;/em&gt;. A couple of days later, on Christmas eve, I got a very thoughtful &lt;em&gt;happy holidays + no thanks&lt;/em&gt; call from the recruiter.&lt;/p&gt;
+
+&lt;p&gt;Might I have gotten the job if I had taken a bus instead of multiple planes? Maybe, maybe not (probably not, since someone in the interview panel just didn’t enjoy my parlance).&lt;/p&gt;
+
+&lt;p&gt;That isn’t really the point, though, and as far as &lt;em&gt;anecdata&lt;/em&gt; goes, I have the opposite story as well: I interviewed twice at the same company, once through a tortuous voyage similar to the one I described above, and another time at my city, with the roles reversed: I left my house and drove for a few minutes to the onsite, while the interviewers were enjoying a fancy beachside hotel after several plane trips. I failed the former and got an offer from the latter. I’m the same person applying for the same job at the same company. Did I just perform better? Did they perform “worse”? Is it all just a coincidence? Are all of these interviews meaningless hazing rituals?&lt;/p&gt;
+
+&lt;p&gt;But I digress. Back to the matter at hand: if you think of it, the &lt;em&gt;60 hours&lt;/em&gt; of commuting alone is more than one work week (and as far as effort goes, I’m sure more goes into enduring 60 hours of planes and airports than into programming). If you factor in the actual onsite, then we’re talking about &lt;em&gt;two workweeks&lt;/em&gt; of effort put into a no-strings-attached situation. The elapsed wall time is well into a full business week.&lt;/p&gt;
+
+&lt;p&gt;There are sensible, rational grounds for an onsite. Recruiters want to know if the candidate hates the cold and is going to churn early winter, or maybe the city is too small, or too big, or whatever random factor might make people want to run away. That said, I find it hard to believe even the most prescient can get a read on any of those thoughts rushing through the candidate (probably even the candidate can’t).&lt;/p&gt;
+
+&lt;p&gt;In any case, are those things worth the several thousand dollars of expenses, and more importantly, are they worth excluding a possibly large pool of candidates that aren’t willing to invest a full week of their time on a process with &lt;a href="https://blog.interviewing.io/technical-interview-performance-is-kind-of-arbitrary-heres-the-data/"&gt;naturally low chances of going forward&lt;/a&gt;? At least in my opinion, those very thin pros are outshined by the very real cons like the &lt;code&gt;-8.208527&lt;/code&gt; Sun outshines my laptop screen.&lt;/p&gt;
+
+&lt;p&gt;Now let us also remember that the success of job searches depends on arbitrary things like if everyone on the panel likes your face. We all know things shouldn’t be this way; we’re supposed to be unbiased and empathetic, but let’s face it – we humans &lt;a href="https://www.sciencedaily.com/releases/2020/07/200714101228.htm"&gt;&lt;em&gt;suck&lt;/em&gt;&lt;/a&gt; at that.&lt;/p&gt;
+
+&lt;p&gt;Even if we consider an utopically unbiased interviewer panel, there’s still all sorts of random noise going on at an interview, like performance anxiety. No matter how great the people interviewing are, and even how great &lt;em&gt;you&lt;/em&gt; are, interviewing always has a huge degree of uncertainty:&lt;/p&gt;
+
+&lt;blockquote&gt;"The fact that people who are overall pretty strong (e.g. mean ~= 3) can mess up technical interviews as much as 22% of the time shows that there’s definitely room for improvement in the process"&lt;a href="https://blog.interviewing.io/technical-interview-performance-is-kind-of-arbitrary-heres-the-data/"&gt;
+&lt;br&gt;- Technical interview performance is kind of arbitrary. Here’s the data.&lt;/a&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;My point is: such a volatile thing should &lt;strong&gt;never&lt;/strong&gt; have been tied to multiple plane tickets and 2-night hotel stays in a different continent in the first place.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Never&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Perhaps surprisingly, “onsites” are still a thing during the covid pandemic – they’re just remote, i.e., &lt;em&gt;not really onsites at all&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is immensely beneficial for everyone involved: the company won’t have to pay for expensive hotels and plane tickets, the planet won’t have to suffer the huge CO2 emissions from this ultimately unnecessary shenanigan, and the candidate won’t have to waste a week of his/her vacation time with something as ethereal as pursuing a software engineering job.&lt;/p&gt;
+
+&lt;p&gt;Recruitment in this industry is difficult. This is widely acknowledged by all parts involved. No wonder there are so many books, videos and Discord channels about interviewing for a tech job – not to mention coding prep services, automated third-party code challenges… the list goes on.&lt;/p&gt;
+
+&lt;p&gt;This post is specifically about onsites, but it is impossible not to mention the overall sad state of interviewing for a software engineer job. A quick survey of HN posts is enough to glimpse how people feel about this:&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2021/hiring-1.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2021/hiring-1.png" alt="Search results for 'hiring is broken' on Algolia's HN search page."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2021/hiring-1.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Sounds like hiring isn't in a great shape.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;Inefficient and biased as it is (or, hopefully, &lt;em&gt;was&lt;/em&gt;), physical onsites are nowhere near the worst possible interviewing practice we can observe in the wild.&lt;/p&gt;
+
+&lt;p&gt;Why interview for a job in a quiet office full of nerds if you can &lt;strong&gt;FIGHT FOR IT IN A TOURNAMENT&lt;/strong&gt; like a geek gladiator?&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2021/hiring-tournament.jpg" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2021/hiring-tournament.jpg" alt="An email from a company called BairesDev inviting me to fight for a job in a coding tournament."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2021/hiring-tournament.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Yikes.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;Things aren’t any better on the other side of the table – finding skilled developers in 2021 is tough, even if you’re not setting up a pair programming arena for a code to the death contest.&lt;/p&gt;
+
+&lt;p&gt;Some recruiters go a step beyond cold calling and start &lt;em&gt;cold referral calling&lt;/em&gt;, like this recruiter asking me to &lt;em&gt;pleeeeeeeeeease&lt;/em&gt; refer candidates that match their laundry list of requirements:&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2021/hiring-pleeeeaase.png" target="_blank"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2021/hiring-pleeeeaase.png" alt="A recruiter message on Linkedin asking me to refer candidates, PLEEEEEEEASE."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2021/hiring-pleeeeaase.png" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Pleeeeeeeeeease send me candidates that match my laundry list of skills!&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;My second point: recruitment is seriously hard for all parts involved. If we are able to, we should try to make it &lt;em&gt;easier&lt;/em&gt;, not &lt;em&gt;harder&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Onsites were a significant hassle on top of an already complicated, inefficient, time-consuming, stressful process.&lt;/p&gt;
+
+&lt;p&gt;Although the company usually takes on most of all of the financial hit, the time and emotional load was carried by the candidate alone.&lt;/p&gt;
+
+&lt;p&gt;Getting rid of physical onsites is &lt;em&gt;fantastic&lt;/em&gt; news for everyone – especially people interviewing, but also companies that can now cast a wider net and carry out a faster, more diverse recruitment process. And our planet will also have God-knows-how-many thousand tonnes of CO2 less to deal with each year.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2021-08-20:/blog/2021/08/efficient_resource_distribution.html</id>
     <title type="html">Efficient resource distribution</title>
@@ -2268,106 +2396,6 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;1 https://en.wikipedia.org/wiki/AVL_tree#Comparison_to_other_structures&lt;/p&gt;
 
 &lt;p&gt;2 This choice may seem arbitrary, but definitively helps us to not violate rule 4, which is potentially more complicated to enforce than rule 3.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2015-09-20:/blog/2015/09/ruby-dsl-metaprogramming-part-ii.html</id>
-    <title type="html">Ruby DSL &amp; metaprogramming, part II</title>
-    <published>2015-09-20T17:26:58Z</published>
-    <updated>2015-09-20T17:26:58Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2015/09/ruby-dsl-metaprogramming-part-ii.html" type="text/html"/>
-    <content type="html">&lt;p&gt;In the previous installment we built a simple text generator using some Ruby meta-programming tricks. It was still far from being our desired context-free grammar (CFG) generator, though, since it lacked many &lt;a href="https://www.cs.rochester.edu/~nelson/courses/csc_173/grammars/cfg.html"&gt;CFG prerequisites&lt;/a&gt;. Most flagrantly, we had no rule recursion and only one production (rule definition) per rule. Here’s the what a script that would use both features:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;dictionary
-  noun &lt;span class="s1"&gt;'dog'&lt;/span&gt;, &lt;span class="s1"&gt;'bus'&lt;/span&gt;
-  verb &lt;span class="s1"&gt;'barked'&lt;/span&gt;, &lt;span class="s1"&gt;'parked'&lt;/span&gt;
-  preposition &lt;span class="s1"&gt;'at'&lt;/span&gt;
-
-rule &lt;span class="s1"&gt;'phrase'&lt;/span&gt;
-  opt &lt;span class="s1"&gt;'The'&lt;/span&gt;, noun, verb, preposition, &lt;span class="s1"&gt;'a'&lt;/span&gt;, noun
-  opt &lt;span class="s1"&gt;'Here goes some'&lt;/span&gt;, phrase, &lt;span class="s1"&gt;'recursion.'&lt;/span&gt;
-  opt &lt;span class="s1"&gt;'Meet me'&lt;/span&gt;, preposition, &lt;span class="s1"&gt;'the station.'&lt;/span&gt;
-
-grammar phrase: 10&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;The &lt;code&gt;dictionary&lt;/code&gt; section is just as we left it. Let’s see what changed in the &lt;code&gt;rule&lt;/code&gt; section.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;Previously we had only one production per rule, so rule definitions such as &lt;code&gt;phrase&lt;/code&gt; were captured by the &lt;code&gt;method_missing&lt;/code&gt; method. This design would make multiple productions difficult to handle. Here’s how we re-implemented the rule method:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;rule&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;
-  &lt;span class="n"&gt;verbose&lt;/span&gt; &lt;span class="s2"&gt;"Read rule: &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-  &lt;span class="vi"&gt;@last_rule&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;first&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;
-  &lt;span class="vi"&gt;@grammar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;rules&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="vi"&gt;@last_rule&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;Rule&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;new&lt;/span&gt; &lt;span class="vi"&gt;@last_rule&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="n"&gt;define_method&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;first&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="vi"&gt;@grammar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;rules&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;first&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-  &lt;span class="vi"&gt;@state&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:rule&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Once more we use &lt;code&gt;define_method&lt;/code&gt; to dynamically define methods. Consider the &lt;code&gt;rule 'phrase'&lt;/code&gt; statement present in our script: this would define a method named &lt;code&gt;phrase&lt;/code&gt; which hopefully returns the &lt;code&gt;Rule&lt;/code&gt; object within &lt;code&gt;@grammar.rules['phrase']&lt;/code&gt;. Note that the returned rule &lt;em&gt;is not&lt;/em&gt; evaluated (i.e., it is still a Rule object, not a String object).&lt;/p&gt;
-
-&lt;p&gt;Now we keep track of the &lt;code&gt;@last_rule&lt;/code&gt; so rule productions (options) are added to the appropriate rule. Options are captures by &lt;code&gt;opt&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;opt&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;
-  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vi"&gt;@state&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="ss"&gt;:rule&lt;/span&gt;
-    &lt;span class="n"&gt;verbose&lt;/span&gt; &lt;span class="s2"&gt;"Read option for rule &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="vi"&gt;@last_rule&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;: &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
-    &lt;span class="vi"&gt;@grammar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;rules&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="vi"&gt;@last_rule&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="nf"&gt;options&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Here, &lt;code&gt;args&lt;/code&gt; is an array of Rule production symbols (both terminal and non-terminal, i.e., both Strings and Rules). The set of Rule options will ultimately be an Array of Arrays of Rule production symbols corresponding to each &lt;code&gt;opt&lt;/code&gt; line written in the DSL script (e.g. in the example above, &lt;code&gt;phrase&lt;/code&gt; would have 3 options).&lt;/p&gt;
-
-&lt;p&gt;Rules are evaluated by &lt;code&gt;Grammar.generate&lt;/code&gt;, which receives a Hash of rules and the amount of times they should be generated (e.g. &lt;code&gt;phrase: 10&lt;/code&gt; in our example):&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;generate&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;
-    &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;''&lt;/span&gt;
-    &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;each&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;rulename&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;qty&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
-      &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;..&lt;/span&gt;&lt;span class="n"&gt;qty&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;each&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="vi"&gt;@rules&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;rulename&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="k"&gt;end&lt;/span&gt;
-    &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s2"&gt;"Final result: &lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;========&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;========"&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;How does Rule recursion work, though? Let’s take a look at the &lt;code&gt;to_s&lt;/code&gt; method in &lt;code&gt;Rule&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;to_s&lt;/span&gt;
-    &lt;span class="n"&gt;randkeys&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;sample&lt;/span&gt;
-    &lt;span class="n"&gt;randkeys&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;map!&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;k&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;to_s&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="n"&gt;verbose&lt;/span&gt; &lt;span class="s2"&gt;"Applying rule &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="vi"&gt;@name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; with keys: &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;randkeys&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;."&lt;/span&gt;
-    &lt;span class="n"&gt;randkeys&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;" "&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Pretty straightforward: a production is chosen at random (e.g., 1 of the 3 options in our example), and each symbol in the production is evaluated into a String and concatenated into the final result. For example, say the first rule, &lt;code&gt;opt 'The', noun, verb, preposition, 'a', noun&lt;/code&gt;, is chosen. Then &lt;code&gt;randkeys.map!&lt;/code&gt; would call &lt;code&gt;to_s&lt;/code&gt; for each key in the production: &lt;code&gt;'The'.to_s, noun.to_s&lt;/code&gt;, etc. Recursion will happen if the key is a method that returns a Rule object (such as the &lt;code&gt;phrase&lt;/code&gt; method we mentioned in the beginning of the post).&lt;/p&gt;
-
-&lt;p&gt;Let’s try out a CFG classic: &lt;a href="https://en.wikipedia.org/wiki/Context-free_grammar#Well-formed_parentheses"&gt;well-formed parenthesis&lt;/a&gt;. Here’s the script:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;rule &lt;span class="s1"&gt;'par'&lt;/span&gt;
-  opt &lt;span class="s1"&gt;'()'&lt;/span&gt;
-  opt &lt;span class="s1"&gt;'('&lt;/span&gt;, par, &lt;span class="s1"&gt;')'&lt;/span&gt;
-  opt par, par
-
-grammar par: 1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;And here’s some sample output:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ruby lero.rb examples.le
-Final result:
-&lt;span class="o"&gt;========&lt;/span&gt;
-&lt;span class="o"&gt;(&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt; &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;========&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;ruby lero.rb examples.le
-Final result:
-&lt;span class="o"&gt;========&lt;/span&gt;
-&lt;span class="o"&gt;(&lt;/span&gt; &lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;)&lt;/span&gt;
-&lt;span class="o"&gt;========&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;ruby lero.rb examples.le
-Final result:
-&lt;span class="o"&gt;========&lt;/span&gt;
-&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;()&lt;/span&gt;
-&lt;span class="o"&gt;========&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;And now we’re done! With only 2 classes (Grammar and Rule) and 1 additional file that defines a DSL (lero.rb), we were able to build a CFG-like text generator with the most important CFG properties.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://github.com/lbrito1/ruby_textgen"&gt;Full code&lt;/a&gt; is available in the same repository.&lt;/p&gt;
 </content>
   </entry>
 </feed>
