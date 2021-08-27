@@ -32,6 +32,10 @@ def all_tags
   tags.sort_by { |label, _count| label.downcase }
 end
 
+def n_posts_in_tag(tag)
+  all_tags.to_h[tag]
+end
+
 def all_years
   years = {}
 
