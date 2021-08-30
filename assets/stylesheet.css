@@ -105,17 +105,21 @@ body {
 
 blockquote {
   font-style: italic;
-  border-radius: 1px;
-  background-color: #EFEFEF;
-  border: 1px solid #7A82AB;
+  font-family: serif;
   margin: 0 0;
-  padding: 1px 16px; }
+  padding: 1em 10%;
+  font-size: 140%; }
 
 article img {
   width: 100%; }
 
 .tag-button {
-  border-radius: 6px; }
+  border-radius: 6px;
+  font-family: "Mono";
+  font-size: 90%; }
+
+.tag-count {
+  color: white; }
 
 .stretch img {
   width: 100% !important; }
