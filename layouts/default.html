@@ -1,31 +1,35 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="Description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
-    <meta name="author" content="Leonardo Brito">
-
     <title><%= SITE_TITLE %> - <%= @item[:title] %></title>
+
+    <meta charset="utf-8">
+    <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
+    <meta name="author" content="Leonardo Brito">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
+    <meta property="og:type" content="website">
+    <% if (url = og_url(@item)) %>
+    <meta property="og:url" content="<%= url %>">
+    <meta property="twitter:url" content="<%= url %>">
+    <% end %>
+    <% if (img_url = og_img(@item)) %>
+    <meta name="image" property="og:image" content="<%= img_url %>" >
+    <meta name="twitter:image" content="<%= img_url %>">
+    <% end %>
+    <% if (title = @item[:title]) %>
+    <meta name="title" property="og:title" content="<%= title %>" >
+    <meta name="twitter:title" content="<%= title %>">
+    <% end %>
+    <% if (description = @item[:description]) %>
+    <meta name="description" property="og:description" content="<%= description %>" >
+    <meta name="twitter:description" content="<%= description %>" >
+    <% end %>
 
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for lbrito.github.io/blog" href="/feed.xml" />
     <link rel="stylesheet" href="/assets/pure-min.css">
     <link rel="stylesheet" href="/assets/stylesheet.css">
     <link rel="stylesheet" href="/assets/highlight.css">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- you don't need to keep this, but it's cool for stats! -->
-    <meta name="generator" content="Nanoc <%= Nanoc::VERSION %>">
-
-    <% if (url = linkedin_img(@item)) %>
-    <meta name="image" property="og:image" content="<%= url %>" >
-    <% end %>
-    <% if (title = @item[:title]) %>
-    <meta name="title" property="og:title" content="<%= title %>" >
-    <% end %>
-    <% if (description = @item[:description]) %>
-    <meta name="description" property="og:image" content="<%= description %>" >
-    <% end %>
 
     <script src="/assets/yall.min.js"></script>
   </head>
@@ -77,6 +81,6 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    fetch("https://56ce-2804-3b18-c171-7200-5de4-6820-cb94-c4b8.ngrok.io/damn_fine_coffee", { referrerPolicy: "unsafe-url" });
+    // fetch("https://56ce-2804-3b18-c171-7200-5de4-6820-cb94-c4b8.ngrok.io/damn_fine_coffee", { referrerPolicy: "unsafe-url" });
   </script>
 </html>

@@ -8,8 +8,19 @@ include Nanoc::Helpers::LinkTo
 
 SITE_TITLE = "A Developer's Notebook"
 
-def linkedin_img(post)
-  post.compiled_content[/<img.+data-src="(.+)"\s+/,1]
+def base_url
+  self.config[:base_url]
+end
+
+def og_url(post)
+  base_url + post.path
+end
+
+def og_img(post)
+  img = post.compiled_content[/<img.+data-src="(.+)"\s+/,1]
+  return unless img
+
+  base_url + img
 end
 
 def get_post_start(post)
