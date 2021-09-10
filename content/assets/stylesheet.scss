@@ -191,12 +191,21 @@ article {
   font-size: 90%;
 }
 
+table {
+  font-family: $font-alt;
+  background: #CCC;
+}
+
 .tag-count {
   color: white;
 }
 
 .stretch {
   img { width: 100% !important; }
+}
+
+.stretch {
+  img { width: auto !important; }
 }
 .image-box {
   img { width: auto; }
