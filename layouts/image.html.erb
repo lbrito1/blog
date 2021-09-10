@@ -1,9 +1,9 @@
 <div class="image-box stretch">
   <div>
     <a href="<%= src %>" target="_blank">
-      <img class="lazy" data-src="<%= src %>" alt="<%= defined?(alt) ? alt : '' %>">
+      <img class="lazy <%= defined?(extra_classes) ? extra_classes.join(' ') : '' %>" data-src="<%= src %>" alt="<%= defined?(alt) ? alt : '' %>">
       <noscript>
-        <img src="<%= src %>" alt="Alternative text to describe image.">
+        <img src="<%= src %>" alt="<%= defined?(alt) ? alt : '' %>">
       </noscript>
     </a>
   </div>

@@ -118,11 +118,18 @@ article img {
   font-family: "Mono";
   font-size: 90%; }
 
+table {
+  font-family: "Mono";
+  background: #CCC; }
+
 .tag-count {
   color: white; }
 
 .stretch img {
   width: 100% !important; }
+
+.stretch img {
+  width: auto !important; }
 
 .image-box {
   position: relative;
