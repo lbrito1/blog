@@ -65,42 +65,54 @@
   <div class="pure-g">
   
     <div class="post-index pure-u-1-1">
-      <h2><a href="05/communication.html">Communication tips for remote developers</a></h2>
-      <aside class="">May 30, 2020</aside>
+      <h2><a href="07/replacing_google_analytics_android.html">I replaced Google Analytics with a web server running on my phone</a></h2>
+      <aside class="">Jul 06, 2020</aside>
 
       <article class="text">
           <div class="image-box stretch">
   <div>
-    <a href="05/communication.html">
-      <img class="lazy" data-src="/blog/assets/images/2020/bridge.jpg" alt="San Francisco Bay bridge.">
+    <a href="07/replacing_google_analytics_android.html">
+      <img class="lazy" data-src="/blog/assets/images/2020/simple_diagram.png" alt="">
       <noscript>
-        <img src="../blog/assets/images/2020/bridge.jpg" alt="Alternative text to describe image.">
+        <img src="../blog/assets/images/2020/simple_diagram.png" alt="Alternative text to describe image.">
       </noscript>
     </a>
   </div>
   
-    <div class="image-caption">We're all remote -- for now.</div>
+    <div class="image-caption"></div>
   
 </div>
 
-<p>Communicating well with your co-workers and managers is supremely important to a software developer, and even more so for the remote one. With a lot more remote workers due to the COVID-19 pandemic, this topic became a lot more relevant.</p>
+<blockquote>
+  <p><strong>TLDR</strong> I built <a href="https://github.com/lbrito1/android-analytics">android-analytics</a>, a web analytics tracker running on my phone.</p>
+</blockquote>
 
-<p>I’ve seen people hint at this more than a few times over the years, but I didn’t really “get it” until I started working as a fully remote engineer. I also find it important to understand not only <em>what</em> we should be doing to achieve efficient communication, but also <em>why</em> we should be doing those things in those ways.</p>
+<p>Say you run a blog, personal website, small-time business page or something of the sorts. Say you also want to keep an eye on how many visitors you’re getting.</p>
 
-<p>To me, the single most important thing to keep in mind is that people’s mental resources: time, attention span, etc, like yours, are limited.</p>
+<p>The first thing that most people think at this point is “Google Analytics”. It mostly works and is free. Its also hosted by Google, which makes it very easy to start using. There aren’t many competitors that bring those points to the table, so Google Analytics usually wins by WO at this point.</p>
+
+<p>I used to use Google Analytics to track this blog for those same reasons. But after finding out about <a href="https://termux.com">Termux</a> and writing <a href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html">this post</a> about installing a web server on an Android phone, I started toying with the idea that I had this ARM-based, 2GB RAM, Linux-like device with Internet connectivity which must be more than enough for a simple webcounter-like application. After a few weeks of tinkering, here it is!</p>
 
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="05/communication.html">Continue reading ›</a>
+              <a class="read-more" href="07/replacing_google_analytics_android.html">Continue reading ›</a>
           </div>
         </div>
         <div class="post-tags">
           
             <div class="tags">
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/career">
-                career <span class="tag-count">3</span>
+              <a class="pure-button button-xsmall tag-button" href="../tags/Web development">
+                web development <span class="tag-count">5</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/android">
+                android <span class="tag-count">2</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/termux">
+                termux <span class="tag-count">2</span>
               </a>
             
             </div>
@@ -152,59 +164,6 @@
             
               <a class="pure-button button-xsmall tag-button" href="../tags/termux">
                 termux <span class="tag-count">2</span>
-              </a>
-            
-            </div>
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="post-index pure-u-1-1">
-      <h2><a href="06/free_https_home_server.html">Setting up a free HTTPS home server</a></h2>
-      <aside class="">Jun 27, 2020</aside>
-
-      <article class="text">
-          <div class="image-box stretch">
-  <div>
-    <a href="06/free_https_home_server.html">
-      <img class="lazy" data-src="/blog/assets/images/2020/cool-background.png" alt="">
-      <noscript>
-        <img src="../blog/assets/images/2020/cool-background.png" alt="Alternative text to describe image.">
-      </noscript>
-    </a>
-  </div>
-  
-    <div class="image-caption"></div>
-  
-</div>
-
-<p>Try searching for “free dynamic dns https”, “free domain with SSL” or anything similar. There won’t be a lot of meaningful results. Sure, some of the results are pretty close, like <a href="https://www.freecodecamp.org/news/free-https-c051ca570324/">this guide</a> on how to get free SSL certification from Cloudflare, or <a href="https://medium.com/@jeremygale/how-to-set-up-a-free-dynamic-hostname-with-ssl-cert-using-google-domains-58929fdfbb7a">this one</a> on setting up a free dynamic hostname with SSL, but they all assume you <em>already own a domain</em>. If you’re looking for a completely free domain that you can use for your personal web server that also has verified SSL, there are very few results.</p>
-
-<p>But why was I even looking for this?</p>
-
-<p>I’m working on a side project. It has a web server that communicates with a static web page hosted on Github Pages. There are a lot of ways of setting that up; in my particular case, I have a local (as in in my house) HTTP web server accepting traffic on a non-standard port (port <code>80</code> is blocked by my ISP <a href="https://www.reddit.com/r/InternetBrasil/comments/e9v5o0/abertura_das_portas_80_e_443_na_claronet/">for commercial reasons</a> – this detail is of paramount importance, but more on that later). It is accessible through my external IP (which is dynamic), which can be mapped to a dynamic DNS domain.</p>
-
-<p>I wanted to run a simple API on the web server and access it through static pages (like this blog) hosted on Github Pages (which has a verified SSL certificate). <a href="https://stackoverflow.com/questions/62378047/is-it-possible-to-make-a-cross-domain-javascript-request-to-http-from-https">I asked the Internet</a> if it is possible to call from a SSL-verified page (in JavaScript) a different server that does not have a verified SSL certificate (that is, my aforementioned webapp running in my home server). It isn’t, so the conclusion was that I needed somehow to get a verified SSL certificate for my dynamic DNS domain.</p>
-
-<p>Having no idea whether this was possible, I started to research.</p>
-
-
-          <div class="pure-g post-footer">
-          <div class="pure-u-1-2">
-              <a class="read-more" href="06/free_https_home_server.html">Continue reading ›</a>
-          </div>
-        </div>
-        <div class="post-tags">
-          
-            <div class="tags">
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/Web development">
-                web development <span class="tag-count">5</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/devops">
-                devops <span class="tag-count">2</span>
               </a>
             
             </div>
@@ -267,16 +226,61 @@
     </div>
   
     <div class="post-index pure-u-1-1">
-      <h2><a href="07/replacing_google_analytics_android.html">I replaced Google Analytics with a web server running on my phone</a></h2>
-      <aside class="">Jul 06, 2020</aside>
+      <h2><a href="05/communication.html">Communication tips for remote developers</a></h2>
+      <aside class="">May 30, 2020</aside>
 
       <article class="text">
           <div class="image-box stretch">
   <div>
-    <a href="07/replacing_google_analytics_android.html">
-      <img class="lazy" data-src="/blog/assets/images/2020/simple_diagram.png" alt="">
+    <a href="05/communication.html">
+      <img class="lazy" data-src="/blog/assets/images/2020/bridge.jpg" alt="San Francisco Bay bridge.">
       <noscript>
-        <img src="../blog/assets/images/2020/simple_diagram.png" alt="Alternative text to describe image.">
+        <img src="../blog/assets/images/2020/bridge.jpg" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">We're all remote -- for now.</div>
+  
+</div>
+
+<p>Communicating well with your co-workers and managers is supremely important to a software developer, and even more so for the remote one. With a lot more remote workers due to the COVID-19 pandemic, this topic became a lot more relevant.</p>
+
+<p>I’ve seen people hint at this more than a few times over the years, but I didn’t really “get it” until I started working as a fully remote engineer. I also find it important to understand not only <em>what</em> we should be doing to achieve efficient communication, but also <em>why</em> we should be doing those things in those ways.</p>
+
+<p>To me, the single most important thing to keep in mind is that people’s mental resources: time, attention span, etc, like yours, are limited.</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="05/communication.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/career">
+                career <span class="tag-count">3</span>
+              </a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="06/free_https_home_server.html">Setting up a free HTTPS home server</a></h2>
+      <aside class="">Jun 27, 2020</aside>
+
+      <article class="text">
+          <div class="image-box stretch">
+  <div>
+    <a href="06/free_https_home_server.html">
+      <img class="lazy" data-src="/blog/assets/images/2020/cool-background.png" alt="">
+      <noscript>
+        <img src="../blog/assets/images/2020/cool-background.png" alt="Alternative text to describe image.">
       </noscript>
     </a>
   </div>
@@ -285,20 +289,20 @@
   
 </div>
 
-<blockquote>
-  <p><strong>TLDR</strong> I built <a href="https://github.com/lbrito1/android-analytics">android-analytics</a>, a web analytics tracker running on my phone.</p>
-</blockquote>
+<p>Try searching for “free dynamic dns https”, “free domain with SSL” or anything similar. There won’t be a lot of meaningful results. Sure, some of the results are pretty close, like <a href="https://www.freecodecamp.org/news/free-https-c051ca570324/">this guide</a> on how to get free SSL certification from Cloudflare, or <a href="https://medium.com/@jeremygale/how-to-set-up-a-free-dynamic-hostname-with-ssl-cert-using-google-domains-58929fdfbb7a">this one</a> on setting up a free dynamic hostname with SSL, but they all assume you <em>already own a domain</em>. If you’re looking for a completely free domain that you can use for your personal web server that also has verified SSL, there are very few results.</p>
 
-<p>Say you run a blog, personal website, small-time business page or something of the sorts. Say you also want to keep an eye on how many visitors you’re getting.</p>
+<p>But why was I even looking for this?</p>
 
-<p>The first thing that most people think at this point is “Google Analytics”. It mostly works and is free. Its also hosted by Google, which makes it very easy to start using. There aren’t many competitors that bring those points to the table, so Google Analytics usually wins by WO at this point.</p>
+<p>I’m working on a side project. It has a web server that communicates with a static web page hosted on Github Pages. There are a lot of ways of setting that up; in my particular case, I have a local (as in in my house) HTTP web server accepting traffic on a non-standard port (port <code>80</code> is blocked by my ISP <a href="https://www.reddit.com/r/InternetBrasil/comments/e9v5o0/abertura_das_portas_80_e_443_na_claronet/">for commercial reasons</a> – this detail is of paramount importance, but more on that later). It is accessible through my external IP (which is dynamic), which can be mapped to a dynamic DNS domain.</p>
 
-<p>I used to use Google Analytics to track this blog for those same reasons. But after finding out about <a href="https://termux.com">Termux</a> and writing <a href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html">this post</a> about installing a web server on an Android phone, I started toying with the idea that I had this ARM-based, 2GB RAM, Linux-like device with Internet connectivity which must be more than enough for a simple webcounter-like application. After a few weeks of tinkering, here it is!</p>
+<p>I wanted to run a simple API on the web server and access it through static pages (like this blog) hosted on Github Pages (which has a verified SSL certificate). <a href="https://stackoverflow.com/questions/62378047/is-it-possible-to-make-a-cross-domain-javascript-request-to-http-from-https">I asked the Internet</a> if it is possible to call from a SSL-verified page (in JavaScript) a different server that does not have a verified SSL certificate (that is, my aforementioned webapp running in my home server). It isn’t, so the conclusion was that I needed somehow to get a verified SSL certificate for my dynamic DNS domain.</p>
+
+<p>Having no idea whether this was possible, I started to research.</p>
 
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="07/replacing_google_analytics_android.html">Continue reading ›</a>
+              <a class="read-more" href="06/free_https_home_server.html">Continue reading ›</a>
           </div>
         </div>
         <div class="post-tags">
@@ -309,12 +313,8 @@
                 web development <span class="tag-count">5</span>
               </a>
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/android">
-                android <span class="tag-count">2</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/termux">
-                termux <span class="tag-count">2</span>
+              <a class="pure-button button-xsmall tag-button" href="../tags/devops">
+                devops <span class="tag-count">2</span>
               </a>
             
             </div>
@@ -336,7 +336,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    fetch("https://9e63-2804-3b18-c150-bc00-6c78-7f79-81c-69ea.ngrok.io/damn_fine_coffee", { referrerPolicy: "unsafe-url" });
+    fetch("https://0934-2001-569-7ed3-bd00-1d59-f4b7-9e51-370.ngrok.io//damn_fine_coffee", { referrerPolicy: "unsafe-url" });
 
   </script>
 
