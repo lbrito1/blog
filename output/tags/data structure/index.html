@@ -65,45 +65,6 @@
   <div class="pure-g">
   
     <div class="post-index pure-u-1-1">
-      <h2><a href="../../2014/03/heap-priority-queues.html">Heap &amp; Priority Queues</a></h2>
-      <aside class="">Mar 21, 2014</aside>
-
-      <article class="text">
-          <p>Priority queues (PQs) are abstract data types that work just like regular stacks, but the popping order depends on each element’s priority instead of the sequence they were pushed onto the queue (FIFO or LIFO).</p>
-
-<p>The naïve way of implementing a PQ consists of using an unsorted list or array and searching for the highest-priority element at each pop, which takes O(n) time. There are several more efficient implementations, of which the most usual is the heap.</p>
-
-<p>Heaps are complete (i.e. all levels except possibly the last are filled) binary trees that work as PQs by maintaining the following property: children nodes always have a smaller priority than their parent, i.e. for any node A with children B and C, priority(B) &lt; priority(A) &amp;&amp; priority(C) &lt; priority(A). Note that there is no assumed relation between siblings or cousins.</p>
-
-<div class="image-box stretch">
-  <div>
-    <a href="../../blog/assets/images/codedeposit/2014/03/heap.jpg" target="_blank">
-      <img class="lazy " data-src="/blog/assets/images/codedeposit/2014/03/heap.jpg" alt="">
-      <noscript>
-        <img src="../../blog/assets/images/codedeposit/2014/03/heap.jpg" alt="">
-      </noscript>
-    </a>
-  </div>
-  
-    <div class="image-caption">max-heap and corresponding array.</div>
-  
-</div>
-
-<p>Each element of a heap has two pieces of information: a key and a value, hence we call them key-value (KV) pair. The key identifies the specific element, and the value determines the element’s priority within the heap. Heaps can be min-heaps (low value = high priority) or max-heaps (high value = high priority).</p>
-
-
-          <div class="pure-g post-footer">
-          <div class="pure-u-1-2">
-              <a class="read-more" href="../../2014/03/heap-priority-queues.html">Continue reading ›</a>
-          </div>
-        </div>
-        <div class="post-tags">
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="post-index pure-u-1-1">
       <h2><a href="../../2014/03/trees-part-i.html">Trees - Part I</a></h2>
       <aside class="">Mar 31, 2014</aside>
 
@@ -148,50 +109,18 @@
     </div>
   
     <div class="post-index pure-u-1-1">
-      <h2><a href="../../2014/03/graph.html">Graph</a></h2>
-      <aside class="">Mar 23, 2014</aside>
+      <h2><a href="../../2014/02/vector.html">Vector</a></h2>
+      <aside class="">Feb 21, 2014</aside>
 
       <article class="text">
-          <p>Mathematically, a graph is a set of vertices and edges, thus a graph <code>G</code> is usually written as <code>G(V,E)</code>. Besides linking vertices in the graph, edges can also carry a specific value which may be interpreted as cost, weight, distance etc.</p>
+          <p>Very simple Vector implementation with add, add_all, get and delete operations using arrays of void pointers.</p>
 
-<div class="image-box stretch">
-  <div>
-    <a href="../../blog/assets/images/codedeposit/2014/03/graph1.jpg" target="_blank">
-      <img class="lazy " data-src="/blog/assets/images/codedeposit/2014/03/graph1.jpg" alt="">
-      <noscript>
-        <img src="../../blog/assets/images/codedeposit/2014/03/graph1.jpg" alt="">
-      </noscript>
-    </a>
-  </div>
-  
-    <div class="image-caption">graph viewed with BurgerGF</div>
-  
-</div>
-
-<p>In computer science, we’re interested in the (abstract) data structure used to implement the graph mathematical concept. Let’s first discuss the basic elements in a graph - vertices and edges:</p>
-
-<div class="highlight"><pre><code class="language-c"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">vertex</span>
-<span class="p">{</span>
- <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">id</span><span class="p">;</span>
- <span class="kt">int</span> <span class="n">status</span><span class="p">;</span>
- <span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
- <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">vertex</span><span class="p">;</span></code></pre></div>
-
-<p>Vertices should be able to hold any kind of data, so we’ll just throw in a void pointer for that. Other than that we have an id, status (marked or unmarked - more on that later) and 2D coordinates so we can draw the vertices somewhere.</p>
-
-<div class="highlight"><pre><code class="language-c"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">edge</span>
-<span class="p">{</span>
- <span class="n">vertex</span><span class="o">*</span> <span class="n">from</span><span class="p">,</span> <span class="o">*</span><span class="n">to</span><span class="p">;</span>
- <span class="kt">int</span> <span class="n">cost</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">edge</span><span class="p">;</span></code></pre></div>
-
-<p>Edges consist of just pointers to the vertices they link and an optional value used as weight, distance, cost etc. Strictly speaking we could use a void pointer for that value as well, as long as we also defined a comparison function. But let’s save the hassle and just use an integer instead - most algorithms will be fine with that.</p>
+<p>The downside to this as compared to simply using an array is that here we have an <em>array of pointers</em>, which means the data will most likely be scattered over the memory, not coalesced.</p>
 
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="../../2014/03/graph.html">Continue reading ›</a>
+              <a class="read-more" href="../../2014/02/vector.html">Continue reading ›</a>
           </div>
         </div>
         <div class="post-tags">
@@ -288,18 +217,89 @@
     </div>
   
     <div class="post-index pure-u-1-1">
-      <h2><a href="../../2014/02/vector.html">Vector</a></h2>
-      <aside class="">Feb 21, 2014</aside>
+      <h2><a href="../../2014/03/heap-priority-queues.html">Heap &amp; Priority Queues</a></h2>
+      <aside class="">Mar 21, 2014</aside>
 
       <article class="text">
-          <p>Very simple Vector implementation with add, add_all, get and delete operations using arrays of void pointers.</p>
+          <p>Priority queues (PQs) are abstract data types that work just like regular stacks, but the popping order depends on each element’s priority instead of the sequence they were pushed onto the queue (FIFO or LIFO).</p>
 
-<p>The downside to this as compared to simply using an array is that here we have an <em>array of pointers</em>, which means the data will most likely be scattered over the memory, not coalesced.</p>
+<p>The naïve way of implementing a PQ consists of using an unsorted list or array and searching for the highest-priority element at each pop, which takes O(n) time. There are several more efficient implementations, of which the most usual is the heap.</p>
+
+<p>Heaps are complete (i.e. all levels except possibly the last are filled) binary trees that work as PQs by maintaining the following property: children nodes always have a smaller priority than their parent, i.e. for any node A with children B and C, priority(B) &lt; priority(A) &amp;&amp; priority(C) &lt; priority(A). Note that there is no assumed relation between siblings or cousins.</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/codedeposit/2014/03/heap.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/codedeposit/2014/03/heap.jpg" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/codedeposit/2014/03/heap.jpg" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">max-heap and corresponding array.</div>
+  
+</div>
+
+<p>Each element of a heap has two pieces of information: a key and a value, hence we call them key-value (KV) pair. The key identifies the specific element, and the value determines the element’s priority within the heap. Heaps can be min-heaps (low value = high priority) or max-heaps (high value = high priority).</p>
 
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="../../2014/02/vector.html">Continue reading ›</a>
+              <a class="read-more" href="../../2014/03/heap-priority-queues.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="../../2014/03/graph.html">Graph</a></h2>
+      <aside class="">Mar 23, 2014</aside>
+
+      <article class="text">
+          <p>Mathematically, a graph is a set of vertices and edges, thus a graph <code>G</code> is usually written as <code>G(V,E)</code>. Besides linking vertices in the graph, edges can also carry a specific value which may be interpreted as cost, weight, distance etc.</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/codedeposit/2014/03/graph1.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/codedeposit/2014/03/graph1.jpg" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/codedeposit/2014/03/graph1.jpg" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">graph viewed with BurgerGF</div>
+  
+</div>
+
+<p>In computer science, we’re interested in the (abstract) data structure used to implement the graph mathematical concept. Let’s first discuss the basic elements in a graph - vertices and edges:</p>
+
+<div class="highlight"><pre><code class="language-c"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">vertex</span>
+<span class="p">{</span>
+ <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">id</span><span class="p">;</span>
+ <span class="kt">int</span> <span class="n">status</span><span class="p">;</span>
+ <span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+ <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">vertex</span><span class="p">;</span></code></pre></div>
+
+<p>Vertices should be able to hold any kind of data, so we’ll just throw in a void pointer for that. Other than that we have an id, status (marked or unmarked - more on that later) and 2D coordinates so we can draw the vertices somewhere.</p>
+
+<div class="highlight"><pre><code class="language-c"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">edge</span>
+<span class="p">{</span>
+ <span class="n">vertex</span><span class="o">*</span> <span class="n">from</span><span class="p">,</span> <span class="o">*</span><span class="n">to</span><span class="p">;</span>
+ <span class="kt">int</span> <span class="n">cost</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">edge</span><span class="p">;</span></code></pre></div>
+
+<p>Edges consist of just pointers to the vertices they link and an optional value used as weight, distance, cost etc. Strictly speaking we could use a void pointer for that value as well, as long as we also defined a comparison function. But let’s save the hassle and just use an integer instead - most algorithms will be fine with that.</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="../../2014/03/graph.html">Continue reading ›</a>
           </div>
         </div>
         <div class="post-tags">
@@ -393,7 +393,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", yall);
-    fetch("https://9e63-2804-3b18-c150-bc00-6c78-7f79-81c-69ea.ngrok.io/damn_fine_coffee", { referrerPolicy: "unsafe-url" });
+    fetch("https://0934-2001-569-7ed3-bd00-1d59-f4b7-9e51-370.ngrok.io//damn_fine_coffee", { referrerPolicy: "unsafe-url" });
 
   </script>
 
