@@ -2,13 +2,101 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2021-10-07T14:45:00Z</updated>
+  <updated>2021-12-30T12:34:36Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2021-12-30:/blog/2021/12/botched_interviews.html</id>
+    <title type="html">Botched interviews</title>
+    <published>2021-12-30T12:34:36Z</published>
+    <updated>2021-12-30T12:34:36Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2021/12/botched_interviews.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/2021/12/botched_interviews.html"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2021/puerto-varas-sm.jpg" alt="Sunset in Puerto Varas."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2021/puerto-varas-sm.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;Here’s something I’ve been wanting to write for a while: all the times (the ones I can remember, anyway) I bombed a software engineer job interview. There are so many “how I aced interviewing at X”/”how to pass X interview” floating around that I thought the opposite story would make for an amusing read.&lt;/p&gt;
+
+&lt;p&gt;My first developer job was as an intern at a big tech company in 2012. I think that was one of the worst interviews I’ve had, by the way – I could barely understand the interviewer over the cellphone, and those were the days of “how many piano players are there in New York”-kind of questions. I thought it went terrible, but I got the job somehow. On the other hand I’ve had many interviews I thought I did great but bombed anyway.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="faang-1-2013"&gt;FAANG 1 (2013)&lt;/h2&gt;
+
+&lt;p&gt;I was just out of school when I got a cold call from a FAANG recruiter asking if I was interested in interviewing there. Needless to say I was naive and didn’t quite know what I was getting myself into.&lt;/p&gt;
+
+&lt;p&gt;The first part of the process was a phone screen with a technical recruiter. She asked me something like “What is the fastest way to sum two 32-bit integers?”. I froze like a deer in the headlights.&lt;/p&gt;
+
+&lt;p&gt;After gasping in awe at the bizarre question and mumbling some nonsense, I was informed that my answer was &lt;em&gt;not&lt;/em&gt; correct. The &lt;em&gt;right&lt;/em&gt; answer, the recruiter said, was “using the CPU’s TLB”. The &lt;a href="https://en.wikipedia.org/wiki/Translation_lookaside_buffer"&gt;translation lookaside buffer&lt;/a&gt; is a memory cache located between the CPU and the CPU cache. I still had college classes in my somewhat-recent memory at the time, so I kind of knew that this thing existed, but to this day I still don’t know how to sum two integers with it.&lt;/p&gt;
+
+&lt;h2 id="faang-1-2014"&gt;FAANG 1 (2014)&lt;/h2&gt;
+
+&lt;p&gt;A year passed and (the same) FAANG came to my town with a recruitment event. Again I got a call, and instead of a phone screening, I would go straight to the event location and do a quick onsite interview.&lt;/p&gt;
+
+&lt;p&gt;They provided recommendations on technical subjects I should refresh my memory about: basically Algorithms 101 syllabus; sorting algorithms, red/black and AVL trees, A* and Dijkstra, NP-complete problems, etc, as well as some operating systems topics: processes, threads, mutexes, scheduling algorithms and so on.&lt;/p&gt;
+
+&lt;p&gt;At the time I had just started grad school. I was a bit more seasoned than the last interview, but far from having any relevant industry experience.&lt;/p&gt;
+
+&lt;p&gt;Interview day. I got to the venue and sat reading my notes on how to balance AVL trees. The interviewers showed up, greeted me and got things started. They gave me pen and paper and asked me how to some things on a list of integers. I don’t recall the interview being particularly bad or anything, but round one was the end of the line for me. A few days later I got a boilerplate rejection email and that was my last contact with this FAANG.&lt;/p&gt;
+
+&lt;h2 id="mid-sized-tech-2014"&gt;Mid-sized tech (2014)&lt;/h2&gt;
+
+&lt;p&gt;Grad school classes were few and far apart, so I decided to start looking for a job. This mid-sized tech company had a local office, so I got in touch and scheduled an interview.&lt;/p&gt;
+
+&lt;p&gt;I don’t remember any meaningful details from this interview. One thing I do remember is being asked what monthly compensation I expected. The interviewer passed me a scrap of paper and a pen for me to write the number down. I took a few moments to think and wrote down what I thought was an adequate number. In today’s US dollars, that number would be enough to afford a parking spot in San Francisco, but it was an okay salary for a junior hire in my town.&lt;/p&gt;
+
+&lt;p&gt;I didn’t get a lot of feedback here other than “we went with someone else”.&lt;/p&gt;
+
+&lt;h2 id="faang-2-2019"&gt;FAANG 2 (2019)&lt;/h2&gt;
+
+&lt;p&gt;A few years had passed since my last failure. I had finished my education, become a Ruby developer and enjoyed a 3.5-years tenure at a great, small local software studio. I had a preferred text editor. I had dotfiles. I felt weathered. So I did what you’re supposed to do: I applied to FAANG.&lt;/p&gt;
+
+&lt;p&gt;FAANG responded to my application, and after a couple of &lt;em&gt;months&lt;/em&gt; and being ghosted by one of the 5+ recruiters involved in the process, things got on track for the onsite.&lt;/p&gt;
+
+&lt;p&gt;I did the Leetcode thing daily. I read Glassdoor tips and talked to college friends that worked at this company. I even went on Blind and found out that you’re basically an idiot if you don’t pass FAANG’s interview, cause it’s so damn easy.&lt;/p&gt;
+
+&lt;p&gt;I passed the initial screening rituals and was invited for an onsite – 25 hours and 3 flights away. As I obsessively went through my notes in the hotel, I thought I was finally &lt;em&gt;ready&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;There were maybe 5 or 6 rounds, each with one or two interviewers, all very nice and moderately helpful. Pretty much textbook FAANG interview, just like CTCI describes it. I was asked a particularly difficult set of questions. Mid-interview, I got the familiar feeling that a train is steaming towards me and I’ll soon be smashed into smithereens. Looking back, I’d evaluate myself at this interview as Not Good.&lt;/p&gt;
+
+&lt;p&gt;Another 25 hours, 2-stop travel back to my town. Feedback came swiftly in the familiar lukewarm rejection phone call.&lt;/p&gt;
+
+&lt;h2 id="big-tech-2019"&gt;Big Tech (2019)&lt;/h2&gt;
+
+&lt;p&gt;This Big Tech company is highly respected in the Ruby community and their culture seemed to align with my own. I tried, and failed, their interview process two times.&lt;/p&gt;
+
+&lt;p&gt;They have a fairly straightforward interview process: first a phone screen/short code challenge, then a longer behavioral/technical challenge, typically onsite. First time, I didn’t make it to the onsite.&lt;/p&gt;
+
+&lt;p&gt;My second attempt was much smoother and lead to the onsite. Like &lt;em&gt;FAANG 1 (2019)&lt;/em&gt;, this involved multiple flights and 20+ hours of travel. Also like my previous interview, I &lt;em&gt;felt ready&lt;/em&gt;. The recruiter was great, and every person I met so far was extremely nice. Company culture seemed fantastic and I liked the tech stack.&lt;/p&gt;
+
+&lt;p&gt;There were two technical rounds, one cultural fit conversation and one technical-but-not-coding round. The coding parts went well, maybe a B+. The culture fit thing was very good. The not-coding part, ironically the one I had prepared the most, was a disaster, although I didn’t see things that way at the time.&lt;/p&gt;
+
+&lt;p&gt;I came prepared to talk about one of the projects I lead in my current job at the time; evidently I had an NDA in place and had to navigate around it. I thought this was fine – I had already published a post on the same subject on the company’s public blog and never had any complaints about it being too esoteric/abstract. The interviewer was not amused by this at all. Because of the vagueness of the language I was using, he seemed to think I was describing something shady. At one point, he actually asked something like “do your users know you are doing this”! Right now I think that was kind of funny, but I was utterly bewildered at the time. I tried to reassure him that there was nothing fishy going on, but at that point he had probably made his mind. I might as well have gone straight to the airport and saved everyone some time.&lt;/p&gt;
+
+&lt;p&gt;Rejection call came a week later. Upon my request, the recruiter followed with a very thorough email detailing the reasons of the rejection, which is a fairly unusual thing for these companies to do, and very helpful for the candidate. Although I think the interviewer could have handled the situation better (just ask me to describe another project), I have great respect for the way the company handled the process and gave honest feedback.&lt;/p&gt;
+
+&lt;h2 id="the-printer-in-the-room"&gt;The printer in the room&lt;/h2&gt;
+
+&lt;p&gt;Hiring is the printer of software engineering jobs. It kind of works, but not very well, and everyone seems to agree it should be better at this point. This is in no way a demerit to recruiters – they’re doing their job and are not at fault here. They’re usually pretty good; its the framework that isn’t great. There have been some incremental improvements: code sharing platforms are pretty good, which makes remote interviewing very straightforward (and reduces the need for onsites, &lt;a href="https://lbrito1.github.io/blog/2021/08/onsites.html"&gt;which suck&lt;/a&gt;). There are many services where you build a single profile and apply to many companies at once, which reduces the time waste of filling the same forms in all the different companies’ websites. The bulk of the process remains more or less the same though.&lt;/p&gt;
+
+&lt;p&gt;Interviewing is in part a numbers game, but also not &lt;em&gt;entirely&lt;/em&gt; random, which means there is a way to get better at it (that’s the whole point of companies like Leetcode and books like CTCI). Failing an interview you prepared for leaves a sour taste in the mouth, but over time it gets easier to accept as just part of the probability game.&lt;/p&gt;
+
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2021-10-07:/blog/2021/09/job_offers_pandemic.html</id>
     <title type="html">Analyzing LinkedIn's data export: what happened in 2021?</title>
@@ -2326,142 +2414,6 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;[4] &lt;a href="http://www.akkadia.org/drepper/dsohowto.pdf"&gt;http://www.akkadia.org/drepper/dsohowto.pdf&lt;/a&gt;&lt;/p&gt;
 </content>
     <summary type="html">How do old-time languages such as C, Fortran and others survive in a world with Python, Ruby and so on?</summary>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2015-10-07:/blog/2015/10/red-black-vs-avl.html</id>
-    <title type="html">Trees, part IV - Benchmarking Red-black and AVL trees</title>
-    <published>2015-10-07T23:02:35Z</published>
-    <updated>2015-10-07T23:02:35Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2015/10/red-black-vs-avl.html" type="text/html"/>
-    <content type="html">&lt;p&gt;In our previous installments we implemented two of the most well-known self-balancing binary search trees: &lt;a href="%7B%%20link%20_posts/2014-04-21-trees-part-ii-avl-tree.markdown%20%%7D"&gt;AVL&lt;/a&gt; and &lt;a href="%7B%%20link%20_posts/2015-10-01-trees-part-iii-red-black-tree.markdown%20%%7D"&gt;Red-black&lt;/a&gt; &lt;a href="%7B%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%%7D"&gt;trees&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We had a few classes on AVL trees in our basic data structures &amp;amp; algorithms class back in college, which made its implementation far less of a challenge than the Red-black tree. So besides the fundamental guidance of CLRS I had to do quite some googling to get it working. While googling I noticed there were quite a lot of questions about which (AVL or RB) tree was “better” in some sense, be it insertion, search time, deletion time, etc. Most textbooks and articles dismiss this question just by stating the factor differences in either trees’ worst case heights, &lt;a href="%7B%%20link%20_posts/2015-10-01-trees-part-iii-red-black-tree.markdown%20%%7D"&gt;as we briefly mentioned&lt;/a&gt; in the past installment. If you’re anything like me, however, you’ll want to see some comparisons where the trees are &lt;em&gt;actually&lt;/em&gt; tested. So I decided to do some simple benchmarking to test those theoretical worst-cases. Here’s what I found out.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;First off, we need at least two cases: worst and average case. As we know from the previous installments, the worst possible case for BST insertion is when you are inserting continuously increasing or decreasing values, e.g. &lt;em&gt;1, 2, 3, 4, …&lt;/em&gt; . In this case, a pure BST would behave exactly like a (doubly) linked list, while self-balancing trees should should spread out node distribution. The worst possible searches would be the top or bottom values, i.e. those close to the end of the “list”: a pure BST would have to traverse the entire list (&lt;em&gt;n&lt;/em&gt; time), while self-balancing trees should enjoy a $latex k~log(n)$ time with some factor k.&lt;/p&gt;
-
-&lt;p&gt;What would an “average case” look like? Hard to say; depend on what is average for your application. It might just be the case that sequences are the average case. Since we can’t define a “universal” average case and for the sake of simplicity, we will define the average case as a sequence of random numbers drawn from C’s rand() function (one might argue that this is actually the “best” case since on the long run the BST will “naturally” become quite reasonably balanced, but let’s not get picky about terminology).&lt;/p&gt;
-
-&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/codedeposit/2015/10/average-case_search.png?w=739" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;Average case_search&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Figure 1&lt;/p&gt;
-
-&lt;p&gt;Benchmarking is done as follows: &lt;em&gt;x&lt;/em&gt; values are inserted into the tree (x up to 100k in 1k steps), and then using the same tree we search for the bottom $latex frac{x}{10}$ values in the tree, so if x = 10k we will search for the 1k lowest values.&lt;/p&gt;
-
-&lt;p&gt;In Figure 1 we have insertion and search times for the average case. As we predicted, search times are basically the same for all 3 trees, with the unbalanced BST taking slightly more time than Red-black and AVL. The difference is small but seems to increase a bit as more elements are added. Insertion took significantly longer in the AVL tree than the other two, most likely due to all the rotations AVL needs to do. Red-black performed slightly better than BST. All in all, the 3 trees performed very similarly.&lt;/p&gt;
-
-&lt;p&gt;Now let’s see in Figure 2 how the trees perform in our worst-case scenario:&lt;/p&gt;
-
-&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/codedeposit/2015/10/worst-case_search.png?w=739" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;Worst case_search&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Figure 2&lt;/p&gt;
-
-&lt;p&gt;Figure 2 reminds us why self-balancing trees were invented. BST quickly degenerated into a $latex O(n)$-time &lt;a href="%7B%%20link%20_posts/2014-02-14-3.markdown%20%%7D%7D"&gt;linked list&lt;/a&gt;, which made the other two trees’ performance invisible. Let’s use a log plot to see how well R&amp;amp;B and AVL performed:&lt;/p&gt;
-
-&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/codedeposit/2015/10/worst-case-log_search.png?w=739" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;Worst case (log)_search&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Figure 3&lt;/p&gt;
-
-&lt;p&gt;Figure 3 shows the same results as Figure 2 but with a logarithmic plot. As we can see, Red &amp;amp; Black and AVL trees performed nearly identically since both have worst-case $latex O(log(n))$ times. The difference in factors between AVL and RB isn’t really noticeable. AVL seems to have performed only infinitesimally better than RB, but the difference is most likely insignificant (statistically speaking).&lt;/p&gt;
-
-&lt;p&gt;The huge difference in performance between average and worst case are easily understood by looking at Figure 4. While BST height does increase more than the other trees’ height on the average case, they all have the same order of magnitude. Not on the worst case, though: BST height increases linearly while AVL and RB are clearly logarithmic.&lt;/p&gt;
-
-&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/codedeposit/2015/10/average-case_height.png?w=739" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;Average case_height&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Figure 4&lt;/p&gt;
-
-&lt;p&gt;We are also able to notice the difference between AVL and Red-black factors in Figure 4’s right picture, where AVL’s height is consistently less than Red-black’s.&lt;/p&gt;
-
-&lt;p&gt;Figure 5 shows only Red-black and AVL heights. Note that they are close to the theoretical bounds, which suggests that our worst case is indeed a worst case. Take n = 80000 as an example: for the AVL tree we expect a height always smaller than $latex 1.44~log_{2}(80000) \approx 23.45$, while the observed was 20. For the Red-black tree, the upper bound is $latex log_{2}(n) \approx 32.57$, also close to the observed (30). Although these differences may seem big, they aren’t enough to significantly change observed search and insertion times (Figure 6). That’s what makes Big O so great!&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/codedeposit/2015/10/worst_heights.png?w=300" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;worst_height&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Figure 5&lt;/p&gt;
-
-&lt;p&gt;:————————-:|:————————-:&lt;/p&gt;
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/codedeposit/2015/10/worst_searches.png?w=300" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;worst_searches&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Figure 6&lt;/p&gt;
-
-&lt;p&gt;This concludes our analysis of self-balancing BSTs. As always, all the code used in this post can be found &lt;a href="https://github.com/lbrito1/cstuff"&gt;on Github&lt;/a&gt;. Charts were rendered with Matplotlib + Seaborn.&lt;/p&gt;
-</content>
   </entry>
 </feed>
 
