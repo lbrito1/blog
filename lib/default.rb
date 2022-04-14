@@ -12,6 +12,12 @@ def base_url
   self.config[:base_url]
 end
 
+def reading_time_minutes(post)
+  words_per_minute = 250
+  words = post.raw_content.split(" ").count
+  (words / words_per_minute.to_f).ceil
+end
+
 def og_url(post)
   base_url + post.path
 end
