@@ -65,16 +65,17 @@ body {
     left: 0;
     position: absolute;
     padding-top: 1em;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
 
     .final {
+      border-top: 1px solid gray;
       padding-top: 1em;
     }
   }
 }
 
 .carnaval {
-  background: -webkit-linear-gradient(#6bfff9, #6600ff);
+  background: -webkit-linear-gradient(#027ec4, #ff1c1c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold !important;
