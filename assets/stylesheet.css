@@ -1,9 +1,11 @@
 a {
-  color: #FD5200;
-  text-decoration: none; }
+  color: #E84855;
+  font-weight: 900;
+  text-decoration: none;
+  border-bottom: 1px dashed #E84855; }
 
 aside {
-  font-family: "monospace"; }
+  font-family: Monospace; }
 
 body {
   color: #222;
@@ -12,7 +14,7 @@ body {
 
 .text {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color: #000; }
+  color: #141204; }
 
 #layout {
   position: relative;
@@ -24,13 +26,28 @@ body {
   padding: 0 1em;
   max-width: 768px;
   margin-bottom: 50px;
-  line-height: 2.0em; }
+  line-height: 1.7em; }
   .content h1 {
-    text-align: center; }
+    text-align: center;
+    font-family: Monospace;
+    font-weight: normal; }
   .content .footer {
-    margin: 20px 0;
+    background-color: #EEE;
     color: #333;
-    text-align: center; }
+    text-align: center;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    padding-top: 1em;
+    padding-bottom: 2em; }
+    .content .footer .final {
+      padding-top: 1em; }
+
+.carnaval {
+  background: -webkit-linear-gradient(#6bfff9, #6600ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold !important; }
 
 .header {
   margin: 0;
@@ -40,18 +57,21 @@ body {
   .header h1 {
     margin: 0.2em 0;
     font-weight: 300;
-    font-family: "monospace";
+    font-family: Monospace;
     line-height: 1em; }
   .header a {
-    color: #000; }
+    font-family: mono;
+    font-weight: normal;
+    color: #141204;
+    border-bottom: none; }
   .header nav {
     padding: 1em 0;
-    color: #000;
+    color: #141204;
     border-bottom: 1px solid #999;
     margin-bottom: 1em; }
     .header nav a {
-      font-family: "monospace";
-      color: #000; }
+      font-family: Monospace;
+      color: #141204; }
     .header nav .contact {
       float: right; }
       .header nav .contact img {
@@ -68,12 +88,13 @@ body {
     display: inline-block;
     margin: 10px 0; }
   .post-index h2 a {
-    color: #000;
-    font-family: "monospace";
+    color: #141204;
+    font-family: Monospace;
     line-height: 1em;
     font-size: 110%;
     padding-top: 10px;
-    font-weight: 400; }
+    font-weight: 400;
+    border-bottom: none; }
   .post-index h2 {
     margin: 0 !important; }
   .post-index aside {
@@ -84,7 +105,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: #999; }
     .post-index .tags a {
-      margin: 10px;
+      margin: 0.5em 0;
       background-color: #142850;
       color: white; }
   .post-index .post-meta {
@@ -92,7 +113,7 @@ body {
 
 .post-show h2 {
   text-align: center;
-  font-family: "monospace";
+  font-family: Monospace;
   font-weight: 400;
   font-size: 1.5em;
   border: 1px solid black;
@@ -100,7 +121,7 @@ body {
   padding-top: 1em; }
 .post-show h3 {
   font-weight: 400;
-  font-family: "monospace"; }
+  font-family: Monospace; }
 .post-show aside {
   font-style: italic;
   color: #999; }
@@ -119,12 +140,28 @@ article img {
 
 .tag-button {
   border-radius: 6px;
-  font-family: "monospace";
+  font-family: Monospace;
   font-size: 90%; }
 
 table {
-  font-family: "monospace";
-  background: #CCC; }
+  font-family: Monospace;
+  background: #FFF;
+  font-size: 80%; }
+
+th, td {
+  text-align: left;
+  padding: 8px; }
+
+th {
+  background-color: #222E50;
+  color: #FFF; }
+
+td {
+  padding: 0.1em;
+  line-height: 1.6em; }
+
+tr:nth-child(odd) {
+  background-color: #dfe5f7; }
 
 .tag-count {
   color: white; }
@@ -135,6 +172,8 @@ table {
 .image-box {
   position: relative;
   text-align: center; }
+  .image-box a {
+    border-bottom: none; }
   .image-box img {
     width: auto; }
   .image-box .image-caption {
@@ -148,9 +187,9 @@ code {
 .highlight {
   padding: 1px 20px;
   line-height: 1.5;
-  background-color: #232528 !important; }
+  background-color: #071E22 !important; }
   .highlight code {
-    background-color: #232528;
+    background-color: #071E22;
     color: white; }
 
 @media only screen and (max-width: 480px) {
