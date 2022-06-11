@@ -58,10 +58,26 @@ body {
   }
 
   .footer {
-    margin: 20px 0;
+    background-color: #EEE;
     color: #333;
     text-align: center;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    padding-top: 1em;
+    padding-bottom: 2em;
+
+    .final {
+      padding-top: 1em;
+    }
   }
+}
+
+.carnaval {
+  background: -webkit-linear-gradient(#6bfff9, #6600ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold !important;
 }
 
 .header {
