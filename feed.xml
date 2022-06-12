@@ -2,13 +2,75 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2022-04-13T08:00:00Z</updated>
+  <updated>2022-06-12T01:08:41Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2022-06-12:/blog/2022/06/tesla_dystopia.html</id>
+    <title type="html">Teslas are a dystopia</title>
+    <published>2022-06-12T01:08:41Z</published>
+    <updated>2022-06-12T01:08:41Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2022/06/tesla_dystopia.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/2022/06/tesla_dystopia.html"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2022/tesla-sm.jpg" alt="A Tesla inside a tunnel."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2022/tesla-sm.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;This could have been a subway.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;Since moving to Vancouver metro I’m continuously surprised with how common electric vehicles have become. Some may see the rise of EVs as an exciting turn towards a futuristic &lt;a href="https://en.wikipedia.org/wiki/Solarpunk"&gt;solarpunk&lt;/a&gt; utopia. I see the opposite: they are a dystopia of sorts. They are a dead end, a waste of resources in the wrong direction, a false hope.&lt;/p&gt;
+
+&lt;p&gt;The proliferation of personal electric vehicles is a strong marker of failure. It is a manifestation in the physical world of our inability as a society to move on from a clearly failed, car-centric way of living. Teslas kind of epitomize this – despite being just another very expensive car, despite &lt;a href="https://www.theguardian.com/world/2022/may/27/tesla-catches-fire-vancouver-canada-investigation"&gt;catching fire&lt;/a&gt; &lt;a href="https://www.msn.com/en-us/news/us/sac-metro-fire-challenged-by-burning-tesla/ar-AAYnuYV"&gt;every&lt;/a&gt; &lt;a href="https://www.msn.com/en-us/autos/news/nhtsa-steps-up-tesla-investigation-of-phantom-braking-crashes-into-emergency-vehicles/ar-AAYhkQk"&gt;now&lt;/a&gt; &lt;a href="https://fox2now.com/news/illinois/tesla-catches-fire-on-route-3-in-brooklyn-illinois/"&gt;and then&lt;/a&gt;, despite &lt;a href="https://www.thedrive.com/news/38579/these-repair-bulletins-for-teslas-quality-problems-are-downright-embarrassing-and-serious"&gt;bizarre QC issues&lt;/a&gt;, despite its &lt;a href="https://www.truthorfiction.com/did-elon-musk-tweet-we-will-coup-whoever-we-want-deal-with-it/"&gt;nitwit CEO&lt;/a&gt;, still they are seen as cool and fashionable and trendy.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;EVs are just an incremental improvement on cars. This painful reality hit me when I first &lt;em&gt;heard&lt;/em&gt; an EV whooshing down the street: I couldn’t really tell it apart from any other vehicle. Over the years I had read so many hyped articles about how EVs were so quiet that they needed artificial sounds to warn pedestrians that I expected nothing less than library-level quietness from an EV. Instead I heard the same deafening roar as any other car.&lt;/p&gt;
+
+&lt;p&gt;It turns out that if you put a tonne of metal on rubber tires going on asphalt, that rubber-on-surface sound is likely the dominant noise source at any appreciable speed:&lt;/p&gt;
+
+&lt;blockquote&gt;"Tire-pavement interaction noise (TPIN) dominates for passenger vehicles with the speed of above 40 km/h and for trucks with the speed of 70 km/h."&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="https://www.researchgate.net/publication/328012268_Literature_review_of_tire-pavement_interaction_noise_and_reduction_approaches"&gt;Literature review of tire-pavement interaction noise and reduction approaches, Tan Li, 2018&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As speed increases, it quickly doesn’t matter if you even have an engine at all, as aerodynamic noise also factors in:&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2022/car-noise.png" target="_blank"&gt;
+      &lt;img class="lazy " data-src="/blog/assets/images/2022/car-noise.png" alt="Chart with noise sources of cars by speed. At 15mph or so, propulsion noise gives way to tire-pavement noise as the largest source."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2022/car-noise.png" alt="Chart with noise sources of cars by speed. At 15mph or so, propulsion noise gives way to tire-pavement noise as the largest source."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Past 15mph or so, propulsion noise is no longer the largest noise source.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;So the sound will be the same. So will other things: the parking space it requires is the same, the urban sprawl it stimulates is the same, the accidents are the same (&lt;a href="https://jalopnik.com/teslas-navigate-is-worse-than-human-driving-consumer-r-1834944173"&gt;or worse&lt;/a&gt;). Everything that matters is basically the same.&lt;/p&gt;
+
+&lt;p&gt;For all the &lt;a href="https://thedriven.io/2021/12/21/tesla-model-3-and-model-y-get-dancing-lights-in-2021-holiday-update/"&gt;distracting “features”&lt;/a&gt; of these high-tech gizmos, in essence &lt;em&gt;they are still just cars&lt;/em&gt;. No matter how much high tech is embedded into them, they are ontologically the same as the first Model T.&lt;/p&gt;
+
+&lt;p&gt;The most obvious improvement of EVs is in energy efficiency/pollution. Ironically this seems to be a very old pro-car argument. In &lt;a href="https://www.goodreads.com/book/show/30833.The_Death_and_Life_of_Great_American_Cities"&gt;&lt;em&gt;The Death and Life of Great American Cities&lt;/em&gt;&lt;/a&gt;, written over half a century ago, Jane Jacobs notes that early car proponents defended the personal vehicle as &lt;em&gt;cleaner&lt;/em&gt; than its predecessor – horses. Internal combustion engines don’t poop, so the streets were in fact cleaner than before. That is all fair and just; she argued that the issue, however, was that horses were being replaced with &lt;em&gt;far too many&lt;/em&gt; cars – in other words, the one-car-per-person model of North America. Essentially the same argument about cleanliness is being repeated now, a century later, with EVs.&lt;/p&gt;
+
+&lt;p&gt;Pollution spewing from combustion engines, although a serious issue, was never the only nor the greatest problem caused by cars (and EVs &lt;a href="https://www.euronews.com/green/2022/02/01/south-america-s-lithium-fields-reveal-the-dark-side-of-our-electric-future"&gt;still generate plenty pollution&lt;/a&gt;, just not inside the engine, but in power plants and factories). It is disingenuous to pretend otherwise.&lt;/p&gt;
+
+&lt;p&gt;The rise of EVs is so disheartening because it is a huge missed opportunity and waste of resources. Even more so because it is being &lt;a href="https://www.cnn.com/2021/09/08/business/biden-uaw-electric-vehicles-climate/index.html"&gt;pushed by&lt;/a&gt; and within rich Western economies, that tend to lead the way to the rest of the world. Climate change, failing cities and fossil fuel scarcity could have catalyzed a new era of major public transit infrastructure projects and a shift in zoning practices towards sane densification. But those things are hard – culturally and politically – and people will do basically anything to avoid having to do them.&lt;/p&gt;
+
+&lt;p&gt;EVs are the perfect kludge that enables us to do nothing. People get a clean conscience thinking they are “doing something”, while not really addressing the underlying issue (and &lt;a href="https://www.instituteforenergyresearch.org/renewable/the-environmental-impact-of-lithium-batteries/"&gt;creating some brand new problems&lt;/a&gt; as well). &lt;a href="https://bc.ctvnews.ca/vancouver-residents-rally-against-broadway-plan-1.5893686"&gt;Selfish NIMBYism&lt;/a&gt; and infinite sprawl can carry on unbothered.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2022-04-13:/blog/2022/04/digital_nomads.html</id>
     <title type="html">Are "digital nomad visas" a thing yet?</title>
@@ -2258,116 +2320,6 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;Exported from &lt;a href="https://medium.com"&gt;Medium&lt;/a&gt; on May 1, 2019.&lt;/p&gt;
 </content>
     <summary type="html">What happens when your project’s RDBMS is just not enough to deal with unexpectedly huge amounts of data? Well, what if you can’t jump into Elasticsearch right away?</summary>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2017-03-20:/blog/2017/03/dont-obsess-over-code-dry.html</id>
-    <title type="html">Don't obsess over code DRYness</title>
-    <published>2017-03-20T00:00:00Z</published>
-    <updated>2017-03-20T00:00:00Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2017/03/dont-obsess-over-code-dry.html" type="text/html"/>
-    <content type="html">&lt;p&gt;Being clever is a good thing for a developer. Ingenuity allows us to write software that solves complex real-world problems. However, “clever” &lt;em&gt;code&lt;/em&gt; is not always a good thing. In many cases — I dare say in &lt;em&gt;most&lt;/em&gt; cases — it is a very bad thing. I consciously try to avoid writing code that might be seen as “clever”. The smart thing to do is trying hard not to be smart (yes, very &lt;a href="http://literarydevices.net/war-is-peace/"&gt;1984&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;Developers tend to see themselves (quite indulgently) as smart people. Not many people understand what we do, and society sees a developer as a kind of modern wizard, writing unreadable magic spells in a small metal box. In reality, though, we are not half as smart as we think: for instance, if you are a developer, you are certainly familiar with the frustration of trying to understand some cryptic piece of code that seemed perfectly reasonable and straightforward when you wrote it a couple of months earlier.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;It is a given that any programmer will have to deal with the frustration of trying to understand complex code countless times throughout their career. Of course, there are genuine reasons to write complex code: sometimes there are strict hardware limitations, such as in the early ages of electronic computers, and sometimes the problem’s domain itself is inherently complex. However, if you’re reading this, you’re probably not &lt;a href="https://en.wikipedia.org/wiki/ENIAC#Role_in_the_hydrogen_bomb"&gt;living in the 1940s and working on a hydrogen bomb&lt;/a&gt;, and it’s more likely you’re working on some kind of web app using a dynamic programming language and a helpful framework, so you can probably take advantage of that and keep things simple.&lt;/p&gt;
-
-&lt;p&gt;Why, then, do we insist in writing unnecessarily complex and cryptic code when we don’t absolutely need to? As it turns out, there are many reasons (although very few of them are good): to impress your boss and coworkers, to feel smart or proud of yourself, to challenge yourself, or just out of boredom. Those are all very real reasons why people deliberately write complex code. But people also write complex code unintentionally, and while actually trying their best to do the opposite: this is what happens when a programmer misinterprets genuine programming guidelines and good practices.&lt;/p&gt;
-
-&lt;p&gt;A good example of this is the &lt;a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself"&gt;Don’t Repeat Yourself (DRY)&lt;/a&gt; guideline, repeated as a mantra in some Computer Science classes and in the industry. As humans, we have the gift and tendency towards recognizing patterns — it is what allows us to recognize a familiar face, appreciate music and understand languages, just to name a few examples. We also recognize patterns in source code, which we refactor following the DRY principle.&lt;/p&gt;
-
-&lt;p&gt;The thing about pattern recognition, though, is that humans are very good at it — sometimes &lt;em&gt;too good&lt;/em&gt;. This can easily lead to the overuse of an otherwise perfectly healthy programming guideline. Psychology has a term for pattern recognition overuse/misuse: &lt;a href="https://en.wikipedia.org/wiki/Apophenia"&gt;apophenia&lt;/a&gt;. It is what happens when you see a pattern that doesn’t really exist, like a gambler “identifying” patterns in lottery tickets or a programmer “identifying” patterns in source code which aren’t really there.&lt;/p&gt;
-
-&lt;p&gt;The original definition of DRY, from Hunt and Thomas’ &lt;em&gt;The Pragmatic Programmer&lt;/em&gt;, states:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“Every piece of knowledge must have a single, unambiguous, authoritative representation within a system.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;A &lt;em&gt;piece&lt;/em&gt; of knowledge hints at a well-defined knowledge &lt;em&gt;unit&lt;/em&gt;, which may vary in size depending on the specifics of your code. When a programmer sees a pattern in sections of code that do not belong to a common pattern — that is, are not within the same &lt;em&gt;piece of knowledge&lt;/em&gt; -, and still decides to refactor those sections by extracting them into a common piece of code, then &lt;em&gt;different&lt;/em&gt; &lt;em&gt;pieces&lt;/em&gt; of knowledge are being mashed together, and thus are DRY is not being applied at all.&lt;/p&gt;
-
-&lt;p&gt;Let’s use an example to illustrate a misuse of DRY. Suppose you’re working on a car dealership software. The dealership sells and services a single car model, offering 3 scheduled maintenances at 10, 30 and 50 thousand miles:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="c1"&gt;# Example 1&lt;/span&gt;
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt;
-  &lt;span class="kp"&gt;include&lt;/span&gt; &lt;span class="no"&gt;Checkups&lt;/span&gt;
-
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;maintenance_10k&lt;/span&gt;
-    &lt;span class="n"&gt;check_break_fluid&lt;/span&gt;
-    &lt;span class="n"&gt;check_battery_terminals&lt;/span&gt;
-    &lt;span class="n"&gt;check_engine_oil&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;maintenance_30k&lt;/span&gt;
-    &lt;span class="n"&gt;check_break_fluid&lt;/span&gt;
-    &lt;span class="n"&gt;check_battery_terminals&lt;/span&gt;
-    &lt;span class="n"&gt;check_engine_oil&lt;/span&gt;
-    &lt;span class="n"&gt;check_spare_wheel&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;maintenance_50k&lt;/span&gt;
-    &lt;span class="n"&gt;check_break_fluid&lt;/span&gt;
-    &lt;span class="n"&gt;check_battery_terminals&lt;/span&gt;
-    &lt;span class="n"&gt;check_engine_oil&lt;/span&gt;
-    &lt;span class="n"&gt;check_spare_wheel&lt;/span&gt;
-    &lt;span class="n"&gt;check_gearbox&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;At a first glance, you may be tempted to DRY the code by extracting the three methods which are called in all maintenances: &lt;code&gt;check_break_fluid&lt;/code&gt;, &lt;code&gt;check_battery_terminals&lt;/code&gt; and &lt;code&gt;check_engine_oil&lt;/code&gt;. The resulting code is more concise:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby"&gt;&lt;span class="c1"&gt;# Example 2&lt;/span&gt;
-&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Car&lt;/span&gt;
-  &lt;span class="kp"&gt;include&lt;/span&gt; &lt;span class="no"&gt;Checkups&lt;/span&gt;
-
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;maintenance_10k&lt;/span&gt;
-    &lt;span class="n"&gt;basic_maintenance&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;maintenance_30k&lt;/span&gt;
-    &lt;span class="n"&gt;basic_maintenance&lt;/span&gt;
-    &lt;span class="n"&gt;check_spare_wheel&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;maintenance_50k&lt;/span&gt;
-    &lt;span class="n"&gt;basic_maintenance&lt;/span&gt;
-    &lt;span class="n"&gt;check_spare_wheel&lt;/span&gt;
-    &lt;span class="n"&gt;check_gearbox&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-
-  &lt;span class="kp"&gt;private&lt;/span&gt;
-
-  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;basic_maintenance&lt;/span&gt;
-    &lt;span class="n"&gt;check_break_fluid&lt;/span&gt;
-    &lt;span class="n"&gt;check_battery_terminals&lt;/span&gt;
-    &lt;span class="n"&gt;check_engine_oil&lt;/span&gt;
-  &lt;span class="k"&gt;end&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;DRYing produces this new basic_maintenance method. It is not very descriptive: while &lt;code&gt;maintenance_*&lt;/code&gt; methods convey exactly what it they are expected to do (i.e. “perform a 10, 30 or 50 thousand miles maintenance”), &lt;code&gt;basic_maintenance&lt;/code&gt; is kind of an arbitrary name we made up that could mean anything. It is an abstract creation that exists only for our convenience and does not represent anything in the real world.&lt;/p&gt;
-
-&lt;p&gt;Let’s imagine a very simple change in the requirements: suppose we no longer need to check the break fluid on the 10 thousand miles checkup. Now we must decide between removing &lt;code&gt;check_break_fluid&lt;/code&gt;from &lt;code&gt;basic_maintenance&lt;/code&gt; and adding the check only to the 30k and 50k maintenances, thus reducing &lt;code&gt;basic_maintenance&lt;/code&gt;’s effectiveness at avoiding repetition, or eliminating the method altogether and going back to how things were in Example #1.&lt;/p&gt;
-
-&lt;p&gt;Although Example #1 has more repetitions than Example #2, it is arguably more readable and descriptive. It is also less likely to break if there are changes in the requirements like we just described. Bear in mind that this is a very simple example: all the methods do is call other methods that don’t take any parameters; there is no argument passing, no state changes, no transformations, etc. A more complex example would increase even further the abstractness and complexity of DRYing the code.&lt;/p&gt;
-
-&lt;p&gt;A little repetition is preferable to a code that was DRYed incorrectly or excessively. If the abstraction resulting from DRY refactoring is more painful to understand than the alternative (going through a few repeated code sections), then the programmer was probably suffering of apophenia, seeing code patterns that did not exist — and thus not applying DRY correctly. Sandi Metz &lt;a href="https://www.sandimetz.com/blog/2016/1/20/the-wrong-abstraction"&gt;summarizes this very clearly&lt;/a&gt; in her 2014 RailsConf talk:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;“Prefer duplication over the wrong abstraction.”&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;With that said, there is another acronym that complements DRY: &lt;a href="https://codeshelter.wordpress.com/2011/04/07/dry-and-damp-principles-when-developing-and-unit-testing/"&gt;DAMP&lt;/a&gt;. DAMP means &lt;em&gt;descriptive and meaningful phrases&lt;/em&gt;. Although directed mostly at tests, the general principle of acknowledging the value of descriptiveness applies to all sorts of code_:_ good code is not too repetitious, but is also not too abstract and generic. Sometimes there is no general case to be abstracted, there are just a couple of concrete, specific cases which you should treat as concrete, specific cases.&lt;/p&gt;
-
-&lt;p&gt;The purpose of DRY, DAMP and all the other fancy programming principles is to guide us towards crafting better code. If the result of DRYing something is a code that is more complex and less maintainable, then we have defeated the purpose of DRY. Programming principles are not laws of nature that will guarantee better code, which means that they are not universally applicable. More than knowing how to cleverly refactor and DRY a code, it is important to know &lt;em&gt;when&lt;/em&gt; something should be DRYed and when it should be left alone.&lt;/p&gt;
-
-&lt;p&gt;By &lt;a href="https://medium.com/@lbrito"&gt;Leonardo Brito&lt;/a&gt; on &lt;a href="https://medium.com/p/e9ecc5224ff"&gt;March 20, 2017&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://medium.com/@lbrito/dont-obsess-over-code-dryness-e9ecc5224ff"&gt;Canonical link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Exported from &lt;a href="https://medium.com"&gt;Medium&lt;/a&gt; on May 1, 2019.&lt;/p&gt;
-</content>
-    <summary type="html">Being clever is a good thing for a developer. Ingenuity allows us to write software that solves complex real-world problems. However, “clever” _code_ is not always a good thing.</summary>
   </entry>
 </feed>
 
