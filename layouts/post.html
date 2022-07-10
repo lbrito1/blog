@@ -1,10 +1,19 @@
 <% render '/default.*' do %>
   <div class='post-show'>
     <h2><%= item[:title] %></h2>
+
+    <% if item[:tags] == ["book review"] %>
+        <%= render('/book_review_meta.*', book: item) %>
+    <% end %>
+
+    <aside>Posted <%= item[:created_at]&.strftime('%b %d, %Y') %></aside>
+    <aside>Tagged: <% item[:tags]&.each do |tag| %>
+      <a class="" href="/tags/<%= tag %>"><%= tag %></a>
+      <% end %>
+    </aside>
     <article class="text">
       <%= yield %>
     </article>
-    <aside>Posted <%= item[:created_at]&.strftime('%b %d, %Y') %></aside>
     <div class="post-footer">
       <%= link_to("Back", '/index.html') %>
     </div>

@@ -10,4 +10,4 @@ This is powered by my own static blog generator, [sane blog builder](https://git
 
 ## ...myself
 
-My name is Leo and I'm a software developer. I enjoy Ruby. You can find my Github and Linkedin profiles in the page header.
+My name is Leo and I'm a software developer. You can go to my [home page](https://lbrito1.github.io/) for contact info.
