@@ -2,7 +2,7 @@
 title: Book review - Collapse
 created_at: 2022-07-09 09:54:50 -0800
 kind: article
-published: true
+published: false
 tags: [book review]
 book_meta:
   title: Collapse
@@ -15,7 +15,7 @@ book_meta:
 
 <%= render('/post_hero.*', src: '/blog/assets/images/2022/viking-greenland-sm.jpg', alt: "Hvalsey church ruins, Greenland", caption: "Hvalsey church ruins, Greenland. Credit: https://en.wikipedia.org/wiki/User:Number_57") %>
 
-_Collapse_ is fascinating, if somewhat exhausting at times. The central point of the book is that environmental changes, man-made or not, have been responsible for many a civilization's collapse.
+_Collapse_ is a fascinating, if somewhat exhausting, read. The central point of the book is that environmental changes, man-made or not, have been responsible for many a civilization's collapse.
 
 <!-- more -->
 

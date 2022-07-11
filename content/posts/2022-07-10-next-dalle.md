@@ -23,7 +23,7 @@ Future iterations will be far more impressive. Consider the [difference between 
 
 As they inch closer to perfection -- perfection being "indistinguishable from human-made", by the way -- these models will surely be widely commercialized, and eventually easily available.
 
-I think playing with a near-perfect "future dalle" will be as fun as staring at corporate advertisements. These models will become just another tool. I can see them being widely used to generate birthday card designs, obliterating the probably small niche of birthday card designers. I can't see them being the next Bruegel the Elder or Hieronymus Bosch.
+I think playing with a near-perfect "future dalle" will be as fun as comparing baking soda packaging at the grocery store. These models will become just another tool. I can see them being widely used to generate birthday card designs, obliterating the probably small niche of birthday card designers. I can't see them being the next Bruegel the Elder or Hieronymus Bosch.
 
 As these models become increasingly commoditized, they will blend in with the art industry and eventually be forgotten by the public like all novelties eventually are. An AI-generated corporate décor at the office will be as bland and uninteresting as a human-made one. Eventually the distinction won't matter. Right now, though, it is hard to mistake a dalle-mini output as being created by a human, and I think that is part of its appeal.
 
