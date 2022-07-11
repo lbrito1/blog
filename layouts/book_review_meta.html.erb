@@ -1,14 +1,8 @@
 <div class="book-review-meta">
 <p>
-Author: <%= book[:book_meta][:author] %>
-</p>
+📚 <strong><%= book[:book_meta][:title] %></strong> (<%= book[:book_meta][:publication_year] %>), a book by <%= book[:book_meta][:author] %>.
 <p>
-Year: <%= book[:book_meta][:publication_year] %>
-</p>
-<p>
-Rating: <%= book[:book_meta][:rating] %>/5 ⭐
-</p>
-<p>
-Read in: <%= book[:book_meta][:read_at] %>
+Rating: <% book[:book_meta][:rating].times.each do %>⭐<% end %>
+· Read: <%= book[:book_meta][:read_at] %>
 </p>
 </div>
