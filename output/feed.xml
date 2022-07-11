@@ -2,13 +2,86 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2022-06-12T01:08:41Z</updated>
+  <updated>2022-07-10T23:30:00Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2022-07-10:/blog/2022/07/next-dalle.html</id>
+    <title type="html">DALL·E minis of the future won't be fun</title>
+    <published>2022-07-10T23:30:00Z</published>
+    <updated>2022-07-10T23:30:00Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2022/07/next-dalle.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/2022/07/next-dalle.html"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2022/stalin-drone-sm.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2022/stalin-drone-sm.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;I’ve been playing with &lt;a href="https://huggingface.co/spaces/dalle-mini/dalle-mini"&gt;dalle-mini&lt;/a&gt; the last few weeks. Part of what makes it fun to play with are the bizarre and obtuse outputs. They reached that sweet spot between laughably bad and frighteningly perfect: they’re good enough to be understood and enjoyed, basically.&lt;/p&gt;
+
+&lt;p&gt;I think that incompleteness is part of what makes it so amusing to toy with these things, and conversely what will make future versions much less fun.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Dalle-mini is, as the name implies, much smaller than dall-e, using 0.4 billion parameters instead of 12 billion. Dall-e isn’t entirely publicly available so dall-e mini is more of an reconstruction/reverse engineering effort rather than just a toned down version (extracted from &lt;a href="https://wandb.ai/dalle-mini/dalle-mini/reports/DALL-E-Mini-Explained--Vmlldzo4NjIxODA#the-dall-e-experiment"&gt;their website&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Future iterations will be far more impressive. Consider the &lt;a href="https://simplified.com/blog/ai/dall-e-1-vs-dall-e-2/"&gt;difference between dall-e and dall-e 2&lt;/a&gt;, for instance:&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2022/dalle-1-2.jpg" target="_blank"&gt;
+      &lt;img class="lazy " data-src="/blog/assets/images/2022/dalle-1-2.jpg" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2022/dalle-1-2.jpg" alt=""&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;As they inch closer to perfection – perfection being “indistinguishable from human-made”, by the way – these models will surely be widely commercialized, and eventually easily available.&lt;/p&gt;
+
+&lt;p&gt;I think playing with a near-perfect “future dalle” will be as fun as comparing baking soda packaging at the grocery store. These models will become just another tool. I can see them being widely used to generate birthday card designs, obliterating the probably small niche of birthday card designers. I can’t see them being the next Bruegel the Elder or Hieronymus Bosch.&lt;/p&gt;
+
+&lt;p&gt;As these models become increasingly commoditized, they will blend in with the art industry and eventually be forgotten by the public like all novelties eventually are. An AI-generated corporate décor at the office will be as bland and uninteresting as a human-made one. Eventually the distinction won’t matter. Right now, though, it is hard to mistake a dalle-mini output as being created by a human, and I think that is part of its appeal.&lt;/p&gt;
+
+&lt;p&gt;Think about the sample inputs that OpenAI gives their model, like “an astronaut riding a horse in photorealistic style”. We don’t really need a near-perfect AI model to amuse ourselves with that thought – our brains are enough.&lt;/p&gt;
+
+&lt;p&gt;Perhaps something similar or analogous happened with videogames. Early 3D games would leave much up to the imagination of the player; the closer games get to perfect graphical realism, however, the more boring and uninteresting they seem (to me). I think the wave of indie games with intentionally “bad” graphics is no accident - there is an undeniable appeal of leaving things out.&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2022/obra-dinn.jpg" target="_blank"&gt;
+      &lt;img class="lazy " data-src="/blog/assets/images/2022/obra-dinn.jpg" alt="Screenshot of the video game Return of the Obra Dinn, showing a black-and-white 3D environment."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2022/obra-dinn.jpg" alt="Screenshot of the video game Return of the Obra Dinn, showing a black-and-white 3D environment."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Return of the Obra Dinn (https://en.wikipedia.org/wiki/Return_of_the_Obra_Dinn)&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;This boils down to what I think is a fundamental misconception about AI held by many people. AI doesn’t (and cannot) &lt;em&gt;create&lt;/em&gt; anything, it just mixes and matches (in very smart ways) things created by humans. The training sets are immense, and the techniques are increasingly complex, but unless there is some radical, foundational pivot, AI is and will be ultimately derivative of human creations. And derivation is ultimately boring. Right now most people still don’t quite grasp this ontological difference between “real” intelligence, which creates things, and AI, which doesn’t (some will claim there really is no difference and humans must operate in the same way, but I won’t get into that).&lt;/p&gt;
+
+&lt;p&gt;This misunderstanding leads to pretty funny situations, like the Google engineer that &lt;a href="https://www.washingtonpost.com/technology/2022/06/11/google-ai-lamda-blake-lemoine/"&gt;claimed a chatbot was sentient&lt;/a&gt;. &lt;a href="https://www.youtube.com/watch?v=iBouACLc-hw"&gt;Its not&lt;/a&gt;. It mixes texts in a smart way. I think people will eventually catch up to this, and when that happens, the improved “mini-dalle” of the future won’t be nearly as interesting or amusing as its less perfect predecessors.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2022-06-12:/blog/2022/06/tesla_dystopia.html</id>
     <title type="html">Teslas are a dystopia</title>
@@ -2266,60 +2339,6 @@ Call tree for a sampled spec example in group_3_spec.rb .&lt;/p&gt;
 &lt;p&gt;Exported from &lt;a href="https://medium.com"&gt;Medium&lt;/a&gt; on May 1, 2019.&lt;/p&gt;
 </content>
     <summary type="html">Providing feedback is one of the most important parts of any software. This is a tale of how the lack of proper feedback (and some laziness) almost cost me an entire HDD filled with personal data.</summary>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2017-05-08:/blog/2017/05/when-postgres-is-not-enough.html</id>
-    <title type="html">When Postgres is not enough</title>
-    <published>2017-05-08T00:00:00Z</published>
-    <updated>2017-05-08T00:00:00Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2017/05/when-postgres-is-not-enough.html" type="text/html"/>
-    <content type="html">&lt;p&gt;What happens when your project’s RDBMS is just not enough to deal with unexpectedly huge amounts of data?&lt;/p&gt;
-
-&lt;p&gt;You could try to de-normalize some tables here and there to avoid unnecessary JOINs, create a few indexes, implement some kind of pagination or even pre-process the data into a more palatable format. However, if you did all that and it still was not enough, the “natural impulse” is to give up on the RDBMS altogether and just use Elasticsearch. Sounds like a no-brainer, right?&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;Well, what if you can’t jump into Elasticsearch right away? This is a more subtle but much more realistic scenario which we faced in a project here at Guava.&lt;/p&gt;
-
-&lt;p&gt;In an ideal world, the correct or most appropriate technology stack would be chosen at the very beginning of all projects. For many reasons that are all too familiar to any seasoned developer, this is very seldom the case of any big software. The beginning of the project is precisely when you &lt;em&gt;least&lt;/em&gt; &lt;em&gt;know&lt;/em&gt; about the software requirements, thus it is often the point when seemingly innocuous choices are made which will cause great pain in the future. Once a wrong or sub-optimal choice is made, it will only get worse over time, &lt;em&gt;even before you even realize it is wrong&lt;/em&gt;. While the team is still confident that the solution is salvageable and can be fixed through careful optimizations and esoteric incantations — like we described above — the project is drifting further and further from completion, and a full stop would in fact be more productive.&lt;/p&gt;
-
-&lt;p&gt;Back to our concrete case: we had a massive and steadily-increasing set of highly normalized data on a RDB. Adding insult to injury, the input data was incredibly sparse, with batch-like data peaks followed by several hours with little activity. The data distribution made it clear that we would have to do some kind of pagination. The following figure shows our input data distribution, where the x-axis units represent 1 hour worth of data, and the y-axis represents the data count in that hour:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/goiabada/0*71RikbZX7I55dU74.jpg" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;As we can see in the chart, many 1-hour blocks had nearly no data at all, and the great majority of blocks had less than 100k entries. A few blocks have a huge amount of data, surpassing 700k entries. This chart has 1-hour precision, but if we zoom in and investigate the same data set with 1-minute precision, the chart would look more or less the same. This is only a small sample of the data set we were dealing with: the full set had over 20M entries, growing at a rate of about 1M entries per month.&lt;/p&gt;
-
-&lt;p&gt;We were asked to do some fairly standard BI stuff: report and dashboard generation. Because of the widely normalized data and the sheer amount of rows, we were forced into pre-processing very early in project. Our pre-processing hugely reduced the amount of data that the web app would actually have to process and display to the final user, but introduced a new set of problems: we were effectively de-normalizing the entire data set, which had to be done continuously and in small, manageable chunks (so we could tackle the sparse data distribution), and we were now responsible for maintaining the integrity and completeness of the optimized data. The processing also added a new layer of complexity to the application.&lt;/p&gt;
-
-&lt;p&gt;Our solution was viable, but only just; when it came to our attention that the upstream data was actually versioned and non-monotonic, we quickly realized that simply adjusting our solution to deal with versioning would add so much complexity and extra load to the RDB that would render it unusable. The moment had come when we would start feeling the itch to make the jump to Elasticsearch — at least for the optimized, pre-processed layer which we described above, sitting on top of the raw input data. In theory, Elasticsearch would neatly handle all of our major issues: massive data volume, versioning and high normalization.&lt;/p&gt;
-
-&lt;p&gt;However, the ideal world and the real world are worlds apart. We had already spent a few months worth of effort in developing and validating an arc of SQL logic that by nature depends on the initial choice of using an RDBMS as data source. Other teams of developers were already working on the same branch. Time constraints made it impossible for us to re-write the whole relational ecosystem, but at the same time continuing to use Postgres on the new layer was definitively not an option due to the versioning and performance issues we were facing.&lt;/p&gt;
-
-&lt;h2 id="the-right-compromise"&gt;The right compromise&lt;/h2&gt;
-
-&lt;p&gt;We made a compromise and decided to use &lt;em&gt;both Postgres and Elasticsearch on the same layer of pre-processed data&lt;/em&gt;. This unusual solution allowed us to carry on using most of the valuable relational logic already done, while leveraging Elasticsearch’s speed and document versioning. Sitting beneath the dual-store layer we still had the same sturdy Postgres store with raw data.&lt;/p&gt;
-
-&lt;p&gt;The solution can be summarized as follows: Elasticsearch was set up upstream of our project, and an index was created with denormalized data gathered from our most-used tables. On our side, during pre-processing, we queried the Elasticsearch index and dumped the documents in a temporary table that existed only during pre-processing. The rest of the process remained more or less unaltered, allowing us to quickly solve 2 of the 3 major issues we were facing: performance and version treatment. The price to pay was code complexity, the third issue, which increased significantly with this approach. Additionally, this approach nudged the project closer to the ideal solution (using only Elasticsearch in the performance-critical parts of report generation) — other compromises might have gone the other way, digging deeper into RDBMS esotericism and further from the ideal solution.&lt;/p&gt;
-
-&lt;p&gt;Our solution was far from ideal: it was a compromise, but it was the most beneficial compromise that could be made at the moment. Sometimes a silver bullet like Elasticsearch seems to exist, but for many reasons it is just out of your reach for the time being and you must settle for a compromise. In these cases, make sure to make the right one.&lt;/p&gt;
-
-&lt;p&gt;By &lt;a href="https://medium.com/@lbrito"&gt;Leonardo Brito&lt;/a&gt; on &lt;a href="https://medium.com/p/237b723be442"&gt;May 8, 2017&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://medium.com/@lbrito/when-postgres-is-not-enough-237b723be442"&gt;Canonical link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Exported from &lt;a href="https://medium.com"&gt;Medium&lt;/a&gt; on May 1, 2019.&lt;/p&gt;
-</content>
-    <summary type="html">What happens when your project’s RDBMS is just not enough to deal with unexpectedly huge amounts of data? Well, what if you can’t jump into Elasticsearch right away?</summary>
   </entry>
 </feed>
 
