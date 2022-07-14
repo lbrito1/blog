@@ -43,6 +43,8 @@ compile '/posts/*.md' do
 end
 
 compile '/**/*.html' do
+  filter :erb
+  filter :kramdown, syntax_highlighter: :rouge, syntax_highlighter_opts: { span: { line_numbers: false }, block: { line_numbers: true }}
   layout '/default.*'
   filter :relativize_paths, type: :html5
   write item.identifier.without_ext + '/index.html'

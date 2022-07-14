@@ -1,8 +1,8 @@
 ---
 title: Book review - Collapse
-created_at: 2022-07-09 09:54:50 -0800
+created_at: 2022-07-13 09:54:50 -0800
 kind: article
-published: false
+published: true
 tags: [book review]
 book_meta:
   title: Collapse
