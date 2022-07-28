@@ -60,3 +60,4 @@ title: Books
 * Estranhas catedrais; _Pedro Henrique Pedreira Campos_
 * Capital e ideología; _Thomas Piketty_
 * Aesthetic Theory; _Theodor W. Adorno_
+* Cities for People; _Jan Gehl_
