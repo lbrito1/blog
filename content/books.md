@@ -6,11 +6,12 @@ title: Books
 
 ## Currently reading
 
-* Sapiens
 
 ## Finished reading
 
 * <%= link_to "Collapse", "2022/07/books-collapse.html" %>
+* Sapiens
+* Socialism Betrayed
 
 ## Want to read
 
