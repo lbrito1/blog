@@ -1,0 +1,332 @@
+<!DOCTYPE html><html lang="en"><head>
+  <title>A Developer's Notebook - </title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
+  <meta name="author" content="Leonardo Brito">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Nanoc 4.11.16">
+  <meta property="og:type" content="website">
+  
+  <meta property="og:url" content="https://lbrito1.github.io/blog/2015/">
+  <meta property="twitter:url" content="https://lbrito1.github.io/blog/2015/">
+  
+  
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for lbrito.github.io/blog" href="../feed.xml">
+  <link rel="stylesheet" href="../assets/pure-min.css">
+  <link rel="stylesheet" href="../assets/stylesheet.css">
+  <link rel="stylesheet" href="../assets/highlight.css">
+
+  <script src="../assets/yall.min.js"></script>
+</head>
+<body>
+  <div id="layout">
+    <div class="content">
+      <div class="header">
+        <h1>
+          <a href="../">A Developer's Notebook</a>
+        </h1>
+        <nav class="pure-g">
+          <div class="pure-u-3-4 links">
+            <!-- <a href="/index.html">Home</a> &middot; -->
+            <a href="../tags.html">Tags</a> ·
+            <a href="../years.html">Years</a> ·
+            <a href="../about.html">About</a> ·
+            <a href="../books.html">📚</a> ·
+            <a class="carnaval" href="https://buttondown.email/lbrito">Newsletter!</a>
+          </div>
+
+          <div class="pure-u-1-4">
+            <div class="contact">
+              <span>
+                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                  <img src="../assets/icons/github.svg" alt="Github icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                  <img src="../assets/icons/linkedin.svg" alt="LinkedIn icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                  <img src="../assets/icons/rss.svg" alt="RSS icon">
+                </a>
+              </span>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+      
+  <h1>Posted in 2015</h1>
+
+  <div class="pure-g">
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html">Building a shared library in C and using it in a Python program</a></h2>
+      <aside class="">
+        Oct 28, 2015 · read time: 4 minutes
+      </aside>
+      
+
+      <article class="text">
+          <div class="image-box stretch">
+  <div>
+    <a href="../blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt="">
+      <noscript>
+        <img src="../blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">pathfindin</div>
+  
+</div>
+
+<p>Figure 1</p>
+
+<p>How do old-time languages such as C, Fortran and others survive in a world with Python, Ruby and so on?</p>
+
+<p>There is&nbsp;plenty&nbsp;legacy code still around which need maintaining, of course. And there are (will always be?) a few specific applications where low level is needed. But&nbsp;one of the great things with software is building upon old stuff using new tools, which brings us to our topic today: building a shared library containing some of our C stuff and using it in nice and comfy Python. Figure 1 shows an example of what we can achieve by using graphical tools available in Python to improve our existing code’s text-based output. More on that later on.</p>
+
+<p>For our purposes, we consider shared libraries as a collection of compiled objects condensed into a single file, which may then be called by other software. This is, of course, a simplification. A longer discussion about shared and static libraries can be found in [1].</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/c">
+                c <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/linux">
+                linux <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/python">
+                python <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/reuse">
+                reuse <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/shared library">
+                shared library <span class="tag-count">1</span>
+              </a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="10/red-black-vs-avl.html">Trees, part IV - Benchmarking Red-black and AVL trees</a></h2>
+      <aside class="">
+        Oct 07, 2015 · read time: 4 minutes
+      </aside>
+      
+
+      <article class="text">
+          <p>In our previous installments we implemented two of the most well-known self-balancing binary search trees: <a href="%7B%%20link%20_posts/2014-04-21-trees-part-ii-avl-tree.markdown%20%%7D">AVL</a> and <a href="%7B%%20link%20_posts/2015-10-01-trees-part-iii-red-black-tree.markdown%20%%7D">Red-black</a> <a href="%7B%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%%7D">trees</a>.</p>
+
+<p>We had a few classes on AVL trees in our basic data structures &amp; algorithms class back in college, which made its implementation far less of a challenge than the Red-black tree. So besides the fundamental guidance of CLRS I had to do quite some googling to get it working. While googling I noticed there were quite a lot of questions about which (AVL or RB) tree was “better” in some sense, be it insertion, search time, deletion time, etc. Most textbooks and articles dismiss this question just by stating the factor differences in either trees’ worst case heights, <a href="%7B%%20link%20_posts/2015-10-01-trees-part-iii-red-black-tree.markdown%20%%7D">as we briefly mentioned</a> in the past installment. If you’re anything like me, however, you’ll want to see some comparisons where the trees are <em>actually</em> tested. So I decided to do some simple benchmarking to test those theoretical worst-cases. Here’s what I found out.</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="10/red-black-vs-avl.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="09/ruby-dsl-metaprogramming-part-ii.html">Ruby DSL &amp; metaprogramming, part II</a></h2>
+      <aside class="">
+        Sep 20, 2015 · read time: 3 minutes
+      </aside>
+      
+
+      <article class="text">
+          <p>In the previous installment we built a simple text generator using some Ruby meta-programming tricks. It was still far from being our desired context-free grammar (CFG) generator, though, since it lacked many <a href="https://www.cs.rochester.edu/~nelson/courses/csc_173/grammars/cfg.html">CFG prerequisites</a>. Most flagrantly, we had no rule recursion and only one production (rule definition) per rule. Here’s the what a script that would use both features:</p>
+
+<div class="highlight"><pre><code class="language-bash">dictionary
+  noun <span class="s1">'dog'</span>, <span class="s1">'bus'</span>
+  verb <span class="s1">'barked'</span>, <span class="s1">'parked'</span>
+  preposition <span class="s1">'at'</span>
+
+rule <span class="s1">'phrase'</span>
+  opt <span class="s1">'The'</span>, noun, verb, preposition, <span class="s1">'a'</span>, noun
+  opt <span class="s1">'Here goes some'</span>, phrase, <span class="s1">'recursion.'</span>
+  opt <span class="s1">'Meet me'</span>, preposition, <span class="s1">'the station.'</span>
+
+grammar phrase: 10</code></pre></div>
+
+<p>The <code>dictionary</code> section is just as we left it. Let’s see what changed in the <code>rule</code> section.</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="09/ruby-dsl-metaprogramming-part-ii.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/DSL">
+                dsl <span class="tag-count">2</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/metaprogramming">
+                metaprogramming <span class="tag-count">2</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/Ruby">
+                ruby <span class="tag-count">6</span>
+              </a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="09/ruby-dsl-metaprogramming-part-i.html">Ruby DSL &amp; metaprogramming, part I</a></h2>
+      <aside class="">
+        Sep 11, 2015 · read time: 5 minutes
+      </aside>
+      
+
+      <article class="text">
+          <p>I’ve been working with Ruby for nearly a year now, which means I’m starting to feel the urge to tell people how awesome the language is. One of the most interesting aspects of Ruby to me is <a href="https://en.wikipedia.org/wiki/Metaprogramming">metaprogramming</a>, which it seems to have quite a vocation for.</p>
+
+<p>Since college I have a fondness for automata and formal languages theory. One of the topics I particularly like is text generation (if you haven’t already, check out the excellent <a href="http://pdos.csail.mit.edu/scigen/">SCIgen</a> and the <a href="http://dev.null.org/dadaengine/">Dada engine</a>), so I thought that building a Context-free grammar (CFG)-like text generator in Ruby would be a nice little exercise and an opportunity to use some of the language’s coolest features. Also I’ve implemented one of those using Java several years ago, and it was <em>a mess</em>, so I was curious as to how much of an improvement would Ruby offer.</p>
+
+<p>Suppose the following script:</p>
+
+<div class="highlight"><pre><code class="language-ruby"><span class="n">dictionary</span> <span class="s1">'noun'</span><span class="p">,</span> <span class="s1">'dog'</span><span class="p">,</span> <span class="s1">'bus'</span>
+<span class="n">dictionary</span> <span class="s1">'verb'</span><span class="p">,</span> <span class="s1">'barked'</span><span class="p">,</span> <span class="s1">'parked'</span>
+<span class="n">dictionary</span> <span class="s1">'preposition'</span><span class="p">,</span> <span class="s1">'at'</span>
+
+<span class="n">rule</span> <span class="s1">'phrase'</span><span class="p">,</span> <span class="s1">'noun'</span><span class="p">,</span> <span class="s1">'verb'</span><span class="p">,</span> <span class="s1">'preposition'</span><span class="p">,</span> <span class="s1">'noun'</span>
+
+<span class="n">codex</span> <span class="s1">'phrase'</span></code></pre></div>
+
+<p>We’d like <code>dictionary</code> to store some words according to their classes, and <code>rule</code> to define a specific ordering of words. For now let’s not worry about <code>codex</code> (it’s just a collection of rules).</p>
+
+<p>At this point the seasoned programmer is mentally sketching some kind of text parser. It’s an okay solution, but isn’t there something <em>nicer</em> we can do? Well, there is: <a href="https://en.wikipedia.org/wiki/Domain-specific_language">DSL</a>s! In fact, Ruby is quite an excellent tool to build a DSL, and many famed Ruby-powered applications such as Rspec (and <a href="http://www.leighhalliday.com/creating-ruby-dsl">many others</a>) define some kind of DSL.</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="09/ruby-dsl-metaprogramming-part-i.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/DSL">
+                dsl <span class="tag-count">2</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/metaprogramming">
+                metaprogramming <span class="tag-count">2</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/Ruby">
+                ruby <span class="tag-count">6</span>
+              </a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="10/trees-part-iii-red-black-tree.html">Trees, part III - Red-black tree</a></h2>
+      <aside class="">
+        Oct 01, 2015 · read time: 4 minutes
+      </aside>
+      
+
+      <article class="text">
+          <p>In our last installment on trees, we studied and implemented the <a href="%7B%%20link%20_posts/2014-04-21-trees-part-ii-avl-tree.markdown%20%%7D">AVL tree</a>. The AVL tree is one of many <a href="https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree">self-balancing binary search trees</a>, a special kind of BST that enforces sub-linear operation costs by maintaining tree height close to the theoretical minimum of $latex log_{2}(n)$. This is usually done by what is called <em>tree rotation</em>, which is basically moving around tree nodes (and updating some special node properties).</p>
+
+<p>As you can see in the Wikipedia page¹, AVL trees guarantee that the tree height is strictly less than $latex \approx 1.44~log_{2}(n)$, while Red-black trees have a slightly worse threshold of $latex \approx 2~log_{2}(n)$; thus, AVL trees will provide significantly better search times than Red-black trees. However, while AVL trees may need to do $latex O(log(n))$ rotations after each insertion, Red-black trees must do at most 2 rotations per insertion. So either one may be your tree of choice depending on the application: if search time is critical but data doesn’t get updated too often, an AVL tree will perform better; whereas a Red-black tree will perform better in scenarios where data is constantly being changed.</p>
+
+<p>Self-balancing BSTs add some kind of property to tree nodes that make way for tree balancing: with AVL trees, it was the “balance factor”. With Red-black trees, a “color” property is added to each node. This leads us to the <strong>Red-black tree properties</strong>:</p>
+
+<ol>
+  <li>Every node is either red or black</li>
+  <li>Every leaf is black</li>
+  <li>If a node is red, then both its children are black</li>
+  <li>Every path from a node to any of its descendant leafs contains the same number of black nodes</li>
+</ol>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="10/trees-part-iii-red-black-tree.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+        </div>
+      </article>
+    </div>
+  
+</div>
+
+
+      <div class="footer">
+
+        <div>
+          <form action="https://buttondown.email/api/emails/embed-subscribe/lbrito" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lbrito', 'popupwindow')" class="embeddable-buttondown-form">
+          <label for="bd-email">Did you enjoy this post? Join the newsletter!</label>
+          <div>
+            <input type="email" name="email" id="bd-email">
+            <input type="submit" value="Subscribe">
+            <p>
+              <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
+            </p>
+          </div></form>
+        
+      </div>
+      <div class="final">
+        2023 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", yall);
+  
+    fetch("https://93fd-2604-3d08-7782-5300-c97-15aa-2cc9-2ec5.ngrok-free.app/damn_fine_coffee", { referrerPolicy: "unsafe-url" });
+  
+</script>
+
+
+</body></html>

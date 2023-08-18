@@ -1,0 +1,296 @@
+<!DOCTYPE html><html lang="en"><head>
+  <title>A Developer's Notebook - </title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
+  <meta name="author" content="Leonardo Brito">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Nanoc 4.11.16">
+  <meta property="og:type" content="website">
+  
+  <meta property="og:url" content="https://lbrito1.github.io/blog/tags/Web development/">
+  <meta property="twitter:url" content="https://lbrito1.github.io/blog/tags/Web development/">
+  
+  
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for lbrito.github.io/blog" href="../../feed.xml">
+  <link rel="stylesheet" href="../../assets/pure-min.css">
+  <link rel="stylesheet" href="../../assets/stylesheet.css">
+  <link rel="stylesheet" href="../../assets/highlight.css">
+
+  <script src="../../assets/yall.min.js"></script>
+</head>
+<body>
+  <div id="layout">
+    <div class="content">
+      <div class="header">
+        <h1>
+          <a href="../../">A Developer's Notebook</a>
+        </h1>
+        <nav class="pure-g">
+          <div class="pure-u-3-4 links">
+            <!-- <a href="/index.html">Home</a> &middot; -->
+            <a href="../../tags.html">Tags</a> ·
+            <a href="../../years.html">Years</a> ·
+            <a href="../../about.html">About</a> ·
+            <a href="../../books.html">📚</a> ·
+            <a class="carnaval" href="https://buttondown.email/lbrito">Newsletter!</a>
+          </div>
+
+          <div class="pure-u-1-4">
+            <div class="contact">
+              <span>
+                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                  <img src="../../assets/icons/github.svg" alt="Github icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                  <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                  <img src="../../assets/icons/rss.svg" alt="RSS icon">
+                </a>
+              </span>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+      
+  <h1>Posts tagged "Web development"</h1>
+
+  <div class="pure-g">
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="../../2020/07/replacing_google_analytics_android.html">I replaced Google Analytics with a web server running on my phone</a></h2>
+      <aside class="">
+        Jul 06, 2020 · read time: 10 minutes
+      </aside>
+      
+
+      <article class="text">
+          <div class="image-box stretch">
+  <div>
+    <a href="../../2020/07/replacing_google_analytics_android.html">
+      <img class="lazy" data-src="/blog/assets/images/2020/simple_diagram.png" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/2020/simple_diagram.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<blockquote>
+  <p><strong>TLDR</strong> I built <a href="https://github.com/lbrito1/android-analytics">android-analytics</a>, a web analytics tracker running on my phone.</p>
+</blockquote>
+
+<p>Say you run a blog, personal website, small-time business page or something of the sorts. Say you also want to keep an eye on how many visitors you’re getting.</p>
+
+<p>The first thing that most people think at this point is “Google Analytics”. It mostly works and is free. Its also hosted by Google, which makes it very easy to start using. There aren’t many competitors that bring those points to the table, so Google Analytics usually wins by WO at this point.</p>
+
+<p>I used to use Google Analytics to track this blog for those same reasons. But after finding out about <a href="https://termux.com">Termux</a> and writing <a href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html">this post</a> about installing a web server on an Android phone, I started toying with the idea that I had this ARM-based, 2GB RAM, Linux-like device with Internet connectivity which must be more than enough for a simple webcounter-like application. After a few weeks of tinkering, here it is!</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="../../2020/07/replacing_google_analytics_android.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="../../2021/08/efficient_resource_distribution.html">Efficient resource distribution</a></h2>
+      <aside class="">
+        Aug 20, 2021 · read time: 4 minutes
+      </aside>
+      
+
+      <article class="text">
+          <div class="image-box stretch">
+  <div>
+    <a href="../../2021/08/efficient_resource_distribution.html">
+      <img class="lazy" data-src="/blog/assets/images/2021/resource-distribution.jpg" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/2021/resource-distribution.jpg" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<blockquote>
+  <p><strong>TLDR</strong> A simple metrics-based ranking system is good enough to decide who gets how many resources.</p>
+</blockquote>
+
+<p>Computational resources – CPU time, memory usage, network traffic etc – are limited. This may be more or less of a problem depending on project/company size and so on; if you’re working on a smaller product with limited traffic, it might not be meaningful at all.</p>
+
+<p>Once past a certain threshold though, expenses with such resources become non-trivial and it begins to make sense to spend some time thinking about how to distribute them as efficiently as possible.</p>
+
+<p>Here’s the problem that got me thinking about this: at work, we had a computational resource that needed to be consumed by a large fleet of workers (think several thousand concurrent), but each <em>type</em> of worker had different <em>productivity</em>, and that productivity changed over time. How can we decide who gets what?</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="../../2021/08/efficient_resource_distribution.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="../../2019/01/halving-page-sizes-with-srcset.html">Halving page sizes with srcset</a></h2>
+      <aside class="">
+        Sep 03, 2018 · read time: 3 minutes
+      </aside>
+      
+
+      <article class="text">
+          <p><a href="https://www.webbloatscore.com/">Web bloat</a> is <a href="http://idlewords.com/talks/website_obesity.htm">discussed</a> a lot nowadays. Web pages with fairly straightforward content — such as a Google search results page — are substantially bigger today than they were a few decades ago, even though the content itself hasn’t changed that much. We, web developers, are at least partly to blame: laziness or just <a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/">bad programming</a> are definitively part of the problem (of course, laziness might stem from a tight or impossible deadline, and bad code might come from inexperienced programmers — no judgment going on here).</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="../../2019/01/halving-page-sizes-with-srcset.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="../../2020/06/free_https_home_server.html">Setting up a free HTTPS home server</a></h2>
+      <aside class="">
+        Jun 27, 2020 · read time: 7 minutes
+      </aside>
+      
+
+      <article class="text">
+          <div class="image-box stretch">
+  <div>
+    <a href="../../2020/06/free_https_home_server.html">
+      <img class="lazy" data-src="/blog/assets/images/2020/cool-background.png" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/2020/cool-background.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<p>Try searching for “free dynamic dns https”, “free domain with SSL” or anything similar. There won’t be a lot of meaningful results. Sure, some of the results are pretty close, like <a href="https://www.freecodecamp.org/news/free-https-c051ca570324/">this guide</a> on how to get free SSL certification from Cloudflare, or <a href="https://medium.com/@jeremygale/how-to-set-up-a-free-dynamic-hostname-with-ssl-cert-using-google-domains-58929fdfbb7a">this one</a> on setting up a free dynamic hostname with SSL, but they all assume you <em>already own a domain</em>. If you’re looking for a completely free domain that you can use for your personal web server that also has verified SSL, there are very few results.</p>
+
+<p>But why was I even looking for this?</p>
+
+<p>I’m working on a side project. It has a web server that communicates with a static web page hosted on Github Pages. There are a lot of ways of setting that up; in my particular case, I have a local (as in in my house) HTTP web server accepting traffic on a non-standard port (port <code>80</code> is blocked by my ISP <a href="https://www.reddit.com/r/InternetBrasil/comments/e9v5o0/abertura_das_portas_80_e_443_na_claronet/">for commercial reasons</a> – this detail is of paramount importance, but more on that later). It is accessible through my external IP (which is dynamic), which can be mapped to a dynamic DNS domain.</p>
+
+<p>I wanted to run a simple API on the web server and access it through static pages (like this blog) hosted on Github Pages (which has a verified SSL certificate). <a href="https://stackoverflow.com/questions/62378047/is-it-possible-to-make-a-cross-domain-javascript-request-to-http-from-https">I asked the Internet</a> if it is possible to call from a SSL-verified page (in JavaScript) a different server that does not have a verified SSL certificate (that is, my aforementioned webapp running in my home server). It isn’t, so the conclusion was that I needed somehow to get a verified SSL certificate for my dynamic DNS domain.</p>
+
+<p>Having no idea whether this was possible, I started to research.</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="../../2020/06/free_https_home_server.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="../../2019/11/speeding-up-backend-graph-theory.html">Speeding Up the Backend with Graph Theory</a></h2>
+      <aside class="">
+        Nov 06, 2019 · read time: 8 minutes
+      </aside>
+      
+
+      <article class="text">
+          
+<div class="image-box stretch">
+  <div>
+    <a href="../../2019/11/speeding-up-backend-graph-theory.html">
+      <img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<p>Here at Sensor Tower we handle large volumes of data, so to keep things snappy for our customers we need to think carefully about how we process and serve that data.</p>
+
+<p>Understanding the data we’re handling is a fundamental part of improving the way we serve it, and by analyzing how an important backend service worked, we were able to speed it up by a factor of four.</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="../../2019/11/speeding-up-backend-graph-theory.html">Continue reading ›</a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+        </div>
+      </article>
+    </div>
+  
+</div>
+
+
+      <div class="footer">
+
+        <div>
+          <form action="https://buttondown.email/api/emails/embed-subscribe/lbrito" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lbrito', 'popupwindow')" class="embeddable-buttondown-form">
+          <label for="bd-email">Did you enjoy this post? Join the newsletter!</label>
+          <div>
+            <input type="email" name="email" id="bd-email">
+            <input type="submit" value="Subscribe">
+            <p>
+              <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
+            </p>
+          </div></form>
+        
+      </div>
+      <div class="final">
+        2023 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", yall);
+  
+    fetch("https://93fd-2604-3d08-7782-5300-c97-15aa-2cc9-2ec5.ngrok-free.app/damn_fine_coffee", { referrerPolicy: "unsafe-url" });
+  
+</script>
+
+
+</body></html>

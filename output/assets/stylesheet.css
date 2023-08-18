@@ -1,0 +1,222 @@
+a {
+  color: #E84855;
+  font-weight: 900;
+  text-decoration: none;
+  border-bottom: 1px dashed #E84855; }
+
+aside {
+  font-family: Monospace; }
+
+body {
+  color: #222;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px; }
+
+.text {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #141204; }
+
+#layout {
+  position: relative;
+  left: 0;
+  padding-left: 0; }
+
+.content {
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 768px;
+  margin-bottom: 50px;
+  line-height: 1.7em; }
+  .content h1 {
+    text-align: center;
+    font-family: Monospace;
+    font-weight: normal; }
+  .content .footer {
+    background-color: #EEE;
+    color: #333;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    padding-top: 1em;
+    padding-bottom: 1em; }
+    .content .footer .final {
+      border-top: 1px solid gray;
+      padding-top: 1em; }
+
+.carnaval {
+  background: -webkit-linear-gradient(#027ec4, #ff1c1c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold !important; }
+
+.header {
+  margin: 0;
+  color: #333;
+  padding-top: 2em;
+  padding-bottom: 0.2em; }
+  .header h1 {
+    margin: 0.2em 0;
+    font-weight: 300;
+    font-family: Monospace;
+    line-height: 1em; }
+  .header a {
+    font-family: mono;
+    font-weight: normal;
+    color: #141204;
+    border-bottom: none; }
+  .header nav {
+    padding: 1em 0;
+    color: #141204;
+    border-bottom: 1px solid #999;
+    margin-bottom: 1em; }
+    .header nav a {
+      font-family: Monospace;
+      color: #141204; }
+    .header nav .contact {
+      float: right; }
+      .header nav .contact img {
+        width: 1em;
+        height: 1em; }
+      .header nav .contact span {
+        margin: 2px; }
+
+.post-index {
+  margin-bottom: em;
+  padding-top: 2em;
+  padding-bottom: 2em; }
+  .post-index .post-tags {
+    display: inline-block;
+    margin: 10px 0; }
+  .post-index h2 a {
+    color: #141204;
+    font-family: Monospace;
+    line-height: 1em;
+    font-size: 110%;
+    padding-top: 10px;
+    font-weight: 400;
+    border-bottom: none; }
+  .post-index h2 {
+    margin: 0 !important; }
+  .post-index aside {
+    color: #999; }
+  .post-index .read-more {
+    font-size: 90%; }
+  .post-index .tags {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #999; }
+    .post-index .tags a {
+      margin: 0.5em 0;
+      background-color: #142850;
+      color: white; }
+  .post-index .post-meta {
+    text-align: right; }
+
+.post-show h2 {
+  text-align: center;
+  font-family: Monospace;
+  font-weight: 400;
+  font-size: 1.5em;
+  border: 1px solid black;
+  padding-bottom: 1em;
+  padding-top: 1em; }
+.post-show h3 {
+  font-weight: 400;
+  font-family: Monospace; }
+.post-show aside {
+  font-style: italic;
+  color: #999; }
+.post-show .post-footer {
+  padding: 40px 0; }
+
+blockquote {
+  font-style: italic;
+  font-family: serif;
+  margin: 0 0;
+  padding: 1em 10%;
+  font-size: 140%; }
+
+article img {
+  width: 100%; }
+
+.tag-button {
+  border-radius: 6px;
+  font-family: Monospace;
+  font-size: 90%; }
+
+table {
+  font-family: Monospace;
+  background: #FFF;
+  font-size: 80%; }
+
+th, td {
+  text-align: left;
+  padding: 8px; }
+
+th {
+  background-color: #222E50;
+  color: #FFF; }
+
+td {
+  padding: 0.1em;
+  line-height: 1.6em; }
+
+tr:nth-child(odd) {
+  background-color: #dfe5f7; }
+
+.tag-count {
+  color: white; }
+
+.stretch img {
+  width: 100% !important; }
+
+.image-box {
+  position: relative;
+  text-align: center; }
+  .image-box a {
+    border-bottom: none; }
+  .image-box img {
+    width: auto; }
+  .image-box .image-caption {
+    color: #999;
+    font-style: italic;
+    text-align: center; }
+
+code {
+  background-color: #E6E6E6; }
+
+.highlight {
+  padding: 1px 20px;
+  line-height: 1.5;
+  background-color: #071E22 !important; }
+  .highlight code {
+    background-color: #071E22;
+    color: white; }
+
+@media only screen and (max-width: 480px) {
+  .header {
+    padding-top: 6px; }
+
+  .content {
+    max-width: 100%;
+    margin: 0.2em;
+    line-height: 1.65em; }
+
+  body {
+    font-size: 1em; }
+
+  h2 {
+    line-height: 1.2em;
+    margin: 5px 0; }
+
+  nav a {
+    font-size: 120%; }
+  nav .links {
+    font-size: 0.8em; }
+  nav .links-icon {
+    font-size: 1.2em; } }
+.book-review-meta {
+  background-color: #5e5e5e;
+  color: white;
+  font-family: Monospace;
+  padding: 0.1em 0.5em; }

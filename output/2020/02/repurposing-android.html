@@ -1,0 +1,274 @@
+<!DOCTYPE html><html lang="en"><head>
+  <title>A Developer's Notebook - Repurposing an old Android phone as a Ruby web server</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
+  <meta name="author" content="Leonardo Brito">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Nanoc 4.11.16">
+  <meta property="og:type" content="website">
+  
+  <meta property="og:url" content="https://lbrito1.github.io/blog/2020/02/repurposing-android.html">
+  <meta property="twitter:url" content="https://lbrito1.github.io/blog/2020/02/repurposing-android.html">
+  
+  
+  <meta name="image" property="og:image" content="https://lbrito1.github.io/blog/blog/assets/images/2020/old-android.jpg">
+  <meta name="twitter:image" content="https://lbrito1.github.io/blog/blog/assets/images/2020/old-android.jpg">
+  
+  
+  <meta name="title" property="og:title" content="Repurposing an old Android phone as a Ruby web server">
+  <meta name="twitter:title" content="Repurposing an old Android phone as a Ruby web server">
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for lbrito.github.io/blog" href="../../feed.xml">
+  <link rel="stylesheet" href="../../assets/pure-min.css">
+  <link rel="stylesheet" href="../../assets/stylesheet.css">
+  <link rel="stylesheet" href="../../assets/highlight.css">
+
+  <script src="../../assets/yall.min.js"></script>
+</head>
+<body>
+  <div id="layout">
+    <div class="content">
+      <div class="header">
+        <h1>
+          <a href="../../">A Developer's Notebook</a>
+        </h1>
+        <nav class="pure-g">
+          <div class="pure-u-3-4 links">
+            <!-- <a href="/index.html">Home</a> &middot; -->
+            <a href="../../tags.html">Tags</a> ·
+            <a href="../../years.html">Years</a> ·
+            <a href="../../about.html">About</a> ·
+            <a href="../../books.html">📚</a> ·
+            <a class="carnaval" href="https://buttondown.email/lbrito">Newsletter!</a>
+          </div>
+
+          <div class="pure-u-1-4">
+            <div class="contact">
+              <span>
+                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                  <img src="../../assets/icons/github.svg" alt="Github icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                  <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                  <img src="../../assets/icons/rss.svg" alt="RSS icon">
+                </a>
+              </span>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+      
+  <div class="post-show">
+    <h2>Repurposing an old Android phone as a Ruby web server</h2>
+
+    
+
+    <aside>Posted Feb 05, 2020</aside>
+    <aside>Tagged: 
+      <a class="" href="../../tags/android">android</a>
+      
+      <a class="" href="../../tags/termux">termux</a>
+      
+    </aside>
+    <article class="text">
+      <div class="image-box stretch">
+  <div>
+    <a href="repurposing-android.html">
+      <img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/old-android.jpg" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">CC-BY Carlos Varela, https://www.flickr.com/photos/c32/7755470064</div>
+  
+</div>
+
+<p>Do you have an old Android phone? Sure you do! There’s a mind-blowing amount of electronic waste of all kinds, and with the average person in developed countries <a href="https://www.cnbc.com/2019/05/17/smartphone-users-are-waiting-longer-before-upgrading-heres-why.html">discarding their phones every couple of years</a>, discarded smartphones are probably one of the most common forms of e-waste.</p>
+
+<p>I had an old Motorola G5 Cedric gathering dust, so I decided to do something with it – it is now running a Puma web server with a simple Sinatra webapp.</p>
+
+<p>Now, before going any further, you might be thinking: what is the real, practical use of all this? An old Android phone probably isn’t going to have a stellar performance, but neither do those <code>t2.nano</code>s, honestly. I’m yet to deploy any “real” code on an Android, but even the cheaper and older phones do commonly have quad-core or even octa-core CPUs, and at least 2GB RAM, so at least in theory a phone <em>should</em> be close – ballpark, at least – to the most modest cloud IaaS offers our there (<code>t2.nano</code> has 512MB for instance). Of course, a phone has an ARM processor while IaaS usually are x86; memory management is entirely different as well, but still – we’re talking ballpark estimates here.</p>
+
+<p>Anyway, this is a short tutorial on how to repurpose an Android device as a web server – or any number of different things, really.</p>
+
+<!-- more -->
+
+<h2 id="install-termux">1. Install Termux</h2>
+
+<p>First of all we need a Linux environment in our phone. Termux is a terminal emulator and Linux environment for Android. It’s available on Google Play Store. No additional configuration is needed after installation.</p>
+
+<h2 id="set-up-ssh">2. Set up SSH</h2>
+
+<p>You won’t want to type a lot of commands into a tiny touchscreen, so let’s set up ssh so that we can log into Termux remotely.</p>
+
+<p>There are <a href="https://wiki.termux.com/wiki/Remote_Access">several ways</a> of doing this, but I’ve found that the easiest way is through a software called <strong>Dropbear</strong>:</p>
+
+<p><strong>Run this on Android:</strong></p>
+<div class="highlight"><pre><code class="language-bash">pkg upgrade
+pkg <span class="nb">install </span>dropbear</code></pre></div>
+
+<p>You can use password-based authentication or public key authentication. You should use key-based authentication, but for testing purposes password-based is easiest. Run this on Android:</p>
+
+<p><strong>Run this on Android:</strong></p>
+<div class="highlight"><pre><code class="language-bash">passwd
+New password:
+Retype new password:
+New password was successfully set.</code></pre></div>
+
+<p><strong>Bonus points:</strong> install a terminal multiplexer like <code>tmux</code> or <code>screen</code>. This will make your life much easier when running stuff via ssh:</p>
+
+<div class="highlight"><pre><code class="language-bash">pkg <span class="nb">install </span>tmux</code></pre></div>
+
+<p>Now go ahead and test the connection on your desktop:</p>
+
+<div class="highlight"><pre><code class="language-bash">ssh android-ip-address <span class="nt">-p</span> 8022</code></pre></div>
+
+<h2 id="set-up-static-ip-address-on-android">3. Set up static IP address on Android</h2>
+
+<p>Go to wifi settings, disable DHCP and assign an IP address for your phone.</p>
+
+<p>This is necessary so that your router won’t assign a new IP address to your phone every few hours/days, which would make configuration a lot harder.</p>
+
+<h2 id="install-ruby-bundler-sinatra-and-puma">4. Install Ruby, Bundler, Sinatra and Puma</h2>
+
+<p>Sinatra is a lightweight web application framework, and Puma is a web server.</p>
+
+<p>Ruby is, well Ruby!</p>
+
+<p>Of course, Sinatra and Puma are just suggestions – you could even use full-blown Rails on your phone, as described in <a href="https://mbobin.me/ruby/2017/02/25/ruby-on-rails-on-android.html">this neat tutorial</a>. Just <a href="https://devcenter.heroku.com/articles/ruby-default-web-server#why-not-webrick">don’t use WEBRick</a>, the default Rails web server in development – it is single-process, single-threaded and thus not suitable for production environments (it is fine for small experiments though).</p>
+
+<p><strong>Run this on Android:</strong></p>
+<div class="highlight"><pre><code class="language-bash">pkg <span class="nb">install </span>ruby
+gem <span class="nb">install </span>sinatra puma</code></pre></div>
+
+<h2 id="install-nginx">Install nginx</h2>
+
+<p>nginx is a web server, reverse-proxy and load balancer. Although most useful in multi-server setups where it is used to distribute requests among different instances, nginx is also a good idea in our setup because of the embedded DDoS protection and static file serving that it provides.</p>
+
+<p><strong>Run this on Android:</strong></p>
+<div class="highlight"><pre><code class="language-bash">pkg <span class="nb">install </span>nginx</code></pre></div>
+
+<p>Now the slightly tricky part is configuring nginx to work with Puma. <a href="https://gist.github.com/ctalkington/4448153">This gist</a> is a pretty good start – copy &amp; paste <code>nginx.conf</code> and change <code>appdir</code> to your webapp’s root dir. In my case, for example, that would be <code>/data/data/com.termux/files/home/android-sinatra</code>.</p>
+
+<h2 id="set-up-port-forwarding">Set up port forwarding</h2>
+
+<p>You probably want your web server to be accessible through the internet, so you’ll have to set up port forwarding in your router to redirect incoming requests to your public IP address to your brand new Android web server.</p>
+
+<p>How exactly to do this varies depending on your router. <a href="https://www.noip.com/support/knowledgebase/general-port-forwarding-guide/">Here’s</a> a pretty good tutorial to get you started.</p>
+
+<h2 id="configure-a-dynamic-dns">Configure a dynamic dns</h2>
+
+<p>Most people have dynamic public IP addresses. In these cases it is useful to set up a dynamic dns (DDNS) service, which provides you with a static domain name that redirects automatically to whatever your public IP address is at that moment.</p>
+
+<p>There are few free services that provide DDNS nowadays; I’m using <a href="https://www.noip.com/">no-ip</a> and it has been okay so far. You do have to “renew” your domain every month though.</p>
+
+<p>After setting up a DDNS, you’ll have to configure your router as well so that it periodically notifies the DDNS service with your current IP address. Again, how exactly to do this depends on your router model.</p>
+
+<h2 id="hello-world">Hello world!</h2>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2020/android-web-server.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2020/android-web-server.jpg" alt="Puma and nginx running on a Motorola G5.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/android-web-server.jpg" alt="Puma and nginx running on a Motorola G5.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">Puma and nginx running on a Motorola G5.</div>
+  
+</div>
+
+<h2 id="under-siege">Under siege</h2>
+
+<p>You can simulate real-world usage through <a href="https://www.joedog.org/siege-home/"><code>siege</code></a>, a http load testing software. Here’s a screenshot of <code>siege</code> running on my setup with 3 concurrent users (real tests would use bigger numbers):</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2020/siege.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">siege running in the foreground; nginx logs and top on remote (android) running in the background terminals.</div>
+  
+</div>
+
+<p>The numbers in that screenshot don’t matter much because our webapp was serving a simple 100-char response with a timestamp, but it is enough to at least know that the server can handle a few concurrent users.</p>
+
+<h2 id="epilogue-safety">Epilogue: safety</h2>
+
+<p>If you’ve watched <a href="https://en.wikipedia.org/wiki/Mr._Robot">Mr Robot</a>, you know that the internet can be a dangerous place. That is a lot more true if you have a web server open to the internet.</p>
+
+<p>Within a few hours of opening up the server, it was already being crawled by all sorts of things. Most are innocuous indexing robots, but some are definitively not so nice, like these two requests:</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2020/scanners.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2020/scanners.jpg" alt="nginx logs showing port scanning attacks.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/scanners.jpg" alt="nginx logs showing port scanning attacks.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">Most of those requests seem fine, but the two in red are probably some kind of attack.</div>
+  
+</div>
+
+<p>So the headline here is: keep all software updated, keep an eye on access logs and maybe go through nginx safety guides such as <a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html">this</a> and <a href="https://geekflare.com/nginx-webserver-security-hardening-guide/">this</a>.</p>
+
+    </article>
+    <div class="post-footer">
+      <a href="../../index.html">Back</a>
+    </div>
+  </div>
+
+      <div class="footer">
+
+        <div>
+          <form action="https://buttondown.email/api/emails/embed-subscribe/lbrito" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lbrito', 'popupwindow')" class="embeddable-buttondown-form">
+          <label for="bd-email">Did you enjoy this post? Join the newsletter!</label>
+          <div>
+            <input type="email" name="email" id="bd-email">
+            <input type="submit" value="Subscribe">
+            <p>
+              <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
+            </p>
+          </div></form>
+        
+      </div>
+      <div class="final">
+        2023 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", yall);
+  
+    fetch("https://93fd-2604-3d08-7782-5300-c97-15aa-2cc9-2ec5.ngrok-free.app/damn_fine_coffee", { referrerPolicy: "unsafe-url" });
+  
+</script>
+
+
+</body></html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en"><head>
+  <title>A Developer's Notebook - Analyzing LinkedIn's data export: what happened in 2021?</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
+  <meta name="author" content="Leonardo Brito">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Nanoc 4.11.16">
+  <meta property="og:type" content="website">
+  
+  <meta property="og:url" content="https://lbrito1.github.io/blog/2021/09/job_offers_pandemic.html">
+  <meta property="twitter:url" content="https://lbrito1.github.io/blog/2021/09/job_offers_pandemic.html">
+  
+  
+  <meta name="image" property="og:image" content="https://lbrito1.github.io/blog/blog/assets/images/2021/linkedin-wordcloud.png">
+  <meta name="twitter:image" content="https://lbrito1.github.io/blog/blog/assets/images/2021/linkedin-wordcloud.png">
+  
+  
+  <meta name="title" property="og:title" content="Analyzing LinkedIn's data export: what happened in 2021?">
+  <meta name="twitter:title" content="Analyzing LinkedIn's data export: what happened in 2021?">
+  
+  
+  <meta name="description" property="og:description" content="Analyzing my LinkedIn data export to see if and by how much the software industry exploded during the pandemic.">
+  <meta name="twitter:description" content="Analyzing my LinkedIn data export to see if and by how much the software industry exploded during the pandemic.">
+  
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for lbrito.github.io/blog" href="../../feed.xml">
+  <link rel="stylesheet" href="../../assets/pure-min.css">
+  <link rel="stylesheet" href="../../assets/stylesheet.css">
+  <link rel="stylesheet" href="../../assets/highlight.css">
+
+  <script src="../../assets/yall.min.js"></script>
+</head>
+<body>
+  <div id="layout">
+    <div class="content">
+      <div class="header">
+        <h1>
+          <a href="../../">A Developer's Notebook</a>
+        </h1>
+        <nav class="pure-g">
+          <div class="pure-u-3-4 links">
+            <!-- <a href="/index.html">Home</a> &middot; -->
+            <a href="../../tags.html">Tags</a> ·
+            <a href="../../years.html">Years</a> ·
+            <a href="../../about.html">About</a> ·
+            <a href="../../books.html">📚</a> ·
+            <a class="carnaval" href="https://buttondown.email/lbrito">Newsletter!</a>
+          </div>
+
+          <div class="pure-u-1-4">
+            <div class="contact">
+              <span>
+                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                  <img src="../../assets/icons/github.svg" alt="Github icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                  <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                  <img src="../../assets/icons/rss.svg" alt="RSS icon">
+                </a>
+              </span>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+      
+  <div class="post-show">
+    <h2>Analyzing LinkedIn's data export: what happened in 2021?</h2>
+
+    
+
+    <aside>Posted Oct 07, 2021</aside>
+    <aside>Tagged: 
+      <a class="" href="../../tags/career">career</a>
+      
+    </aside>
+    <article class="text">
+      <div class="image-box stretch">
+  <div>
+    <a href="job_offers_pandemic.html">
+      <img class="lazy" data-src="/blog/assets/images/2021/linkedin-wordcloud.png" alt="Bar chart showing distribution of jobs I applied to per country. US ranks first with over 10 applications.">
+      <noscript>
+        <img src="../../blog/assets/images/2021/linkedin-wordcloud.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<p>I’ve been using LinkedIn basically since I started working as an intern back in 2012. My usage is mostly limited to posting my blog posts, except the couple of times I used the platform to search for a new job. So most of the time, LinkedIn has been pretty slow-paced, with maybe half a dozen random recruiters reaching out per year.</p>
+
+<p>However, since the Covid-19 pandemic started, and particularly in 2021, things seem to have gone a little crazy, with a <em>lot</em> more recruiter activity. I was curious to see just how much things had changed, so I looked at LinkedIn’s data export.</p>
+
+<!-- more -->
+
+<p>First I requested my data from LinkedIn:</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2021/linkedin-request.png" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2021/linkedin-request.png" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/2021/linkedin-request.png" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<p>Messages, Connections and Invitations seem like the most promising sources of data:</p>
+
+<div class="highlight"><pre><code class="language-bash">➜  Basic_LinkedInDataExport_10-01-2021 <span class="nb">ls</span> <span class="nt">-lahtS</span>
+total 1020K
+<span class="nt">-rw-rw-r--</span> 1 leo leo 577K out  1 13:06  messages.csv
+<span class="nt">-rw-rw-r--</span> 1 leo leo 146K out  1 13:05  Connections.csv
+<span class="nt">-rw-rw-r--</span> 1 leo leo 113K out  1 13:05  Contacts.csv
+<span class="nt">-rw-rw-r--</span> 1 leo leo  43K out  1 13:05  Learning.csv
+<span class="nt">-rw-rw-r--</span> 1 leo leo  23K out  1 13:05  Invitations.csv</code></pre></div>
+
+<p>The Connections export is somewhat limited for our purposes: I only actively add people on LinkedIn during a job search.</p>
+
+<p>Messages are a bit more interesting because a lot of recruiters immediately offer a position in their first contact (sometimes even with a pre-scheduled Google calendar event! I wish things were this straightforward back when I was finishing school).</p>
+
+<p>Invites are also a good source, complimentary to Messages. After accepting or rejecting an invite, the Invitation is deleted, so there’s no danger of double counting an interaction that started as Invitation and then evolved to Messaging.</p>
+
+<p>Focusing first on the Messages export, here are some relevant info we might aspire to extract:</p>
+
+<ul>
+  <li>Job offers (as in “I have a job I want you to apply for”) per date</li>
+  <li>Keywords mentioned in messages (“Ruby”, “Rails” etc)</li>
+</ul>
+
+<p>Let’s see if we can extract those.</p>
+
+<h2 id="job-offers-per-month">Job offers per month</h2>
+
+<p>Job offers mainly come from messages, and the bulk of my messages come from recruiters. However, I do get a few scattered personal messaging from old acquaintances, some professional but not interview-related conversations, etc.</p>
+
+<p>A simple approach to estimate how many messages are actually from someone promoting a job opening is to look for certain job-related terms: in my case, as a Ruby engineer, if a message contains “Ruby” it is probably from a recruiter advertising a Ruby-related position. This is only an estimate: maybe I chatted about Ruby at some point with an acquaintance, which of course is non-related to our objective here. Those cases are few and far apart compared to the recruiter conversations though.</p>
+
+<p>With that in mind, I built a list of terms that are related to job searches:</p>
+
+<div class="highlight"><pre><code class="language-ruby"><span class="n">job</span> <span class="n">offer</span> <span class="n">opportunity</span> <span class="n">ruby</span> <span class="n">developer</span> <span class="n">engineer</span> <span class="n">talent</span> <span class="n">salary</span> <span class="n">relocation</span> <span class="n">position</span> <span class="n">role</span> <span class="n">recruiter</span> <span class="n">talent</span> <span class="n">looking</span> <span class="n">interested</span> <span class="n">oportunidade</span> <span class="n">trabalho</span> <span class="n">vaga</span> <span class="n">software</span> <span class="n">experience</span> <span class="n">tech</span> <span class="n">rails</span> <span class="n">interesse</span> <span class="n">interested</span> <span class="n">company</span> <span class="n">email</span> <span class="n">work</span> <span class="n">senior</span> <span class="n">contato</span> <span class="n">vagas</span> <span class="n">remote</span> <span class="n">working</span> <span class="n">stack</span> <span class="n">backend</span> <span class="n">technical</span> <span class="n">developers</span> <span class="n">skill</span> <span class="n">skills</span></code></pre></div>
+
+<p>Most of the messaging I get is in English, but I do get a significant amount of contacts in Portuguese as well, so we have terms in both languages.</p>
+
+<p>With that list of terms, we can simply <code>select</code> all the relevant ones and group those by month:</p>
+
+<div class="highlight"><pre><code class="language-ruby">  <span class="k">def</span> <span class="nf">job_messages_per_month</span>
+    <span class="n">job_related_messages</span> <span class="o">=</span> <span class="vi">@input</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span> <span class="n">row</span><span class="p">[</span><span class="s2">"CONTENT"</span><span class="p">]</span> <span class="o">=~</span> <span class="sr">/</span><span class="si">#{</span><span class="vi">@relevant_words</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"|"</span><span class="p">)</span><span class="si">}</span><span class="sr">/i</span> <span class="p">}</span>
+    <span class="n">metric_per_month</span><span class="p">(</span><span class="n">job_related_messages</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span> <span class="no">Time</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"DATE"</span><span class="p">]).</span><span class="nf">to_date</span> <span class="p">}</span>
+  <span class="k">end</span></code></pre></div>
+
+<p>Now, when I’m not actively looking for another job, I tend not do look at LinkedIn too much, so the Invitations tend to pile up. As already mentioned, accepted/rejected invites get “deleted” from LinkedIn’s data export (which doesn’t seem like a great practice IMO, as they probably still have that data), so only invites that you haven’t acted on either way are available in the CSV export.</p>
+
+<p>Just like with messages, we group the relevant invites (“Inbound”, meaning someone is adding you as opposed to “Outbound” where you’re adding someone) by date. I didn’t bother filtering by terms because nearly everyone that adds me is a recruiter these days:</p>
+
+<div class="highlight"><pre><code class="language-ruby">  <span class="k">def</span> <span class="nf">recruiters_per_month</span>
+    <span class="n">received_invites</span> <span class="o">=</span> <span class="vi">@input</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span> <span class="n">row</span><span class="p">[</span><span class="s2">"Direction"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"INCOMING"</span> <span class="p">}</span>
+    <span class="n">metric_per_month</span><span class="p">(</span><span class="n">received_invites</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span> <span class="no">Time</span><span class="p">.</span><span class="nf">strptime</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"Sent At"</span><span class="p">],</span> <span class="s2">"%m/%d/%y"</span><span class="p">).</span><span class="nf">to_date</span> <span class="p">}</span>
+  <span class="k">end</span></code></pre></div>
+
+<p>Here’s the result of summing both data, messages and invites:</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2021/linkedin-offers-month.png" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2021/linkedin-offers-month.png" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/2021/linkedin-offers-month.png" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<p>There was a spike in early 2019, when I actively pursued a new job. I also gave a <a href="http://www.thedevelopersconference.com.br/tdc/2019/florianopolis/trilha-web-frontend">conference talk</a> at that time and added a bunch of people on LinkedIn. Thus, this peak in job offers is just a consequence of me actively looking for a job. After that, activity dropped to back to lower levels (I also ticked “not looking for a job” on LinkedIn right after I signed the offer at my new job around April 2019).</p>
+
+<p>On the other hand, since late 2020 job offer messaging has grown steadily. I wasn’t actively looking, so this here is organic growth. I’m curious to see if other people also had a similar pattern. Perhaps this is a reflection of an increase of demand in some specific skillset (Ruby) or experience level (X years of experience), but I’m guessing its part of a general upwards trend in the industry since the beginning of the pandemic.</p>
+
+<h2 id="most-common-terms">Most common terms</h2>
+
+<p>Another interesting piece of information is the most common words mentioned in the conversations.</p>
+
+<p>We could just count how frequently each word pops up, but irrelevant words like “the”, “a” and so on would rank in the top. So first we need to get rid of those words, then look at the linted text. I’m sure there’s an API that does just that somewhere out there, but I created my own list of non-relevant words manually and used that instead.</p>
+
+<div class="highlight"><pre><code class="language-ruby">  <span class="k">def</span> <span class="nf">word_frequencies</span>
+    <span class="n">full_text</span> <span class="o">=</span> <span class="vi">@input</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">row</span><span class="o">|</span> <span class="n">row</span><span class="p">[</span><span class="s2">"CONTENT"</span><span class="p">]</span> <span class="p">}.</span><span class="nf">compact</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+    <span class="n">normalize_words</span><span class="p">(</span><span class="n">full_text</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sr">/\s+/</span><span class="p">))</span>
+      <span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">w</span><span class="o">|</span> <span class="n">w</span><span class="p">.</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/[^a-z]+/</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span> <span class="p">}</span>
+      <span class="p">.</span><span class="nf">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">w</span><span class="o">|</span> <span class="n">w</span><span class="p">.</span><span class="nf">size</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">||</span> <span class="vi">@nonrelevant_words</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="p">}</span>
+      <span class="p">.</span><span class="nf">group_count</span><span class="p">.</span><span class="nf">sort_by</span><span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">}.</span><span class="nf">reverse</span>
+  <span class="k">end</span></code></pre></div>
+
+<p>Using the <a href="https://github.com/zverok/magic_cloud">MagicCloud</a> gem, here’s the plotted results:</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2021/linkedin-wordcloud.png" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2021/linkedin-wordcloud.png" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/2021/linkedin-wordcloud.png" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<p>No surprises there – terms like “Ruby” and “Rails” are among the most frequent. Other bland job-related terms compose the bulk of the word cloud.</p>
+
+<p>Here are the actual numbers for these terms:</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2021/linkedin-terms.png" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2021/linkedin-terms.png" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/2021/linkedin-terms.png" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<h2 id="what-happenedis-happening">What happened/is happening?</h2>
+
+<p>Going back to the original question: what happened in 2021? Did software-related job offers explode during the pandemic? My anecdata points to an obvious Yes. Most articles discussing this question are just opinion pieces around the lines of “engineering demand increased because digital services sharply expanded with the lockdowns”. I couldn’t find any hard data supporting these assumptions (other than this personal analysis presented above).</p>
+
+<p>One of the major impacts of the pandemic, being forced to remote-only did have pretty obvious effects in non-US job markets. Before the pandemic, I suspect that many very competent people were hesitant to leave their jobs due to strictly non-remote perks: nice offices, work colleagues, local benefits like healthcare, maybe even specific labor laws regarding vacation time and so on.</p>
+
+<p>Remote jobs based in strong currency countries, especially the US, were already “a thing” long before the pandemic, but with remote work being mandatory rather than an option, local remote vs foreign remote boils down to a huge pay gap in most cases, with US-based software engineering salaries being hard to compete with anywhere else in the world.</p>
+
+<p>I’m very curious to see how this pans out for local software shops. These local companies are really bleeding talent leaving for stronger currencies; if these dynamics go on for too long, I can’t see how most of them will last.</p>
+
+<h2 id="code">Code</h2>
+
+<p><a href="https://github.com/lbrito1/LinkedIn-insights">Here’s the repo</a> with all the scripts needed to reproduce these results.</p>
+
+    </article>
+    <div class="post-footer">
+      <a href="../../index.html">Back</a>
+    </div>
+  </div>
+
+      <div class="footer">
+
+        <div>
+          <form action="https://buttondown.email/api/emails/embed-subscribe/lbrito" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lbrito', 'popupwindow')" class="embeddable-buttondown-form">
+          <label for="bd-email">Did you enjoy this post? Join the newsletter!</label>
+          <div>
+            <input type="email" name="email" id="bd-email">
+            <input type="submit" value="Subscribe">
+            <p>
+              <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
+            </p>
+          </div></form>
+        
+      </div>
+      <div class="final">
+        2023 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", yall);
+  
+    fetch("https://93fd-2604-3d08-7782-5300-c97-15aa-2cc9-2ec5.ngrok-free.app/damn_fine_coffee", { referrerPolicy: "unsafe-url" });
+  
+</script>
+
+
+</body></html>

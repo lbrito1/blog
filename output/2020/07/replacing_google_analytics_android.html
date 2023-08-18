@@ -1,0 +1,399 @@
+<!DOCTYPE html><html lang="en"><head>
+  <title>A Developer's Notebook - I replaced Google Analytics with a web server running on my phone</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
+  <meta name="author" content="Leonardo Brito">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Nanoc 4.11.16">
+  <meta property="og:type" content="website">
+  
+  <meta property="og:url" content="https://lbrito1.github.io/blog/2020/07/replacing_google_analytics_android.html">
+  <meta property="twitter:url" content="https://lbrito1.github.io/blog/2020/07/replacing_google_analytics_android.html">
+  
+  
+  <meta name="image" property="og:image" content="https://lbrito1.github.io/blog/blog/assets/images/2020/simple_diagram.png">
+  <meta name="twitter:image" content="https://lbrito1.github.io/blog/blog/assets/images/2020/simple_diagram.png">
+  
+  
+  <meta name="title" property="og:title" content="I replaced Google Analytics with a web server running on my phone">
+  <meta name="twitter:title" content="I replaced Google Analytics with a web server running on my phone">
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for lbrito.github.io/blog" href="../../feed.xml">
+  <link rel="stylesheet" href="../../assets/pure-min.css">
+  <link rel="stylesheet" href="../../assets/stylesheet.css">
+  <link rel="stylesheet" href="../../assets/highlight.css">
+
+  <script src="../../assets/yall.min.js"></script>
+</head>
+<body>
+  <div id="layout">
+    <div class="content">
+      <div class="header">
+        <h1>
+          <a href="../../">A Developer's Notebook</a>
+        </h1>
+        <nav class="pure-g">
+          <div class="pure-u-3-4 links">
+            <!-- <a href="/index.html">Home</a> &middot; -->
+            <a href="../../tags.html">Tags</a> ·
+            <a href="../../years.html">Years</a> ·
+            <a href="../../about.html">About</a> ·
+            <a href="../../books.html">📚</a> ·
+            <a class="carnaval" href="https://buttondown.email/lbrito">Newsletter!</a>
+          </div>
+
+          <div class="pure-u-1-4">
+            <div class="contact">
+              <span>
+                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                  <img src="../../assets/icons/github.svg" alt="Github icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                  <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                  <img src="../../assets/icons/rss.svg" alt="RSS icon">
+                </a>
+              </span>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+      
+  <div class="post-show">
+    <h2>I replaced Google Analytics with a web server running on my phone</h2>
+
+    
+
+    <aside>Posted Jul 06, 2020</aside>
+    <aside>Tagged: 
+      <a class="" href="../../tags/Web development">Web development</a>
+      
+      <a class="" href="../../tags/android">android</a>
+      
+      <a class="" href="../../tags/termux">termux</a>
+      
+    </aside>
+    <article class="text">
+      <div class="image-box stretch">
+  <div>
+    <a href="replacing_google_analytics_android.html">
+      <img class="lazy" data-src="/blog/assets/images/2020/simple_diagram.png" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/2020/simple_diagram.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<blockquote>
+  <p><strong>TLDR</strong> I built <a href="https://github.com/lbrito1/android-analytics">android-analytics</a>, a web analytics tracker running on my phone.</p>
+</blockquote>
+
+<p>Say you run a blog, personal website, small-time business page or something of the sorts. Say you also want to keep an eye on how many visitors you’re getting.</p>
+
+<p>The first thing that most people think at this point is “Google Analytics”. It mostly works and is free. Its also hosted by Google, which makes it very easy to start using. There aren’t many competitors that bring those points to the table, so Google Analytics usually wins by WO at this point.</p>
+
+<p>I used to use Google Analytics to track this blog for those same reasons. But after finding out about <a href="https://termux.com">Termux</a> and writing <a href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html">this post</a> about installing a web server on an Android phone, I started toying with the idea that I had this ARM-based, 2GB RAM, Linux-like device with Internet connectivity which must be more than enough for a simple webcounter-like application. After a few weeks of tinkering, here it is!</p>
+
+<!-- more -->
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+  <li>
+<a href="#motivation">Motivation</a>
+    <ul>
+      <li><a href="#why-even-keep-anything">Why even keep anything?</a></li>
+      <li><a href="#and-then-there-is-the-data">And then there is the data</a></li>
+      <li><a href="#the-lack-of-competition">The (lack of) competition</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#developing-android-analytics">Developing android-analytics</a>
+    <ul>
+      <li><a href="#basis">Basis</a></li>
+      <li><a href="#first-iteration-sinatra-webapp">First iteration: Sinatra webapp</a></li>
+      <li><a href="#second-iteration-nginx-log-parser">Second iteration: Nginx log parser</a></li>
+      <li><a href="#third-iteration-adding-a-viewer">Third iteration: Adding a viewer</a></li>
+      <li><a href="#fourth-iteration-adding-an-installation-script">Fourth iteration: Adding an installation script</a></li>
+      <li><a href="#final-architecture">Final architecture</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+<h2 id="motivation">Motivation</h2>
+
+<h3 id="why-even-keep-anything">Why even keep anything?</h3>
+
+<p>Before going into this whole thing, there’s a very reasonable question to be answered: why do I even need to collect this data?</p>
+
+<p>The answer is simple: I really don’t, I just enjoy seeing it. Call it a <a href="https://techcrunch.com/2011/07/30/vanity-metrics/">vanity metric</a>, but I think its just <em>plain cool</em> to know that someone half across the planet read something I wrote months ago (maybe it was just a crawler; I’ll take it either way).</p>
+
+<p>It should be no surprise, then, that Google Analytics always felt immensely overkill.</p>
+
+<p>Its heartwarming to know that some nerd from Bhutan read one of my posts in the wee hours of the morning, but that is pretty much all I’m interested in. I could care less about Acquisition Treemaps, Audience Cohort Analysis or Behavior Flow. I’m not making those up: they’re all real products available on Google Analytics. I have no idea of what any of those mean, yet I’m 100% sure I don’t need them.</p>
+
+<div class="image-box">
+  <div>
+    <a href="../../blog/assets/images/2020/visitor_count.jpeg" target="_blank">
+      <img class="lazy" data-src="/blog/assets/images/2020/visitor_count.jpeg" alt="Visitor counter from the 90s.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/visitor_count.jpeg" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">Visitor counter from the 90s.</div>
+  
+</div>
+
+<p>What I wanted was closer to the late 90s’ visitor count GIF above (minus the embarrassment of publicity) than to the unsightly “Intersitial online advertising network conglomerate SEO dashboard” feeling of Google Analytics:</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2020/ga.png" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2020/ga.png" alt="Google Analytics dashboard.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/ga.png" alt="Google Analytics dashboard.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">Google Analytics dashboard.</div>
+  
+</div>
+
+<p>In short, I wanted to geek out, not do advertisement arbitrage.</p>
+
+<h3 id="and-then-there-is-the-data">And then there is the data</h3>
+
+<p>As aforementioned, Google Analytics is great, free, <em>and hosted by Google</em>.</p>
+
+<p>They keep your data. I have no idea of what they do with that data, or even what exactly it is that their tracker is sending to their servers (judging from the number of articles showing how to keep the payload below the cap of 8kb, it must be a lot).</p>
+
+<div class="image-box">
+  <div>
+    <a href="../../blog/assets/images/2020/ga_payload.png" target="_blank">
+      <img class="lazy" data-src="/blog/assets/images/2020/ga_payload.png" alt="Google search results for 'google analytics payload size is too large'. 642,000 results.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/ga_payload.png" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">That's a lot of results.</div>
+  
+</div>
+
+<p>Apparently they often need over 8kb per request to feed their Lovecraftian “Audience Cohort Analysis” line of products. Fair enough, but I’m pretty sure that for my purposes, a several-kb payload is effectively using a sledgehammer to kill a fly.</p>
+
+<p>By using Google Analytics I was willfully sending Google who-knows-what kind of data designed to build up people’s advertising profile. The page views of my blog probably didn’t help Google too much in that aspect, sure, but the principle of the whole thing still bothered me enough to do something about it.</p>
+
+<h3 id="the-lack-of-competition">The (lack of) competition</h3>
+
+<p>There are a lot of software similar to Google Analytics out there. The most prominent is probably <a href="https://matomo.org/">Matomo</a>, often <a href="https://hn.algolia.com/?dateRange=all&amp;page=0&amp;prefix=true&amp;query=matomo&amp;sort=byPopularity&amp;type=story">posted on Hacker News</a>. It is free, open source and self-hosted (with cloud offerings for a monthly fee).</p>
+
+<p>I would happily use Matomo, but with it comes a conundrum:</p>
+
+<ul>
+  <li>Self-hosting implies I had to have some kind of publicly accessible Linux host, which would likely not be entirely free;</li>
+  <li>Cloud-hosting comes with a subscription fee.</li>
+</ul>
+
+<p>Those points are trivial if you’re running a lucrative business that <em>needs</em> analytics, but paying for this service sounds ludicrous when all you want is simple visitor stats for a personal blog.</p>
+
+<h2 id="developing-android-analytics">Developing android-analytics</h2>
+
+<p>These were the requirements I had for my tracker:</p>
+
+<ol>
+  <li>Has to run on an old Android phone I have lying around;</li>
+  <li>Has to work with Github Pages-hosted sites;</li>
+  <li>Has a per-page view count;</li>
+  <li>Nice to have: geo info.</li>
+</ol>
+
+<p>These requirements are deceivingly simple, as I quickly learned.</p>
+
+<p>Termux makes it really easy to run many kinds of software on your Android phone, and <a href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html">I had already tinkered</a> with web servers with Termux. For something as simple as a page view, this should be pretty straightforward.</p>
+
+<p>I had also already registered a dynamic DNS subdomain pointing to my phone, so it was ready to accept incoming traffic from the Internet.</p>
+
+<p>The first major roadblock I faced was getting my Android-hosted web server to communicate with Github Pages. After a couple of days of research, I finally learned that it is basically impossible to make a request from an HTTPS website (which Github Pages is) to an HTTP address (my Dynamic DNS’s subdomain). To summarize, you can make that work, but at the cost of having the client browser do something (like actively mark a “allow mixed content” checkbox somewhere in the browser’s flags/advanced options).</p>
+
+<p>This lead me to the excruciating path of obtaining and using a verified SSL certificate in my Android phone with a Dynamic DNS subdomain. This took me long enough to want to write a separate <a href="https://lbrito1.github.io/blog/2020/06/free_https_home_server.html">blog post</a> about it. The TLDR here is that it is entirely possible to get a verified SSL cert for a Dynamic DNS subdomain – all of it entirely for free. Depending on your ISP, you’ll have different choices of SSL challenges, but if you’re able to receive TCP requests on port <code>443</code>, it is possible to get the certificate for free.</p>
+
+<p>Once I figured out the SSL thing, the rest was pretty much a breeze.</p>
+
+<h3 id="fundamentals">Fundamentals</h3>
+
+<p>I tried out a few different ideas when developing this, but the overall architecture is always the same:</p>
+
+<ul>
+  <li>JavaScript code in my tracked page calls the Android host;</li>
+  <li>Android host saves that information in a database;</li>
+  <li>Some graphical tool is used to parse that data into something viewable (charts etc).</li>
+</ul>
+
+<h3 id="first-iteration-sinatra-webapp">First iteration: Sinatra webapp</h3>
+
+<p>I started with a <a href="http://sinatrarb.com/">Sinatra</a> webapp with a single <code>POST</code> endpoint that would receive a request from the tracked page and immediately save it in a Postgres database. I used Nginx as a reverse-proxy that handled traffic before passing it to Sinatra.</p>
+
+<p>This approach had the merit of being simple to understand and reliable. Also, it worked.</p>
+
+<p>But after watching it work for a few days, I realized that the whole webapp part was superfluous. Nginx logs all accesses by default, and the logs contain all the information I need: what page was requested, at what time and from what IP. This lead naturally to the second iteration.</p>
+
+<h3 id="second-iteration-nginx-log-parser">Second iteration: Nginx log parser</h3>
+
+<p>Nginx provides flexible, per-endpoint logs: logs are activated for the endpoint that I want (<code>/damn_fine_coffee</code>) and deactivated for everything else. This is important because the Internet is full of crawlers that annoyingly hit the root path <code>/</code>, which obviously shouldn’t count as a page view. As I learned, the web is also surprisingly full of smartypants trying to make their way into <code>/tp-link</code>, <code>/admin</code> and so on; I also wanted to just ignore those.</p>
+
+<p>The logs provided all the <em>data</em> I needed, but I still needed to transform that <em>data</em> into useful <em>information</em>. I found out about <a href="https://goaccess.io/">GoAccess</a> on Hacker News, and, perhaps surprisingly, it worked out of the box with Termux:</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2020/goaccess.png" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2020/goaccess.png" alt="GoAccess dashboard with my Android-hosted data.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/goaccess.png" alt="GoAccess dashboard with my Android-hosted data.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">GoAccess dashboard with my Android-hosted data.</div>
+  
+</div>
+
+<p>At this point I could settle for GoAccess, but it didn’t seem to provide any geo info, which I always thought would be a cool feature, so I kept working on my own tool.</p>
+
+<p>I configured Nginx to print CSV-like logs, and <a href="https://github.com/lbrito1/android-analytics/blob/master/app/compiler.rb">wrote a parser</a> that transforms those log entries into DB entries with geographic information provided by the excellent <a href="https://github.com/alexreisner/geocoder">geocoder</a> gem, and also annonymizes the request IPs using MD5 hashing. The final step was adding a cron entry to run the parser regularly.</p>
+
+<p>At this point I was getting regular traffic converted to rows in a Postgresql table. I still needed a more convenient way to look at the data, though.</p>
+
+<h3 id="third-iteration-adding-a-viewer">Third iteration: Adding a viewer</h3>
+
+<p>I initially thought about using <a href="https://grafana.com/">Grafana</a> as a visualization tool. Its free, easy to use, flexible and I was already familiar with it. Unfortunately Grafana doesn’t have binaries available for Termux (there’s an <a href="https://github.com/termux/termux-packages/issues/4801">issue</a> open in Termux’s repo requesting that), and I wasn’t feeling like trying to compile it manually.</p>
+
+<p>Thankfully I found the <a href="https://github.com/ankane/blazer">blazer</a> gem, which has a very similar concept compared with Grafana: you write SQL queries and it transforms them into charts. That was exactly what I was looking for. The downside is that it requires a full-fledged Rails application to run, but I was okay with that trade-off.</p>
+
+<p>Here’s how the data looks like right now:</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2020/android-analytics-screenshot.png" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2020/android-analytics-screenshot.png" alt="blazer gem dashboard.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/android-analytics-screenshot.png" alt="blazer gem dashboard.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">blazer gem dashboard.</div>
+  
+</div>
+
+<h3 id="fourth-iteration-adding-an-installation-script">Fourth iteration: Adding an installation script</h3>
+
+<p>So far I was playing by ear; I knew more or less how to reinstall the project on a new device, but I knew that after some time my memory would fade and the process would become a painstaking trial-and-error mess.</p>
+
+<p>I first compiled all the steps needed for this to work in the repo’s README – it took a total of <a href="https://github.com/lbrito1/android-analytics/commit/9487a54b37c727bdd60b7276469fc58a8fd0d47d#diff-04c6e90faac2675aa89e2176d2eec7d8">17 steps</a> to get things running. Noticing that most of these steps could be automated, I wrote a <a href="https://github.com/lbrito1/android-analytics/blob/master/bin/setup.sh">setup script</a> that should do most of the work. I tested it in a separate Android device to make sure it works – hopefully it works for other people as well.</p>
+
+<h3 id="final-architecture">Final architecture</h3>
+
+<p>When someone accesses one of my tracked pages, this is roughly what happens:</p>
+
+<ol>
+  <li>JavaScript on that page calls my domain (provided for free by <a href="https://www.duckdns.org/">DuckDNS</a>);</li>
+  <li>DuckDNS translates that address to my router’s most recent IP;</li>
+  <li>My router receives that request and uses the NAT table to redirect it to my Android phone;</li>
+  <li>On Android, Nginx receives the request and either logs it if the request comes from the right place (my list of tracked pages), or does nothing otherwise;</li>
+  <li>A scheduled Cron job rotates Nginx logs and converts the “old” log into rows in a Postgresql table;</li>
+  <li>I open <code>&lt;my-android-local-ip&gt;:3000</code> on my desktop’s browser and view the charts, maps etc.</li>
+</ol>
+
+<p>This diagram shows those same steps, more or less:</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2020/diagram.png" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2020/diagram.png" alt="android-analytics diagram.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/diagram.png" alt="android-analytics diagram.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">android-analytics diagram.</div>
+  
+</div>
+
+<p>I named the too (quite unimaginatively) android-analytics; code and set-up instructions are <a href="https://github.com/lbrito1/android-analytics">available on Github</a>.</p>
+
+<h3 id="august-2021-update">August 2021 Update</h3>
+
+<p>I managed to install Grafana on Termux by using <a href="https://f-droid.org/en/packages/exa.lnx.a/">AnLinux</a>; thus, the Viewer part of the project is no longer needed.</p>
+
+<p>Also, by using <a href="https://ngrok.com/">Ngrok</a> (free tier), the project now works if you’re behind CGNAT, which is my case. No need for dynamic DNS or port forwarding as well.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>I used the Google Analytics analogy because that’s the tool that most people are familiar with, and most people will immediately understand what this thing is about, which probably wouldn’t happen if instead of saying this was a “simple Google Analytics alternative”, I said it was a “log-based web analytics tool”.</p>
+
+<p>But saying this is a “Google Analytics replacement” is like saying that a bicycle is a replacement for a truck. Although they are both transportation modes, they’re different in every other aspect. The thing is: sometimes you really need a truck, but a lot of times you just need to get from point A to point B, and a bike is more than enough. In fact, it is probably <em>better</em>: it is cheaper, easier to park and carry around, and has a smaller environmental footprint. This project is a bike: for some people, that’s all they will need.</p>
+
+<p>There’s absolutely no need to use a mammoth like Google Analytics for a personal blog or pet project. Its more than wasteful – you’re offering free data to Google in exchange for a fancy dashboard so you can play I’m-SEO-master-at-Adcorp-LLC. Someone has to keep the data, of course, but I’d argue that a decentralized approach is much safer and probably more ethical than data monopoly by a single huge advertising company.</p>
+
+<p>So what are the alternatives? There are a few competitors – we already discussed that in a <a href="#the-lack-of-competition">previous section</a>. But then we have all this processing power just lying around, free and unused; we might as well make better use of it. Smartphones have amazing processing, networking and storage capabilities, yet for many reasons they turn old very quickly, which translates to getting sold (in the best case); shoved into oblivion in our designated e-junk clutter drawer; or just discarded.</p>
+
+<p>It is just sad that we have these tiny slabs of processing power that could <a href="https://www.realclearscience.com/articles/2019/07/02/your_mobile_phone_vs_apollo_11s_guidance_computer_111026.html">navigate Man to the Moon and back thousands of times over</a>, and we can’t seem to quite find any better occupation for them other than sitting in a dusty drawer for years or getting trashed. That is why even if it takes a little extra effort, I’d rather repurpose and reuse something I already own than subscribe to the fanciest new PaaS.</p>
+
+    </article>
+    <div class="post-footer">
+      <a href="../../index.html">Back</a>
+    </div>
+  </div>
+
+      <div class="footer">
+
+        <div>
+          <form action="https://buttondown.email/api/emails/embed-subscribe/lbrito" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lbrito', 'popupwindow')" class="embeddable-buttondown-form">
+          <label for="bd-email">Did you enjoy this post? Join the newsletter!</label>
+          <div>
+            <input type="email" name="email" id="bd-email">
+            <input type="submit" value="Subscribe">
+            <p>
+              <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
+            </p>
+          </div></form>
+        
+      </div>
+      <div class="final">
+        2023 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", yall);
+  
+    fetch("https://93fd-2604-3d08-7782-5300-c97-15aa-2cc9-2ec5.ngrok-free.app/damn_fine_coffee", { referrerPolicy: "unsafe-url" });
+  
+</script>
+
+
+</body></html>
