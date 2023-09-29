@@ -316,9 +316,7 @@ vert[5] 4</code></pre></div>
 
 <script>
   document.addEventListener("DOMContentLoaded", yall);
-  
-    fetch("https://precious-wise-dogfish.ngrok-free.app/damn_fine_coffee", { referrerPolicy: "unsafe-url" });
-  
+  fetch("https://precious-wise-dogfish.ngrok-free.app/damn_fine_coffee", { headers: { "X-Referer": window.location.href }, referrerPolicy: "unsafe-url" });
 </script>
 
 
