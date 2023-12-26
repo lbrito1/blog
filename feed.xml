@@ -2,13 +2,66 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2022-07-15T17:54:50Z</updated>
+  <updated>2023-12-26T23:30:00Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2023-12-26:/blog/2023/12/leaving-amazon.html</id>
+    <title type="html">Leaving Amazon</title>
+    <published>2023-12-26T23:30:00Z</published>
+    <updated>2023-12-26T23:30:00Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2023/12/leaving-amazon.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/2023/12/leaving-amazon.html"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2023/leaving-amazon-sm.jpg" alt="AI-generated image, parody of office workers vs remote workers. Oil painting in the style of Hieronymous Bosch."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2023/leaving-amazon-sm.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;OpenAI is so much fun!&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;I’d like to preface this by stating that Amazon is obviously a huge company, and my opinions are just that, one person’s opinions. There will probably be some people that share my frustrations while others have had a completely different experience.&lt;/p&gt;
+
+&lt;p&gt;I interviewed at AWS in early 2020, pre-pandemic. The interview process is grueling and I spent considerable effort preparing for the 5-hours-long pantomime of absurd algorithms trivia and “tell me a time when you said no” behavioral questions. COVID-induced visa processing delays pushed my start date forward in time many times. The high-stress interview process and years-spanning wait built up tremendous anticipation. In hindsight I can say I probably had somewhat unrealistic expectations when finally joining the company in late 2021.&lt;/p&gt;
+
+&lt;p&gt;Regardless, I was quite frankly shocked after my first couple of weeks, and my first impression was that this kind of work was not for me. As a software engineer, I expected to eventually do some software engineering. I’m not sure how to describe the work that first team I joined was doing, but I can’t in good conscious call it software engineering.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;The bulk of the work consisted of updating configuration files and attending meetings with other teams where the driver would recite what was written in project management cards. No one seemed to really deeply know what the team was doing (or maybe I was too thick to understand it!), and quite frankly no one seemed to care very much. Having worked on very product-centric, fast-paced startups before, this kind of apathetic, complacent attitude was bizarre to me. If you browse Blind for more than five minutes, though, you will see for yourself that this kind of experience is far from being an exception.&lt;/p&gt;
+
+&lt;p&gt;I found my way out of that team as fast as I could. The ability to effortlessly change teams is something truly praiseworthy at Amazon. I got no pushback from my former manager. The whole process is extremely simple and streamlined.&lt;/p&gt;
+
+&lt;p&gt;Although the new team was far more interesting from an engineering perspective and my coworkers much more motivated, it was still an Amazon team. Over time I would understand that while Amazon has a great diversity of teams, they’re all playing the same tune. These are things that bothered me, in no particular order:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Big companies have a way of codifying their customs and culture into lists of commandments (&lt;a href="https://nymag.com/intelligencer/article/ray-dalio-rob-copeland-the-fund-book-excerpt.html"&gt;1&lt;/a&gt;, &lt;a href="https://www.kochagenergy.com/marketbasedmanagement/"&gt;2&lt;/a&gt;, &lt;a href="https://www.amazon.jobs/content/en/our-workplace/leadership-principles"&gt;3&lt;/a&gt;) that are often vague and contradictory. No one has figured out yet how to make true believers out of new hires, but you are expected to at least pay lip service to their moral code. In the day-to-day work life of rank-and-file employees, these dogmas are at best a hurdle that regular folk have to navigate around, and at worst become weapons to justify doing or not doing whatever you want.&lt;/li&gt;
+  &lt;li&gt;Tooling. No matter how good an external solution is, there is an internal tool that is twice as difficult to use and half as good. This isn’t any developer’s fault, by the way, and almost always is a side effect of either legal requirements (software licensing), legacy decisions made long ago, or empire building. More on that later.&lt;/li&gt;
+  &lt;li&gt;It is a large company where decisions flow from top to bottom. These decisions are to be accepted as facts of life. There is no conversation, no room for debate, and no one to appeal to. No exception, no accommodation. Scream against the wind all you want, write a petition with 30,000 signatures - doesn’t matter.&lt;/li&gt;
+  &lt;li&gt;Big ships take a long time to turn around. Everything moves slowly and there is little space for experimentation. Do you have a good idea? Maybe something dozens of others also agree is a good idea? Good luck getting that into any roadmap.&lt;/li&gt;
+  &lt;li&gt;Empire building. This follows almost as a direct result of the previous two points. Higher-level people decide things and those things get built, regardless of whether its a good idea &lt;a href="https://www.cnbc.com/2023/10/04/amazon-shuts-down-amp-live-audio-service.html"&gt;or not&lt;/a&gt;. Promotions are vastly politics-driven, and large orgs seem to form around who has more political clout than any technical or business realities.&lt;/li&gt;
+  &lt;li&gt;Apathy towards the craft. I struggled to find passionate, highly motivated and competent engineers at Amazon. I met a few excellent engineers, but most seemed to only punch in and out, with near-zero interest in anything related to programming or technology outside of working hours.&lt;/li&gt;
+  &lt;li&gt;Misaligned incentives with the Leadership Principles. LPs are always the strongest force directing everything at work; engineers are trained to think about how their work artifacts align with the LPs, &lt;em&gt;not&lt;/em&gt; on the quality or usefulness of what they are doing, which is usually left as an “if we have time for that” afterthought.&lt;/li&gt;
+  &lt;li&gt;Unstable, untrustworthy leadership. I was truly blessed to work with first-grade direct managers. Higher level leadership, however, had some truly bizarre behavior the last few years, like the poorly-communicated, seemingly endless waves of layoffs or the disastrous return-to-office and return-to-hub policies.&lt;/li&gt;
+  &lt;li&gt;Collaboration culture. While at any other job I would expect to be able to find a subject-matter expert on something, contact them and maybe do some quick pair programming, this is highly frowned upon at Amazon. There are good reasons for that: the company is too big for this kind of fast, informal interaction, and SMEs of highly demanded services would be quickly be overwhelmed by DMs if this were a thing. Moats are built to prevent that; instead of just asking someone about something, many times you will have to file a ticket and wait a week or more for office hours, which ends up being about as useful as DIY research in the internal platforms.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some of the above is to be expected in any large company, and I could live with many of those issues. The one thing that convinced me that I needed to leave, though, was the stuck-in-quicksand feeling that working at Amazon was a career terminus. This was the first time in my career I felt that my day job was actively working against me, making me a &lt;em&gt;worse&lt;/em&gt; software developer. There’s a choice to be made: keep up with the industry or keep up with Amazon’s internal technologies and tooling.&lt;/p&gt;
+
+&lt;p&gt;There was no new technology or innovative engineering process for me to learn. Simple problems become complicated ones because of the internal tooling overhead, leaving little time to work on more interesting things.&lt;/p&gt;
+
+&lt;p&gt;Going full circle, I want to restate the above is just my experience. I’m sure there are teams, maybe many of them, that contradict some or all of what I listed. I’ve never had demanding on-calls, for instance, which are an extremely common complaint at Amazon (I’ve personally seen friends and acquaintances leave a dinner party after being paged). To those who enjoy working there I wish only the best.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2022-07-15:/blog/2022/07/books-sapiens.html</id>
     <title type="html">Book review - Sapiens</title>
@@ -2152,84 +2205,6 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 &lt;p&gt;Exported from &lt;a href="https://medium.com"&gt;Medium&lt;/a&gt; on May 1, 2019.&lt;/p&gt;
 </content>
     <summary type="html">Here's what I learned after working half a year remotely in a remote-friendly (but mostly non-remote) company.</summary>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2018-03-05:/blog/2018/03/the-5-stages-of-dealing-with-legacy-code.html</id>
-    <title type="html">The 5 stages of dealing with legacy code</title>
-    <published>2018-03-05T00:00:00Z</published>
-    <updated>2018-03-05T00:00:00Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2018/03/the-5-stages-of-dealing-with-legacy-code.html" type="text/html"/>
-    <content type="html">&lt;p&gt;Yes, this article will use the &lt;a href="https://en.wikipedia.org/wiki/K%C3%BCbler-Ross_model"&gt;5 stages of grief&lt;/a&gt; as an analogy for something software development-related. There are at least a few thousand other articles with a similar motif (424,000 results for “grief stages software” according to &lt;a href="https://www.google.es/search?q=grief+stages+software&amp;amp;oq=grief+stages+software"&gt;Google&lt;/a&gt;). But bear with me for the next 5 minutes and I promise you’ll get something out of this — if nothing else, at least the smirk of those who read their past follies put on text by someone else.&lt;/p&gt;
-
-&lt;p&gt;I have been working on a rather big Rails project for the past year and half. The project is nearly 7 years old, and has an all-too-common successful-startup-bought-by-industry-giant background story. In a project with this kind of background, some things are bound to happen: many developers of many skill ranges have come and gone, many software fads (cough, Meteor, cough), and above all else &lt;em&gt;a lot&lt;/em&gt; of legacy code that is, well, let’s put it nicely, &lt;em&gt;not so great&lt;/em&gt;. None of this should be taken personally in any way — it is just natural for such things to occur in such projects.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;These kinds of projects might be a bit unwelcoming and overwhelming to newcomers. In particular, the aforementioned &lt;em&gt;not so great&lt;/em&gt; legacy code might become a huge source of distress for the developer. Some degree of unpleasantness is probably unavoidable in any real-world software project, but choosing to deal with &lt;em&gt;not so great&lt;/em&gt; code in a productive, edifying way definitively helps to alleviate the potential nastinesses of working on legacy projects.&lt;/p&gt;
-
-&lt;p&gt;Let us begin our analogy. The backstory is that you, dear reader, are assigned to work on a monolithic web app which is company X’s flagship product. It has been live for 5+ years and has thousands of customers. Three dozen developers have helped build the app over the years. The monolith uses a certain web framework since one of its earliest versions, and the team has haphazardly updated it to the latest stable version every once in a while. Leftovers are everywhere, and you have no clue if something is mission-critical code or just the remains of a failed, forgotten or otherwise removed feature or experiment. You are dumbstruck at the gigantic code-spaghetti and say to yourself:&lt;/p&gt;
-
-&lt;h2 id="nope-this-cant-be-right-im-just-going-to-ignore-it-and-itll-goaway"&gt;Nope, this can’t be right. I’m just going to ignore it and it’ll go away.&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This code is just so terrible, confusing or complex. I just can’t fathom any of it. It just can’t be right. It surely wasn’t meant for a human being to understand. I’m going to ignore it for a while so it can go away and get replaced by something nice and shiny.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;You’re in &lt;strong&gt;Denial&lt;/strong&gt;. Take all the time you want — by the end of the day, the same code will still remain committed. Instead of ignoring it, take a deep breath and spend a couple of hours reading and trying to understand it. This is easier said than done for many reasons: the domain of your software might be complex, and thus the code might be as well; the code might be excessively complex or over-engineered; your employer might not be so keen of waiting for you to grasp the intricacies of some small code section; you might feel bad for not delivering the same performance you had on the last project/feature, when you were right up there in the productivity plateau and so on. Alas, the problem remains: at some point you will have to grasp the meaning of that code, even though it is pretty terrible.&lt;/p&gt;
-
-&lt;p&gt;Time, patience and an understanding employer are the only things you need to get through. It also helps to have a senior coworker in this project that can guide you through the process. After some time you will begin to understand the codebase. You might start thinking that:&lt;/p&gt;
-
-&lt;h2 id="i-hatethis"&gt;I hate this.&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Ugh, &lt;em&gt;now&lt;/em&gt; I get it. Now I can see how the code is badly written, so underoptimized, naive or otherwise &lt;strong&gt;plain wrong&lt;/strong&gt;. What on Earth were they &lt;em&gt;thinking&lt;/em&gt;? This statement is so non-idiomatic it seems like another programming language; this query is so unnecessarily slow that I could go for a walk while the DB toils away; this Javascript is so ugly it could be used as a your-mom joke; …&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;strong&gt;Anger&lt;/strong&gt; is what follows when you finally get just how bad the code really is. I don’t know if everything happens for a reason, but I believe every line of code exists for a reason — bad code included. &lt;a href="https://softwareengineering.stackexchange.com/questions/7530/how-do-you-deal-with-intentionally-bad-code"&gt;Very rarely&lt;/a&gt; it is the case that a developer knowingly chose to make a bad decision. More often:&lt;/p&gt;
-
-&lt;p&gt;The developer might have been inexperienced, tired or overworked. The idiom of your programming language might have changed. The specifications might have changed mid-development. The libraries that are mature and well-known today might have not even existed. So much could have happened that explains why the code is the way it is.&lt;/p&gt;
-
-&lt;p&gt;It is fine to try to understand the reason something is written the way it is, but try to resist the urge of blaming someone out of anger over the wretchedness of their code (you might find yourself in their shoes some day!). Once you decide not to &lt;code&gt;git blame&lt;/code&gt;all the time, you might start avoiding the elephant in the room:&lt;/p&gt;
-
-&lt;h2 id="im-just-going-to-write-this-new-feature-and-everything-will-befine"&gt;I’m just going to write this new feature and everything will be fine.&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;I know the old code exists, but I’m just going to pretend it doesn’t for a while. I don’t want to deal with this right now. Besides, I don’t even know where to start, or whether I should start at all… is refactoring worth the trouble? Is it even possible?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;If you have the luxury of picking your own assignments, then it might be tempting to do some &lt;strong&gt;bargaining&lt;/strong&gt; and just ignore the bad legacy code for a while, promising to refactor some of it later— which is totally fine. At least for some time. But the problem never solves itself, and delaying improvements might have some nasty long term consequences. Once you start working around the limitations of bad code instead of addressing its problems, you are actually contributing to its evil legacy by creating more unwanted dependencies, more nonsensical interfaces, more unnecessarily complex methods, etc.&lt;/p&gt;
-
-&lt;p&gt;But you can’t avoid the smelly code forever. One of these days, your boss will assign you to a certain issue…&lt;/p&gt;
-
-&lt;h2 id="ive-been-assigned-to-solve-this-issue-which-relates-to-some-nasty-old-code-and-im-miserable"&gt;I’ve been assigned to solve this issue which relates to some nasty old code and I’m miserable.&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;I can’t believe I’ve been assigned to improve this legacy stuff — I’ve successfully avoided it for months now! This just &lt;em&gt;sucks&lt;/em&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;You knew what was coming towards your plate for some time, but now that it’s finally here, you’re suddenly &lt;strong&gt;depressed&lt;/strong&gt;. That’s fine too, but don’t fall into self-pity: having to deal with bad code might greatly benefit your knowledge as a software developer. Think of it as &lt;em&gt;having room for improvement.&lt;/em&gt; Which nicely leads us to…&lt;/p&gt;
-
-&lt;h2 id="hmmm-maybe-i-can-improvethings"&gt;Hmmm, maybe I can improve things…&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Wait a minute, I think I know how to improve this…&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This is the a-ha! moment. You &lt;strong&gt;accept&lt;/strong&gt; the reality of legacy code, and instead of mulling over how bad it is, you realize that those columns — or tables — are useless, that those dependencies are no longer used, that there are many methods that are now superfluous, and so on. The tipping point here is when you gain enough knowledge of the codebase to start systematically questioning why the code is the way it is — and not just assuming that it is right, or that all of it is necessary.&lt;/p&gt;
-
-&lt;p&gt;This last stage of legacy code grief takes, of course, the most time to arrive. In my case it started arriving many months into the project, when I found out a few ways to optimize our spec suite which &lt;a href="https://goiabada.blog/improving-spec-speed-in-a-huge-old-rails-app-8f3ab05a33f9"&gt;resulted in a 41% speedup in CI execution&lt;/a&gt;. As time passes and I understand the project more deeply, new ideas of how to optimize or otherwise improve some part of it start popping up more naturally. Eventually you reach a point in which you can see bad code more as an opportunity to improve something (and maybe learn something new in the process) or even try out different solutions or technologies rather than a huge grief you have to deal with as a part of your day job.&lt;/p&gt;
-
-&lt;h2 id="its-all-part-of-theprocess"&gt;It’s all part of the process&lt;/h2&gt;
-
-&lt;p&gt;Working on a legacy project might not be as exciting as building a shiny new software from scratch, but it has its own merits. Unlike working on something new, on a legacy project you will need to understand how &lt;em&gt;other people&lt;/em&gt; solved some problem — which includes understanding all the limitations they might have had at that time. It is also a humbling experience: the bright glow of hindsight exposes all the scars of bad programming and bad decisions made in the past, and if you’re being honest with yourself you’ll have no other option than to admit that &lt;em&gt;it could have been you&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;By &lt;a href="https://medium.com/@lbrito"&gt;Leonardo Brito&lt;/a&gt; on &lt;a href="https://medium.com/p/6d578205beeb"&gt;March 5, 2018&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://medium.com/@lbrito/the-5-stages-of-dealing-with-legacy-code-6d578205beeb"&gt;Canonical link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Exported from &lt;a href="https://medium.com"&gt;Medium&lt;/a&gt; on May 1, 2019.&lt;/p&gt;
-</content>
-    <summary type="html">Working on a legacy project sometimes feels like a journey through grief. It kind of is, but not really: there's always something important we can learn in the process.</summary>
   </entry>
 </feed>
 
