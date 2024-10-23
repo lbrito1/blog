@@ -2,13 +2,63 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2023-12-26T23:30:00Z</updated>
+  <updated>2024-10-22T23:30:00Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2024-10-22:/blog/2024/10/leaving-vancouver.html</id>
+    <title type="html">Leaving Vancouver</title>
+    <published>2024-10-22T23:30:00Z</published>
+    <updated>2024-10-22T23:30:00Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2024/10/leaving-vancouver.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/2024/10/leaving-vancouver.html"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2024/vancouver.jpg" alt="Dreary view of a foggy city through a highrise balcony."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2024/vancouver.jpg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;So dreary I didn't need to compact this image.&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;After about two years living in metro Vancouver, I decided to leave. I’m in a smaller city in the Fraser Valley, and it has been great!&lt;/p&gt;
+
+&lt;p&gt;My first time in Vancouver was for an interview at Amazon in 2019. I stayed at a hotel near the downtown office for a couple of nights, which was less time than I spent in the 6 different airplanes and a similar number of airports to get there from Brazil. Then the pandemic happened. After almost two years waiting for the visa, I finally moved to Vancouver in late 2021.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;My home town of Recife has a tongue-in-cheek tradition of boastfulness, typically claiming ridiculous titles like having the world’s longest street or largest apartment complex. In Vancouver I kind of felt the flipside to that good-natured humour: people seem serious when claiming that this place is the best at this or that.&lt;/p&gt;
+
+&lt;p&gt;At some level, the level of braggadocio found in Vancouver must be part of the all-encompassing real estate industry (which as of 2023 represents 17.75% of BC’s GDP), which obviously benefits from selling the region as the best at everything. But my perception was that everyday people more or less buy into these views, not batting an eye at claims to having “the best” of something - food, transport or housing.&lt;/p&gt;
+
+&lt;p&gt;On housing - I lived for a few months in a high-rise apartment which had around 350 units and only 3 elevators - 15 minute waits for an elevator ride were commonplace (for comparison, my old apartment building in Brazil had 64 units and 2 elevators). Building-wide fire alarms went off once a month for ridiculous things like the ground-level retail burning a tortilla. None of this was seen as abnormal or even a bother - people seemed OK with it.&lt;/p&gt;
+
+&lt;p&gt;The city has a nice natural framing, with ocean and mountains, but that’s really it. The urban environment itself is underwhelming. It looks like any other large North American city, courtesy of having the same draconian zoning laws as basically everywhere else in Canada and the US for the last century or so. The province is going in the right direction by loosening restrictive zoning, but the improvements will take a long time to be noticeable. But my personal impression of Vancouver will remain the blue-gray blandness of the header image, while other places have so much more to offer.&lt;/p&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2024/river-sm.jpg" target="_blank"&gt;
+      &lt;img class="lazy " data-src="/blog/assets/images/2024/river-sm.jpg" alt="Photo of a river with many stones and a large log."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2024/river-sm.jpg" alt="Photo of a river with many stones and a large log."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;That's more like it!&lt;/div&gt;
+  
+&lt;/div&gt;
+
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2023-12-26:/blog/2023/12/leaving-amazon.html</id>
     <title type="html">Leaving Amazon</title>
@@ -2133,78 +2183,6 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 &lt;p&gt;Exported from &lt;a href="https://medium.com"&gt;Medium&lt;/a&gt; on May 1, 2019.&lt;/p&gt;
 </content>
     <summary type="html">Ideally, deploys should be small, concise and easily revertible. However, sometimes everything just goes kaput. Let's take a look on just how miserable a deploy can get.</summary>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2018-06-12:/blog/2018/06/working-remotely-in-a-non-remote-company.html</id>
-    <title type="html">Working remotely in a non-remote company</title>
-    <published>2018-06-12T00:00:00Z</published>
-    <updated>2018-06-12T00:00:00Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2018/06/working-remotely-in-a-non-remote-company.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;We’re a small team here at Guava, and we’ve always considered ourselves &lt;em&gt;remote friendly.&lt;/em&gt; Most of us work remotely every now and then pushed by varied &lt;em&gt;force majeure&lt;/em&gt; situations— be it the flu, the need to supervise renovation or construction work at home, flash floods near the office, receiving guests at home or any number of other situations. We’ve also had a few of us working remotely for a few days or weeks while traveling to or back from a conference, or when visiting relatives that live out of town. In other words, remote working has always been a very temporary and circumstantial thing among us.&lt;/p&gt;
-
-&lt;p&gt;We have a nice office (with hammocks!), excellent work equipment, great desk space, comfortable chairs, plenty of snacks and comfort food and an infinite supply of coffee. We’re also easygoing and overall pleasant people (well, most of us are) to work with several hours a day, and some of us are even mildly funny.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;I bid adieu to my coworkers, the coffee machine, the nice desk and the hammocks and traveled abroad to try out being a remote worker (some prefer the term &lt;em&gt;digital nomad&lt;/em&gt; — to me, it seems a bit preposterous to compare month-long stays in modern urban dwellings with electricity and wireless internet with the traditional nomadic lifestyle) for half a year. A few weeks before leaving, I read the interesting &lt;a href="https://basecamp.com/books/remote"&gt;Remote: Office Not Required&lt;/a&gt;, which I vividly recommend to anyone considering working remotely. Some of the challenges I faced during my time as a remote worker were foretold by the book, while others were a complete surprise. Here are a few of the things I learned firsthand about remote work:&lt;/p&gt;
-
-&lt;h2 id="it-takes-time-toadjust"&gt;It takes time to adjust.&lt;/h2&gt;
-
-&lt;p&gt;Your mind takes some time to adjust to working remotely. In many ways, working remotely feels like a completely new job — even if you’ve been in the same company and position for years.&lt;/p&gt;
-
-&lt;p&gt;Some people have more trouble with this than others, but everyone will take some time to adjust. The important lesson here — for worker &lt;em&gt;and employer&lt;/em&gt; — is to have patience. Steep as it might be, the learning curve of adapting to remoteness will eventually plateau out.&lt;/p&gt;
-
-&lt;h2 id="it-is-easier-when-youre-well-acquainted-with-yourteam"&gt;It is easier when you’re well acquainted with your team.&lt;/h2&gt;
-
-&lt;p&gt;Starting a new project — be it a new job or just a new assignment involving different team members — may be daunting. Starting remote work already with good rapport with your coworkers helps tremendously, as you will feel more at ease to talk to people.&lt;/p&gt;
-
-&lt;p&gt;It is important to feel comfortable enough to let your team know if something is going wrong right away, for example, as opposed to keeping it to yourself and suffer silently. Good rapport between developers also means it will be easier to understand each other when discussing technical problems.&lt;/p&gt;
-
-&lt;h2 id="it-is-easier-when-youre-not-the-only-remoteperson"&gt;&lt;strong&gt;It is easier when you’re not the only remote person.&lt;/strong&gt;&lt;/h2&gt;
-
-&lt;p&gt;Being “the remote guy” is a thing. People tend to forget people they don’t see every day, and you have to be comfortable with the low profile that comes with working remotely.&lt;/p&gt;
-
-&lt;p&gt;Having other remote workers in your team helps a bit, creating that nice “we’re all on the same boat” feeling.&lt;/p&gt;
-
-&lt;h2 id="you-need-to-be-able-to-communicate-verywell"&gt;You need to be able to communicate very well.&lt;/h2&gt;
-
-&lt;p&gt;A huge part of working as a developer is being able to communicate well with other developers and with normal human beings. A programming genius that isn’t able to explain what he’s doing to his non-genius co-workers will likely not be a very good developer overall.&lt;/p&gt;
-
-&lt;p&gt;Language is one of man’s great achievements as a species, and it carries the weight and complexity of thousands of years of mutation. Expressing yourself verbally is hard enough, but we also have a myriad of non-verbal communication cues that we unconsciously rely on to communicate with one another — which you won’t have as a remote worker (at least most of the times).&lt;/p&gt;
-
-&lt;p&gt;Sure, you can occasionally call the HQ and video-chat with someone. But that is just not practical enough most of the times. As a remote worker, I find myself heavily relying on written communication with the rest of the team.&lt;/p&gt;
-
-&lt;p&gt;Every challenge brings a chance to learn something. Because of the challenges and limitations of working remotely, the experience helps you grow professionally in some ways:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Guidance from more experienced coworkers or bosses is much more rarefied, which force you to exercise self-teaching and pro-activity.&lt;/li&gt;
-  &lt;li&gt;The need to communicate more often through asynchronous text-first chats helps you develop language skills (and patience).&lt;/li&gt;
-  &lt;li&gt;Working away from the office and your coworkers makes you appreciate them more when eventually returning to the HQ.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Of course, there are many other benefits that come to mind when thinking about remote work, such &lt;a href="https://www.thriveglobal.com/stories/30386-a-2-year-stanford-study-shows-the-astonishing-productivity-boost-of-working-from-home"&gt;as increased productivity and financial savings&lt;/a&gt;, and there are already studies and books that got those covered. Which is not to say that remote work is some kind of panacea: it has fundamental disadvantages when compared with traditional work inside a brick-and-mortar office building, the most obvious and important being the lack of human contact with your fellow workers. The solitude and heavy reliance on written, asynchronous communication that often comes with remote work might not be your cup of tea.&lt;/p&gt;
-
-&lt;p&gt;Remote work is neither a universal solution nor something completely out of reach for the average developer. Although it won’t be to everyone’s taste, it is definitively available to everyone (or should be). This semester abroad taught me that it is plainly possible and viable for a developer in a small, non-remote (but remote-friendly) software company to work far away from the HQ, and both sides have a lot to gain from the experience. It is really a win-win scenario, and people should try it more often.&lt;/p&gt;
-
-&lt;p&gt;By &lt;a href="https://medium.com/@lbrito"&gt;Leonardo Brito&lt;/a&gt; on &lt;a href="https://medium.com/p/ce9e39645f85"&gt;June 12, 2018&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://medium.com/@lbrito/working-remotely-in-a-non-remote-company-ce9e39645f85"&gt;Canonical link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Exported from &lt;a href="https://medium.com"&gt;Medium&lt;/a&gt; on May 1, 2019.&lt;/p&gt;
-</content>
-    <summary type="html">Here's what I learned after working half a year remotely in a remote-friendly (but mostly non-remote) company.</summary>
   </entry>
 </feed>
 
