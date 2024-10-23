@@ -7,11 +7,13 @@ tags:
   - misc
 ---
 
-<%= render('/post_hero.*', src: '/blog/assets/images/2024/vancouver-sm.jpg', alt: "Dreary view of a foggy city through a highrise balcony.", caption: "So dreary I didn't need to compact this image.") %>
+<%= render('/post_hero.*', src: '/blog/assets/images/2024/vancouver.jpg', alt: "Dreary view of a foggy city through a highrise balcony.", caption: "So dreary I didn't need to compact this image.") %>
 
 After about two years living in metro Vancouver, I decided to leave. I'm in a smaller city in the Fraser Valley, and it has been great!
 
 My first time in Vancouver was for an interview at Amazon in 2019. I stayed at a hotel near the downtown office for a couple of nights, which was less time than I spent in the 6 different airplanes and a similar number of airports to get there from Brazil. Then the pandemic happened. After almost two years waiting for the visa, I finally moved to Vancouver in late 2021.
+
+<!-- more -->
 
 My home town of Recife has a tongue-in-cheek tradition of boastfulness, typically claiming ridiculous titles like having the world's longest street or largest apartment complex. In Vancouver I kind of felt the flipside to that good-natured humour: people seem serious when claiming that this place is the best at this or that.
 
