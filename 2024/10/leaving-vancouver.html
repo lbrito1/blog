@@ -157,4 +157,126 @@
 </script>
 
 
+</body></html>described in <a href="https://mbobin.me/ruby/2017/02/25/ruby-on-rails-on-android.html">this neat tutorial</a>. Just <a href="https://devcenter.heroku.com/articles/ruby-default-web-server#why-not-webrick">don’t use WEBRick</a>, the default Rails web server in development – it is single-process, single-threaded and thus not suitable for production environments (it is fine for small experiments though).</p>
+
+<p><strong>Run this on Android:</strong></p>
+<div class="highlight"><pre><code class="language-bash">pkg <span class="nb">install </span>ruby
+gem <span class="nb">install </span>sinatra puma</code></pre></div>
+
+<h2 id="install-nginx">Install nginx</h2>
+
+<p>nginx is a web server, reverse-proxy and load balancer. Although most useful in multi-server setups where it is used to distribute requests among different instances, nginx is also a good idea in our setup because of the embedded DDoS protection and static file serving that it provides.</p>
+
+<p><strong>Run this on Android:</strong></p>
+<div class="highlight"><pre><code class="language-bash">pkg <span class="nb">install </span>nginx</code></pre></div>
+
+<p>Now the slightly tricky part is configuring nginx to work with Puma. <a href="https://gist.github.com/ctalkington/4448153">This gist</a> is a pretty good start – copy &amp; paste <code>nginx.conf</code> and change <code>appdir</code> to your webapp’s root dir. In my case, for example, that would be <code>/data/data/com.termux/files/home/android-sinatra</code>.</p>
+
+<h2 id="set-up-port-forwarding">Set up port forwarding</h2>
+
+<p>You probably want your web server to be accessible through the internet, so you’ll have to set up port forwarding in your router to redirect incoming requests to your public IP address to your brand new Android web server.</p>
+
+<p>How exactly to do this varies depending on your router. <a href="https://www.noip.com/support/knowledgebase/general-port-forwarding-guide/">Here’s</a> a pretty good tutorial to get you started.</p>
+
+<h2 id="configure-a-dynamic-dns">Configure a dynamic dns</h2>
+
+<p>Most people have dynamic public IP addresses. In these cases it is useful to set up a dynamic dns (DDNS) service, which provides you with a static domain name that redirects automatically to whatever your public IP address is at that moment.</p>
+
+<p>There are few free services that provide DDNS nowadays; I’m using <a href="https://www.noip.com/">no-ip</a> and it has been okay so far. You do have to “renew” your domain every month though.</p>
+
+<p>After setting up a DDNS, you’ll have to configure your router as well so that it periodically notifies the DDNS service with your current IP address. Again, how exactly to do this depends on your router model.</p>
+
+<h2 id="hello-world">Hello world!</h2>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2020/android-web-server.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2020/android-web-server.jpg" alt="Puma and nginx running on a Motorola G5.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/android-web-server.jpg" alt="Puma and nginx running on a Motorola G5.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">Puma and nginx running on a Motorola G5.</div>
+  
+</div>
+
+<h2 id="under-siege">Under siege</h2>
+
+<p>You can simulate real-world usage through <a href="https://www.joedog.org/siege-home/"><code>siege</code></a>, a http load testing software. Here’s a screenshot of <code>siege</code> running on my setup with 3 concurrent users (real tests would use bigger numbers):</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2020/siege.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">siege running in the foreground; nginx logs and top on remote (android) running in the background terminals.</div>
+  
+</div>
+
+<p>The numbers in that screenshot don’t matter much because our webapp was serving a simple 100-char response with a timestamp, but it is enough to at least know that the server can handle a few concurrent users.</p>
+
+<h2 id="epilogue-safety">Epilogue: safety</h2>
+
+<p>If you’ve watched <a href="https://en.wikipedia.org/wiki/Mr._Robot">Mr Robot</a>, you know that the internet can be a dangerous place. That is a lot more true if you have a web server open to the internet.</p>
+
+<p>Within a few hours of opening up the server, it was already being crawled by all sorts of things. Most are innocuous indexing robots, but some are definitively not so nice, like these two requests:</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2020/scanners.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2020/scanners.jpg" alt="nginx logs showing port scanning attacks.">
+      <noscript>
+        <img src="../../blog/assets/images/2020/scanners.jpg" alt="nginx logs showing port scanning attacks.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">Most of those requests seem fine, but the two in red are probably some kind of attack.</div>
+  
+</div>
+
+<p>So the headline here is: keep all software updated, keep an eye on access logs and maybe go through nginx safety guides such as <a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html">this</a> and <a href="https://geekflare.com/nginx-webserver-security-hardening-guide/">this</a>.</p>
+
+    </article>
+    <div class="post-footer">
+      <a href="../../index.html">Back</a>
+    </div>
+  </div>
+
+      <div class="footer">
+
+        <div>
+          <form action="https://buttondown.email/api/emails/embed-subscribe/lbrito" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lbrito', 'popupwindow')" class="embeddable-buttondown-form">
+          <label for="bd-email">Did you enjoy this post? Join the newsletter!</label>
+          <div>
+            <input type="email" name="email" id="bd-email">
+            <input type="submit" value="Subscribe">
+            <p>
+              <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
+            </p>
+          </div></form>
+        
+      </div>
+      <div class="final">
+        2024 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", yall);
+  fetch("https://precious-wise-dogfish.ngrok-free.app/damn_fine_coffee", { headers: { "X-Referer": window.location.href }, referrerPolicy: "unsafe-url" });
+</script>
+
+
 </body></html>
