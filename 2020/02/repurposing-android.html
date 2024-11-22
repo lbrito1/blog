@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head>
-  <title>A Developer's Notebook - Leaving Vancouver</title>
+  <title>A Developer's Notebook - Repurposing an old Android phone as a Ruby web server</title>
 
   <meta charset="utf-8">
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
@@ -8,16 +8,16 @@
   <meta name="generator" content="Nanoc 4.11.16">
   <meta property="og:type" content="website">
   
-  <meta property="og:url" content="https://lbrito1.github.io/blog/2024/10/leaving-vancouver.html">
-  <meta property="twitter:url" content="https://lbrito1.github.io/blog/2024/10/leaving-vancouver.html">
+  <meta property="og:url" content="https://lbrito1.github.io/blog/2020/02/repurposing-android.html">
+  <meta property="twitter:url" content="https://lbrito1.github.io/blog/2020/02/repurposing-android.html">
   
   
-  <meta name="image" property="og:image" content="https://lbrito1.github.io/blog/blog/assets/images/2024/vancouver.jpg">
-  <meta name="twitter:image" content="https://lbrito1.github.io/blog/blog/assets/images/2024/vancouver.jpg">
+  <meta name="image" property="og:image" content="https://lbrito1.github.io/blog/blog/assets/images/2020/old-android.jpg">
+  <meta name="twitter:image" content="https://lbrito1.github.io/blog/blog/assets/images/2020/old-android.jpg">
   
   
-  <meta name="title" property="og:title" content="Leaving Vancouver">
-  <meta name="twitter:title" content="Leaving Vancouver">
+  <meta name="title" property="og:title" content="Repurposing an old Android phone as a Ruby web server">
+  <meta name="twitter:title" content="Repurposing an old Android phone as a Ruby web server">
   
   
 
@@ -69,95 +69,85 @@
       </div>
       
   <div class="post-show">
-    <h2>Leaving Vancouver</h2>
+    <h2>Repurposing an old Android phone as a Ruby web server</h2>
 
     
 
-    <aside>Posted Oct 22, 2024</aside>
+    <aside>Posted Feb 05, 2020</aside>
     <aside>Tagged: 
-      <a class="" href="../../tags/misc">misc</a>
+      <a class="" href="../../tags/android">android</a>
+      
+      <a class="" href="../../tags/termux">termux</a>
       
     </aside>
     <article class="text">
       <div class="image-box stretch">
   <div>
-    <a href="leaving-vancouver.html">
-      <img class="lazy" data-src="/blog/assets/images/2024/vancouver.jpg" alt="Dreary view of a foggy city through a highrise balcony.">
+    <a href="repurposing-android.html">
+      <img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk.">
       <noscript>
-        <img src="../../blog/assets/images/2024/vancouver.jpg" alt="Alternative text to describe image.">
+        <img src="../../blog/assets/images/2020/old-android.jpg" alt="Alternative text to describe image.">
       </noscript>
     </a>
   </div>
   
-    <div class="image-caption">So dreary I didn't need to compact this image.</div>
+    <div class="image-caption">CC-BY Carlos Varela, https://www.flickr.com/photos/c32/7755470064</div>
   
 </div>
 
-<p>After about two years living in metro Vancouver, I decided to leave. I’m in a smaller city in the Fraser Valley, and it has been great!</p>
+<p>Do you have an old Android phone? Sure you do! There’s a mind-blowing amount of electronic waste of all kinds, and with the average person in developed countries <a href="https://www.cnbc.com/2019/05/17/smartphone-users-are-waiting-longer-before-upgrading-heres-why.html">discarding their phones every couple of years</a>, discarded smartphones are probably one of the most common forms of e-waste.</p>
 
-<p>My first time in Vancouver was for an interview at Amazon in 2019. I stayed at a hotel near the downtown office for a couple of nights, which was less time than I spent in the 6 different airplanes and a similar number of airports to get there from Brazil. Then the pandemic happened. After almost two years waiting for the visa, I finally moved to Vancouver in late 2021.</p>
+<p>I had an old Motorola G5 Cedric gathering dust, so I decided to do something with it – it is now running a Puma web server with a simple Sinatra webapp.</p>
+
+<p>Now, before going any further, you might be thinking: what is the real, practical use of all this? An old Android phone probably isn’t going to have a stellar performance, but neither do those <code>t2.nano</code>s, honestly. I’m yet to deploy any “real” code on an Android, but even the cheaper and older phones do commonly have quad-core or even octa-core CPUs, and at least 2GB RAM, so at least in theory a phone <em>should</em> be close – ballpark, at least – to the most modest cloud IaaS offers our there (<code>t2.nano</code> has 512MB for instance). Of course, a phone has an ARM processor while IaaS usually are x86; memory management is entirely different as well, but still – we’re talking ballpark estimates here.</p>
+
+<p>Anyway, this is a short tutorial on how to repurpose an Android device as a web server – or any number of different things, really.</p>
 
 <!-- more -->
 
-<p>My home town of Recife has a tongue-in-cheek tradition of boastfulness, typically claiming ridiculous titles like having the world’s longest street or largest apartment complex. In Vancouver I kind of felt the flipside to that good-natured humour: people seem serious when claiming that this place is the best at this or that.</p>
+<h2 id="install-termux">1. Install Termux</h2>
 
-<p>At some level, the level of braggadocio found in Vancouver must be part of the all-encompassing real estate industry (which as of 2023 represents 17.75% of BC’s GDP), which obviously benefits from selling the region as the best at everything. But my perception was that everyday people more or less buy into these views, not batting an eye at claims to having “the best” of something - food, transport or housing.</p>
+<p>First of all we need a Linux environment in our phone. Termux is a terminal emulator and Linux environment for Android. It’s available on Google Play Store. No additional configuration is needed after installation.</p>
 
-<p>On housing - I lived for a few months in a high-rise apartment which had around 350 units and only 3 elevators - 15 minute waits for an elevator ride were commonplace (for comparison, my old apartment building in Brazil had 64 units and 2 elevators). Building-wide fire alarms went off once a month for ridiculous things like the ground-level retail burning a tortilla. None of this was seen as abnormal or even a bother - people seemed OK with it.</p>
+<h2 id="set-up-ssh">2. Set up SSH</h2>
 
-<p>The city has a nice natural framing, with ocean and mountains, but that’s really it. The urban environment itself is underwhelming. It looks like any other large North American city, courtesy of having the same draconian zoning laws as basically everywhere else in Canada and the US for the last century or so. The province is going in the right direction by loosening restrictive zoning, but the improvements will take a long time to be noticeable. But my personal impression of Vancouver will remain the blue-gray blandness of the header image, while other places have so much more to offer.</p>
+<p>You won’t want to type a lot of commands into a tiny touchscreen, so let’s set up ssh so that we can log into Termux remotely.</p>
 
-<div class="image-box stretch">
-  <div>
-    <a href="../../blog/assets/images/2024/river-sm.jpg" target="_blank">
-      <img class="lazy " data-src="/blog/assets/images/2024/river-sm.jpg" alt="Photo of a river with many stones and a large log.">
-      <noscript>
-        <img src="../../blog/assets/images/2024/river-sm.jpg" alt="Photo of a river with many stones and a large log.">
-      </noscript>
-    </a>
-  </div>
-  
-    <div class="image-caption">That's more like it!</div>
-  
-</div>
+<p>There are <a href="https://wiki.termux.com/wiki/Remote_Access">several ways</a> of doing this, but I’ve found that the easiest way is through a software called <strong>Dropbear</strong>:</p>
 
+<p><strong>Run this on Android:</strong></p>
+<div class="highlight"><pre><code class="language-bash">pkg upgrade
+pkg <span class="nb">install </span>dropbear</code></pre></div>
 
-    </article>
-    <div class="post-footer">
-      <a href="../../index.html">Back</a>
-    </div>
-  </div>
+<p>You can use password-based authentication or public key authentication. You should use key-based authentication, but for testing purposes password-based is easiest. Run this on Android:</p>
 
-      <div class="footer">
+<p><strong>Run this on Android:</strong></p>
+<div class="highlight"><pre><code class="language-bash">passwd
+New password:
+Retype new password:
+New password was successfully set.</code></pre></div>
 
-        <div>
-          <form action="https://buttondown.email/api/emails/embed-subscribe/lbrito" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lbrito', 'popupwindow')" class="embeddable-buttondown-form">
-          <label for="bd-email">Did you enjoy this post? Join the newsletter!</label>
-          <div>
-            <input type="email" name="email" id="bd-email">
-            <input type="submit" value="Subscribe">
-            <p>
-              <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
-            </p>
-          </div></form>
-        
-      </div>
-      <div class="final">
-        2024 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
-      </div>
-    </div>
-  </div>
+<p><strong>Bonus points:</strong> install a terminal multiplexer like <code>tmux</code> or <code>screen</code>. This will make your life much easier when running stuff via ssh:</p>
 
-</div>
+<div class="highlight"><pre><code class="language-bash">pkg <span class="nb">install </span>tmux</code></pre></div>
 
+<p>Now go ahead and test the connection on your desktop:</p>
 
-<script>
-  document.addEventListener("DOMContentLoaded", yall);
-  fetch("https://precious-wise-dogfish.ngrok-free.app/damn_fine_coffee", { headers: { "X-Referer": window.location.href }, referrerPolicy: "unsafe-url" });
-</script>
+<div class="highlight"><pre><code class="language-bash">ssh android-ip-address <span class="nt">-p</span> 8022</code></pre></div>
 
+<h2 id="set-up-static-ip-address-on-android">3. Set up static IP address on Android</h2>
 
-</body></html>described in <a href="https://mbobin.me/ruby/2017/02/25/ruby-on-rails-on-android.html">this neat tutorial</a>. Just <a href="https://devcenter.heroku.com/articles/ruby-default-web-server#why-not-webrick">don’t use WEBRick</a>, the default Rails web server in development – it is single-process, single-threaded and thus not suitable for production environments (it is fine for small experiments though).</p>
+<p>Go to wifi settings, disable DHCP and assign an IP address for your phone.</p>
+
+<p>This is necessary so that your router won’t assign a new IP address to your phone every few hours/days, which would make configuration a lot harder.</p>
+
+<h2 id="install-ruby-bundler-sinatra-and-puma">4. Install Ruby, Bundler, Sinatra and Puma</h2>
+
+<p>Sinatra is a lightweight web application framework, and Puma is a web server.</p>
+
+<p>Ruby is, well Ruby!</p>
+
+<p>Of course, Sinatra and Puma are just suggestions – you could even use full-blown Rails on your phone, as described in <a href="https://mbobin.me/ruby/2017/02/25/ruby-on-rails-on-android.html">this neat tutorial</a>. Just <a href="https://devcenter.heroku.com/articles/ruby-default-web-server#why-not-webrick">don’t use WEBRick</a>, the default Rails web server in development – it is single-process, single-threaded and thus not suitable for production environments (it is fine for small experiments though).</p>
 
 <p><strong>Run this on Android:</strong></p>
 <div class="highlight"><pre><code class="language-bash">pkg <span class="nb">install </span>ruby
