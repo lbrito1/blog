@@ -2,13 +2,47 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2024-11-19T08:00:00Z</updated>
+  <updated>2024-11-21T08:00:00Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2024-11-21:/blog/2024/21/thoughts-on-llm.html</id>
+    <title type="html">Thoughts on LLMs in software engineering</title>
+    <published>2024-11-21T08:00:00Z</published>
+    <updated>2024-11-21T08:00:00Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2024/21/thoughts-on-llm.html" type="text/html"/>
+    <content type="html">&lt;p&gt;The “catastrophe scenario” of AI in the software engineering job market has gained quite a lot of popularity, with people pointing out that current models already “do a better job” (what does that even mean?) than many professional programmers. I’m not sure I completely buy into this.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Personally, I’ve found that the most useful use of LLMs during software development is to speed up tasks that I &lt;em&gt;already know&lt;/em&gt; how to do, such as “write a spec suite with these scenarios”. The results are usually reasonably good, and with some careful nudging into the right direction, I usually get things done much faster than I would have otherwise. This is fundamentally different from having a chatbot fully &lt;em&gt;replace&lt;/em&gt; me as a programmer.&lt;/p&gt;
+
+&lt;p&gt;I began by saying I don’t buy into the fear hype, but things get complicated when you look at the big picture. The way I described using LLMs is similar or analogous as to the way an engineering manager might assign feature work to developers, or a lead programmer working along a junior programmer: I have these tasks in mind, I have a clear idea of how to get them done, and I offload to it to this thing that will hopefully spit out more or less what I was expecting. And in that similarity lays the potential issue - given enough people in the industry are using it in this same way, the necessity of more junior developers might diminish.&lt;/p&gt;
+
+&lt;p&gt;Another way of looking at this is through productivity. I’m probably not producing better code, but I am definitively producing code much faster than before. Let’s assume this is an industry-wide trend. Other programmers are similarly experiencing increases in productivity. So, all other things equal, the industry suddenly has a considerable surplus of productivity. Where is it going? Its still too early to investigate - ChatGPT 3 came out in 2020, and only in the last couple of years have the models become very good at code. But &lt;a href="https://www.levels.fyi/assets/pdfs/2023Report.pdf"&gt;end of year&lt;/a&gt; salary reports show no meaningful changes in software engineer salaries in the last couple of years. There are two other outlets for productivity: increasing profits and decreasing headcounts. We’ve seen plenty of both recently.&lt;/p&gt;
+
+&lt;p&gt;Also, if we zoom out a little and look at the overall economic productivity in the last decades:&lt;/p&gt;
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2024/productivity.png" target="_blank"&gt;
+      &lt;img class="lazy " data-src="/blog/assets/images/2024/productivity.png" alt="Productivity vs wage growth chart in the US. Both lines decouple in the 70s, with productivity growing but wage stagnating."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2024/productivity.png" alt="Productivity vs wage growth chart in the US. Both lines decouple in the 70s, with productivity growing but wage stagnating."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;There’s absolutely no reason to believe that trend will change. If anything, dumping more productivity into the economy will just supercharge the wage-productivity decoupling even further.&lt;/p&gt;
+
+&lt;p&gt;While I’m not personally frightened about being replaced by an LLM - at least not in the murky, barely-visible future - I do have some concerns about the wider industry, specifically for people joining the workforce right now.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2024-11-19:/blog/2024/19/start-with-billing.html</id>
     <title type="html">Start with Billing</title>
@@ -2108,40 +2142,6 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 
 &lt;p&gt;This small project is nothing special. There are &lt;a href="https://github.com/remko/blog-skeleton"&gt;much better projects&lt;/a&gt; &lt;a href="https://clarkdave.net/2012/02/building-a-static-blog-with-nanoc/"&gt;available for free&lt;/a&gt; on the Internet done by people that actually know what they’re doing with a CSS file. This here is just a tiny vase with some ugly flowers – it would be ridiculous to compare it to the beautiful walled gardens of Medium or Wordpress. But, ugly as they are, they’re &lt;strong&gt;mine&lt;/strong&gt;!&lt;/p&gt;
 </content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2018-09-03:/blog/2019/01/halving-page-sizes-with-srcset.html</id>
-    <title type="html">Halving page sizes with srcset</title>
-    <published>2018-09-03T00:00:00Z</published>
-    <updated>2018-09-03T00:00:00Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2019/01/halving-page-sizes-with-srcset.html" type="text/html"/>
-    <content type="html">&lt;p&gt;&lt;a href="https://www.webbloatscore.com/"&gt;Web bloat&lt;/a&gt; is &lt;a href="http://idlewords.com/talks/website_obesity.htm"&gt;discussed&lt;/a&gt; a lot nowadays. Web pages with fairly straightforward content — such as a Google search results page — are substantially bigger today than they were a few decades ago, even though the content itself hasn’t changed that much. We, web developers, are at least partly to blame: laziness or just &lt;a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/"&gt;bad programming&lt;/a&gt; are definitively part of the problem (of course, laziness might stem from a tight or impossible deadline, and bad code might come from inexperienced programmers — no judgment going on here).&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;But here at Guava we believe that software should not be unnecessarily bloated, even though it could be slightly easier to develop and ship. We believe in delivering high quality production code, and a part of that is not taking the easy way out in detriment of page size.&lt;/p&gt;
-
-&lt;p&gt;We frequently have to start working on long-running software that has more than a few coding shortcuts that were probably necessary at the time to ship something quickly to production, but are now aching for optimization. Sometimes the improvements are too time-consuming to be worth our trouble, but sometimes they are an extremely easy win.&lt;/p&gt;
-
-&lt;p&gt;Such is the case of separating image assets by pixel density (DPI). As the name implies, DPI (dots per inch) is the amount of dots (or pixels, in our case) that fit in a square inch of screen real estate. The exact definition varies according to context, so for the sake of readability we’ll say that low DPI means the average desktop or laptop screen and budget smartphones, while high DPI means the average smartphone, tablet or higher-resolution computer screens (e.g. Retina displays and 4k monitors).&lt;/p&gt;
-
-&lt;p&gt;Nowadays, smartphone customers are important to most online retail businesses, which means that we should serve high DPI images &lt;em&gt;when necessary&lt;/em&gt;. The “when necessary” part is important because the easy way out is to &lt;em&gt;always&lt;/em&gt; serve high DPI assets, even though the client device might not need them. The problem with this is that high DPI images are roughly 4 times as big as their low DPI counterparts, so low DPI devices would be getting unnecessarily big images for nothing at all — web bloat!&lt;/p&gt;
-
-&lt;p&gt;Serving different assets according to the client’s DPI was not a trivial task a few years ago, which means that the web is probably filled with pages that still serve high DPI assets by default to all client browsers. But now that HTML5 is widely adopted we can make good use of &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"&gt;srcset&lt;/a&gt; to do just that. To each their own: &lt;code&gt;srcset&lt;/code&gt; takes a list of different images and serves the most appropriate one to each client. In image-heavy sites such as retail stores this is an excellent tool to optimize average page size and save a good deal of bandwidth — which means saving money. Smaller images also take less time to load, so customers will also see product images faster than before.&lt;/p&gt;
-
-&lt;p&gt;This very simple change allowed us to decrease page sizes in one of our projects over 50% in some of its most-accessed endpoints, and an overall average 25% page size reduction for low DPI customers. Considering that some of the pages were 4 or 5MB big, halving those sizes was a great improvement to our customers — even more so considering that some of them might access our site on low-quality mobile networks, which can be excruciatingly slow sometimes. Considering the proportion of low DPI customers we have on an average day, this improvement saved our client some 7.5% of bandwidth.&lt;/p&gt;
-
-&lt;p&gt;Now that we’ve got some hindsight, it seems glaringly obvious that we should have been using this feature all along. But more often than not, extremely simple optimizations such as the one we described are overlooked by less experienced teams or worse — deemed “not important” by management because customers nowadays supposedly can spare a few megabytes per page (that may be so, but they don’t want to!).&lt;/p&gt;
-
-&lt;p&gt;We think that bloated web pages hurt everyone involved: web developers, customers and businesses. We strive to achieve what we think is good quality web code: that which delivers optimized, slim web pages to all clients.&lt;/p&gt;
-
-&lt;p&gt;By &lt;a href="https://medium.com/@lbrito"&gt;Leonardo Brito&lt;/a&gt; on &lt;a href="https://medium.com/p/f82a1c5deb26"&gt;January 14, 2019&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://medium.com/@lbrito/halving-page-sizes-with-srcset-f82a1c5deb26"&gt;Canonical link&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Exported from &lt;a href="https://medium.com"&gt;Medium&lt;/a&gt; on May 1, 2019.&lt;/p&gt;
-</content>
-    <summary type="html">There are many different devices accessing the internet, and they all have different screens. By using srcset to optimize the images served by our webapp, we reduced page sizes by up to 50%.</summary>
   </entry>
 </feed>
 
