@@ -2,13 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2024-11-21T08:00:00Z</updated>
+  <updated>2024-12-11T23:30:00Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2024-12-11:/blog/2024/12/rails-credentials.html</id>
+    <title type="html">Rails credentials: back to ENVs</title>
+    <published>2024-12-11T23:30:00Z</published>
+    <updated>2024-12-11T23:30:00Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2024/12/rails-credentials.html" type="text/html"/>
+    <content type="html">&lt;p&gt;Since Rails 5, Rails has had an encrypted &lt;code&gt;credentials.enc&lt;/code&gt; file which you can use to store secrets like API tokens and passwords.&lt;/p&gt;
+
+&lt;p&gt;I’ve come to see the shortcomings of this approach, and now I’m back to the traditional way of storing secrets on environment variables.&lt;/p&gt;
+
+&lt;p&gt;Although it might be a simpler solution when starting out a new project, the long-term problems of credentials.enc are significant. For example: with Rails’ credentials, updating secrets is typically tied to redeploying of the app, which is much slower than simply restarting a VM (what you would do if you were using ENVs).&lt;/p&gt;
+
+&lt;p&gt;But the biggest drawback of using Rails’ credentials is that it inevitably leads to having more than one source of truth for your project’s secrets: eventually your project will have extra-Rails dependencies, and they obviously won’t read from Rails’ credentials. So you’ll end up with some API keys defined in &lt;code&gt;credentials.enc&lt;/code&gt;, and some others defined elsewhere, like a &lt;code&gt;.env&lt;/code&gt;. Better, then, to use &lt;code&gt;.env&lt;/code&gt; from the start, and use something like Infisical for management and team access.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2024-11-21:/blog/2024/21/thoughts-on-llm.html</id>
     <title type="html">Thoughts on LLMs in software engineering</title>
@@ -323,7 +338,7 @@
   
 &lt;/div&gt;
 
-&lt;p&gt;Since moving to Vancouver metro I’m continuously surprised with how common electric vehicles have become. Some may see the rise of EVs as an exciting turn towards a futuristic &lt;a href="https://en.wikipedia.org/wiki/Solarpunk"&gt;solarpunk&lt;/a&gt; utopia. I see the opposite: they are a dystopia of sorts. They are a dead end, a waste of resources in the wrong direction, a false hope.&lt;/p&gt;
+&lt;p&gt;Since moving to metro Vancouver I’m continuously surprised with how common electric vehicles have become. Some may see the rise of EVs as an exciting turn towards a futuristic &lt;a href="https://en.wikipedia.org/wiki/Solarpunk"&gt;solarpunk&lt;/a&gt; utopia. I see the opposite: they are a dystopia of sorts. They are a dead end, a waste of resources in the wrong direction, a false hope.&lt;/p&gt;
 
 &lt;p&gt;The proliferation of personal electric vehicles is a strong marker of failure. It is a manifestation in the physical world of our inability as a society to move on from a clearly failed, car-centric way of living. Teslas kind of epitomize this – despite being just another very expensive car, despite &lt;a href="https://www.theguardian.com/world/2022/may/27/tesla-catches-fire-vancouver-canada-investigation"&gt;catching fire&lt;/a&gt; &lt;a href="https://www.msn.com/en-us/news/us/sac-metro-fire-challenged-by-burning-tesla/ar-AAYnuYV"&gt;every&lt;/a&gt; &lt;a href="https://www.msn.com/en-us/autos/news/nhtsa-steps-up-tesla-investigation-of-phantom-braking-crashes-into-emergency-vehicles/ar-AAYhkQk"&gt;now&lt;/a&gt; &lt;a href="https://fox2now.com/news/illinois/tesla-catches-fire-on-route-3-in-brooklyn-illinois/"&gt;and then&lt;/a&gt;, despite &lt;a href="https://www.thedrive.com/news/38579/these-repair-bulletins-for-teslas-quality-problems-are-downright-embarrassing-and-serious"&gt;bizarre QC issues&lt;/a&gt;, despite its &lt;a href="https://www.truthorfiction.com/did-elon-musk-tweet-we-will-coup-whoever-we-want-deal-with-it/"&gt;nitwit CEO&lt;/a&gt;, still they are seen as cool and fashionable and trendy.&lt;/p&gt;
 
@@ -2080,67 +2095,6 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2019-08-30:/blog/2019/08/creating-more.html</id>
-    <title type="html">My attempt at creating more</title>
-    <published>2019-08-30T00:00:00Z</published>
-    <updated>2019-08-30T00:00:00Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2019/08/creating-more.html" type="text/html"/>
-    <content type="html">&lt;p&gt;I began blogging in the now prehistoric late 2000s.&lt;/p&gt;
-
-&lt;p&gt;I’ve done a few blogs about different subjects (computer science, algorithms, web development, short stories and political ramblings). I’ve had blogs on Blogspot, Wordpress and, more recently, Medium.&lt;/p&gt;
-
-&lt;p&gt;Those platforms were (or are, I suppose) an easy way to spew your ideas over the Internet while also being nice and comfy for other people to actually read (this last point is important for the CSS-challenged such as yours truly). In other words, those services Got Shit Done™.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;Alas, as I opened my eyes to the wonders of web development I started noticing a few things. First, Wordpress is written in PHP, which is gross (just kidding). Second, you don’t really control much: you can pick themes or whatever, but you won’t have the full control you’d have by creating a website from scratch or nearly scratch. Third, and maybe a corollary to the previous point, that stuff is &lt;em&gt;bloated&lt;/em&gt;. There’s approximately 3 terabytes of mostly useless JavaScript, ads and all kind of crap I don’t care about.&lt;/p&gt;
-
-&lt;p&gt;But most importantly, I understood the hidden costs of most “free” web services. You don’t really own anything. You provide content, and Wordpress or Google or whoever package that content into a neat bundle and servce it to your audience together with whatever else (&lt;em&gt;cough, trackers&lt;/em&gt;) they see fit.&lt;/p&gt;
-
-&lt;p&gt;That’s one of the reasons that pushed me towards a less-walled-garden approach towards blogging. But there’s a nother reason as well.&lt;/p&gt;
-
-&lt;p&gt;As &lt;a href="https://code.divshot.com/geo-bootstrap/"&gt;many others&lt;/a&gt;, I have fond memories of the late-90s/early-2000s Web 1.0 Internet. There is something warm and fuzzy about those beautifully terrible Geocities pages. They pierced the eyes of the viewer but were wondrous in a way. As I said, I’m not alone: Web 1.0 nostalgia is definitively &lt;a href="https://gizmodo.com/the-great-web-1-0-revival-1651487835"&gt;on the rise&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;But why? What is not to like in our world of beautiful walled gardens? Surely it is better than those gross-looking Web 1.0 fan sites about some crappy GameBoy game, right? …Right?&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/fan_page_screenshot.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/fan_page_screenshot.png" alt="View of an old website about Pokemon"&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/fan_page_screenshot.png" alt="View of an old website about Pokemon"&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;We're soooo cooler than this in 2019.&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;&lt;em&gt;Wrong.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Well, in many ways the Internet has of course improved over time. It has useful things like search engines and Wikipedia, and convenient subscription-based entertainment like Netflix. It has a whole bunch of nice stuff I could spend hours blabbering about.&lt;/p&gt;
-
-&lt;p&gt;But it also has a lot of problems. At this point there are surely many PhD theses about most of them, so I won’t bother. I’m just going to recommend one &lt;a href="https://www.nytimes.com/2019/08/11/world/americas/youtube-brazil.html"&gt;New York Times article&lt;/a&gt; that explains how YouTube indirectly helped elect a buffoon that &lt;a href="https://extra.globo.com/noticias/brasil/bolsonaro-faz-piada-com-oriental-tudo-pequenininho-ai-veja-video-rv1-1-23668287.html"&gt;makes high school-tier penis jokes&lt;/a&gt; as president of Brazil.&lt;/p&gt;
-
-&lt;p&gt;Now, the specific problem with today’s Internet that I feel is most relevant regarding blogging is how we’re gravitating towards all these “free” services all the time. Medium, for instance, is so &lt;em&gt;nice looking&lt;/em&gt; that one doesn’t even think of perhaps using something else. But what happens when &lt;em&gt;everyone&lt;/em&gt; uses Medium? First: all the blogs look exactly the same, which is lame. Second, Medium gets all that content and traffic for itself, for free.&lt;/p&gt;
-
-&lt;p&gt;Of course, not everyone is skilled enough to build a personal blog from scratch. I am just barely able, as you can see from my lackluster front-end skills (I promise you I’m good on back-end things). So I’m definitively not dismissing the inclusiveness that services like Medium offer.&lt;/p&gt;
-
-&lt;p&gt;But as I searched for a way out of the walled gardens and fiddled with &lt;a href="https://jekyllrb.com/"&gt;Jekyll&lt;/a&gt; for a while, I figured I might as well just &lt;a href="https://tjcx.me/posts/consumption-distraction/"&gt;build something to call my own&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id="so-i-built-this"&gt;So I built this.&lt;/h2&gt;
-
-&lt;p&gt;The goals were to create the simplest possible blogging system with as little fluff as possible. It should meet what I defined as basic blogging needs: list posts, show post, use tags, use images etc. And also not have 3 terabytes of JavaScript split in 90 requests just to show a fancy menu button.&lt;/p&gt;
-
-&lt;p&gt;So I started messing with Nanoc, an excellent Ruby library for static page generation, and came up with &lt;a href="https://github.com/lbrito1/sane-blog-builder"&gt;this bad boy&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I won’t pretend these ideas are new. They aren’t! I feel there’s been an increasing amount of &lt;a href="https://code.divshot.com/geo-bootstrap/"&gt;Web 1.0 nostalgia&lt;/a&gt; going on, and a big part of that is probably fueled by &lt;a href="https://tjcx.me/posts/consumption-distraction/"&gt;similar sentiments&lt;/a&gt; as those I described. The &lt;a href="https://thebestmotherfucking.website/"&gt;longing for simplicity&lt;/a&gt; in a world of trillions of new JS frameworks is also quite widespread these days.&lt;/p&gt;
-
-&lt;p&gt;This small project is nothing special. There are &lt;a href="https://github.com/remko/blog-skeleton"&gt;much better projects&lt;/a&gt; &lt;a href="https://clarkdave.net/2012/02/building-a-static-blog-with-nanoc/"&gt;available for free&lt;/a&gt; on the Internet done by people that actually know what they’re doing with a CSS file. This here is just a tiny vase with some ugly flowers – it would be ridiculous to compare it to the beautiful walled gardens of Medium or Wordpress. But, ugly as they are, they’re &lt;strong&gt;mine&lt;/strong&gt;!&lt;/p&gt;
 </content>
   </entry>
 </feed>

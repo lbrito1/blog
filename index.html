@@ -70,6 +70,47 @@
       <div class="pure-g">
   
     <div class="post-index pure-u-1-1">
+      <h2><a href="2024/12/rails-credentials.html">Rails credentials: back to ENVs</a></h2>
+      <aside class="">
+        Dec 11, 2024 · read time: 1 minutes
+      </aside>
+      
+
+      <article class="text">
+          <p>Since Rails 5, Rails has had an encrypted <code>credentials.enc</code> file which you can use to store secrets like API tokens and passwords.</p>
+
+<p>I’ve come to see the shortcomings of this approach, and now I’m back to the traditional way of storing secrets on environment variables.</p>
+
+<p>Although it might be a simpler solution when starting out a new project, the long-term problems of credentials.enc are significant. For example: with Rails’ credentials, updating secrets is typically tied to redeploying of the app, which is much slower than simply restarting a VM (what you would do if you were using ENVs).</p>
+
+<p>But the biggest drawback of using Rails’ credentials is that it inevitably leads to having more than one source of truth for your project’s secrets: eventually your project will have extra-Rails dependencies, and they obviously won’t read from Rails’ credentials. So you’ll end up with some API keys defined in <code>credentials.enc</code>, and some others defined elsewhere, like a <code>.env</code>. Better, then, to use <code>.env</code> from the start, and use something like Infisical for management and team access.</p>
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="2024/12/rails-credentials.html">
+                
+              </a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="tags/rails">
+                rails <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="tags/ruby">
+                ruby <span class="tag-count">1</span>
+              </a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
       <h2><a href="2024/21/thoughts-on-llm.html">Thoughts on LLMs in software engineering</a></h2>
       <aside class="">
         Nov 21, 2024 · read time: 2 minutes
@@ -82,7 +123,11 @@
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2024/21/thoughts-on-llm.html">Continue reading ›</a>
+              <a class="read-more" href="2024/21/thoughts-on-llm.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -118,7 +163,11 @@
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2024/19/start-with-billing.html">Continue reading ›</a>
+              <a class="read-more" href="2024/19/start-with-billing.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -168,7 +217,11 @@
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2024/10/leaving-vancouver.html">Continue reading ›</a>
+              <a class="read-more" href="2024/10/leaving-vancouver.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -216,7 +269,11 @@
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2023/12/leaving-amazon.html">Continue reading ›</a>
+              <a class="read-more" href="2023/12/leaving-amazon.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -270,7 +327,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2022/07/books-sapiens.html">Continue reading ›</a>
+              <a class="read-more" href="2022/07/books-sapiens.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -325,7 +386,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2022/07/books-collapse.html">Continue reading ›</a>
+              <a class="read-more" href="2022/07/books-collapse.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -371,7 +436,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2022/07/next-dalle.html">Continue reading ›</a>
+              <a class="read-more" href="2022/07/next-dalle.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -414,14 +483,18 @@ Rating: ⭐⭐⭐⭐
   
 </div>
 
-<p>Since moving to Vancouver metro I’m continuously surprised with how common electric vehicles have become. Some may see the rise of EVs as an exciting turn towards a futuristic <a href="https://en.wikipedia.org/wiki/Solarpunk">solarpunk</a> utopia. I see the opposite: they are a dystopia of sorts. They are a dead end, a waste of resources in the wrong direction, a false hope.</p>
+<p>Since moving to metro Vancouver I’m continuously surprised with how common electric vehicles have become. Some may see the rise of EVs as an exciting turn towards a futuristic <a href="https://en.wikipedia.org/wiki/Solarpunk">solarpunk</a> utopia. I see the opposite: they are a dystopia of sorts. They are a dead end, a waste of resources in the wrong direction, a false hope.</p>
 
 <p>The proliferation of personal electric vehicles is a strong marker of failure. It is a manifestation in the physical world of our inability as a society to move on from a clearly failed, car-centric way of living. Teslas kind of epitomize this – despite being just another very expensive car, despite <a href="https://www.theguardian.com/world/2022/may/27/tesla-catches-fire-vancouver-canada-investigation">catching fire</a> <a href="https://www.msn.com/en-us/news/us/sac-metro-fire-challenged-by-burning-tesla/ar-AAYnuYV">every</a> <a href="https://www.msn.com/en-us/autos/news/nhtsa-steps-up-tesla-investigation-of-phantom-braking-crashes-into-emergency-vehicles/ar-AAYhkQk">now</a> <a href="https://fox2now.com/news/illinois/tesla-catches-fire-on-route-3-in-brooklyn-illinois/">and then</a>, despite <a href="https://www.thedrive.com/news/38579/these-repair-bulletins-for-teslas-quality-problems-are-downright-embarrassing-and-serious">bizarre QC issues</a>, despite its <a href="https://www.truthorfiction.com/did-elon-musk-tweet-we-will-coup-whoever-we-want-deal-with-it/">nitwit CEO</a>, still they are seen as cool and fashionable and trendy.</p>
 
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2022/06/tesla_dystopia.html">Continue reading ›</a>
+              <a class="read-more" href="2022/06/tesla_dystopia.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -471,7 +544,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2022/04/digital_nomads.html">Continue reading ›</a>
+              <a class="read-more" href="2022/04/digital_nomads.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -521,7 +598,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2021/12/botched_interviews.html">Continue reading ›</a>
+              <a class="read-more" href="2021/12/botched_interviews.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -567,7 +648,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2021/09/job_offers_pandemic.html">Continue reading ›</a>
+              <a class="read-more" href="2021/09/job_offers_pandemic.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -615,7 +700,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2021/08/onsites.html">Continue reading ›</a>
+              <a class="read-more" href="2021/08/onsites.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -667,7 +756,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2021/08/efficient_resource_distribution.html">Continue reading ›</a>
+              <a class="read-more" href="2021/08/efficient_resource_distribution.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -723,7 +816,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2020/07/replacing_google_analytics_android.html">Continue reading ›</a>
+              <a class="read-more" href="2020/07/replacing_google_analytics_android.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -783,7 +880,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2020/06/free_https_home_server.html">Continue reading ›</a>
+              <a class="read-more" href="2020/06/free_https_home_server.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -835,7 +936,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2020/05/communication.html">Continue reading ›</a>
+              <a class="read-more" href="2020/05/communication.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -883,7 +988,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2020/05/figuring_out_nvidia_x_linux.html">Continue reading ›</a>
+              <a class="read-more" href="2020/05/figuring_out_nvidia_x_linux.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -941,7 +1050,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2020/02/repurposing-android.html">Continue reading ›</a>
+              <a class="read-more" href="2020/02/repurposing-android.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -992,7 +1105,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2019/11/speeding-up-backend-graph-theory.html">Continue reading ›</a>
+              <a class="read-more" href="2019/11/speeding-up-backend-graph-theory.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1038,7 +1155,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2019/08/creating-more.html">Continue reading ›</a>
+              <a class="read-more" href="2019/08/creating-more.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1070,7 +1191,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2018/09/10-ways-not-to-do-a-big-deploy.html">Continue reading ›</a>
+              <a class="read-more" href="2018/09/10-ways-not-to-do-a-big-deploy.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1100,7 +1225,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2019/01/halving-page-sizes-with-srcset.html">Continue reading ›</a>
+              <a class="read-more" href="2019/01/halving-page-sizes-with-srcset.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1144,7 +1273,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2018/06/working-remotely-in-a-non-remote-company.html">Continue reading ›</a>
+              <a class="read-more" href="2018/06/working-remotely-in-a-non-remote-company.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1176,7 +1309,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2018/03/the-5-stages-of-dealing-with-legacy-code.html">Continue reading ›</a>
+              <a class="read-more" href="2018/03/the-5-stages-of-dealing-with-legacy-code.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1210,7 +1347,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2017/09/improving-spec-speed-in-a-huge-old-Rails-app.html">Continue reading ›</a>
+              <a class="read-more" href="2017/09/improving-spec-speed-in-a-huge-old-Rails-app.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1270,7 +1411,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2017/06/how-a-Unix-CLI-tool-made-me-care-about-software-feedback.html">Continue reading ›</a>
+              <a class="read-more" href="2017/06/how-a-Unix-CLI-tool-made-me-care-about-software-feedback.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1306,7 +1451,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2017/05/when-postgres-is-not-enough.html">Continue reading ›</a>
+              <a class="read-more" href="2017/05/when-postgres-is-not-enough.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1350,7 +1499,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2017/03/dont-obsess-over-code-dry.html">Continue reading ›</a>
+              <a class="read-more" href="2017/03/dont-obsess-over-code-dry.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1404,7 +1557,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2015/10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html">Continue reading ›</a>
+              <a class="read-more" href="2015/10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1452,7 +1609,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2015/10/red-black-vs-avl.html">Continue reading ›</a>
+              <a class="read-more" href="2015/10/red-black-vs-avl.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1485,7 +1646,11 @@ Rating: ⭐⭐⭐⭐
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2015/10/trees-part-iii-red-black-tree.html">Continue reading ›</a>
+              <a class="read-more" href="2015/10/trees-part-iii-red-black-tree.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1521,7 +1686,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2015/09/ruby-dsl-metaprogramming-part-ii.html">Continue reading ›</a>
+              <a class="read-more" href="2015/09/ruby-dsl-metaprogramming-part-ii.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1575,7 +1744,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2015/09/ruby-dsl-metaprogramming-part-i.html">Continue reading ›</a>
+              <a class="read-more" href="2015/09/ruby-dsl-metaprogramming-part-i.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1646,7 +1819,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/04/trees-part-ii-avl-tree.html">Continue reading ›</a>
+              <a class="read-more" href="2014/04/trees-part-ii-avl-tree.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1718,7 +1895,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/04/shortest-path-part-i-dijkstras-algorithm.html">Continue reading ›</a>
+              <a class="read-more" href="2014/04/shortest-path-part-i-dijkstras-algorithm.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1785,7 +1966,11 @@ grammar phrase: 10</code></pre></div>
 
           </p><div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/03/trees-part-i.html">Continue reading ›</a>
+              <a class="read-more" href="2014/03/trees-part-i.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1865,7 +2050,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/03/graph.html">Continue reading ›</a>
+              <a class="read-more" href="2014/03/graph.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1923,7 +2112,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/03/heap-priority-queues.html">Continue reading ›</a>
+              <a class="read-more" href="2014/03/heap-priority-queues.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -1987,7 +2180,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/03/burgergfx-simple-2d-graphics.html">Continue reading ›</a>
+              <a class="read-more" href="2014/03/burgergfx-simple-2d-graphics.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -2033,7 +2230,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/03/stack.html">Continue reading ›</a>
+              <a class="read-more" href="2014/03/stack.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -2085,7 +2286,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/03/doubly-linked-list.html">Continue reading ›</a>
+              <a class="read-more" href="2014/03/doubly-linked-list.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -2121,7 +2326,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/02/vector.html">Continue reading ›</a>
+              <a class="read-more" href="2014/02/vector.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -2155,7 +2364,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/02/mergesort.html">Continue reading ›</a>
+              <a class="read-more" href="2014/02/mergesort.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
@@ -2201,7 +2414,11 @@ grammar phrase: 10</code></pre></div>
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="2014/02/linked-list.html">Continue reading ›</a>
+              <a class="read-more" href="2014/02/linked-list.html">
+                
+                  Continue reading ›
+                
+              </a>
           </div>
         </div>
         <div class="post-tags">
