@@ -36,6 +36,10 @@ def get_post_start(post)
   content
 end
 
+def has_more?(post)
+  post.compiled_content.include?('<!-- more -->')
+end
+
 def all_tags
   tags = {}
 
