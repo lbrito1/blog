@@ -2,13 +2,68 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2024-12-11T23:30:00Z</updated>
+  <updated>2024-12-17T18:33:44Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2024-12-17:/blog/2024/12/one-year-of-fly.html</id>
+    <title type="html">One year of Fly</title>
+    <published>2024-12-17T18:33:44Z</published>
+    <updated>2024-12-17T18:33:44Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2024/12/one-year-of-fly.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/2024/12/one-year-of-fly.html"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2024/fly-sm.webp" alt="Hot air balloon."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2024/fly-sm.webp" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;It’s been a year since I moved my company’s infrastructure away from AWS. Being in a small team that was unfamiliar with AWS, it was the right move. Having used Fly.io for side projects before, I went with them as our new host. While not perfect, the experience has been overall a great success.&lt;/p&gt;
+
+&lt;p&gt;The main motivation was how simple and hands-off Fly is, especially when compared with its polar opposite, AWS. There was quite a lot of infra cost savings as well. Here’s a quick summary of my overall experience and feeling on them.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="good"&gt;Good&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The CLI is great, making things like expanding disk size or adding RAM very simple to do.&lt;/li&gt;
+  &lt;li&gt;They’re very open to adding new features upon request in the community forum. I’ve had turnarounds of as fast as a couple of days, from asking for something in the forum to having it deployed in a new minor version in their CLI.&lt;/li&gt;
+  &lt;li&gt;Related to the above; they are constantly adding new features, so there’s a real sense of improvement going on.&lt;/li&gt;
+  &lt;li&gt;Most of the more annoying aspects of networking and security are hidden away from you.&lt;/li&gt;
+  &lt;li&gt;Their VMs run on Docker, so its fairly easy to debug something, add new software etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="underwhelming"&gt;Underwhelming&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Outages are frequent, although rarely catastrophic. They seem to do their best to be informative and helpful when they happen, and don’t seem to hide when they’re in trouble. Having worked for two years at AWS and seen two full-scale IAD outages, this doesn’t rattle me too much.&lt;/li&gt;
+  &lt;li&gt;Premium support is hit-and-miss, sometimes you get super fast and insightful responses, sometimes you get days-late responses that aren’t very useful.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="bad"&gt;Bad&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Lackluster IAM. Things like adding an API token with limited scope is a pain. They use  &lt;a href="https://en.wikipedia.org/wiki/Macaroons_(computer_science)"&gt;Macaroons&lt;/a&gt; for token attenuation, and I for one find it awful to work with. Maybe I’m just an idiot.&lt;/li&gt;
+  &lt;li&gt;Unmanaged Postgres clusters can be daunting, and there is little support. I’ve had a few “we don’t know what’s going on” responses to bugs I’ve encountered, but even then in general they have helped me with a path forward.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;They’re probably not for everyone. They move really fast, and in often incongruous, baffling ways. For example, their Postgres offering is unmanaged (&lt;a href="https://fly.io/docs/postgres/getting-started/what-you-should-know/"&gt;This Is Not Managed Postgres&lt;/a&gt;), and they’ve been saying for a long time that things would stay that way. Then earlier this year they started offering managed Postgres through a partner, Supabase. And now they’re saying they are going to offer &lt;a href="https://community.fly.io/t/fly-managed-mysql-private-beta/21461/26"&gt;managed Postgres&lt;/a&gt; themselves soon. Most of these comms are scattered in random unrelated threads in the forum.&lt;/p&gt;
+
+&lt;p&gt;All in all I approve of Fly and am satisfied with them so far. They’re probably not the bargain discount they were a couple of years ago, but they are also much more mature and reliable.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2024-12-11:/blog/2024/12/rails-credentials.html</id>
     <title type="html">Rails credentials: back to ENVs</title>
@@ -25,11 +80,11 @@
 </content>
   </entry>
   <entry>
-    <id>tag:lbrito1.github.io,2024-11-21:/blog/2024/21/thoughts-on-llm.html</id>
+    <id>tag:lbrito1.github.io,2024-11-21:/blog/2024/11/thoughts-on-llm.html</id>
     <title type="html">Thoughts on LLMs in software engineering</title>
     <published>2024-11-21T08:00:00Z</published>
     <updated>2024-11-21T08:00:00Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2024/21/thoughts-on-llm.html" type="text/html"/>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2024/11/thoughts-on-llm.html" type="text/html"/>
     <content type="html">&lt;p&gt;The “catastrophe scenario” of AI in the software engineering job market has gained quite a lot of popularity, with people pointing out that current models already “do a better job” (what does that even mean?) than many professional programmers. I’m not sure I completely buy into this.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -59,11 +114,11 @@
 </content>
   </entry>
   <entry>
-    <id>tag:lbrito1.github.io,2024-11-19:/blog/2024/19/start-with-billing.html</id>
+    <id>tag:lbrito1.github.io,2024-11-19:/blog/2024/11/start-with-billing.html</id>
     <title type="html">Start with Billing</title>
     <published>2024-11-19T08:00:00Z</published>
     <updated>2024-11-19T08:00:00Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2024/19/start-with-billing.html" type="text/html"/>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2024/11/start-with-billing.html" type="text/html"/>
     <content type="html">&lt;p&gt;I’ve been working on a side project with a friend for well over a year now, and in addition to the joy of working with someone you like on a problem of your choice, I’ve had quite a lot of “aha” (or “oh…”) moments.&lt;/p&gt;
 
 &lt;p&gt;We’re both basically happy with the state of our little project, with just a few small tweaks remaining before we can send it off into the world, except for one not-so-small thing: billing.&lt;/p&gt;
@@ -1819,282 +1874,6 @@ gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pr
 &lt;/div&gt;
 
 &lt;p&gt;So the headline here is: keep all software updated, keep an eye on access logs and maybe go through nginx safety guides such as &lt;a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html"&gt;this&lt;/a&gt; and &lt;a href="https://geekflare.com/nginx-webserver-security-hardening-guide/"&gt;this&lt;/a&gt;.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2019-11-06:/blog/2019/11/speeding-up-backend-graph-theory.html</id>
-    <title type="html">Speeding Up the Backend with Graph Theory</title>
-    <published>2019-11-06T22:29:15Z</published>
-    <updated>2019-11-06T22:29:15Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2019/11/speeding-up-backend-graph-theory.html" type="text/html"/>
-    <content type="html">
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/2019/11/speeding-up-backend-graph-theory.html"&gt;
-      &lt;img class="lazy" data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0076-final-results.png" alt="Alternative text to describe image."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Here at Sensor Tower we handle large volumes of data, so to keep things snappy for our customers we need to think carefully about how we process and serve that data.&lt;/p&gt;
-
-&lt;p&gt;Understanding the data we’re handling is a fundamental part of improving the way we serve it, and by analyzing how an important backend service worked, we were able to speed it up by a factor of four.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;&lt;em&gt;This post was originally posted in the &lt;a href="https://sensortower.com/blog/speeding-up-the-backend-with-graph-theory"&gt;Sensor Tower blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id="background"&gt;Background&lt;/h2&gt;
-
-&lt;p&gt;We have many user-facing endpoints in Sensor Tower. So many, in fact, that we have numerous dashboards to keep tabs on how the system behaves.&lt;/p&gt;
-
-&lt;p&gt;A few months ago, we noticed that a particular and very important endpoint was very sluggish: While all the other endpoints of the same type had &amp;lt;50ms latencies, this particular service took a leisurely 300 to 500ms to respond. Here’s a diagram of how that looked:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0070-sadface-backend.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2019/0070-sadface-backend.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0070-sadface-backend.png" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;The customer doesn’t look very happy up there! So, we decided to take some time and do an in-depth analysis of that endpoint.&lt;/p&gt;
-
-&lt;p&gt;Okay, now to a more serious diagram. Here’s what that endpoint looked like:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0070-diagram.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2019/0070-diagram.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0070-diagram.png" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;The numbered steps in the diagram above perform the following operations:
-1. Decode a Protobuf string and build a Ruby object from it;
-2. Modify the object;
-3. Encode the Ruby object back to Protobuf.&lt;/p&gt;
-
-&lt;p&gt;In essence, the endpoint receives Protobuf-encoded strings, does some work on them, and returns a processed version of the Protobuf-encoded string to the client. If you don’t know what Protobuf is, that’s okay; I didn’t either. You can think of it as something similar to JSON: A serialized tree structure encoded using a binary format rather than text.&lt;sup id="fnref:1" role="doc-noteref"&gt;&lt;a href="#fn:1" class="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;p&gt;Once we pinpointed that the endpoint slowness was due to Protobuf parsing, the next step was to try and find bottlenecks in the algorithm. The proper way to do this (which is not to just to read the code thoroughly) is by using a profiler.&lt;/p&gt;
-
-&lt;p&gt;With the help of &lt;a href="https://ruby-prof.github.io"&gt;ruby-prof&lt;/a&gt; (generate profile data) and &lt;a href="https://kcachegrind.github.io"&gt;KCacheGrind&lt;/a&gt; (view profile data), we were able to identify two methods, &lt;code&gt;#find_all&lt;/code&gt; and &lt;code&gt;#encode&lt;/code&gt;, that took a large portion of the CPU time:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0070-profiler.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2019/0070-profiler.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0070-profiler.png" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;While a profiler is a useful tool to identify potential problems, it has its limitations. Profiling helps you visualize data from &lt;em&gt;a single run&lt;/em&gt; through your code. That might be fine if you’re analyzing a simple algorithm that deals with very homogeneous input, but is not really enough in the case of our back-end service, which receives thousands of very different inputs every hour.&lt;/p&gt;
-
-&lt;p&gt;In other words, we also needed to validate the profiler results with more data.&lt;/p&gt;
-
-&lt;p&gt;Taking this understanding into account, we opted for benchmarking a few thousand requests. Specifically, we benchmarked the &lt;code&gt;#find_all&lt;/code&gt; and &lt;code&gt;#encode&lt;/code&gt; methods and found out that, while the time they consumed relative to the total time varied, the sum of those two methods took almost 100 percent of the total time of the entire endpoint. At this point we knew we could focus our attention on these two methods.&lt;/p&gt;
-
-&lt;p&gt;Naturally, the first step was to understand what each of those methods did.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;#find_all&lt;/code&gt; is responsible for decoding and modifying the object (steps one and two in the diagram), while &lt;code&gt;#encode&lt;/code&gt; is exactly what the name implies: It re-encodes the modified Ruby object back to Protobuf (step three).&lt;/p&gt;
-
-&lt;p&gt;With that said, let’s go through the optimizations performed in both of these methods.&lt;/p&gt;
-
-&lt;h2 id="first-optimization-encode"&gt;First Optimization: Encode&lt;/h2&gt;
-
-&lt;p&gt;Before we dive into the first optimization, let’s first explain how exactly the encoding/decoding processing works. Here’s an overview of what they do:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0071-decode-encode.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2019/0071-decode-encode.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0071-decode-encode.png" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;*Those Strings aren't really Protobuf -- because it is a binary encoding, it isn't too easy on the eyes, so for the sake of readability we're using this pseudo-JSON representation.&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;There are two things we need to point out about this decoding/encoding process that might not be obvious:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Both encoding and decoding work recursively, starting at the root and finding their way down to the leaves;&lt;/li&gt;
-  &lt;li&gt;Each node in the Ruby object also contains the original Protobuf string for that node. So for instance the node &lt;code&gt;C&lt;/code&gt; in the example above also contains the following string: &lt;code&gt;"{ C: { B: [A]}, F: [D, X1] }"&lt;/code&gt;; the node &lt;code&gt;B&lt;/code&gt; contains this other string: &lt;code&gt;"{ B: [A] }"&lt;/code&gt;, and so on.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Now we’re ready to understand the actual optimization.&lt;/p&gt;
-
-&lt;p&gt;Let’s take a detailed look at the modification process:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0072-decode-encode-detail.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2019/0072-decode-encode-detail.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0072-decode-encode-detail.png" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;One of the most fundamental steps of any optimization is avoiding repeated work. If we look closely, we can see that the nodes in blue (A, B, D) &lt;em&gt;were not modified&lt;/em&gt;: Look at the strings generated by decode (left side, in yellow) and compare them with the ones generated by encode (blue, to the right)—they’re identical! Conversely, nodes in red (C, F) were indeed modified: The strings are different. So, now we know there is some potentially repeated work going on.&lt;/p&gt;
-
-&lt;p&gt;The first optimization leveraged this repeated work. Instead of always encoding every single node, we now encode &lt;em&gt;only those nodes that were modified&lt;/em&gt;. All the rest of the nodes already have a valid Protobuf string stored as an instance variable, and that string is identical to what we would obtain if we were to run &lt;code&gt;#encode&lt;/code&gt; on them.&lt;/p&gt;
-
-&lt;p&gt;The actual code change to implement this was quite simple: Just a matter of adding a &lt;code&gt;dirty&lt;/code&gt; flag to each node, and marking the node as &lt;code&gt;@dirty = true&lt;/code&gt; if it or one of its descendants was modified.&lt;/p&gt;
-
-&lt;p&gt;This optimization alone reduced the endpoint’s execution time by 30 percent. Here’s the execution time chart right after deploying the optimization:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0073-result-optim-1.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2019/0073-result-optim-1.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0073-result-optim-1.png" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;h2 id="second-optimization-finding-a-node"&gt;Second Optimization: Finding a Node&lt;/h2&gt;
-
-&lt;p&gt;The first optimization worked on the &lt;code&gt;#encode&lt;/code&gt; method, so the natural next step was to look at the other time-consuming method, &lt;code&gt;#find_all&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;As we briefly mentioned, &lt;code&gt;#find_all&lt;/code&gt; is responsible for two things: Decoding the Protobuf string into a Ruby object and modifying the object itself.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately, there is no way of knowing beforehand if we’ll need to modify anything or not, so we’ll always have to do the decoding step. But what about the other thing &lt;code&gt;#find_all&lt;/code&gt; does, modifying the object?&lt;/p&gt;
-
-&lt;p&gt;Before diving in, let’s recall a few things:
-1. Protobuf is a tree-based data structure;
-2. The trees we receive have no internal order to take advantage of;
-3. Our algorithm searches for specific nodes and removes them from the tree;
-4. We don’t know what the trees look like beforehand.&lt;/p&gt;
-
-&lt;p&gt;Before this optimization, &lt;code&gt;#find_all&lt;/code&gt; was running a simple tree traversal to try and find those specific nodes mentioned in step three above. This is an acceptable approach when your input is small or when you’re not too worried about response time, but when you have massive inputs and want to deliver the smallest possible runtime, tree traversals can be a problem: They have linear time complexity (&lt;code&gt;O(n)&lt;/code&gt;, where n is the number of nodes).&lt;/p&gt;
-
-&lt;p&gt;Once we know the path to a node, though, accessing it is very cheap: It can be done in logarithmic time, &lt;code&gt;O(log n)&lt;/code&gt;. This is possible because of a mathematical property of trees: Tree height is roughly a logarithmic function of the amount of nodes (it might degenerate into a linear function as well, but let’s leave those explanations to the textbooks), thus the average-case maximum path length to a node (that is, from the root down to the deepest leaf) is also bound to that same logarithmic constraint.&lt;/p&gt;
-
-&lt;p&gt;So, we started looking closely to which paths we were going through to access those few nodes we wanted to remove. Ideally, there would be a single, universal path found in all the trees we ever encounter. That, way we could store that single path and always be guaranteed of finding the nodes we want to. Conversely, the worst possible outcome would be that every tree had a unique path to those nodes.&lt;/p&gt;
-
-&lt;p&gt;The truth lied somewhere in between those two extremes (thankfully for us, it leaned more towards the former rather than the latter). Here’s a chart of the amount of different paths we found over time (the two curves represent paths to two of the nodes we want to remove):&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0070-paths-log.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2019/0070-paths-log.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0070-paths-log.png" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Without going into too much detail about that chart, just notice that it is &lt;em&gt;very logarithmic!&lt;/em&gt; This is excellent for us, because it means that with a relatively small amount of paths we can find a very large percentage of the total nodes we want to find (and for the few we don’t, not finding them is okay). The next chart compares what we actually found (logarithmically growing paths) with the worst possible scenario mentioned previously:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0070-worst-case.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2019/0070-worst-case.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0070-worst-case.png" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;So, the second optimization was, in the end, also very simple: We simply collected a large enough amount of different paths and then traversed to them in logarithmic time instead of doing a full tree traversal that takes linear time to find the nodes we wanted to modify. This was responsible for a 300 percent speedup:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0075-result-optim-2.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2019/0075-result-optim-2.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0075-result-optim-2.png" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;h2 id="caveats"&gt;Caveats&lt;/h2&gt;
-
-&lt;p&gt;You might have noticed that this method is not perfect in the sense that it doesn’t always find all the nodes that we would’ve found using a complete tree traversal. This is quite true: The optimization comes with an accuracy trade-off. While this might be a deal-breaker for systems where you actually need 100 percent accuracy at all times, this wasn’t really a problem for us; Missing a few nodes out of the several thousand we process each hour wasn’t really a big deal.&lt;/p&gt;
-
-&lt;p&gt;As time passes, however, and different trees keep coming in, the precision of this approach eventually declines to a level that is significant even for our not-too-strict requirements. This happens slowly, because of how different paths appear (following a logarithmic function), but surely—our accuracy was ever-descending because we had used a fixed number of paths.&lt;/p&gt;
-
-&lt;p&gt;After employing our optimized algorithm to the payload and responding to the request, we post-process a subset of the the requests in the background and dynamically update the path definitions. This way, we always have a very high success rate on the parsing but keep the latency of responding to a particular request low.&lt;/p&gt;
-
-&lt;h2 id="final-results"&gt;Final Results&lt;/h2&gt;
-
-&lt;p&gt;Here’s a chart showing our execution time before and after we rolled out both optimizations:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2019/0076-final-results.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2019/0076-final-results.png" alt=""&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;We effectively reduced execution time from 300-500ms to 80ms with almost no impact to the user.&lt;/p&gt;
-
-&lt;h2 id="notes"&gt;Notes&lt;/h2&gt;
-
-&lt;div class="footnotes" role="doc-endnotes"&gt;
-  &lt;ol&gt;
-    &lt;li id="fn:1" role="doc-endnote"&gt;
-      &lt;p&gt;Protobuf, or &lt;a href="https://en.wikipedia.org/wiki/Protocol_Buffers"&gt;Protocol buffers&lt;/a&gt;, is a binary serialization method developed by Google. &lt;a href="#fnref:1" class="reversefootnote" role="doc-backlink"&gt;↩&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
 </content>
   </entry>
 </feed>
