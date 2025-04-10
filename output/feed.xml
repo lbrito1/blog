@@ -2,13 +2,90 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2024-12-17T18:33:44Z</updated>
+  <updated>2025-04-09T22:27:52Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2025-04-09:/blog/2025/04/podlettr.html</id>
+    <title type="html">Building Podlettr - my Rails side project</title>
+    <published>2025-04-09T22:27:52Z</published>
+    <updated>2025-04-09T22:27:52Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2025/04/podlettr.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/2025/04/podlettr.html"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2025/podlettr_cover.jpeg" alt="Podlettr: a letter from your podcasts."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2025/podlettr_cover.jpeg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;TLDR&lt;/strong&gt; We launched &lt;a href="https://podlettr.com?utm_source=lbrito.ca"&gt;Podlettr&lt;/a&gt; - go check it out!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For nearly two years, me and my good friend Sérgio Fontes, an accomplished UI/UX designer, have been working on &lt;a href="https://www.podlettr.com?utm_source=lbrito.ca"&gt;Podlettr&lt;/a&gt; - a great way to quickly catch up with your favourite podcasts. As the name implies, Podlettr is a letter from your podcasts. Reading is faster than listening, and with some AI magic, we convert hours worth of podcasts into beautiful, easy-to-read weekly newsletters.&lt;/p&gt;
+
+&lt;p&gt;We both have demanding full-time jobs and family duties, so we had to be pragmatic with the frameworks and architecture choices we made. Rails was my obvious framework of choice. Within weeks of the initial idea, we had a working prototype.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id="origin"&gt;Origin&lt;/h2&gt;
+
+&lt;p&gt;I listen to podcasts while working out and deep cleaning the house. Some of the podcasts I listen to are hours long, often 6 or 7 hours per episode. I’m mostly OK with that; the really long podcasts are about weekly world news, so its fine if I listen it throughout the week.&lt;/p&gt;
+
+&lt;p&gt;In mid 2023 I was considering buying a house, and I was listening to a lot of shorter, more frequent, informative podcasts about Canadian real estate. Those were about an hour long, but I felt the valuable information could be summarised in a much shorter time frame. I also subscribe to a few tech newsletters, each one taking usually around 5 minutes to read.&lt;/p&gt;
+
+&lt;p&gt;This was mid 2023: the then-new GPT 3 and 3.5 were all the rage. So I thought that converting podcasts into a nice, quickly readable format would be technologically viable and maybe make sense as a standalone product thing. I got a POC done in a couple of weeks and showed it to Sérgio, who loved the idea, joined me and helped build Podlettr into what it is today.&lt;/p&gt;
+
+&lt;h2 id="infrastructure-and-architecture"&gt;Infrastructure and architecture&lt;/h2&gt;
+
+&lt;p&gt;You learn a lot when building something from the ground up. I’ve never really been a devops person, but after this project, having to decide and plan everything infrastructure-related by myself, I feel comfortable with most tasks.&lt;/p&gt;
+
+&lt;p&gt;Podlettr is hosted on Fly.io. Coming from AWS (literally - as my day job), I wanted an easy-to-use, low-maintenance PaaS that wasn’t too fussy nor too expensive. Fly might not be the cheapest option today, but it is cheap enough, and very, very easy to use. It has a reasonable free allowance for the hobby plan, which is good enough for POCs using the smallest VMs. It has its flaws – I’ve talked about it in a &lt;a href="../../2024/12/one-year-of-fly.html"&gt;previous post&lt;/a&gt;, but definitively comes out as a good option in my use case.&lt;/p&gt;
+
+&lt;p&gt;Fly.io uses Docker to deploy your app to their VMs, so I decided to use &lt;code&gt;docker-compose&lt;/code&gt; for local development. This was a great choice, as it made it much easier for my co-founder Sérgio to easily get started without configuring any service dependency (other than docker, of course, which was a bit of a pain in the Mac M1. Go Linux! 🐧).&lt;/p&gt;
+
+&lt;p&gt;The rest of the architecture is pretty typical: Sidekiq, SES for email, Stripe for payments. I wish I’d started with Stripe at the beginnning of the project rather than before launch - I also wrote about it here, in &lt;a href="../../2024/11/start-with-billing.html"&gt;Start with billing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id="how-it-works"&gt;How it works&lt;/h2&gt;
+
+&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/blog/assets/images/2025/podlettr_diagram.png" target="_blank"&gt;
+      &lt;img class="lazy " data-src="/blog/assets/images/2025/podlettr_diagram.png" alt=""&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2025/podlettr_diagram.png" alt=""&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;Simplified diagram&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;The core idea is very simple: transcribe podcasts and summarise them into newsletters.&lt;/p&gt;
+
+&lt;p&gt;The real challenge (and value) is to output &lt;em&gt;good&lt;/em&gt; summaries. The world of 2025 is vastly different from 2023, and AI-flavoured text is generally out of favor. We spent considerable time and effort fine-tuning our prompts to avoid the bland, generic AI tone. Our different text formats are also a crucial part of creating meaningful content: some podcasts are better suited for quick bullet point highlights, while others fit better into longer essays. Its up to the user to decide and experiment which is best.&lt;/p&gt;
+
+&lt;h2 id="challenges-and-the-future"&gt;Challenges and the future&lt;/h2&gt;
+
+&lt;p&gt;Our first few users have had a strongly positive feedback, but we’re yet to promote the product to a broader audience. That is our foremost challenge. With a larger userbase we’ll be able to better understand cost and profit structures.&lt;/p&gt;
+
+&lt;p&gt;We’ve got many new features in mind, such as supporting other languages (currently we only support English) and adding richer context to the newsletters. But for now, I’m glad that despite our full schedules and many other responsibilities, we finally launched our years-long side project! 🎉&lt;/p&gt;
+
+&lt;p&gt;Visit &lt;a href="https://podlettr.com?utm_source=lbrito.ca"&gt;Podlettr&lt;/a&gt; and give it a try!&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2024-12-17:/blog/2024/12/one-year-of-fly.html</id>
     <title type="html">One year of Fly</title>
@@ -1714,166 +1791,6 @@ blacklist nvidia_modeset
   &lt;li&gt;&lt;a href=""&gt;https://github.com/Bumblebee-Project/Bumblebee/issues/951&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=""&gt;https://turlucode.com/optimus-bbswitch-on-ubuntu-18-04/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2020-02-05:/blog/2020/02/repurposing-android.html</id>
-    <title type="html">Repurposing an old Android phone as a Ruby web server</title>
-    <published>2020-02-05T12:24:41Z</published>
-    <updated>2020-02-05T12:24:41Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2020/02/repurposing-android.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/2020/02/repurposing-android.html"&gt;
-      &lt;img class="lazy" data-src="/blog/assets/images/2020/old-android.jpg" alt="Old smartphones on a desk."&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2020/old-android.jpg" alt="Alternative text to describe image."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;CC-BY Carlos Varela, https://www.flickr.com/photos/c32/7755470064&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Do you have an old Android phone? Sure you do! There’s a mind-blowing amount of electronic waste of all kinds, and with the average person in developed countries &lt;a href="https://www.cnbc.com/2019/05/17/smartphone-users-are-waiting-longer-before-upgrading-heres-why.html"&gt;discarding their phones every couple of years&lt;/a&gt;, discarded smartphones are probably one of the most common forms of e-waste.&lt;/p&gt;
-
-&lt;p&gt;I had an old Motorola G5 Cedric gathering dust, so I decided to do something with it – it is now running a Puma web server with a simple Sinatra webapp.&lt;/p&gt;
-
-&lt;p&gt;Now, before going any further, you might be thinking: what is the real, practical use of all this? An old Android phone probably isn’t going to have a stellar performance, but neither do those &lt;code&gt;t2.nano&lt;/code&gt;s, honestly. I’m yet to deploy any “real” code on an Android, but even the cheaper and older phones do commonly have quad-core or even octa-core CPUs, and at least 2GB RAM, so at least in theory a phone &lt;em&gt;should&lt;/em&gt; be close – ballpark, at least – to the most modest cloud IaaS offers our there (&lt;code&gt;t2.nano&lt;/code&gt; has 512MB for instance). Of course, a phone has an ARM processor while IaaS usually are x86; memory management is entirely different as well, but still – we’re talking ballpark estimates here.&lt;/p&gt;
-
-&lt;p&gt;Anyway, this is a short tutorial on how to repurpose an Android device as a web server – or any number of different things, really.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;h2 id="install-termux"&gt;1. Install Termux&lt;/h2&gt;
-
-&lt;p&gt;First of all we need a Linux environment in our phone. Termux is a terminal emulator and Linux environment for Android. It’s available on Google Play Store. No additional configuration is needed after installation.&lt;/p&gt;
-
-&lt;h2 id="set-up-ssh"&gt;2. Set up SSH&lt;/h2&gt;
-
-&lt;p&gt;You won’t want to type a lot of commands into a tiny touchscreen, so let’s set up ssh so that we can log into Termux remotely.&lt;/p&gt;
-
-&lt;p&gt;There are &lt;a href="https://wiki.termux.com/wiki/Remote_Access"&gt;several ways&lt;/a&gt; of doing this, but I’ve found that the easiest way is through a software called &lt;strong&gt;Dropbear&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Run this on Android:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;pkg upgrade
-pkg &lt;span class="nb"&gt;install &lt;/span&gt;dropbear&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;You can use password-based authentication or public key authentication. You should use key-based authentication, but for testing purposes password-based is easiest. Run this on Android:&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Run this on Android:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;passwd
-New password:
-Retype new password:
-New password was successfully set.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Bonus points:&lt;/strong&gt; install a terminal multiplexer like &lt;code&gt;tmux&lt;/code&gt; or &lt;code&gt;screen&lt;/code&gt;. This will make your life much easier when running stuff via ssh:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;pkg &lt;span class="nb"&gt;install &lt;/span&gt;tmux&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Now go ahead and test the connection on your desktop:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;ssh android-ip-address &lt;span class="nt"&gt;-p&lt;/span&gt; 8022&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id="set-up-static-ip-address-on-android"&gt;3. Set up static IP address on Android&lt;/h2&gt;
-
-&lt;p&gt;Go to wifi settings, disable DHCP and assign an IP address for your phone.&lt;/p&gt;
-
-&lt;p&gt;This is necessary so that your router won’t assign a new IP address to your phone every few hours/days, which would make configuration a lot harder.&lt;/p&gt;
-
-&lt;h2 id="install-ruby-bundler-sinatra-and-puma"&gt;4. Install Ruby, Bundler, Sinatra and Puma&lt;/h2&gt;
-
-&lt;p&gt;Sinatra is a lightweight web application framework, and Puma is a web server.&lt;/p&gt;
-
-&lt;p&gt;Ruby is, well Ruby!&lt;/p&gt;
-
-&lt;p&gt;Of course, Sinatra and Puma are just suggestions – you could even use full-blown Rails on your phone, as described in &lt;a href="https://mbobin.me/ruby/2017/02/25/ruby-on-rails-on-android.html"&gt;this neat tutorial&lt;/a&gt;. Just &lt;a href="https://devcenter.heroku.com/articles/ruby-default-web-server#why-not-webrick"&gt;don’t use WEBRick&lt;/a&gt;, the default Rails web server in development – it is single-process, single-threaded and thus not suitable for production environments (it is fine for small experiments though).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Run this on Android:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;pkg &lt;span class="nb"&gt;install &lt;/span&gt;ruby
-gem &lt;span class="nb"&gt;install &lt;/span&gt;sinatra puma&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2 id="install-nginx"&gt;Install nginx&lt;/h2&gt;
-
-&lt;p&gt;nginx is a web server, reverse-proxy and load balancer. Although most useful in multi-server setups where it is used to distribute requests among different instances, nginx is also a good idea in our setup because of the embedded DDoS protection and static file serving that it provides.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Run this on Android:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;pkg &lt;span class="nb"&gt;install &lt;/span&gt;nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Now the slightly tricky part is configuring nginx to work with Puma. &lt;a href="https://gist.github.com/ctalkington/4448153"&gt;This gist&lt;/a&gt; is a pretty good start – copy &amp;amp; paste &lt;code&gt;nginx.conf&lt;/code&gt; and change &lt;code&gt;appdir&lt;/code&gt; to your webapp’s root dir. In my case, for example, that would be &lt;code&gt;/data/data/com.termux/files/home/android-sinatra&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id="set-up-port-forwarding"&gt;Set up port forwarding&lt;/h2&gt;
-
-&lt;p&gt;You probably want your web server to be accessible through the internet, so you’ll have to set up port forwarding in your router to redirect incoming requests to your public IP address to your brand new Android web server.&lt;/p&gt;
-
-&lt;p&gt;How exactly to do this varies depending on your router. &lt;a href="https://www.noip.com/support/knowledgebase/general-port-forwarding-guide/"&gt;Here’s&lt;/a&gt; a pretty good tutorial to get you started.&lt;/p&gt;
-
-&lt;h2 id="configure-a-dynamic-dns"&gt;Configure a dynamic dns&lt;/h2&gt;
-
-&lt;p&gt;Most people have dynamic public IP addresses. In these cases it is useful to set up a dynamic dns (DDNS) service, which provides you with a static domain name that redirects automatically to whatever your public IP address is at that moment.&lt;/p&gt;
-
-&lt;p&gt;There are few free services that provide DDNS nowadays; I’m using &lt;a href="https://www.noip.com/"&gt;no-ip&lt;/a&gt; and it has been okay so far. You do have to “renew” your domain every month though.&lt;/p&gt;
-
-&lt;p&gt;After setting up a DDNS, you’ll have to configure your router as well so that it periodically notifies the DDNS service with your current IP address. Again, how exactly to do this depends on your router model.&lt;/p&gt;
-
-&lt;h2 id="hello-world"&gt;Hello world!&lt;/h2&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/android-web-server.jpg" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2020/android-web-server.jpg" alt="Puma and nginx running on a Motorola G5."&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2020/android-web-server.jpg" alt="Puma and nginx running on a Motorola G5."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;Puma and nginx running on a Motorola G5.&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;h2 id="under-siege"&gt;Under siege&lt;/h2&gt;
-
-&lt;p&gt;You can simulate real-world usage through &lt;a href="https://www.joedog.org/siege-home/"&gt;&lt;code&gt;siege&lt;/code&gt;&lt;/a&gt;, a http load testing software. Here’s a screenshot of &lt;code&gt;siege&lt;/code&gt; running on my setup with 3 concurrent users (real tests would use bigger numbers):&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/siege.jpg" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal."&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2020/siege.jpg" alt="Screenshot of siege running on a terminal."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;siege running in the foreground; nginx logs and top on remote (android) running in the background terminals.&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;The numbers in that screenshot don’t matter much because our webapp was serving a simple 100-char response with a timestamp, but it is enough to at least know that the server can handle a few concurrent users.&lt;/p&gt;
-
-&lt;h2 id="epilogue-safety"&gt;Epilogue: safety&lt;/h2&gt;
-
-&lt;p&gt;If you’ve watched &lt;a href="https://en.wikipedia.org/wiki/Mr._Robot"&gt;Mr Robot&lt;/a&gt;, you know that the internet can be a dangerous place. That is a lot more true if you have a web server open to the internet.&lt;/p&gt;
-
-&lt;p&gt;Within a few hours of opening up the server, it was already being crawled by all sorts of things. Most are innocuous indexing robots, but some are definitively not so nice, like these two requests:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/scanners.jpg" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2020/scanners.jpg" alt="nginx logs showing port scanning attacks."&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2020/scanners.jpg" alt="nginx logs showing port scanning attacks."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;Most of those requests seem fine, but the two in red are probably some kind of attack.&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;So the headline here is: keep all software updated, keep an eye on access logs and maybe go through nginx safety guides such as &lt;a href="https://www.cyberciti.biz/tips/linux-unix-bsd-nginx-webserver-security.html"&gt;this&lt;/a&gt; and &lt;a href="https://geekflare.com/nginx-webserver-security-hardening-guide/"&gt;this&lt;/a&gt;.&lt;/p&gt;
 </content>
   </entry>
 </feed>
