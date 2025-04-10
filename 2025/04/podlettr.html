@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="en"><head>
+  <title>A Developer's Notebook - Building Podlettr - my Rails side project</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
+  <meta name="author" content="Leonardo Brito">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Nanoc 4.11.16">
+  <meta property="og:type" content="website">
+  
+  <meta property="og:url" content="https://lbrito1.github.io/blog/2025/04/podlettr.html">
+  <meta property="twitter:url" content="https://lbrito1.github.io/blog/2025/04/podlettr.html">
+  
+  
+  <meta name="image" property="og:image" content="https://lbrito1.github.io/blog/blog/assets/images/2025/podlettr_cover.jpeg">
+  <meta name="twitter:image" content="https://lbrito1.github.io/blog/blog/assets/images/2025/podlettr_cover.jpeg">
+  
+  
+  <meta name="title" property="og:title" content="Building Podlettr - my Rails side project">
+  <meta name="twitter:title" content="Building Podlettr - my Rails side project">
+  
+  
+
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for lbrito.github.io/blog" href="../../feed.xml">
+  <link rel="stylesheet" href="../../assets/pure-min.css">
+  <link rel="stylesheet" href="../../assets/stylesheet.css">
+  <link rel="stylesheet" href="../../assets/highlight.css">
+
+  <script src="../../assets/yall.min.js"></script>
+</head>
+<body>
+  <div id="layout">
+    <div class="content">
+      <div class="header">
+        <h1>
+          <a href="../../">A Developer's Notebook</a>
+        </h1>
+        <nav class="pure-g">
+          <div class="pure-u-3-4 links">
+            <!-- <a href="/index.html">Home</a> &middot; -->
+            <a href="../../tags.html">Tags</a> ·
+            <a href="../../years.html">Years</a> ·
+            <a href="../../about.html">About</a> ·
+            <a href="../../books.html">📚</a> ·
+            <a class="carnaval" href="https://buttondown.email/lbrito">Newsletter!</a>
+          </div>
+
+          <div class="pure-u-1-4">
+            <div class="contact">
+              <span>
+                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                  <img src="../../assets/icons/github.svg" alt="Github icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                  <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
+                </a>
+              </span>
+              <span>
+                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                  <img src="../../assets/icons/rss.svg" alt="RSS icon">
+                </a>
+              </span>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+      
+  <div class="post-show">
+    <h2>Building Podlettr - my Rails side project</h2>
+
+    
+
+    <aside>Posted Apr 09, 2025</aside>
+    <aside>Tagged: 
+      <a class="" href="../../tags/ai">ai</a>
+      
+      <a class="" href="../../tags/rails">rails</a>
+      
+      <a class="" href="../../tags/devops">devops</a>
+      
+    </aside>
+    <article class="text">
+      <div class="image-box stretch">
+  <div>
+    <a href="podlettr.html">
+      <img class="lazy" data-src="/blog/assets/images/2025/podlettr_cover.jpeg" alt="Podlettr: a letter from your podcasts.">
+      <noscript>
+        <img src="../../blog/assets/images/2025/podlettr_cover.jpeg" alt="Alternative text to describe image.">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption"></div>
+  
+</div>
+
+<blockquote>
+  <p><strong>TLDR</strong> We launched <a href="https://podlettr.com?utm_source=lbrito.ca">Podlettr</a> - go check it out!</p>
+</blockquote>
+
+<p>For nearly two years, me and my good friend Sérgio Fontes, an accomplished UI/UX designer, have been working on <a href="https://www.podlettr.com?utm_source=lbrito.ca">Podlettr</a> - a great way to quickly catch up with your favourite podcasts. As the name implies, Podlettr is a letter from your podcasts. Reading is faster than listening, and with some AI magic, we convert hours worth of podcasts into beautiful, easy-to-read weekly newsletters.</p>
+
+<p>We both have demanding full-time jobs and family duties, so we had to be pragmatic with the frameworks and architecture choices we made. Rails was my obvious framework of choice. Within weeks of the initial idea, we had a working prototype.</p>
+
+<!-- more -->
+
+<h2 id="origin">Origin</h2>
+
+<p>I listen to podcasts while working out and deep cleaning the house. Some of the podcasts I listen to are hours long, often 6 or 7 hours per episode. I’m mostly OK with that; the really long podcasts are about weekly world news, so its fine if I listen it throughout the week.</p>
+
+<p>In mid 2023 I was considering buying a house, and I was listening to a lot of shorter, more frequent, informative podcasts about Canadian real estate. Those were about an hour long, but I felt the valuable information could be summarised in a much shorter time frame. I also subscribe to a few tech newsletters, each one taking usually around 5 minutes to read.</p>
+
+<p>This was mid 2023: the then-new GPT 3 and 3.5 were all the rage. So I thought that converting podcasts into a nice, quickly readable format would be technologically viable and maybe make sense as a standalone product thing. I got a POC done in a couple of weeks and showed it to Sérgio, who loved the idea, joined me and helped build Podlettr into what it is today.</p>
+
+<h2 id="infrastructure-and-architecture">Infrastructure and architecture</h2>
+
+<p>You learn a lot when building something from the ground up. I’ve never really been a devops person, but after this project, having to decide and plan everything infrastructure-related by myself, I feel comfortable with most tasks.</p>
+
+<p>Podlettr is hosted on Fly.io. Coming from AWS (literally - as my day job), I wanted an easy-to-use, low-maintenance PaaS that wasn’t too fussy nor too expensive. Fly might not be the cheapest option today, but it is cheap enough, and very, very easy to use. It has a reasonable free allowance for the hobby plan, which is good enough for POCs using the smallest VMs. It has its flaws – I’ve talked about it in a <a href="../../2024/12/one-year-of-fly.html">previous post</a>, but definitively comes out as a good option in my use case.</p>
+
+<p>Fly.io uses Docker to deploy your app to their VMs, so I decided to use <code>docker-compose</code> for local development. This was a great choice, as it made it much easier for my co-founder Sérgio to easily get started without configuring any service dependency (other than docker, of course, which was a bit of a pain in the Mac M1. Go Linux! 🐧).</p>
+
+<p>The rest of the architecture is pretty typical: Sidekiq, SES for email, Stripe for payments. I wish I’d started with Stripe at the beginnning of the project rather than before launch - I also wrote about it here, in <a href="../../2024/11/start-with-billing.html">Start with billing</a>.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../../blog/assets/images/2025/podlettr_diagram.png" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/2025/podlettr_diagram.png" alt="">
+      <noscript>
+        <img src="../../blog/assets/images/2025/podlettr_diagram.png" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">Simplified diagram</div>
+  
+</div>
+
+<p>The core idea is very simple: transcribe podcasts and summarise them into newsletters.</p>
+
+<p>The real challenge (and value) is to output <em>good</em> summaries. The world of 2025 is vastly different from 2023, and AI-flavoured text is generally out of favor. We spent considerable time and effort fine-tuning our prompts to avoid the bland, generic AI tone. Our different text formats are also a crucial part of creating meaningful content: some podcasts are better suited for quick bullet point highlights, while others fit better into longer essays. Its up to the user to decide and experiment which is best.</p>
+
+<h2 id="challenges-and-the-future">Challenges and the future</h2>
+
+<p>Our first few users have had a strongly positive feedback, but we’re yet to promote the product to a broader audience. That is our foremost challenge. With a larger userbase we’ll be able to better understand cost and profit structures.</p>
+
+<p>We’ve got many new features in mind, such as supporting other languages (currently we only support English) and adding richer context to the newsletters. But for now, I’m glad that despite our full schedules and many other responsibilities, we finally launched our years-long side project! 🎉</p>
+
+<p>Visit <a href="https://podlettr.com?utm_source=lbrito.ca">Podlettr</a> and give it a try!</p>
+
+    </article>
+    <div class="post-footer">
+      <a href="../../index.html">Back</a>
+    </div>
+  </div>
+
+      <div class="footer">
+
+        <div>
+          <form action="https://buttondown.email/api/emails/embed-subscribe/lbrito" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.email/lbrito', 'popupwindow')" class="embeddable-buttondown-form">
+          <label for="bd-email">Did you enjoy this post? Join the newsletter!</label>
+          <div>
+            <input type="email" name="email" id="bd-email">
+            <input type="submit" value="Subscribe">
+            <p>
+              <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
+            </p>
+          </div></form>
+        
+      </div>
+      <div class="final">
+        2025 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", yall);
+  fetch("https://precious-wise-dogfish.ngrok-free.app/damn_fine_coffee", { headers: { "X-Referer": window.location.href }, referrerPolicy: "unsafe-url" });
+</script>
+
+
+</body></html>
