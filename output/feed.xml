@@ -2,13 +2,95 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2025-04-09T22:27:52Z</updated>
+  <updated>2025-12-17T21:00:00Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2025-12-17:/blog/2025/12/books.html</id>
+    <title type="html">Some books I read in 2025</title>
+    <published>2025-12-17T21:00:00Z</published>
+    <updated>2025-12-17T21:00:00Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2025/12/books.html" type="text/html"/>
+    <content type="html">&lt;p&gt;This year I’ve had little time or patience for denser reads, so I read mostly novels, mostly scifi or scifi-adjacent (I’m now taking a break from literature and going into Peter Frankopan’s The Silk Roads), and a lot of Neal Stephenson.&lt;/p&gt;
+
+&lt;p&gt;Here are the books, in no particular order, with some notes.&lt;/p&gt;
+
+&lt;h3 id="nostromo-joseph-conrad"&gt;Nostromo (Joseph Conrad)&lt;/h3&gt;
+
+&lt;p&gt;Great book, but quite a slog for the most part. Nothing really happens until basically the very end of the book - which is brilliant. In the book’s introduction, there was this quote from Jacques Berthoud: “[this is] a novel that one cannot read unless one has read it before”. That sums it up quite nicely. The racial supremacism backdrop is jarring for modern sensibilities, but this of course is a book from 1904.&lt;/p&gt;
+
+&lt;h3 id="children-of-time-series-adrian-tchaikovsky"&gt;Children of Time series (Adrian Tchaikovsky)&lt;/h3&gt;
+
+&lt;p&gt;I love these kinds of books - weird, imaginative and entertaining. The first one (Children of Time) establishes the premise and basic concepts, while the sequel (Children of Time) is also fun, but a bit derivative - you kind of know where things are going after a short while. Still, both are pure joy to read.&lt;/p&gt;
+
+&lt;h3 id="illium-series-dan-simmons"&gt;Illium series (Dan Simmons)&lt;/h3&gt;
+
+&lt;p&gt;Dan Simmons is probably one of my all-time favourite authors. I loved Hyperion and Endymion. Illium and Olympos are fantastic books, and have some of the funniest passages I’ve ever read, like when Achilles, in the alternate timeline, saves and marries Penthesilea, and after five minutes can’t stand her constant nagging and wants to kill her (but physically can’t, because he’s under a spell from Aphrodite). There are three parallel storylines going on, one in Earth, one in Mars, and one in between. They are all equally entertaining.&lt;/p&gt;
+
+&lt;p&gt;Sadly, Simmons’ creepy prejudices, hinted at on later Hyperion cycle books, play a central role (especially in the second book), and detract from their brilliance. Impossible to say a lot without spoilers, but some crucial narrative choices later in the book give away the shallowness of part of Simmons’ worldview. He’s far from ignorant, so I can only ascribe these choices to deliberate, childish prejudice.&lt;/p&gt;
+
+&lt;p&gt;Although mostly reasonable and in-context, parts of the book go out of their way to describe sexual encounters with in great detail - anatomist-level detail. It feels out of place and just plain weird, like watching two zebras humping at a zoo.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h3 id="the-terror-dan-simmons"&gt;The Terror (Dan Simmons)&lt;/h3&gt;
+
+&lt;p&gt;This might be my favourite read for the year. It is a convincingly accurate historical with breathtaking ambiance and beautiful Inuit mythology. There’s a good AMC mini series loosely based on the book, which I watched years ago and vaguely remembered. The book is so much better though. Somehow it manages to be a cozy and satisfying read while also being despairingly bleak. This is Simmons at his finest.&lt;/p&gt;
+
+&lt;h3 id="the-iliad-homer"&gt;The Iliad (Homer)&lt;/h3&gt;
+
+&lt;p&gt;Got started on this one right after reading Illium. Reading ancient literature isn’t exactly fun for most of us, but it is interesting and at times shocking. The Greek relations to their gods are pretty different from anything we come across with in modern societies.&lt;/p&gt;
+
+&lt;h3 id="cryptonomicon-neal-stephenson"&gt;Cryptonomicon (Neal Stephenson)&lt;/h3&gt;
+
+&lt;p&gt;This more or less kickstarted a Neal Stephenson infatuation I’m still working through. I’ve read Snow Crash a couple of years ago and liked it, but haven’t gotten back to Stephenon until this.&lt;/p&gt;
+
+&lt;p&gt;Cryptonomicon is split between World War II and the 1990s. I enjoyed much more the former than the latter. I feel this was partially because of the duller story (one features World War II generals, Nazis and hidden gold, while the other is lead by a pudgy nerd running a dotcom-era startup), but also part because of the many technical exposition Stephenson goes into on things that were then cutting edge, but by now are either banal or obsolete. Tech snapshots are fine in college textbooks but don’t age well in literature.&lt;/p&gt;
+
+&lt;p&gt;Speaking of expositions, Stephenson’s digressions are hit and miss with me. Some are amusing, some are very lame. I remember a two-pager where the aforementioned pudgy nerd rambles the optimal way to eat a specific brand of children’s cereal with milk. I get the character and the stereotype Stephenson was going for, but it was a bit too much, more so coming from a not very likeable character.&lt;/p&gt;
+
+&lt;h3 id="reamde-neal-stephenson"&gt;REAMDE (Neal Stephenson)&lt;/h3&gt;
+
+&lt;p&gt;This one meanders through Canada, US, China and a fictional MMORPG. The game parts were interesting, reminding me a bit of Three Body Problem. Some more or less repeated archetypes can be traced between this and Cryptonomicon (Waterhouse/Peter, Shaftoe/Sokolov), while others are more original (Richard, Zula).&lt;/p&gt;
+
+&lt;p&gt;I can’t put my finger on it, but I feel a weird vibe from most Stephenson books, something akin to orientalism. I get the sense that a very specific place and time in the world are good and wholesome for Stephenson, and the rest is more or less barbaric.&lt;/p&gt;
+
+&lt;h3 id="polostan-neal-stephenson"&gt;Polostan (Neal Stephenson)&lt;/h3&gt;
+
+&lt;p&gt;Historical-ish drama set in early 20th century US and the Soviet Union. Not a bad book, but didn’t grip me as much as Stephenson’s other books. The story takes some implausible directions at times. The overall anti-Soviet tone of the book is expected and even mild for an American author, but is oversold at times. A more nuanced take would feel fresher and more original, especially in these times, but then again I believe Stephenson started this one many years ago.&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:lbrito1.github.io,2025-04-09:/blog/2025/12/llm-crutch-thinking.html</id>
+    <title type="html">LLM Crutch thinking</title>
+    <published>2025-04-09T22:27:52Z</published>
+    <updated>2025-04-09T22:27:52Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2025/12/llm-crutch-thinking.html" type="text/html"/>
+    <content type="html">&lt;div class="image-box stretch"&gt;
+  &lt;div&gt;
+    &lt;a href="/2025/12/llm-crutch-thinking.html"&gt;
+      &lt;img class="lazy" data-src="/blog/assets/images/2025/podlettr_cover.jpeg" alt="Podlettr: a letter from your podcasts."&gt;
+      &lt;noscript&gt;
+        &lt;img src="/blog/assets/images/2025/podlettr_cover.jpeg" alt="Alternative text to describe image."&gt;
+      &lt;/noscript&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+  
+    &lt;div class="image-caption"&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
+&lt;p&gt;I use LLMs myself. Increasingly I’m noticing a pattern -&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2025-04-09:/blog/2025/04/podlettr.html</id>
     <title type="html">Building Podlettr - my Rails side project</title>
@@ -1558,239 +1640,6 @@ server {
 &lt;p&gt;There’s quite a lot of shady-looking websites out there offering for a monthly fee the exact same thing as I just wrote about. When researching this, not knowing too much about most of these topics, I was almost fooled into accepting that this just couldn’t be done for free for some unknown technical reason. There &lt;em&gt;had&lt;/em&gt; to be a reason why there were no Google results for this – maybe my case was too specific, or maybe other people are less cheap than I am and just pay for a domain and get the SSL stuff for free.&lt;/p&gt;
 
 &lt;p&gt;I still have no good explanation as to why the kind of guide I just wrote above didn’t show up in my research. Maybe people don’t care about home servers, or maybe I’m just not too good at searching (probably both). In any case, hopefully this post will make it clear that setting up a DDNS subdomain with SSL for free is not only possible, but really not that complicated.&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2020-05-30:/blog/2020/05/communication.html</id>
-    <title type="html">Communication tips for remote developers</title>
-    <published>2020-05-30T15:16:00Z</published>
-    <updated>2020-05-30T15:16:00Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2020/05/communication.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/2020/05/communication.html"&gt;
-      &lt;img class="lazy" data-src="/blog/assets/images/2020/bridge.jpg" alt="San Francisco Bay bridge."&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2020/bridge.jpg" alt="Alternative text to describe image."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;We're all remote -- for now.&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Communicating well with your co-workers and managers is supremely important to a software developer, and even more so for the remote one. With a lot more remote workers due to the COVID-19 pandemic, this topic became a lot more relevant.&lt;/p&gt;
-
-&lt;p&gt;I’ve seen people hint at this more than a few times over the years, but I didn’t really “get it” until I started working as a fully remote engineer. I also find it important to understand not only &lt;em&gt;what&lt;/em&gt; we should be doing to achieve efficient communication, but also &lt;em&gt;why&lt;/em&gt; we should be doing those things in those ways.&lt;/p&gt;
-
-&lt;p&gt;To me, the single most important thing to keep in mind is that people’s mental resources: time, attention span, etc, like yours, are limited.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;That might be obvious, but different management styles might make it seem otherwise – a more hands-on manager might kind of seem like he is acutely aware of what you’re doing all the time, but that is hardly ever the case. Managing styles aside, managers are, after all, humans like the rest of us and have limited time and resources. They can’t possibly have the same insight into each task as the respective engineers working on them.&lt;/p&gt;
-
-&lt;p&gt;The corollary to that is that it is your job to keep managers in the loop, providing the right amount of information at the right time through the right channel (text, video call, presentation…). Just like any other skill, this is something you can learn over time.&lt;/p&gt;
-
-&lt;p&gt;Similar reasoning applies to co-workers: people are usually deeply involved in whatever it is they’re doing, so they won’t usually know too many details about what you or other co-workers are doing all the time.&lt;/p&gt;
-
-&lt;p&gt;A lot of the things you need to do are fairly obvious and well-known: be clear about what you’re saying, keep communicating frequently, etc. Other things aren’t too obvious (at least to me, that is) and are worth sharing in this short blog post.&lt;/p&gt;
-
-&lt;h2 id="dont-write-a-novel"&gt;Don’t write a novel&lt;/h2&gt;
-
-&lt;p&gt;Reading is hard. People’s availability and attention span vary. Try to get your point across with the least words as possible.&lt;/p&gt;
-
-&lt;p&gt;If I’m writing an issue update, pull request, or other technical information, I usually start with a more winding text and then prune as much of it as I can. This can be really simple, like changing “According to #85748, the problem I described started when…” to “The problem began when … (#85748)”.&lt;/p&gt;
-
-&lt;p&gt;This can’t be done at the expense of clarity, though. It is preferable to write or say “I think option B is the way to go” than an ambiguous “sounds good”.&lt;/p&gt;
-
-&lt;h2 id="manage-expectations"&gt;Manage expectations&lt;/h2&gt;
-
-&lt;p&gt;People don’t like to feel disappointed. To avoid unfulfilled expectations, it is your job to make sure those expectations stay realistic – the more so when the task evolves or unravels into something much more complicated than people originally expected.&lt;/p&gt;
-
-&lt;p&gt;As we all know, there’s a lot of uncertainty in this job. Something that seems easy might actually be super easy or might be very hard. Unexpected difficulties are expected, and most people are fine with that &lt;strong&gt;as long as they also think that those problems are actually problems.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;That’s a huge caveat: if you’re unable to convince other people about the seriousness of the unexpected problems you’re facing, you might as well not say anything at all about them. People usually only believe what they understand, and it is your job to properly communicate that to people less involved in the task than you are.&lt;/p&gt;
-
-&lt;h2 id="tailor-to-the-audience"&gt;Tailor to the audience&lt;/h2&gt;
-
-&lt;p&gt;Different people use different lingo to express the same things. Sales people will use different terms than engineering people.&lt;/p&gt;
-
-&lt;p&gt;Adjusting your language to the audience isn’t just about replacing technical words with other words, though, but also about cropping the information in the right way.&lt;/p&gt;
-
-&lt;p&gt;Excess information that isn’t relevant to the point you want to get across generates noise and confusion. This might be seen as a broader definition of the first topic: if you can manage to get your point across with less information (whatever that is: spreadsheets, images, etc), then that is certainly desirable. If the person you’re talking or presenting to is only interested in 1 of the 3 columns of a spreadsheet, although the other 2 might be insightful to you, you should probably refrain from showing them at that moment.&lt;/p&gt;
-
-&lt;p&gt;And that is the note I’m ending this post on. These three things are probably obvious or second nature to a lot of people, but at least to me, it took a few years of remote work to fully appreciate them. Hopefully this post can be helpful to other like-minded developers.&lt;/p&gt;
-
-</content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2020-05-16:/blog/2020/05/figuring_out_nvidia_x_linux.html</id>
-    <title type="html">Figuring out the Nvidia x Linux puzzle</title>
-    <published>2020-05-16T19:48:00Z</published>
-    <updated>2020-05-16T19:48:00Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2020/05/figuring_out_nvidia_x_linux.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/2020/05/figuring_out_nvidia_x_linux.html"&gt;
-      &lt;img class="lazy" data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart."&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2020/power.png" alt="Alternative text to describe image."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;Ubuntu's power rate over time.&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;I’ve struggled with some kind of problem with Nvidia graphics cards on Linux since forever.&lt;/p&gt;
-
-&lt;p&gt;Most commonly, an external monitor wouldn’t work or the dedicated card would refuse to power off when it should.&lt;/p&gt;
-
-&lt;p&gt;The latter problem – a power-hogging discrete Nvidia card not turning off when it isn’t needed, specifically in &lt;a href="https://www.wikiwand.com/en/Nvidia_Optimus"&gt;Optimus&lt;/a&gt;-enabled laptops – has consistently haunted me throughout the years. At least in my experience, this problem is in that sweet spot of things that are definitively annoying and kind of inconvenient, but complicated enough not to be worth the several work-hours needed to definitively solve it.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;I know that I’m not alone here, as other people over the internet have said things like &lt;em&gt;&lt;a href="https://forum.manjaro.org/t/solved-bumblebee-issues-with-bbswitch/70137"&gt;“I’ve been pulling my hair out for the past few hours trying to configure my graphics drivers on my laptop”&lt;/a&gt;&lt;/em&gt;. I’ve also not been a total sloth about this: although I have tried many times in the past to fix this, I’ve consistently found myself thinking “okay, &lt;em&gt;now&lt;/em&gt; this is fixed”, only to a few hours/days later notice that my laptop battery was drained in an hour and the problem was back. I actually re-wrote a significant part of this post because when I thought I was finished, my Nvidia card started turning on again and I had to do more research.&lt;/p&gt;
-
-&lt;p&gt;Taking advantage of the extra time in my hands due to the Covid-19 city-wide lockdown, I decided to persistently look for a solution to this issue. This guide is just a documentation of this process. I use Ubuntu, but similar steps should be valid with whatever distro you’re using. Also, some or many of the steps might not actually be necessary - they’re just what happened to finally work in my case.&lt;/p&gt;
-
-&lt;h3 id="install-the-proprietary-nvidia-drivers"&gt;1. Install the proprietary Nvidia drivers&lt;/h3&gt;
-
-&lt;p&gt;Ubuntu uses the open-source Nouveau driver for Nvidia cards, which doesn’t play well with Optimus-enabled laptops. Let’s install the proprietary Nvidia driver.&lt;/p&gt;
-
-&lt;p&gt;First, find out what’s the recommended Nvidia driver:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;ubuntu-drivers devices
-
-&lt;span class="o"&gt;==&lt;/span&gt; /sys/devices/pci0000:00/0000:00:01.0/0000:01:00.0 &lt;span class="o"&gt;==&lt;/span&gt;
-modalias : pci:v000010DEd00002191sv00001462sd00001274bc03sc00i00
-vendor   : NVIDIA Corporation
-driver   : nvidia-driver-435 - distro non-free
-driver   : nvidia-driver-440 - distro non-free recommended
-driver   : xserver-xorg-video-nouveau - distro free &lt;span class="nb"&gt;builtin&lt;/span&gt;
-
-&lt;span class="o"&gt;==&lt;/span&gt; /sys/devices/pci0000:00/0000:00:14.3 &lt;span class="o"&gt;==&lt;/span&gt;
-modalias : pci:v00008086d0000A370sv00008086sd00000034bc02sc80i00
-vendor   : Intel Corporation
-manual_install: True
-driver   : backport-iwlwifi-dkms - distro free&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Then install it:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;sudo &lt;/span&gt;apt &lt;span class="nb"&gt;install &lt;/span&gt;nvidia-440&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Another option is to pick the driver in the Additional Drivers tab of the &lt;code&gt;Softwares &amp;amp; Updates&lt;/code&gt; tool:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/2020-05-16-05-04.nvidia.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2020/2020-05-16-05-04.nvidia.png" alt="Nvidia proprietary driver option in Ubuntu's Additional Drivers menu."&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2020/2020-05-16-05-04.nvidia.png" alt="Nvidia proprietary driver option in Ubuntu's Additional Drivers menu."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;Nvidia proprietary driver option in Ubuntu's Additional Drivers menu.&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Nvidia’s proprietary driver lets you choose if you want to use the dedicated or integrated GPU, which you can try setting:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/nvidia-setting.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2020/nvidia-setting.png" alt="Nvidia proprietary driver's GPU selection menu."&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2020/nvidia-setting.png" alt="Nvidia proprietary driver's GPU selection menu."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;Nvidia proprietary driver's GPU selection menu.&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Now if you’re lucky this might be enough. Check the power usag using Ubuntu’s &lt;code&gt;Power Statistics&lt;/code&gt; tool or &lt;code&gt;powertop&lt;/code&gt;: if the Nvidia card is successfully turned off, then typical power usage is somewhere between 8-14W. If, like me, this changed nothing in your power usage, read on.&lt;/p&gt;
-
-&lt;h3 id="install-and-configure-bbswitch"&gt;2. Install and configure bbswitch&lt;/h3&gt;
-
-&lt;p&gt;Although Nvidia’s proprietary driver allows selecting between integrated and dedicated cards, in my experience that setting has had no effect at all, with both cards always being powered on anyway.&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;bbswitch&lt;/code&gt; is a tool that allows you to select which card you want your system to use. Ubuntu has the bbswitch-dkms package available:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;sudo &lt;/span&gt;apt &lt;span class="nb"&gt;install &lt;/span&gt;bbswitch-dkms&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Then configure it to always turn off the discrete card by creating the following file:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cat&lt;/span&gt; /etc/modprobe.d/bbswitch.conf
-options bbswitch &lt;span class="nv"&gt;load_state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 id="blacklist-nouveau-driver"&gt;3. Blacklist Nouveau driver&lt;/h3&gt;
-
-&lt;p&gt;According to &lt;a href="https://askubuntu.com/a/1044095/463850"&gt;this Stackoverflow answer&lt;/a&gt;, there seem to be at least a couple of bugs that result in Ubuntu trying to load the Nouveau module even if you’re using a proprietary Nvidia driver. When that happens, the discrete Nvidia GPU turns on and starts hogging a lot of power.&lt;/p&gt;
-
-&lt;p&gt;Blacklisting the Nouveau module solved this issue for me:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;sudo &lt;/span&gt;bash &lt;span class="nt"&gt;-c&lt;/span&gt; &lt;span class="s2"&gt;"echo blacklist nouveau &amp;gt; /etc/modprobe.d/blacklist-nvidia-nouveau.conf"&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;sudo &lt;/span&gt;bash &lt;span class="nt"&gt;-c&lt;/span&gt; &lt;span class="s2"&gt;"echo options nouveau modeset=0 &amp;gt;&amp;gt; /etc/modprobe.d/blacklist-nvidia-nouveau.conf"&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Restart and confirm that the right driver is loaded:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;gpu-manager | &lt;span class="nb"&gt;grep &lt;/span&gt;nouveau
-Is nouveau loaded? no
-Is nouveau blacklisted? &lt;span class="nb"&gt;yes&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 id="blacklist-some-nvidia-modules"&gt;4. Blacklist some Nvidia modules&lt;/h3&gt;
-
-&lt;p&gt;Even after the above, my system kept turning on the nvidia card seemingly at random. I found &lt;a href="https://github.com/Bumblebee-Project/Bumblebee/issues/951"&gt;this post&lt;/a&gt; in the Bumblebee issue tracker to be extremely helpful:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“bumblebee can turn the nvidia card off when it starts, but as soon as the nvidia module is loaded, it loads nvidia_drm, which links to drm_kms_helper and then bumblebee can’t remove the nvidia modules. This means that bumblebee can’t turn off the nvidia card when optirun terminates. To fix this, I added “alias nvidia_drm off” and “alias nvidia_modeset off” to my conf file in /etc/modprobe.d.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This is the file created by the OP:&lt;/p&gt;
-
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-bash"&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cat&lt;/span&gt; /etc/modprobe.d/nvidia.conf
-
-blacklist nvidia
-blacklist nvidia_drm
-blacklist nvidia_modeset
-&lt;span class="nb"&gt;alias &lt;/span&gt;nvidia_drm off
-&lt;span class="nb"&gt;alias &lt;/span&gt;nvidia_modeset off&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;After creating this file and restarting, my system was finally using only the Intel integrated card. Hopefully this time it’ll stay that way.&lt;/p&gt;
-
-&lt;h3 id="results"&gt;Results&lt;/h3&gt;
-
-&lt;p&gt;Here’s a chart of my laptop’s power rate:&lt;/p&gt;
-
-&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/blog/assets/images/2020/power.png" target="_blank"&gt;
-      &lt;img class="lazy " data-src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart."&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2020/power.png" alt="Ubuntu power consumption chart."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;Ubuntu's power rate over time.&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;Using the integrated Intel GPU, the rate fluctuates around 10W. When the Nvidia card kicks in, which is what was going on around the middle of the chart, it jumps to 40W+.&lt;/p&gt;
-
-&lt;h3 id="references"&gt;References&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=""&gt;https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=""&gt;https://github.com/Bumblebee-Project/bbswitch&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=""&gt;https://github.com/Bumblebee-Project/Bumblebee/issues/951&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=""&gt;https://turlucode.com/optimus-bbswitch-on-ubuntu-18-04/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>
