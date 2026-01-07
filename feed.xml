@@ -2,13 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://lbrito1.github.io/blog/">
   <id>https://lbrito1.github.io/blog/</id>
   <title>A Developer's Notebook</title>
-  <updated>2025-12-17T21:00:00Z</updated>
+  <updated>2026-01-06T20:45:00Z</updated>
   <link rel="alternate" href="https://lbrito1.github.io/blog/" type="text/html"/>
   <link rel="self" href="https://lbrito1.github.io/blog/feed.xml" type="application/atom+xml"/>
   <author>
     <name>Leonardo Brito</name>
     <uri>https://lbrito1.github.io</uri>
   </author>
+  <entry>
+    <id>tag:lbrito1.github.io,2026-01-06:/blog/2026/01/ai-joy-programming.html</id>
+    <title type="html">AI and the joy of programming</title>
+    <published>2026-01-06T20:45:00Z</published>
+    <updated>2026-01-06T20:45:00Z</updated>
+    <link rel="alternate" href="https://lbrito1.github.io/blog/2026/01/ai-joy-programming.html" type="text/html"/>
+    <content type="html">&lt;p&gt;The LLM hype and AI bubble seem unfazed by 2026. If anything, it seems to be getting stronger with no end in sight. One thing I don’t see discussed often, though, are the long-term effects of LLMs on the &lt;em&gt;joy of programming&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Lets assume that the current trend regarding LLM’s ever-increasing adoption holds for a long time, and we end up in a future where “programming” is assumed to be tantamount to operating the slot machine of future-Claude until it spits out the finished product your boss wants (or he’ll do it himself, doesn’t matter).&lt;/p&gt;
+
+&lt;p&gt;With that future in mind, I ask myself two questions: Will people still enjoy programming, and is that even programming in the first place?&lt;/p&gt;
+
+&lt;p&gt;I’d argue the answer is No for both.&lt;/p&gt;
+
+&lt;p&gt;I fear the endgame of LLM coding agents is to empower people who do not like coding, to the detriment of those who do. Even if you used to like coding, you will probably like it less over time because of AI.[1]&lt;/p&gt;
+
+&lt;p&gt;So we seem stuck in a kind of cycle: immensely powerful economic and political incentives push AI coding, which makes coding less enjoyable, empowering people who don’t like coding to become more visible in the software industry, driving higher adoption of AI coding, making coding less enjoyable again, and so on.&lt;/p&gt;
+
+&lt;p&gt;Its safe to say most people on the planet do not enjoy coding. That is obvious and not a problem. However, a small fraction of people &lt;em&gt;do enjoy&lt;/em&gt; coding. I’m not thinking of Leetcoders or the typical FAANG software developer. I’m thinking of the demoscene, 64k competitions and coding golf, as well as more mundane programming language dojos and web framework conferences. I’m thinking of people that &lt;em&gt;enjoy&lt;/em&gt; programming and are good at it - and are paid to use their talent.&lt;/p&gt;
+
+&lt;p&gt;In this AI-first future, I don’t see those people thriving as they did until now. Technical mastery and artistic brilliance seem to lose their luster in this hypothetical future of perfect answers. It becomes a kind of tree-falling-in-the-forest thing. If you rack your brain for weeks writing a ray tracer for your thermostat only to find out AI has already done it tenfold better, will it still have been fun, or will it be disheartening? Will it even make sense to have a code golf competition of all the winning entries are from AI bots? Will it be fun?&lt;/p&gt;
+
+&lt;p&gt;Some enthusiasts will surely always exist, of course. There are still people that ride horses for pleasure and for a living. But the industry won’t &lt;em&gt;need&lt;/em&gt; them like it does now. Those who dislike or are indifferent to programming will have taken over.&lt;/p&gt;
+
+&lt;p&gt;Of course, this problem is larger than just programming, with all kinds of professions, hobbies and human activities in general suffering in much the same way.&lt;/p&gt;
+
+&lt;p&gt;This is just one possible future. I hope it doesn’t come to pass, because I, for one, enjoy programming.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;[1] Reviewing code is much less enjoyable than writing code, and you don’t learn nearly as much. Letting AI agents loose and reviewing their changes is supremely boring.&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <id>tag:lbrito1.github.io,2025-12-17:/blog/2025/12/books.html</id>
     <title type="html">Some books I read in 2025</title>
@@ -62,32 +95,6 @@
 &lt;h3 id="polostan-neal-stephenson"&gt;Polostan (Neal Stephenson)&lt;/h3&gt;
 
 &lt;p&gt;Historical-ish drama set in early 20th century US and the Soviet Union. Not a bad book, but didn’t grip me as much as Stephenson’s other books. The story takes some implausible directions at times. The overall anti-Soviet tone of the book is expected and even mild for an American author, but is oversold at times. A more nuanced take would feel fresher and more original, especially in these times, but then again I believe Stephenson started this one many years ago.&lt;/p&gt;
-
-</content>
-  </entry>
-  <entry>
-    <id>tag:lbrito1.github.io,2025-04-09:/blog/2025/12/llm-crutch-thinking.html</id>
-    <title type="html">LLM Crutch thinking</title>
-    <published>2025-04-09T22:27:52Z</published>
-    <updated>2025-04-09T22:27:52Z</updated>
-    <link rel="alternate" href="https://lbrito1.github.io/blog/2025/12/llm-crutch-thinking.html" type="text/html"/>
-    <content type="html">&lt;div class="image-box stretch"&gt;
-  &lt;div&gt;
-    &lt;a href="/2025/12/llm-crutch-thinking.html"&gt;
-      &lt;img class="lazy" data-src="/blog/assets/images/2025/podlettr_cover.jpeg" alt="Podlettr: a letter from your podcasts."&gt;
-      &lt;noscript&gt;
-        &lt;img src="/blog/assets/images/2025/podlettr_cover.jpeg" alt="Alternative text to describe image."&gt;
-      &lt;/noscript&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-  
-    &lt;div class="image-caption"&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;p&gt;I use LLMs myself. Increasingly I’m noticing a pattern -&lt;/p&gt;
-
-&lt;!-- more --&gt;
 
 </content>
   </entry>
