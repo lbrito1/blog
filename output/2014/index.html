@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2014/">
@@ -42,19 +42,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -65,200 +65,6 @@
   <h1>Posted in 2014</h1>
 
   <div class="pure-g">
-  
-    <div class="post-index pure-u-1-1">
-      <h2><a href="03/trees-part-i.html">Trees - Part I</a></h2>
-      <aside class="">
-        Mar 31, 2014 · read time: 4 minutes
-      </aside>
-      
-
-      <article class="text">
-          <div class="image-box stretch">
-  <div>
-    <a href="../blog/assets/images/codedeposit/2014/03/tree1.jpg" target="_blank">
-      <img class="lazy " data-src="/blog/assets/images/codedeposit/2014/03/tree1.jpg" alt="">
-      <noscript>
-        <img src="../blog/assets/images/codedeposit/2014/03/tree1.jpg" alt="">
-      </noscript>
-    </a>
-  </div>
-  
-    <div class="image-caption">tre</div>
-  
-</div>
-
-<p>render(‘/image.*’, caption: ‘Bright green tree - Waikat’, src: ‘//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-<em>Waikato.jpg/512px-Bright_green_tree</em>-<em>Waikato.jpg)](http://commons.wikimedia.org/wiki/File%3ABright_green_tree</em>-_Waikato.jpg)</p>
-
-<p>We used trees to build the <a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D">heap data structure</a> before, but we didn’t bother with the theory behind trees, which are abstract and concrete data structures themselves. There’s a huge range of material to cover so I’ll split this in several posts.</p>
-
-<p>In this first post we’ll cover the basic theory and implement a binary search tree (BST), which provides <code>O(h)</code> time search, insert and delete operations (<code>h</code> is the tree height). First, the basics:</p>
-
-<p>Trees are graphs with a few extra properties and interpretations/conventions.
-* Trees have height (longest branch length) and depth (distance to root).
-* The uppermost level consists of at most one node (the tree root).
-* All nodes may have children.
-* There are no edges other than parent-child edges.</p>
-
-<p>Trees are classified according to some&nbsp;of those properties above and some others we’ll mention later. Most commonly, there is a constraint to the maximum number of children per node -e.g. the binary tree limits children to 2 per node.
-
-          </p><div class="pure-g post-footer">
-          <div class="pure-u-1-2">
-              <a class="read-more" href="03/trees-part-i.html">
-                
-                  Continue reading ›
-                
-              </a>
-          </div>
-        </div>
-        <div class="post-tags">
-          
-            <div class="tags">
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/abstract data structure">
-                abstract data structure <span class="tag-count">3</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/bst">
-                bst <span class="tag-count">2</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/data structure">
-                data structure <span class="tag-count">8</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/graph">
-                graph <span class="tag-count">3</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/tree">
-                tree <span class="tag-count">2</span>
-              </a>
-            
-            </div>
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="post-index pure-u-1-1">
-      <h2><a href="02/vector.html">Vector</a></h2>
-      <aside class="">
-        Feb 21, 2014 · read time: 3 minutes
-      </aside>
-      
-
-      <article class="text">
-          <p>Very simple Vector implementation with add, add_all, get and delete operations using arrays of void pointers.</p>
-
-<p>The downside to this as compared to simply using an array is that here we have an <em>array of pointers</em>, which means the data will most likely be scattered over the memory, not coalesced.</p>
-
-
-          <div class="pure-g post-footer">
-          <div class="pure-u-1-2">
-              <a class="read-more" href="02/vector.html">
-                
-                  Continue reading ›
-                
-              </a>
-          </div>
-        </div>
-        <div class="post-tags">
-          
-            <div class="tags">
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/data structure">
-                data structure <span class="tag-count">8</span>
-              </a>
-            
-            </div>
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="post-index pure-u-1-1">
-      <h2><a href="04/trees-part-ii-avl-tree.html">Trees, Part II: AVL Tree</a></h2>
-      <aside class="">
-        Apr 21, 2014 · read time: 9 minutes
-      </aside>
-      
-
-      <article class="text">
-          <p>Masters classes started a few weeks ago, taking their&nbsp;toll on my productivity here. Sorry about that!</p>
-
-<p>So we (pardon the&nbsp;<a href="http://en.wikipedia.org/wiki/Nosism">nosism</a>, but I think it sounds less egocentric&nbsp;than writing “I” all the time) hinted at AVL trees back on our <a href="%7B%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%%7D">Trees, Part I</a>&nbsp;post. Specifically, we learned that:</p>
-
-<blockquote>a binary search tree (BST), provides O(h) time search, insert and delete operations (h is the tree height.</blockquote>
-
-<p>Linear time (O(h)) doesn’t sound very good - if h is close to n, we’ll have the same performance as a <a href="%7B%%20link%20_posts/2014-02-14-3.markdown%20%%7D%7D">linked list</a>.&nbsp;What if there were a way to&nbsp;bound the tree height&nbsp;to some sub-linear factor? As it turns out, there are several ways to do so, and the general idea of somehow&nbsp;keeping the tree height limited to a certain factor of the number of elements it holds is called height&nbsp;<strong>balancing</strong>. Ergo we’ll want to look into (height)&nbsp;<strong>balanced/self-balancing binary search trees **(BBST)</strong>.&nbsp;**</p>
-
-<div class="highlight"><pre><code class="language-bash">                      Burger
-
-
-                          M
-                        <span class="nb">.</span>   <span class="nb">.</span>
-                      <span class="nb">.</span>       <span class="nb">.</span>
-                    <span class="nb">.</span>           <span class="nb">.</span>
-                  <span class="nb">.</span>               <span class="nb">.</span>
-                E <span class="nb">.</span>                 P <span class="nb">.</span>
-              <span class="nb">.</span>     <span class="nb">.</span>                   <span class="nb">.</span>
-            <span class="nb">.</span>         <span class="nb">.</span>                   <span class="nb">.</span>
-          <span class="nb">.</span>             <span class="nb">.</span>                   <span class="nb">.</span>
-      D <span class="nb">.</span>                 I                   Y
-                        <span class="nb">.</span>
-                      <span class="nb">.</span>
-                    <span class="nb">.</span>
-                  <span class="nb">.</span>
-                F</code></pre></div>
-
-<p><em>AVL tree</em></p>
-
-<p>Since binary search trees have at most two children, the best tree height (i.e. smallest) we can achieve is log2 n (n being the number of elements in the tree). There are <a href="http://en.wikipedia.org/wiki/Self-balancing_binary_search_tree">several </a>self-balancing BSTs developed over the years. It seems that up there in the US college professors&nbsp;tend to prefer the red-black tree when studying BBSTs, whilst over here AVL is preferred. In any case, AVL tree was&nbsp;the first BBST ever devised, so we’ll adopt it as our BBST model.</p>
-
-<p>AVL trees (named after its two Soviet inventors Adelson-Velsky and Landis) use a series of <strong>rotations</strong> to keep the tree balanced. To keep track of when a certain subtree rooted at some node needs to be rotated, we maintain (or calculate) a&nbsp;<strong>balance factor</strong> variable for each node, which is the difference between the node’s left and right children’s heights, i.e.:</p>
-
-<p>balance_factor(n) = n.left_child.height - n.right_child.height</p>
-
-
-          <div class="pure-g post-footer">
-          <div class="pure-u-1-2">
-              <a class="read-more" href="04/trees-part-ii-avl-tree.html">
-                
-                  Continue reading ›
-                
-              </a>
-          </div>
-        </div>
-        <div class="post-tags">
-          
-            <div class="tags">
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/avl">
-                avl <span class="tag-count">1</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/binary search tree">
-                binary search tree <span class="tag-count">1</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/bst">
-                bst <span class="tag-count">2</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/data structure">
-                data structure <span class="tag-count">8</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/tree">
-                tree <span class="tag-count">2</span>
-              </a>
-            
-            </div>
-          
-        </div>
-      </article>
-    </div>
   
     <div class="post-index pure-u-1-1">
       <h2><a href="02/linked-list.html">Linked List</a></h2>
@@ -315,39 +121,23 @@
     </div>
   
     <div class="post-index pure-u-1-1">
-      <h2><a href="03/heap-priority-queues.html">Heap &amp; Priority Queues</a></h2>
+      <h2><a href="02/mergesort.html">Mergesort</a></h2>
       <aside class="">
-        Mar 21, 2014 · read time: 6 minutes
+        Feb 21, 2014 · read time: 5 minutes
       </aside>
       
 
       <article class="text">
-          <p>Priority queues (PQs) are abstract data types that work just like regular stacks, but the popping order depends on each element’s priority instead of the sequence they were pushed onto the queue (FIFO or LIFO).</p>
+          <p>Mergesort is an important sorting algorithm when you don’t have efficient random memory access, since it doesn’t rely on that and has good time complexity - O(n logn) specifically.</p>
 
-<p>The naïve way of implementing a PQ consists of using an unsorted list or array and searching for the highest-priority element at each pop, which takes O(n) time. There are several more efficient implementations, of which the most usual is the heap.</p>
+<p>As a typical divide-and-conquer algorithm, Mergesort has two steps: first it recursively splits the lists in two until each half is unitary, then it recursively mends back the lists until it reaches the original size.</p>
 
-<p>Heaps are complete (i.e. all levels except possibly the last are filled) binary trees that work as PQs by maintaining the following property: children nodes always have a smaller priority than their parent, i.e. for any node A with children B and C, priority(B) &lt; priority(A) &amp;&amp; priority(C) &lt; priority(A). Note that there is no assumed relation between siblings or cousins.</p>
-
-<div class="image-box stretch">
-  <div>
-    <a href="../blog/assets/images/codedeposit/2014/03/heap.jpg" target="_blank">
-      <img class="lazy " data-src="/blog/assets/images/codedeposit/2014/03/heap.jpg" alt="">
-      <noscript>
-        <img src="../blog/assets/images/codedeposit/2014/03/heap.jpg" alt="">
-      </noscript>
-    </a>
-  </div>
-  
-    <div class="image-caption">max-heap and corresponding array.</div>
-  
-</div>
-
-<p>Each element of a heap has two pieces of information: a key and a value, hence we call them key-value (KV) pair. The key identifies the specific element, and the value determines the element’s priority within the heap. Heaps can be min-heaps (low value = high priority) or max-heaps (high value = high priority).</p>
+<p>But before we dive into the actual algorithm, we need to make some changes to the linked list algorithm we’ll be using.</p>
 
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="03/heap-priority-queues.html">
+              <a class="read-more" href="02/mergesort.html">
                 
                   Continue reading ›
                 
@@ -358,24 +148,44 @@
           
             <div class="tags">
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/abstract data structure">
-                abstract data structure <span class="tag-count">3</span>
+              <a class="pure-button button-xsmall tag-button" href="../tags/sorting algorithm">
+                sorting algorithm <span class="tag-count">1</span>
               </a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="02/vector.html">Vector</a></h2>
+      <aside class="">
+        Feb 21, 2014 · read time: 3 minutes
+      </aside>
+      
+
+      <article class="text">
+          <p>Very simple Vector implementation with add, add_all, get and delete operations using arrays of void pointers.</p>
+
+<p>The downside to this as compared to simply using an array is that here we have an <em>array of pointers</em>, which means the data will most likely be scattered over the memory, not coalesced.</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="02/vector.html">
+                
+                  Continue reading ›
+                
+              </a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
             
               <a class="pure-button button-xsmall tag-button" href="../tags/data structure">
                 data structure <span class="tag-count">8</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/heap">
-                heap <span class="tag-count">1</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/priority queue">
-                priority queue <span class="tag-count">1</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/queue">
-                queue <span class="tag-count">1</span>
               </a>
             
             </div>
@@ -428,154 +238,6 @@
             
               <a class="pure-button button-xsmall tag-button" href="../tags/graphics">
                 graphics <span class="tag-count">1</span>
-              </a>
-            
-            </div>
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="post-index pure-u-1-1">
-      <h2><a href="03/graph.html">Graph</a></h2>
-      <aside class="">
-        Mar 23, 2014 · read time: 5 minutes
-      </aside>
-      
-
-      <article class="text">
-          <p>Mathematically, a graph is a set of vertices and edges, thus a graph <code>G</code> is usually written as <code>G(V,E)</code>. Besides linking vertices in the graph, edges can also carry a specific value which may be interpreted as cost, weight, distance etc.</p>
-
-<div class="image-box stretch">
-  <div>
-    <a href="../blog/assets/images/codedeposit/2014/03/graph1.jpg" target="_blank">
-      <img class="lazy " data-src="/blog/assets/images/codedeposit/2014/03/graph1.jpg" alt="">
-      <noscript>
-        <img src="../blog/assets/images/codedeposit/2014/03/graph1.jpg" alt="">
-      </noscript>
-    </a>
-  </div>
-  
-    <div class="image-caption">graph viewed with BurgerGF</div>
-  
-</div>
-
-<p>In computer science, we’re interested in the (abstract) data structure used to implement the graph mathematical concept. Let’s first discuss the basic elements in a graph - vertices and edges:</p>
-
-<div class="highlight"><pre><code class="language-c"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">vertex</span>
-<span class="p">{</span>
- <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">id</span><span class="p">;</span>
- <span class="kt">int</span> <span class="n">status</span><span class="p">;</span>
- <span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
- <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">vertex</span><span class="p">;</span></code></pre></div>
-
-<p>Vertices should be able to hold any kind of data, so we’ll just throw in a void pointer for that. Other than that we have an id, status (marked or unmarked - more on that later) and 2D coordinates so we can draw the vertices somewhere.</p>
-
-<div class="highlight"><pre><code class="language-c"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">edge</span>
-<span class="p">{</span>
- <span class="n">vertex</span><span class="o">*</span> <span class="n">from</span><span class="p">,</span> <span class="o">*</span><span class="n">to</span><span class="p">;</span>
- <span class="kt">int</span> <span class="n">cost</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">edge</span><span class="p">;</span></code></pre></div>
-
-<p>Edges consist of just pointers to the vertices they link and an optional value used as weight, distance, cost etc. Strictly speaking we could use a void pointer for that value as well, as long as we also defined a comparison function. But let’s save the hassle and just use an integer instead - most algorithms will be fine with that.</p>
-
-
-          <div class="pure-g post-footer">
-          <div class="pure-u-1-2">
-              <a class="read-more" href="03/graph.html">
-                
-                  Continue reading ›
-                
-              </a>
-          </div>
-        </div>
-        <div class="post-tags">
-          
-            <div class="tags">
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/data structure">
-                data structure <span class="tag-count">8</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/graph">
-                graph <span class="tag-count">3</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/graph theory">
-                graph theory <span class="tag-count">1</span>
-              </a>
-            
-            </div>
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="post-index pure-u-1-1">
-      <h2><a href="04/shortest-path-part-i-dijkstras-algorithm.html">Shortest path, part I - Dijkstra's algorithm</a></h2>
-      <aside class="">
-        Apr 06, 2014 · read time: 5 minutes
-      </aside>
-      
-
-      <article class="text">
-          <p>Now that we have a way to represent <a href="%7B%%20link%20_posts/2014-03-23-graph.markdown%20%%7D">graphs</a>, we can discuss one of the most important problems in graph theory: the shortest path problem (SPP). More or less formally, we’ll define SPP as:</p>
-
-<p>Given a weighted&nbsp;graph G(V,E), find the sequence P = {v0, v1, v2, …, v(n-1)}, vi ∈ V, from vertex V0 to vertex V(n-1), such that&nbsp;the list of edges&nbsp;EP = {(v0,v1), (v1,v2), … (v(n-2), v(n-1))} exists and the summation of costs of all elements e&nbsp;∈ EP is the smallest possible.</p>
-
-<p>In other words, find the less expensive (ergo “shortest”)&nbsp;path between two vertices.</p>
-
-<p>The trivial solution is using <a href="%7B%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%%7D">BFS</a>&nbsp;starting at vertex A and stopping when it reaches vertex B. However, BFS doesn’t look at the edge costs: it calculates the path with&nbsp;least edges, not the path with least total cost.</p>
-
-<p>Although not necessarily the fastest, Dijkstra’s algorithm is probably the most popular way to solve the shortest path problem due to its simplicity and elegance. The algorithm relies heavily on <a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D">priority queues</a>, so make sure to take a look at that if you haven’t already.</p>
-
-<p><strong>Pseudocode</strong></p>
-
-<div class="highlight"><pre><code class="language-bash">dist[from] <span class="o">=</span> 0
-<span class="k">for </span>v : G
-      <span class="k">if </span>v <span class="o">!=</span> <span class="nb">source
-            </span>dist[v] <span class="o">=</span> infinity
-      prev[v] <span class="o">=</span> <span class="nt">-1</span>
-      PQ.add<span class="o">(</span>v, dist[v]<span class="o">)</span>
-<span class="k">while </span>PQ.hasNext<span class="o">()</span>
-      u <span class="o">=</span> PQ.pop<span class="o">()</span>
-      <span class="k">for </span>each neighbor v of u
-            alt <span class="o">=</span> dist[u] + length<span class="o">(</span>u, v<span class="o">)</span>
-            <span class="k">if </span>alt &lt; dist[v]
-                  dist[v] <span class="o">=</span> alt
-                  prev[v] <span class="o">=</span> u
-                  PQ.decrease_key<span class="o">(</span>v,alt<span class="o">)</span>
-<span class="k">return </span>prev</code></pre></div>
-
-
-          <div class="pure-g post-footer">
-          <div class="pure-u-1-2">
-              <a class="read-more" href="04/shortest-path-part-i-dijkstras-algorithm.html">
-                
-                  Continue reading ›
-                
-              </a>
-          </div>
-        </div>
-        <div class="post-tags">
-          
-            <div class="tags">
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/dijkstra">
-                dijkstra <span class="tag-count">1</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/graph">
-                graph <span class="tag-count">3</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/graph search">
-                graph search <span class="tag-count">1</span>
-              </a>
-            
-              <a class="pure-button button-xsmall tag-button" href="../tags/shortest path">
-                shortest path <span class="tag-count">1</span>
               </a>
             
             </div>
@@ -695,23 +357,39 @@
     </div>
   
     <div class="post-index pure-u-1-1">
-      <h2><a href="02/mergesort.html">Mergesort</a></h2>
+      <h2><a href="03/heap-priority-queues.html">Heap &amp; Priority Queues</a></h2>
       <aside class="">
-        Feb 21, 2014 · read time: 5 minutes
+        Mar 21, 2014 · read time: 6 minutes
       </aside>
       
 
       <article class="text">
-          <p>Mergesort is an important sorting algorithm when you don’t have efficient random memory access, since it doesn’t rely on that and has good time complexity - O(n logn) specifically.</p>
+          <p>Priority queues (PQs) are abstract data types that work just like regular stacks, but the popping order depends on each element’s priority instead of the sequence they were pushed onto the queue (FIFO or LIFO).</p>
 
-<p>As a typical divide-and-conquer algorithm, Mergesort has two steps: first it recursively splits the lists in two until each half is unitary, then it recursively mends back the lists until it reaches the original size.</p>
+<p>The naïve way of implementing a PQ consists of using an unsorted list or array and searching for the highest-priority element at each pop, which takes O(n) time. There are several more efficient implementations, of which the most usual is the heap.</p>
 
-<p>But before we dive into the actual algorithm, we need to make some changes to the linked list algorithm we’ll be using.</p>
+<p>Heaps are complete (i.e. all levels except possibly the last are filled) binary trees that work as PQs by maintaining the following property: children nodes always have a smaller priority than their parent, i.e. for any node A with children B and C, priority(B) &lt; priority(A) &amp;&amp; priority(C) &lt; priority(A). Note that there is no assumed relation between siblings or cousins.</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../blog/assets/images/codedeposit/2014/03/heap.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/codedeposit/2014/03/heap.jpg" alt="">
+      <noscript>
+        <img src="../blog/assets/images/codedeposit/2014/03/heap.jpg" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">max-heap and corresponding array.</div>
+  
+</div>
+
+<p>Each element of a heap has two pieces of information: a key and a value, hence we call them key-value (KV) pair. The key identifies the specific element, and the value determines the element’s priority within the heap. Heaps can be min-heaps (low value = high priority) or max-heaps (high value = high priority).</p>
 
 
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
-              <a class="read-more" href="02/mergesort.html">
+              <a class="read-more" href="03/heap-priority-queues.html">
                 
                   Continue reading ›
                 
@@ -722,8 +400,330 @@
           
             <div class="tags">
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/sorting algorithm">
-                sorting algorithm <span class="tag-count">1</span>
+              <a class="pure-button button-xsmall tag-button" href="../tags/abstract data structure">
+                abstract data structure <span class="tag-count">3</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/data structure">
+                data structure <span class="tag-count">8</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/heap">
+                heap <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/priority queue">
+                priority queue <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/queue">
+                queue <span class="tag-count">1</span>
+              </a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="03/graph.html">Graph</a></h2>
+      <aside class="">
+        Mar 23, 2014 · read time: 5 minutes
+      </aside>
+      
+
+      <article class="text">
+          <p>Mathematically, a graph is a set of vertices and edges, thus a graph <code>G</code> is usually written as <code>G(V,E)</code>. Besides linking vertices in the graph, edges can also carry a specific value which may be interpreted as cost, weight, distance etc.</p>
+
+<div class="image-box stretch">
+  <div>
+    <a href="../blog/assets/images/codedeposit/2014/03/graph1.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/codedeposit/2014/03/graph1.jpg" alt="">
+      <noscript>
+        <img src="../blog/assets/images/codedeposit/2014/03/graph1.jpg" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">graph viewed with BurgerGF</div>
+  
+</div>
+
+<p>In computer science, we’re interested in the (abstract) data structure used to implement the graph mathematical concept. Let’s first discuss the basic elements in a graph - vertices and edges:</p>
+
+<div class="highlight"><pre><code class="language-c"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">vertex</span>
+<span class="p">{</span>
+ <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">id</span><span class="p">;</span>
+ <span class="kt">int</span> <span class="n">status</span><span class="p">;</span>
+ <span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+ <span class="kt">void</span><span class="o">*</span> <span class="n">data</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">vertex</span><span class="p">;</span></code></pre></div>
+
+<p>Vertices should be able to hold any kind of data, so we’ll just throw in a void pointer for that. Other than that we have an id, status (marked or unmarked - more on that later) and 2D coordinates so we can draw the vertices somewhere.</p>
+
+<div class="highlight"><pre><code class="language-c"><span class="k">typedef</span> <span class="k">struct</span> <span class="n">edge</span>
+<span class="p">{</span>
+ <span class="n">vertex</span><span class="o">*</span> <span class="n">from</span><span class="p">,</span> <span class="o">*</span><span class="n">to</span><span class="p">;</span>
+ <span class="kt">int</span> <span class="n">cost</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">edge</span><span class="p">;</span></code></pre></div>
+
+<p>Edges consist of just pointers to the vertices they link and an optional value used as weight, distance, cost etc. Strictly speaking we could use a void pointer for that value as well, as long as we also defined a comparison function. But let’s save the hassle and just use an integer instead - most algorithms will be fine with that.</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="03/graph.html">
+                
+                  Continue reading ›
+                
+              </a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/data structure">
+                data structure <span class="tag-count">8</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/graph">
+                graph <span class="tag-count">3</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/graph theory">
+                graph theory <span class="tag-count">1</span>
+              </a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="03/trees-part-i.html">Trees - Part I</a></h2>
+      <aside class="">
+        Mar 31, 2014 · read time: 4 minutes
+      </aside>
+      
+
+      <article class="text">
+          <div class="image-box stretch">
+  <div>
+    <a href="../blog/assets/images/codedeposit/2014/03/tree1.jpg" target="_blank">
+      <img class="lazy " data-src="/blog/assets/images/codedeposit/2014/03/tree1.jpg" alt="">
+      <noscript>
+        <img src="../blog/assets/images/codedeposit/2014/03/tree1.jpg" alt="">
+      </noscript>
+    </a>
+  </div>
+  
+    <div class="image-caption">tre</div>
+  
+</div>
+
+<p>render(‘/image.*’, caption: ‘Bright green tree - Waikat’, src: ‘//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-<em>Waikato.jpg/512px-Bright_green_tree</em>-<em>Waikato.jpg)](http://commons.wikimedia.org/wiki/File%3ABright_green_tree</em>-_Waikato.jpg)</p>
+
+<p>We used trees to build the <a href="{%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%}">heap data structure</a> before, but we didn’t bother with the theory behind trees, which are abstract and concrete data structures themselves. There’s a huge range of material to cover so I’ll split this in several posts.</p>
+
+<p>In this first post we’ll cover the basic theory and implement a binary search tree (BST), which provides <code>O(h)</code> time search, insert and delete operations (<code>h</code> is the tree height). First, the basics:</p>
+
+<p>Trees are graphs with a few extra properties and interpretations/conventions.
+* Trees have height (longest branch length) and depth (distance to root).
+* The uppermost level consists of at most one node (the tree root).
+* All nodes may have children.
+* There are no edges other than parent-child edges.</p>
+
+<p>Trees are classified according to some&nbsp;of those properties above and some others we’ll mention later. Most commonly, there is a constraint to the maximum number of children per node -e.g. the binary tree limits children to 2 per node.
+
+          </p><div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="03/trees-part-i.html">
+                
+                  Continue reading ›
+                
+              </a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/abstract data structure">
+                abstract data structure <span class="tag-count">3</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/bst">
+                bst <span class="tag-count">2</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/data structure">
+                data structure <span class="tag-count">8</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/graph">
+                graph <span class="tag-count">3</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/tree">
+                tree <span class="tag-count">2</span>
+              </a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="04/shortest-path-part-i-dijkstras-algorithm.html">Shortest path, part I - Dijkstra's algorithm</a></h2>
+      <aside class="">
+        Apr 06, 2014 · read time: 5 minutes
+      </aside>
+      
+
+      <article class="text">
+          <p>Now that we have a way to represent <a href="{%%20link%20_posts/2014-03-23-graph.markdown%20%}">graphs</a>, we can discuss one of the most important problems in graph theory: the shortest path problem (SPP). More or less formally, we’ll define SPP as:</p>
+
+<p>Given a weighted&nbsp;graph G(V,E), find the sequence P = {v0, v1, v2, …, v(n-1)}, vi ∈ V, from vertex V0 to vertex V(n-1), such that&nbsp;the list of edges&nbsp;EP = {(v0,v1), (v1,v2), … (v(n-2), v(n-1))} exists and the summation of costs of all elements e&nbsp;∈ EP is the smallest possible.</p>
+
+<p>In other words, find the less expensive (ergo “shortest”)&nbsp;path between two vertices.</p>
+
+<p>The trivial solution is using <a href="{%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%}">BFS</a>&nbsp;starting at vertex A and stopping when it reaches vertex B. However, BFS doesn’t look at the edge costs: it calculates the path with&nbsp;least edges, not the path with least total cost.</p>
+
+<p>Although not necessarily the fastest, Dijkstra’s algorithm is probably the most popular way to solve the shortest path problem due to its simplicity and elegance. The algorithm relies heavily on <a href="{%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%}">priority queues</a>, so make sure to take a look at that if you haven’t already.</p>
+
+<p><strong>Pseudocode</strong></p>
+
+<div class="highlight"><pre><code class="language-bash">dist[from] <span class="o">=</span> 0
+<span class="k">for </span>v : G
+      <span class="k">if </span>v <span class="o">!=</span> <span class="nb">source
+            </span>dist[v] <span class="o">=</span> infinity
+      prev[v] <span class="o">=</span> <span class="nt">-1</span>
+      PQ.add<span class="o">(</span>v, dist[v]<span class="o">)</span>
+<span class="k">while </span>PQ.hasNext<span class="o">()</span>
+      u <span class="o">=</span> PQ.pop<span class="o">()</span>
+      <span class="k">for </span>each neighbor v of u
+            alt <span class="o">=</span> dist[u] + length<span class="o">(</span>u, v<span class="o">)</span>
+            <span class="k">if </span>alt &lt; dist[v]
+                  dist[v] <span class="o">=</span> alt
+                  prev[v] <span class="o">=</span> u
+                  PQ.decrease_key<span class="o">(</span>v,alt<span class="o">)</span>
+<span class="k">return </span>prev</code></pre></div>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="04/shortest-path-part-i-dijkstras-algorithm.html">
+                
+                  Continue reading ›
+                
+              </a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/dijkstra">
+                dijkstra <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/graph">
+                graph <span class="tag-count">3</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/graph search">
+                graph search <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/shortest path">
+                shortest path <span class="tag-count">1</span>
+              </a>
+            
+            </div>
+          
+        </div>
+      </article>
+    </div>
+  
+    <div class="post-index pure-u-1-1">
+      <h2><a href="04/trees-part-ii-avl-tree.html">Trees, Part II: AVL Tree</a></h2>
+      <aside class="">
+        Apr 21, 2014 · read time: 9 minutes
+      </aside>
+      
+
+      <article class="text">
+          <p>Masters classes started a few weeks ago, taking their&nbsp;toll on my productivity here. Sorry about that!</p>
+
+<p>So we (pardon the&nbsp;<a href="http://en.wikipedia.org/wiki/Nosism">nosism</a>, but I think it sounds less egocentric&nbsp;than writing “I” all the time) hinted at AVL trees back on our <a href="{%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%}">Trees, Part I</a>&nbsp;post. Specifically, we learned that:</p>
+
+<blockquote>a binary search tree (BST), provides O(h) time search, insert and delete operations (h is the tree height.</blockquote>
+
+<p>Linear time (O(h)) doesn’t sound very good - if h is close to n, we’ll have the same performance as a <a href="{%%20link%20_posts/2014-02-14-3.markdown%20%}}">linked list</a>.&nbsp;What if there were a way to&nbsp;bound the tree height&nbsp;to some sub-linear factor? As it turns out, there are several ways to do so, and the general idea of somehow&nbsp;keeping the tree height limited to a certain factor of the number of elements it holds is called height&nbsp;<strong>balancing</strong>. Ergo we’ll want to look into (height)&nbsp;<strong>balanced/self-balancing binary search trees **(BBST)</strong>.&nbsp;**</p>
+
+<div class="highlight"><pre><code class="language-bash">                      Burger
+
+
+                          M
+                        <span class="nb">.</span>   <span class="nb">.</span>
+                      <span class="nb">.</span>       <span class="nb">.</span>
+                    <span class="nb">.</span>           <span class="nb">.</span>
+                  <span class="nb">.</span>               <span class="nb">.</span>
+                E <span class="nb">.</span>                 P <span class="nb">.</span>
+              <span class="nb">.</span>     <span class="nb">.</span>                   <span class="nb">.</span>
+            <span class="nb">.</span>         <span class="nb">.</span>                   <span class="nb">.</span>
+          <span class="nb">.</span>             <span class="nb">.</span>                   <span class="nb">.</span>
+      D <span class="nb">.</span>                 I                   Y
+                        <span class="nb">.</span>
+                      <span class="nb">.</span>
+                    <span class="nb">.</span>
+                  <span class="nb">.</span>
+                F</code></pre></div>
+
+<p><em>AVL tree</em></p>
+
+<p>Since binary search trees have at most two children, the best tree height (i.e. smallest) we can achieve is log2 n (n being the number of elements in the tree). There are <a href="http://en.wikipedia.org/wiki/Self-balancing_binary_search_tree">several </a>self-balancing BSTs developed over the years. It seems that up there in the US college professors&nbsp;tend to prefer the red-black tree when studying BBSTs, whilst over here AVL is preferred. In any case, AVL tree was&nbsp;the first BBST ever devised, so we’ll adopt it as our BBST model.</p>
+
+<p>AVL trees (named after its two Soviet inventors Adelson-Velsky and Landis) use a series of <strong>rotations</strong> to keep the tree balanced. To keep track of when a certain subtree rooted at some node needs to be rotated, we maintain (or calculate) a&nbsp;<strong>balance factor</strong> variable for each node, which is the difference between the node’s left and right children’s heights, i.e.:</p>
+
+<p>balance_factor(n) = n.left_child.height - n.right_child.height</p>
+
+
+          <div class="pure-g post-footer">
+          <div class="pure-u-1-2">
+              <a class="read-more" href="04/trees-part-ii-avl-tree.html">
+                
+                  Continue reading ›
+                
+              </a>
+          </div>
+        </div>
+        <div class="post-tags">
+          
+            <div class="tags">
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/avl">
+                avl <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/binary search tree">
+                binary search tree <span class="tag-count">1</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/bst">
+                bst <span class="tag-count">2</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/data structure">
+                data structure <span class="tag-count">8</span>
+              </a>
+            
+              <a class="pure-button button-xsmall tag-button" href="../tags/tree">
+                tree <span class="tag-count">2</span>
               </a>
             
             </div>
@@ -746,11 +746,11 @@
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

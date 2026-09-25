@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/tags/graph search/">
@@ -42,19 +42,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -74,15 +74,15 @@
       
 
       <article class="text">
-          <p>Now that we have a way to represent <a href="%7B%%20link%20_posts/2014-03-23-graph.markdown%20%%7D">graphs</a>, we can discuss one of the most important problems in graph theory: the shortest path problem (SPP). More or less formally, we’ll define SPP as:</p>
+          <p>Now that we have a way to represent <a href="{%%20link%20_posts/2014-03-23-graph.markdown%20%}">graphs</a>, we can discuss one of the most important problems in graph theory: the shortest path problem (SPP). More or less formally, we’ll define SPP as:</p>
 
 <p>Given a weighted&nbsp;graph G(V,E), find the sequence P = {v0, v1, v2, …, v(n-1)}, vi ∈ V, from vertex V0 to vertex V(n-1), such that&nbsp;the list of edges&nbsp;EP = {(v0,v1), (v1,v2), … (v(n-2), v(n-1))} exists and the summation of costs of all elements e&nbsp;∈ EP is the smallest possible.</p>
 
 <p>In other words, find the less expensive (ergo “shortest”)&nbsp;path between two vertices.</p>
 
-<p>The trivial solution is using <a href="%7B%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%%7D">BFS</a>&nbsp;starting at vertex A and stopping when it reaches vertex B. However, BFS doesn’t look at the edge costs: it calculates the path with&nbsp;least edges, not the path with least total cost.</p>
+<p>The trivial solution is using <a href="{%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%}">BFS</a>&nbsp;starting at vertex A and stopping when it reaches vertex B. However, BFS doesn’t look at the edge costs: it calculates the path with&nbsp;least edges, not the path with least total cost.</p>
 
-<p>Although not necessarily the fastest, Dijkstra’s algorithm is probably the most popular way to solve the shortest path problem due to its simplicity and elegance. The algorithm relies heavily on <a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D">priority queues</a>, so make sure to take a look at that if you haven’t already.</p>
+<p>Although not necessarily the fastest, Dijkstra’s algorithm is probably the most popular way to solve the shortest path problem due to its simplicity and elegance. The algorithm relies heavily on <a href="{%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%}">priority queues</a>, so make sure to take a look at that if you haven’t already.</p>
 
 <p><strong>Pseudocode</strong></p>
 
@@ -132,11 +132,11 @@
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>
