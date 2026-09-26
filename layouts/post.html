@@ -1,22 +1,23 @@
 <% render '/default.*' do %>
-  <a class="u-url" href="<%= og_url(item) %>" style="display: none;"><%= og_url(item) %></a>
-  <div class='post-show'>
-    <h2><%= item[:title] %></h2>
+  <div class='post-show h-entry'>
+    <a class="u-url" href="<%= og_url(item) %>" style="display: none;"><%= og_url(item) %></a>
+    <h2 class="p-name"><%= item[:title] %></h2>
 
     <% if item[:tags] == ["book review"] %>
         <%= render('/book_review_meta.*', book: item) %>
     <% end %>
 
     <aside>
-      <time class="dt-published" datetime="<%= item[:created_at]&.strftime('%Y-%m-%d %H:%M:%S') %>">
+      <time class="dt-published" datetime="<%= published_iso8601(item) %>">
         Posted <%= item[:created_at]&.strftime('%b %d, %Y') %>
       </time>
+      by <%= author_h_card %>
     </aside>
     <aside>Tagged: <% item[:tags]&.each do |tag| %>
-      <a class="" href="/tags/<%= tag %>"><%= tag %></a>
+      <a class="p-category" href="/tags/<%= tag %>"><%= tag %></a>
       <% end %>
     </aside>
-    <article class="text h-entry e-content">
+    <article class="text e-content">
       <%= yield %>
     </article>
     <div class="post-footer">

@@ -80,3 +80,19 @@ end
 def published_posts
   posts.select { |x| x.attributes[:published].nil? || x.attributes[:published] }
 end
+
+AUTHOR_NAME = "Leonardo Brito"
+
+# ISO8601 with timezone, as microformats2 dt-published expects.
+# Date-only created_at values are treated as midnight UTC.
+def published_iso8601(post)
+  t = post[:created_at]
+  return unless t
+
+  t = Time.utc(t.year, t.month, t.day) if t.is_a?(Date)
+  t.iso8601
+end
+
+def author_h_card
+  %(<a rel="author" class="p-author h-card" href="#{base_url}/about.html">#{AUTHOR_NAME}</a>)
+end
