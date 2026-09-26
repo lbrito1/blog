@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2015/09/ruby-dsl-metaprogramming-part-i.html">
@@ -45,19 +45,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -65,12 +65,17 @@
 
       </div>
       
+  <a class="u-url" href="https://lbrito1.github.io/blog/2015/09/ruby-dsl-metaprogramming-part-i.html" style="display: none;">https://lbrito1.github.io/blog/2015/09/ruby-dsl-metaprogramming-part-i.html</a>
   <div class="post-show">
     <h2>Ruby DSL &amp; metaprogramming, part I</h2>
 
     
 
-    <aside>Posted Sep 11, 2015</aside>
+    <aside>
+      <time class="dt-published" datetime="2015-09-11 21:30:30">
+        Posted Sep 11, 2015
+      </time>
+    </aside>
     <aside>Tagged: 
       <a class="" href="../../tags/DSL">DSL</a>
       
@@ -79,7 +84,7 @@
       <a class="" href="../../tags/Ruby">Ruby</a>
       
     </aside>
-    <article class="text">
+    <article class="text h-entry e-content">
       <p>I’ve been working with Ruby for nearly a year now, which means I’m starting to feel the urge to tell people how awesome the language is. One of the most interesting aspects of Ruby to me is <a href="https://en.wikipedia.org/wiki/Metaprogramming">metaprogramming</a>, which it seems to have quite a vocation for.</p>
 
 <p>Since college I have a fondness for automata and formal languages theory. One of the topics I particularly like is text generation (if you haven’t already, check out the excellent <a href="http://pdos.csail.mit.edu/scigen/">SCIgen</a> and the <a href="http://dev.null.org/dadaengine/">Dada engine</a>), so I thought that building a Context-free grammar (CFG)-like text generator in Ruby would be a nice little exercise and an opportunity to use some of the language’s coolest features. Also I’ve implemented one of those using Java several years ago, and it was <em>a mess</em>, so I was curious as to how much of an improvement would Ruby offer.</p>
@@ -274,11 +279,11 @@ codex <span class="s1">'phrase'</span></code></pre></div>
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2019/11/speeding-up-backend-graph-theory.html">
@@ -48,19 +48,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -68,12 +68,17 @@
 
       </div>
       
+  <a class="u-url" href="https://lbrito1.github.io/blog/2019/11/speeding-up-backend-graph-theory.html" style="display: none;">https://lbrito1.github.io/blog/2019/11/speeding-up-backend-graph-theory.html</a>
   <div class="post-show">
     <h2>Speeding Up the Backend with Graph Theory</h2>
 
     
 
-    <aside>Posted Nov 06, 2019</aside>
+    <aside>
+      <time class="dt-published" datetime="2019-11-06 19:29:15">
+        Posted Nov 06, 2019
+      </time>
+    </aside>
     <aside>Tagged: 
       <a class="" href="../../tags/Web development">Web development</a>
       
@@ -84,7 +89,7 @@
       <a class="" href="../../tags/Ruby">Ruby</a>
       
     </aside>
-    <article class="text">
+    <article class="text h-entry e-content">
       
 <div class="image-box stretch">
   <div>
@@ -151,7 +156,7 @@
 2. Modify the object;
 3. Encode the Ruby object back to Protobuf.</p>
 
-<p>In essence, the endpoint receives Protobuf-encoded strings, does some work on them, and returns a processed version of the Protobuf-encoded string to the client. If you don’t know what Protobuf is, that’s okay; I didn’t either. You can think of it as something similar to JSON: A serialized tree structure encoded using a binary format rather than text.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup></p>
+<p>In essence, the endpoint receives Protobuf-encoded strings, does some work on them, and returns a processed version of the Protobuf-encoded string to the client. If you don’t know what Protobuf is, that’s okay; I didn’t either. You can think of it as something similar to JSON: A serialized tree structure encoded using a binary format rather than text.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
 
 <p>Once we pinpointed that the endpoint slowness was due to Protobuf parsing, the next step was to try and find bottlenecks in the algorithm. The proper way to do this (which is not to just to read the code thoroughly) is by using a profiler.</p>
 
@@ -348,7 +353,7 @@
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1" role="doc-endnote">
+    <li id="fn:1">
       <p>Protobuf, or <a href="https://en.wikipedia.org/wiki/Protocol_Buffers">Protocol buffers</a>, is a binary serialization method developed by Google.&nbsp;<a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
     </li>
   </ol>
@@ -371,11 +376,11 @@
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

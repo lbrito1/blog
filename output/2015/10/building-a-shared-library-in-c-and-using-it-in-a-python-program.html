@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2015/10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html">
@@ -48,19 +48,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -68,12 +68,17 @@
 
       </div>
       
+  <a class="u-url" href="https://lbrito1.github.io/blog/2015/10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html" style="display: none;">https://lbrito1.github.io/blog/2015/10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html</a>
   <div class="post-show">
     <h2>Building a shared library in C and using it in a Python program</h2>
 
     
 
-    <aside>Posted Oct 28, 2015</aside>
+    <aside>
+      <time class="dt-published" datetime="2015-10-28 22:01:29">
+        Posted Oct 28, 2015
+      </time>
+    </aside>
     <aside>Tagged: 
       <a class="" href="../../tags/c">c</a>
       
@@ -86,7 +91,7 @@
       <a class="" href="../../tags/shared library">shared library</a>
       
     </aside>
-    <article class="text">
+    <article class="text h-entry e-content">
       <div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" target="_blank">
@@ -120,111 +125,111 @@
 <div class="highlight"><pre><code class="language-make"><span class="nv">CFLAGS</span><span class="o">=</span><span class="nt">-fPIC</span> <span class="nt">-DPYLIB</span>
 <span class="nv">LDFLAGS</span><span class="o">=</span><span class="nt">-shared</span> <span class="nt">-Wl</span>,-soname,data_structures
 <span class="nv">PYDEP</span><span class="o">=</span><span class="nt">-I</span>/usr/include/python2.7 <span class="nt">-lpython2</span>.7
-<span class="nv">SRCS</span><span class="o">:=</span><span class="nf">$(</span><span class="nb">wildcard</span> src/<span class="k">*</span>.c<span class="nf">)</span>
+<span class="nv">SRCS</span><span class="o">:=</span><span class="p">$(</span>wildcard src/<span class="k">*</span>.c<span class="p">)</span>
 
 <span class="nl">../shared/data_structures.so</span><span class="o">:</span>
-	gcc <span class="nv">$(SRCS)</span> <span class="nv">$(LDFLAGS)</span> <span class="nv">$(PYDEP)</span> <span class="nv">$(CFLAGS)</span> <span class="nv">$&lt;</span> <span class="nt">-o</span> <span class="nv">$@</span></code></pre></div>
+	gcc <span class="p">$(</span>SRCS<span class="p">)</span> <span class="p">$(</span>LDFLAGS<span class="p">)</span> <span class="p">$(</span>PYDEP<span class="p">)</span> <span class="p">$(</span>CFLAGS<span class="p">)</span> <span class="nv">$&lt;</span> <span class="nt">-o</span> <span class="nv">$@</span></code></pre></div>
 
 <p><strong>-fPIC</strong> stands for position independent code. In short, compiled code will use a global offset table to reference addresses, which allows multiple processes to share the same code. See [2] and [3] for some nice discussions and explanations about PIC and why it is needed in this context. <strong>-Wl</strong> says that the next option should be passed as an argument to the linker. The option in this case is <strong>-soname,data_structures</strong>, which defines the shared object’s name (hence <em>soname</em>) as the string “data_structures”.</p>
 
 <p>Now let’s define the Python interface. Let’s start by <strong>init</strong>.py, where we’ll load the shared libraries:</p>
 
-<div class="highlight"><pre><code class="language-python"><span class="kn">import</span> <span class="nn">ctypes</span> <span class="k">as</span> <span class="n">ct</span>
-<span class="kn">from</span> <span class="nn">pdb</span> <span class="kn">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">bp</span>
-<span class="n">libutil</span> <span class="o">=</span> <span class="n">ct</span><span class="p">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">'shared/utils.so'</span><span class="p">)</span>
-<span class="n">libdata</span> <span class="o">=</span> <span class="n">ct</span><span class="p">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">'shared/data_structures.so'</span><span class="p">)</span>
-<span class="n">libsort</span> <span class="o">=</span> <span class="n">ct</span><span class="p">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">'shared/sorting.so'</span><span class="p">)</span>
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">'ct'</span><span class="p">,</span> <span class="s">'bp'</span><span class="p">,</span> <span class="s">'libutil'</span><span class="p">,</span> <span class="s">'libdata'</span><span class="p">,</span> <span class="s">'libsort'</span><span class="p">]</span></code></pre></div>
+<div class="highlight"><pre><code class="language-python"><span class="kn">import</span> <span class="n">ctypes</span> <span class="k">as</span> <span class="n">ct</span>
+<span class="kn">from</span> <span class="n">pdb</span> <span class="kn">import</span> <span class="n">set_trace</span> <span class="k">as</span> <span class="n">bp</span>
+<span class="n">libutil</span> <span class="o">=</span> <span class="n">ct</span><span class="p">.</span><span class="nc">CDLL</span><span class="p">(</span><span class="sh">'</span><span class="s">shared/utils.so</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">libdata</span> <span class="o">=</span> <span class="n">ct</span><span class="p">.</span><span class="nc">CDLL</span><span class="p">(</span><span class="sh">'</span><span class="s">shared/data_structures.so</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">libsort</span> <span class="o">=</span> <span class="n">ct</span><span class="p">.</span><span class="nc">CDLL</span><span class="p">(</span><span class="sh">'</span><span class="s">shared/sorting.so</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="sh">'</span><span class="s">ct</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">bp</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">libutil</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">libdata</span><span class="sh">'</span><span class="p">,</span> <span class="sh">'</span><span class="s">libsort</span><span class="sh">'</span><span class="p">]</span></code></pre></div>
 
 <p><a href="https://docs.python.org/2/library/ctypes.html">ctypes</a> is the native way of loading shared libraries in Python. As the official doc states: “ctypes is a foreign function library for Python. It provides C compatible data types, and allows calling functions in DLLs or shared libraries. It can be used to wrap these libraries in pure Python.”</p>
 
 <p>All functions present in the <strong>data_structures</strong> library will be available in the Python object <strong>libdata</strong>. Now here’s the linked list wrapper:</p>
 
-<div class="highlight"><pre><code class="language-python"><span class="kn">from</span> <span class="nn">cdepo</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight"><pre><code class="language-python"><span class="kn">from</span> <span class="n">cdepo</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="k">def</span> <span class="nf">intref</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-	<span class="k">return</span> <span class="n">ct</span><span class="p">.</span><span class="n">byref</span><span class="p">(</span><span class="n">ct</span><span class="p">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">ct</span><span class="p">.</span><span class="nf">byref</span><span class="p">(</span><span class="n">ct</span><span class="p">.</span><span class="nf">c_int</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
 <span class="k">class</span> <span class="nc">LinkedList</span><span class="p">():</span>
-	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="bp">self</span><span class="p">.</span><span class="n">ll</span> <span class="o">=</span> <span class="n">libdata</span><span class="p">.</span><span class="n">new_list</span><span class="p">(</span><span class="n">libutil</span><span class="p">.</span><span class="n">compare_integer</span><span class="p">,</span> <span class="n">ct</span><span class="p">.</span><span class="n">sizeof</span><span class="p">(</span><span class="n">ct</span><span class="p">.</span><span class="n">c_int</span><span class="p">))</span>
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+		<span class="n">self</span><span class="p">.</span><span class="n">ll</span> <span class="o">=</span> <span class="n">libdata</span><span class="p">.</span><span class="nf">new_list</span><span class="p">(</span><span class="n">libutil</span><span class="p">.</span><span class="n">compare_integer</span><span class="p">,</span> <span class="n">ct</span><span class="p">.</span><span class="nf">sizeof</span><span class="p">(</span><span class="n">ct</span><span class="p">.</span><span class="n">c_int</span><span class="p">))</span>
 
-	<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-		<span class="n">libdata</span><span class="p">.</span><span class="n">add_ll</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">ll</span><span class="p">,</span> <span class="n">intref</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+	<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+		<span class="n">libdata</span><span class="p">.</span><span class="nf">add_ll</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">ll</span><span class="p">,</span> <span class="nf">intref</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
-	<span class="k">def</span> <span class="nf">add_many</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
-		<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span> <span class="bp">self</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+	<span class="k">def</span> <span class="nf">add_many</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+		<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span> <span class="n">self</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 
-	<span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-		<span class="k">return</span> <span class="n">libdata</span><span class="p">.</span><span class="n">search_ll</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">ll</span><span class="p">,</span> <span class="n">intref</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+	<span class="k">def</span> <span class="nf">contains</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+		<span class="k">return</span> <span class="n">libdata</span><span class="p">.</span><span class="nf">search_ll</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">ll</span><span class="p">,</span> <span class="nf">intref</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
-	<span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-		<span class="n">libdata</span><span class="p">.</span><span class="n">delete_ll</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">ll</span><span class="p">,</span> <span class="n">intref</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+	<span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+		<span class="n">libdata</span><span class="p">.</span><span class="nf">delete_ll</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">ll</span><span class="p">,</span> <span class="nf">intref</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
 
-	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="n">libdata</span><span class="p">.</span><span class="n">print_ll</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">ll</span><span class="p">)</span>
-		<span class="k">return</span> <span class="s">""</span>
+	<span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+		<span class="n">libdata</span><span class="p">.</span><span class="nf">print_ll</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">ll</span><span class="p">)</span>
+		<span class="k">return</span> <span class="sh">""</span>
 
-	<span class="k">def</span> <span class="nf">free</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-		<span class="n">libdata</span><span class="p">.</span><span class="n">delete_linked_list</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">ll</span><span class="p">)</span></code></pre></div>
+	<span class="k">def</span> <span class="nf">free</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
+		<span class="n">libdata</span><span class="p">.</span><span class="nf">delete_linked_list</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">ll</span><span class="p">)</span></code></pre></div>
 
 <p>And here’s a simple test that shows how we can use the Python class which uses our C functions underneath:</p>
 
-<div class="highlight"><pre><code class="language-python"><span class="kn">from</span> <span class="nn">cdepo.data_structures.linked_list</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight"><pre><code class="language-python"><span class="kn">from</span> <span class="n">cdepo.data_structures.linked_list</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="k">print</span> <span class="s">"Creating list"</span>
-<span class="n">clist</span> <span class="o">=</span> <span class="n">LinkedList</span><span class="p">()</span>
-<span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
+<span class="k">print</span> <span class="sh">"</span><span class="s">Creating list</span><span class="sh">"</span>
+<span class="n">clist</span> <span class="o">=</span> <span class="nc">LinkedList</span><span class="p">()</span>
+<span class="k">print</span> <span class="nf">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="s">"Adding 3 and 5"</span>
-<span class="n">clist</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">clist</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
+<span class="k">print</span> <span class="sh">"</span><span class="s">Adding 3 and 5</span><span class="sh">"</span>
+<span class="n">clist</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">clist</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span> <span class="nf">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="s">"Adding 10, 20 and 30"</span>
-<span class="n">clist</span><span class="p">.</span><span class="n">add_many</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">])</span>
-<span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
+<span class="k">print</span> <span class="sh">"</span><span class="s">Adding 10, 20 and 30</span><span class="sh">"</span>
+<span class="n">clist</span><span class="p">.</span><span class="nf">add_many</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">])</span>
+<span class="k">print</span> <span class="nf">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="s">"Deleting 5"</span>
-<span class="n">clist</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
+<span class="k">print</span> <span class="sh">"</span><span class="s">Deleting 5</span><span class="sh">"</span>
+<span class="n">clist</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span> <span class="nf">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="s">"Deleting 3 (list head)"</span>
-<span class="n">clist</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
+<span class="k">print</span> <span class="sh">"</span><span class="s">Deleting 3 (list head)</span><span class="sh">"</span>
+<span class="n">clist</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span> <span class="nf">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="s">"Deleting 30 (list tail)"</span>
-<span class="n">clist</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-<span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
+<span class="k">print</span> <span class="sh">"</span><span class="s">Deleting 30 (list tail)</span><span class="sh">"</span>
+<span class="n">clist</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">print</span> <span class="nf">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span>
 
-<span class="k">print</span> <span class="s">"Deleting the remaining elements (list should be empty)"</span>
-<span class="n">clist</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">clist</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span></code></pre></div>
+<span class="k">print</span> <span class="sh">"</span><span class="s">Deleting the remaining elements (list should be empty)</span><span class="sh">"</span>
+<span class="n">clist</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">clist</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">print</span> <span class="nf">str</span><span class="p">(</span><span class="n">clist</span><span class="p">)</span></code></pre></div>
 
 <p><a href="https://gist.github.com/lbrito1/a1d0a1e60c126792d598">Here’s</a> the output.</p>
 
-<p>In our little example we only used the same functionalities we already had in C. However, one of the great advantages of accessing a library with another language is using tools that are specific to that language. As an example, let’s use Matplotlib to render some images that improve our <a href="%7B%%20link%20_posts/2014-04-06-shortest-path-part-i-dijkstras-algorithm.markdown%20%%7D">pathfinding</a> visualization. We built Python wrappers for the necessary functions (Graph-related and Dijkstra’s algorithm) in the same fashion as we did with Linked List. Here’s the resulting script:</p>
+<p>In our little example we only used the same functionalities we already had in C. However, one of the great advantages of accessing a library with another language is using tools that are specific to that language. As an example, let’s use Matplotlib to render some images that improve our <a href="{%%20link%20_posts/2014-04-06-shortest-path-part-i-dijkstras-algorithm.markdown%20%}">pathfinding</a> visualization. We built Python wrappers for the necessary functions (Graph-related and Dijkstra’s algorithm) in the same fashion as we did with Linked List. Here’s the resulting script:</p>
 
-<div class="highlight"><pre><code class="language-python"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">cdepo.data_structures.graph</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight"><pre><code class="language-python"><span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="n">cdepo.data_structures.graph</span> <span class="kn">import</span> <span class="o">*</span>
 
 <span class="n">dim</span> <span class="o">=</span> <span class="mi">32</span>
 
-<span class="n">g</span> <span class="o">=</span> <span class="n">matrix_graph</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
-<span class="n">put_rect</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">put_rect</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
-<span class="n">put_rect</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="nf">matrix_graph</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span>
+<span class="nf">put_rect</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="nf">put_rect</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">13</span><span class="p">)</span>
+<span class="nf">put_rect</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">32</span><span class="p">)</span>
 
 <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">finish</span> <span class="o">=</span> <span class="p">(</span><span class="n">dim</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span>
-<span class="n">dists</span> <span class="o">=</span> <span class="n">g</span><span class="p">.</span><span class="n">pathfind</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">finish</span><span class="p">)</span>
+<span class="n">dists</span> <span class="o">=</span> <span class="n">g</span><span class="p">.</span><span class="nf">pathfind</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">finish</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="p">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">bgfx_mat</span><span class="p">(),</span> <span class="n">interpolation</span><span class="o">=</span><span class="s">'nearest'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s">'Oranges'</span><span class="p">)</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">imshow</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="nf">bgfx_mat</span><span class="p">(),</span> <span class="n">interpolation</span><span class="o">=</span><span class="sh">'</span><span class="s">nearest</span><span class="sh">'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="sh">'</span><span class="s">Oranges</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
 
-<span class="n">plt</span><span class="p">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">dist_mat</span><span class="p">(</span><span class="n">dists</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="s">'nearest'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s">'gist_rainbow'</span><span class="p">)</span>
-<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span></code></pre></div>
+<span class="n">plt</span><span class="p">.</span><span class="nf">imshow</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="nf">dist_mat</span><span class="p">(</span><span class="n">dists</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="sh">'</span><span class="s">nearest</span><span class="sh">'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="sh">'</span><span class="s">gist_rainbow</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre></div>
 
 <p>:————————-:|:————————-:</p>
 <div class="image-box stretch">
@@ -243,7 +248,7 @@
 
 <p>Figure 2</p>
 
-<p>Figure 2’s left picture shows the shortest path (using Dijkstra’s algorithm) between the two highlighted vertices. The brown rectangles represent “walls”, i.e. high-cost vertices. Right picture shows the distances to the starting node of each vertex. Obviously a great improvement over <a href="%7B%%20link%20_posts/2014-03-18-burgergfx-simple-2d-graphics.markdown%20%%7D">simple text-based output</a> which we use within C (the picture at the beginning of this post illustrates the difference).</p>
+<p>Figure 2’s left picture shows the shortest path (using Dijkstra’s algorithm) between the two highlighted vertices. The brown rectangles represent “walls”, i.e. high-cost vertices. Right picture shows the distances to the starting node of each vertex. Obviously a great improvement over <a href="{%%20link%20_posts/2014-03-18-burgergfx-simple-2d-graphics.markdown%20%}">simple text-based output</a> which we use within C (the picture at the beginning of this post illustrates the difference).</p>
 
 <p>Bottom line, compiling your stuff into shared libraries is a great way of reusing code and breathing a whole new life into it.</p>
 
@@ -276,11 +281,11 @@
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

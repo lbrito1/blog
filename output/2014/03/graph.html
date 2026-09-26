@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2014/03/graph.html">
@@ -48,19 +48,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -68,12 +68,17 @@
 
       </div>
       
+  <a class="u-url" href="https://lbrito1.github.io/blog/2014/03/graph.html" style="display: none;">https://lbrito1.github.io/blog/2014/03/graph.html</a>
   <div class="post-show">
     <h2>Graph</h2>
 
     
 
-    <aside>Posted Mar 23, 2014</aside>
+    <aside>
+      <time class="dt-published" datetime="2014-03-23 02:03:14">
+        Posted Mar 23, 2014
+      </time>
+    </aside>
     <aside>Tagged: 
       <a class="" href="../../tags/data structure">data structure</a>
       
@@ -82,7 +87,7 @@
       <a class="" href="../../tags/graph theory">graph theory</a>
       
     </aside>
-    <article class="text">
+    <article class="text h-entry e-content">
       <p>Mathematically, a graph is a set of vertices and edges, thus a graph <code>G</code> is usually written as <code>G(V,E)</code>. Besides linking vertices in the graph, edges can also carry a specific value which may be interpreted as cost, weight, distance etc.</p>
 
 <div class="image-box stretch">
@@ -167,8 +172,8 @@ This software is free software; you can redistribute it and/or modify
 
 <span class="cp">#define DIRECTED 0
 #define UNDIRECTED 1
-#include "graph_ve.c"
-#include "../data_structures/linked_list.c"
+#include</span> <span class="cpf">"graph_ve.c"</span><span class="cp">
+#include</span> <span class="cpf">"../data_structures/linked_list.c"</span><span class="cp">
 </span>
 <span class="k">typedef</span> <span class="k">struct</span> <span class="n">graph</span>
 <span class="p">{</span>
@@ -352,11 +357,11 @@ This software is free software; you can redistribute it and/or modify
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

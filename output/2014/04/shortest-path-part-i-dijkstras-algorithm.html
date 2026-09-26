@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2014/04/shortest-path-part-i-dijkstras-algorithm.html">
@@ -48,19 +48,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -68,12 +68,17 @@
 
       </div>
       
+  <a class="u-url" href="https://lbrito1.github.io/blog/2014/04/shortest-path-part-i-dijkstras-algorithm.html" style="display: none;">https://lbrito1.github.io/blog/2014/04/shortest-path-part-i-dijkstras-algorithm.html</a>
   <div class="post-show">
     <h2>Shortest path, part I - Dijkstra's algorithm</h2>
 
     
 
-    <aside>Posted Apr 06, 2014</aside>
+    <aside>
+      <time class="dt-published" datetime="2014-04-06 23:21:02">
+        Posted Apr 06, 2014
+      </time>
+    </aside>
     <aside>Tagged: 
       <a class="" href="../../tags/dijkstra">dijkstra</a>
       
@@ -84,16 +89,16 @@
       <a class="" href="../../tags/shortest path">shortest path</a>
       
     </aside>
-    <article class="text">
-      <p>Now that we have a way to represent <a href="%7B%%20link%20_posts/2014-03-23-graph.markdown%20%%7D">graphs</a>, we can discuss one of the most important problems in graph theory: the shortest path problem (SPP). More or less formally, we’ll define SPP as:</p>
+    <article class="text h-entry e-content">
+      <p>Now that we have a way to represent <a href="{%%20link%20_posts/2014-03-23-graph.markdown%20%}">graphs</a>, we can discuss one of the most important problems in graph theory: the shortest path problem (SPP). More or less formally, we’ll define SPP as:</p>
 
 <p>Given a weighted&nbsp;graph G(V,E), find the sequence P = {v0, v1, v2, …, v(n-1)}, vi ∈ V, from vertex V0 to vertex V(n-1), such that&nbsp;the list of edges&nbsp;EP = {(v0,v1), (v1,v2), … (v(n-2), v(n-1))} exists and the summation of costs of all elements e&nbsp;∈ EP is the smallest possible.</p>
 
 <p>In other words, find the less expensive (ergo “shortest”)&nbsp;path between two vertices.</p>
 
-<p>The trivial solution is using <a href="%7B%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%%7D">BFS</a>&nbsp;starting at vertex A and stopping when it reaches vertex B. However, BFS doesn’t look at the edge costs: it calculates the path with&nbsp;least edges, not the path with least total cost.</p>
+<p>The trivial solution is using <a href="{%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%}">BFS</a>&nbsp;starting at vertex A and stopping when it reaches vertex B. However, BFS doesn’t look at the edge costs: it calculates the path with&nbsp;least edges, not the path with least total cost.</p>
 
-<p>Although not necessarily the fastest, Dijkstra’s algorithm is probably the most popular way to solve the shortest path problem due to its simplicity and elegance. The algorithm relies heavily on <a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D">priority queues</a>, so make sure to take a look at that if you haven’t already.</p>
+<p>Although not necessarily the fastest, Dijkstra’s algorithm is probably the most popular way to solve the shortest path problem due to its simplicity and elegance. The algorithm relies heavily on <a href="{%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%}">priority queues</a>, so make sure to take a look at that if you haven’t already.</p>
 
 <p><strong>Pseudocode</strong></p>
 
@@ -212,11 +217,11 @@ vert[5] 4</code></pre></div>
 
 <p>i.e. the shortest path from 0 to 5 is: 0, 1, 4, 5. Path cost can be found at dist[vert5]. Verify that that’s the shortest path: cost(0,1) = 2 (whilst cost(0,2) = 3), cost(1,4) = 1 and cost(4,5) = 1.</p>
 
-<p>Below, the full code. We used our previously implemented <a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D">priority queues</a> working as the PQ, and made the stop-at-target modification mentioned above. As always, updated source code and companion test code can be found @ github.</p>
+<p>Below, the full code. We used our previously implemented <a href="{%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%}">priority queues</a> working as the PQ, and made the stop-at-target modification mentioned above. As always, updated source code and companion test code can be found @ github.</p>
 
 <div class="highlight"><pre><code class="language-c"><span class="cp">#include 
-#include "../tests/graph_test.c"
-#include "../data_structures/heap.c"
+#include</span> <span class="cpf">"../tests/graph_test.c"</span><span class="cp">
+#include</span> <span class="cpf">"../data_structures/heap.c"</span><span class="cp">
 </span>
 <span class="kt">int</span><span class="o">*</span> <span class="nf">dijkstra</span><span class="p">(</span><span class="n">graph</span><span class="o">*</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">from</span><span class="p">,</span> <span class="kt">int</span> <span class="n">to</span><span class="p">)</span>
 <span class="p">{</span>
@@ -302,11 +307,11 @@ vert[5] 4</code></pre></div>
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

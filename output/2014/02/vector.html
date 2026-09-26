@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2014/02/vector.html">
@@ -45,19 +45,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -65,17 +65,22 @@
 
       </div>
       
+  <a class="u-url" href="https://lbrito1.github.io/blog/2014/02/vector.html" style="display: none;">https://lbrito1.github.io/blog/2014/02/vector.html</a>
   <div class="post-show">
     <h2>Vector</h2>
 
     
 
-    <aside>Posted Feb 21, 2014</aside>
+    <aside>
+      <time class="dt-published" datetime="2014-02-21 23:41:02">
+        Posted Feb 21, 2014
+      </time>
+    </aside>
     <aside>Tagged: 
       <a class="" href="../../tags/data structure">data structure</a>
       
     </aside>
-    <article class="text">
+    <article class="text h-entry e-content">
       <p>Very simple Vector implementation with add, add_all, get and delete operations using arrays of void pointers.</p>
 
 <p>The downside to this as compared to simply using an array is that here we have an <em>array of pointers</em>, which means the data will most likely be scattered over the memory, not coalesced.</p>
@@ -104,7 +109,7 @@
 
 <span class="cp">#include 
 #include 
-#include "comparators.c"
+#include</span> <span class="cpf">"comparators.c"</span><span class="cp">
 </span>
 <span class="k">typedef</span> <span class="k">struct</span>
 <span class="p">{</span>
@@ -257,11 +262,11 @@
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

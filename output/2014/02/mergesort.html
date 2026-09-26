@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2014/02/mergesort.html">
@@ -45,19 +45,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -65,17 +65,22 @@
 
       </div>
       
+  <a class="u-url" href="https://lbrito1.github.io/blog/2014/02/mergesort.html" style="display: none;">https://lbrito1.github.io/blog/2014/02/mergesort.html</a>
   <div class="post-show">
     <h2>Mergesort</h2>
 
     
 
-    <aside>Posted Feb 21, 2014</aside>
+    <aside>
+      <time class="dt-published" datetime="2014-02-21 05:46:17">
+        Posted Feb 21, 2014
+      </time>
+    </aside>
     <aside>Tagged: 
       <a class="" href="../../tags/sorting algorithm">sorting algorithm</a>
       
     </aside>
-    <article class="text">
+    <article class="text h-entry e-content">
       <p>Mergesort is an important sorting algorithm when you don’t have efficient random memory access, since it doesn’t rely on that and has good time complexity - O(n logn) specifically.</p>
 
 <p>As a typical divide-and-conquer algorithm, Mergesort has two steps: first it recursively splits the lists in two until each half is unitary, then it recursively mends back the lists until it reaches the original size.</p>
@@ -181,7 +186,7 @@
     Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */</span>
 
-<span class="cp">#include "linked_list.c"
+<span class="cp">#include</span> <span class="cpf">"linked_list.c"</span><span class="cp">
 #include 
 #include 
 </span>
@@ -371,11 +376,11 @@
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

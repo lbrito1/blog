@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2014/03/trees-part-i.html">
@@ -48,19 +48,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -68,12 +68,17 @@
 
       </div>
       
+  <a class="u-url" href="https://lbrito1.github.io/blog/2014/03/trees-part-i.html" style="display: none;">https://lbrito1.github.io/blog/2014/03/trees-part-i.html</a>
   <div class="post-show">
     <h2>Trees - Part I</h2>
 
     
 
-    <aside>Posted Mar 31, 2014</aside>
+    <aside>
+      <time class="dt-published" datetime="2014-03-31 22:02:09">
+        Posted Mar 31, 2014
+      </time>
+    </aside>
     <aside>Tagged: 
       <a class="" href="../../tags/abstract data structure">abstract data structure</a>
       
@@ -86,7 +91,7 @@
       <a class="" href="../../tags/tree">tree</a>
       
     </aside>
-    <article class="text">
+    <article class="text h-entry e-content">
       <div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/codedeposit/2014/03/tree1.jpg" target="_blank">
@@ -103,7 +108,7 @@
 
 <p>render(‘/image.*’, caption: ‘Bright green tree - Waikat’, src: ‘//upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bright_green_tree_-<em>Waikato.jpg/512px-Bright_green_tree</em>-<em>Waikato.jpg)](http://commons.wikimedia.org/wiki/File%3ABright_green_tree</em>-_Waikato.jpg)</p>
 
-<p>We used trees to build the <a href="%7B%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%%7D">heap data structure</a> before, but we didn’t bother with the theory behind trees, which are abstract and concrete data structures themselves. There’s a huge range of material to cover so I’ll split this in several posts.</p>
+<p>We used trees to build the <a href="{%%20link%20_posts/2014-03-21-heap-priority-queues.markdown%20%}">heap data structure</a> before, but we didn’t bother with the theory behind trees, which are abstract and concrete data structures themselves. There’s a huge range of material to cover so I’ll split this in several posts.</p>
 
 <p>In this first post we’ll cover the basic theory and implement a binary search tree (BST), which provides <code>O(h)</code> time search, insert and delete operations (<code>h</code> is the tree height). First, the basics:</p>
 
@@ -301,11 +306,11 @@ Visited node <span class="c">#91</span></code></pre></div>
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>
