@@ -64,16 +64,18 @@
       
   <h1>Posts tagged "Rails"</h1>
 
-  <div class="pure-g">
+  <div class="pure-g h-feed">
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="../../2017/09/improving-spec-speed-in-a-huge-old-Rails-app.html">Improving spec speed in a huge, old Rails app</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2017/09/improving-spec-speed-in-a-huge-old-Rails-app.html">Improving spec speed in a huge, old Rails app</a></h2>
       <aside class="">
-        Sep 04, 2017 · read time: 7 minutes
+        <time class="dt-published" datetime="2017-09-04T00:00:00Z">Sep 04, 2017</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 7 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p>We got a 6-year-old Rails app with ~370k LOC and a ~6k-test suite which took 24 minutes to complete. Not good! We took a few days off of the main project to see if we could make things better.</p>
 
 <p>More often than not, test suites are the nasty underbelly of a Rails app. Size and age just aggravate the problem. Tests are seldom a high priority in any project, and speed might not be an issue at all in smaller apps where the whole test suite might take just a few seconds to complete. As the project grows and the CI takes increasingly longer to complete, spec speed suddenly becomes more of an issue.</p>
@@ -81,6 +83,7 @@
 <p>“Small” and “new” are not exactly the case for a certain Rails project we’re working on here at Guava. We’re talking about a 6-year-old e-commerce portal with ~370k LOC, a couple million customers and a ~6k-test, 300-spec suite which took, on average, a whopping 24 minutes to complete in our CI. <em>Not good!</em> So we took a couple of days off the main project to see if we could make things better — or less worse.</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="../../2017/09/improving-spec-speed-in-a-huge-old-Rails-app.html">
@@ -114,7 +117,7 @@
         </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 <a class="h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a> · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>
