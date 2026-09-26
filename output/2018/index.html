@@ -64,21 +64,24 @@
       
   <h1>Posted in 2018</h1>
 
-  <div class="pure-g">
+  <div class="pure-g h-feed">
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="03/the-5-stages-of-dealing-with-legacy-code.html">The 5 stages of dealing with legacy code</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2018/03/the-5-stages-of-dealing-with-legacy-code.html">The 5 stages of dealing with legacy code</a></h2>
       <aside class="">
-        Mar 05, 2018 · read time: 7 minutes
+        <time class="dt-published" datetime="2018-03-05T00:00:00Z">Mar 05, 2018</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 7 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p>Yes, this article will use the <a href="https://en.wikipedia.org/wiki/K%C3%BCbler-Ross_model">5 stages of grief</a> as an analogy for something software development-related. There are at least a few thousand other articles with a similar motif (424,000 results for “grief stages software” according to <a href="https://www.google.es/search?q=grief+stages+software&amp;oq=grief+stages+software">Google</a>). But bear with me for the next 5 minutes and I promise you’ll get something out of this — if nothing else, at least the smirk of those who read their past follies put on text by someone else.</p>
 
 <p>I have been working on a rather big Rails project for the past year and half. The project is nearly 7 years old, and has an all-too-common successful-startup-bought-by-industry-giant background story. In a project with this kind of background, some things are bound to happen: many developers of many skill ranges have come and gone, many software fads (cough, Meteor, cough), and above all else <em>a lot</em> of legacy code that is, well, let’s put it nicely, <em>not so great</em>. None of this should be taken personally in any way — it is just natural for such things to occur in such projects.</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="03/the-5-stages-of-dealing-with-legacy-code.html">
@@ -92,7 +95,7 @@
           
             <div class="tags">
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/Legacy code">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/Legacy code">
                 legacy code <span class="tag-count">1</span>
               </a>
             
@@ -102,14 +105,16 @@
       </article>
     </div>
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="06/working-remotely-in-a-non-remote-company.html">Working remotely in a non-remote company</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2018/06/working-remotely-in-a-non-remote-company.html">Working remotely in a non-remote company</a></h2>
       <aside class="">
-        Jun 12, 2018 · read time: 4 minutes
+        <time class="dt-published" datetime="2018-06-12T00:00:00Z">Jun 12, 2018</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 4 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <div class="image-box stretch">
   <div>
     <a href="../blog/assets/images/goiabada/1*mgVZOuAHmp9Ipm2asL0IQQ.jpg" target="_blank">
@@ -127,6 +132,7 @@
 <p>We have a nice office (with hammocks!), excellent work equipment, great desk space, comfortable chairs, plenty of snacks and comfort food and an infinite supply of coffee. We’re also easygoing and overall pleasant people (well, most of us are) to work with several hours a day, and some of us are even mildly funny.</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="06/working-remotely-in-a-non-remote-company.html">
@@ -140,7 +146,7 @@
           
             <div class="tags">
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/Remote work">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/Remote work">
                 remote work <span class="tag-count">1</span>
               </a>
             
@@ -150,19 +156,22 @@
       </article>
     </div>
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="09/10-ways-not-to-do-a-big-deploy.html">10 ways not to do a big deploy</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2018/09/10-ways-not-to-do-a-big-deploy.html">10 ways not to do a big deploy</a></h2>
       <aside class="">
-        Sep 03, 2018 · read time: 5 minutes
+        <time class="dt-published" datetime="2018-09-03T00:00:00Z">Sep 03, 2018</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 5 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p>Ideally, deploys should be small, concise, easily revertible, fast and with a small or nil footprint on the database. However, no matter how awesome you are, sometimes that is just unattainable and you end up needing to deploy something that is just the opposite: big, messy, hard to revert, painfully slow and rubbing the DB the wrong way. If the deploy messes with a mission-critical part of your software, all the worse for you.</p>
 
 <p>But there are actually many ways you can make those situations even worse. Here are a few bullet points you can follow to guarantee a nightmarish deploy complete with nasty side-effects that will haunt you and your coworkers for days to come.</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="09/10-ways-not-to-do-a-big-deploy.html">
@@ -176,7 +185,7 @@
           
             <div class="tags">
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/devops">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/devops">
                 devops <span class="tag-count">4</span>
               </a>
             
@@ -186,17 +195,20 @@
       </article>
     </div>
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="../2019/01/halving-page-sizes-with-srcset.html">Halving page sizes with srcset</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2019/01/halving-page-sizes-with-srcset.html">Halving page sizes with srcset</a></h2>
       <aside class="">
-        Sep 03, 2018 · read time: 3 minutes
+        <time class="dt-published" datetime="2018-09-03T00:00:00Z">Sep 03, 2018</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 3 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p><a href="https://www.webbloatscore.com/">Web bloat</a> is <a href="http://idlewords.com/talks/website_obesity.htm">discussed</a> a lot nowadays. Web pages with fairly straightforward content — such as a Google search results page — are substantially bigger today than they were a few decades ago, even though the content itself hasn’t changed that much. We, web developers, are at least partly to blame: laziness or just <a href="http://www.haneycodes.net/npm-left-pad-have-we-forgotten-how-to-program/">bad programming</a> are definitively part of the problem (of course, laziness might stem from a tight or impossible deadline, and bad code might come from inexperienced programmers — no judgment going on here).</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="../2019/01/halving-page-sizes-with-srcset.html">
@@ -210,7 +222,7 @@
           
             <div class="tags">
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/Web development">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/Web development">
                 web development <span class="tag-count">5</span>
               </a>
             
@@ -238,7 +250,7 @@
         </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 <a class="h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a> · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

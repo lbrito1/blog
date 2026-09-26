@@ -64,16 +64,18 @@
       
   <h1>Posted in 2015</h1>
 
-  <div class="pure-g">
+  <div class="pure-g h-feed">
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="09/ruby-dsl-metaprogramming-part-i.html">Ruby DSL &amp; metaprogramming, part I</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2015/09/ruby-dsl-metaprogramming-part-i.html">Ruby DSL &amp; metaprogramming, part I</a></h2>
       <aside class="">
-        Sep 11, 2015 · read time: 5 minutes
+        <time class="dt-published" datetime="2015-09-11T21:30:30+00:00">Sep 11, 2015</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 5 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p>I’ve been working with Ruby for nearly a year now, which means I’m starting to feel the urge to tell people how awesome the language is. One of the most interesting aspects of Ruby to me is <a href="https://en.wikipedia.org/wiki/Metaprogramming">metaprogramming</a>, which it seems to have quite a vocation for.</p>
 
 <p>Since college I have a fondness for automata and formal languages theory. One of the topics I particularly like is text generation (if you haven’t already, check out the excellent <a href="http://pdos.csail.mit.edu/scigen/">SCIgen</a> and the <a href="http://dev.null.org/dadaengine/">Dada engine</a>), so I thought that building a Context-free grammar (CFG)-like text generator in Ruby would be a nice little exercise and an opportunity to use some of the language’s coolest features. Also I’ve implemented one of those using Java several years ago, and it was <em>a mess</em>, so I was curious as to how much of an improvement would Ruby offer.</p>
@@ -93,6 +95,7 @@
 <p>At this point the seasoned programmer is mentally sketching some kind of text parser. It’s an okay solution, but isn’t there something <em>nicer</em> we can do? Well, there is: <a href="https://en.wikipedia.org/wiki/Domain-specific_language">DSL</a>s! In fact, Ruby is quite an excellent tool to build a DSL, and many famed Ruby-powered applications such as Rspec (and <a href="http://www.leighhalliday.com/creating-ruby-dsl">many others</a>) define some kind of DSL.</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="09/ruby-dsl-metaprogramming-part-i.html">
@@ -106,15 +109,15 @@
           
             <div class="tags">
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/DSL">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/DSL">
                 dsl <span class="tag-count">2</span>
               </a>
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/metaprogramming">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/metaprogramming">
                 metaprogramming <span class="tag-count">2</span>
               </a>
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/Ruby">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/Ruby">
                 ruby <span class="tag-count">6</span>
               </a>
             
@@ -124,14 +127,16 @@
       </article>
     </div>
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="09/ruby-dsl-metaprogramming-part-ii.html">Ruby DSL &amp; metaprogramming, part II</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2015/09/ruby-dsl-metaprogramming-part-ii.html">Ruby DSL &amp; metaprogramming, part II</a></h2>
       <aside class="">
-        Sep 20, 2015 · read time: 3 minutes
+        <time class="dt-published" datetime="2015-09-20T17:26:58+00:00">Sep 20, 2015</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 3 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p>In the previous installment we built a simple text generator using some Ruby meta-programming tricks. It was still far from being our desired context-free grammar (CFG) generator, though, since it lacked many <a href="https://www.cs.rochester.edu/~nelson/courses/csc_173/grammars/cfg.html">CFG prerequisites</a>. Most flagrantly, we had no rule recursion and only one production (rule definition) per rule. Here’s the what a script that would use both features:</p>
 
 <div class="highlight"><pre><code class="language-bash">dictionary
@@ -149,6 +154,7 @@ grammar phrase: 10</code></pre></div>
 <p>The <code>dictionary</code> section is just as we left it. Let’s see what changed in the <code>rule</code> section.</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="09/ruby-dsl-metaprogramming-part-ii.html">
@@ -162,15 +168,15 @@ grammar phrase: 10</code></pre></div>
           
             <div class="tags">
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/DSL">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/DSL">
                 dsl <span class="tag-count">2</span>
               </a>
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/metaprogramming">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/metaprogramming">
                 metaprogramming <span class="tag-count">2</span>
               </a>
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/Ruby">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/Ruby">
                 ruby <span class="tag-count">6</span>
               </a>
             
@@ -180,14 +186,16 @@ grammar phrase: 10</code></pre></div>
       </article>
     </div>
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="10/trees-part-iii-red-black-tree.html">Trees, part III - Red-black tree</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2015/10/trees-part-iii-red-black-tree.html">Trees, part III - Red-black tree</a></h2>
       <aside class="">
-        Oct 01, 2015 · read time: 4 minutes
+        <time class="dt-published" datetime="2015-10-01T16:46:41+00:00">Oct 01, 2015</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 4 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p>In our last installment on trees, we studied and implemented the <a href="{%%20link%20_posts/2014-04-21-trees-part-ii-avl-tree.markdown%20%}">AVL tree</a>. The AVL tree is one of many <a href="https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree">self-balancing binary search trees</a>, a special kind of BST that enforces sub-linear operation costs by maintaining tree height close to the theoretical minimum of $latex log_{2}(n)$. This is usually done by what is called <em>tree rotation</em>, which is basically moving around tree nodes (and updating some special node properties).</p>
 
 <p>As you can see in the Wikipedia page¹, AVL trees guarantee that the tree height is strictly less than $latex \approx 1.44~log_{2}(n)$, while Red-black trees have a slightly worse threshold of $latex \approx 2~log_{2}(n)$; thus, AVL trees will provide significantly better search times than Red-black trees. However, while AVL trees may need to do $latex O(log(n))$ rotations after each insertion, Red-black trees must do at most 2 rotations per insertion. So either one may be your tree of choice depending on the application: if search time is critical but data doesn’t get updated too often, an AVL tree will perform better; whereas a Red-black tree will perform better in scenarios where data is constantly being changed.</p>
@@ -202,6 +210,7 @@ grammar phrase: 10</code></pre></div>
 </ol>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="10/trees-part-iii-red-black-tree.html">
@@ -217,19 +226,22 @@ grammar phrase: 10</code></pre></div>
       </article>
     </div>
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="10/red-black-vs-avl.html">Trees, part IV - Benchmarking Red-black and AVL trees</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2015/10/red-black-vs-avl.html">Trees, part IV - Benchmarking Red-black and AVL trees</a></h2>
       <aside class="">
-        Oct 07, 2015 · read time: 4 minutes
+        <time class="dt-published" datetime="2015-10-07T23:02:35+00:00">Oct 07, 2015</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 4 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p>In our previous installments we implemented two of the most well-known self-balancing binary search trees: <a href="{%%20link%20_posts/2014-04-21-trees-part-ii-avl-tree.markdown%20%}">AVL</a> and <a href="{%%20link%20_posts/2015-10-01-trees-part-iii-red-black-tree.markdown%20%}">Red-black</a> <a href="{%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%}">trees</a>.</p>
 
 <p>We had a few classes on AVL trees in our basic data structures &amp; algorithms class back in college, which made its implementation far less of a challenge than the Red-black tree. So besides the fundamental guidance of CLRS I had to do quite some googling to get it working. While googling I noticed there were quite a lot of questions about which (AVL or RB) tree was “better” in some sense, be it insertion, search time, deletion time, etc. Most textbooks and articles dismiss this question just by stating the factor differences in either trees’ worst case heights, <a href="{%%20link%20_posts/2015-10-01-trees-part-iii-red-black-tree.markdown%20%}">as we briefly mentioned</a> in the past installment. If you’re anything like me, however, you’ll want to see some comparisons where the trees are <em>actually</em> tested. So I decided to do some simple benchmarking to test those theoretical worst-cases. Here’s what I found out.</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="10/red-black-vs-avl.html">
@@ -245,14 +257,16 @@ grammar phrase: 10</code></pre></div>
       </article>
     </div>
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html">Building a shared library in C and using it in a Python program</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2015/10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html">Building a shared library in C and using it in a Python program</a></h2>
       <aside class="">
-        Oct 28, 2015 · read time: 4 minutes
+        <time class="dt-published" datetime="2015-10-28T22:01:29+00:00">Oct 28, 2015</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 4 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <div class="image-box stretch">
   <div>
     <a href="../blog/assets/images/codedeposit/2015/10/pathfinding.png?w=660" target="_blank">
@@ -276,6 +290,7 @@ grammar phrase: 10</code></pre></div>
 <p>For our purposes, we consider shared libraries as a collection of compiled objects condensed into a single file, which may then be called by other software. This is, of course, a simplification. A longer discussion about shared and static libraries can be found in [1].</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="10/building-a-shared-library-in-c-and-using-it-in-a-python-program.html">
@@ -289,23 +304,23 @@ grammar phrase: 10</code></pre></div>
           
             <div class="tags">
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/c">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/c">
                 c <span class="tag-count">1</span>
               </a>
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/linux">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/linux">
                 linux <span class="tag-count">1</span>
               </a>
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/python">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/python">
                 python <span class="tag-count">1</span>
               </a>
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/reuse">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/reuse">
                 reuse <span class="tag-count">1</span>
               </a>
             
-              <a class="pure-button button-xsmall tag-button" href="../tags/shared library">
+              <a class="pure-button button-xsmall tag-button p-category" href="../tags/shared library">
                 shared library <span class="tag-count">1</span>
               </a>
             
@@ -333,7 +348,7 @@ grammar phrase: 10</code></pre></div>
         </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 <a class="h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a> · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

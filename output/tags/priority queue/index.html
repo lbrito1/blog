@@ -64,16 +64,18 @@
       
   <h1>Posts tagged "priority queue"</h1>
 
-  <div class="pure-g">
+  <div class="pure-g h-feed">
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="../../2014/03/heap-priority-queues.html">Heap &amp; Priority Queues</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2014/03/heap-priority-queues.html">Heap &amp; Priority Queues</a></h2>
       <aside class="">
-        Mar 21, 2014 · read time: 6 minutes
+        <time class="dt-published" datetime="2014-03-21T19:08:06+00:00">Mar 21, 2014</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 6 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p>Priority queues (PQs) are abstract data types that work just like regular stacks, but the popping order depends on each element’s priority instead of the sequence they were pushed onto the queue (FIFO or LIFO).</p>
 
 <p>The naïve way of implementing a PQ consists of using an unsorted list or array and searching for the highest-priority element at each pop, which takes O(n) time. There are several more efficient implementations, of which the most usual is the heap.</p>
@@ -97,6 +99,7 @@
 <p>Each element of a heap has two pieces of information: a key and a value, hence we call them key-value (KV) pair. The key identifies the specific element, and the value determines the element’s priority within the heap. Heaps can be min-heaps (low value = high priority) or max-heaps (high value = high priority).</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="../../2014/03/heap-priority-queues.html">
@@ -130,7 +133,7 @@
         </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 <a class="h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a> · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

@@ -64,16 +64,18 @@
       
   <h1>Posts tagged "graph"</h1>
 
-  <div class="pure-g">
+  <div class="pure-g h-feed">
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="../../2014/03/graph.html">Graph</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2014/03/graph.html">Graph</a></h2>
       <aside class="">
-        Mar 23, 2014 · read time: 5 minutes
+        <time class="dt-published" datetime="2014-03-23T02:03:14+00:00">Mar 23, 2014</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 5 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p>Mathematically, a graph is a set of vertices and edges, thus a graph <code>G</code> is usually written as <code>G(V,E)</code>. Besides linking vertices in the graph, edges can also carry a specific value which may be interpreted as cost, weight, distance etc.</p>
 
 <div class="image-box stretch">
@@ -111,6 +113,7 @@
 <p>Edges consist of just pointers to the vertices they link and an optional value used as weight, distance, cost etc. Strictly speaking we could use a void pointer for that value as well, as long as we also defined a comparison function. But let’s save the hassle and just use an integer instead - most algorithms will be fine with that.</p>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="../../2014/03/graph.html">
@@ -126,14 +129,16 @@
       </article>
     </div>
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="../../2014/03/trees-part-i.html">Trees - Part I</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2014/03/trees-part-i.html">Trees - Part I</a></h2>
       <aside class="">
-        Mar 31, 2014 · read time: 4 minutes
+        <time class="dt-published" datetime="2014-03-31T22:02:09+00:00">Mar 31, 2014</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 4 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <div class="image-box stretch">
   <div>
     <a href="../../blog/assets/images/codedeposit/2014/03/tree1.jpg" target="_blank">
@@ -162,7 +167,8 @@
 
 <p>Trees are classified according to some&nbsp;of those properties above and some others we’ll mention later. Most commonly, there is a constraint to the maximum number of children per node -e.g. the binary tree limits children to 2 per node.
 
-          </p><div class="pure-g post-footer">
+        </p></div>
+          <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="../../2014/03/trees-part-i.html">
                 
@@ -177,14 +183,16 @@
       </article>
     </div>
   
-    <div class="post-index pure-u-1-1">
-      <h2><a href="../../2014/04/shortest-path-part-i-dijkstras-algorithm.html">Shortest path, part I - Dijkstra's algorithm</a></h2>
+    <div class="post-index pure-u-1-1 h-entry">
+      <h2><a class="p-name u-url" href="https://lbrito1.github.io/blog/2014/04/shortest-path-part-i-dijkstras-algorithm.html">Shortest path, part I - Dijkstra's algorithm</a></h2>
       <aside class="">
-        Apr 06, 2014 · read time: 5 minutes
+        <time class="dt-published" datetime="2014-04-06T23:21:02+00:00">Apr 06, 2014</time>
+        <span style="display: none;"><a rel="author" class="p-author h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a></span> · read time: 5 minutes
       </aside>
       
 
       <article class="text">
+        <div class="e-summary">
           <p>Now that we have a way to represent <a href="{%%20link%20_posts/2014-03-23-graph.markdown%20%}">graphs</a>, we can discuss one of the most important problems in graph theory: the shortest path problem (SPP). More or less formally, we’ll define SPP as:</p>
 
 <p>Given a weighted&nbsp;graph G(V,E), find the sequence P = {v0, v1, v2, …, v(n-1)}, vi ∈ V, from vertex V0 to vertex V(n-1), such that&nbsp;the list of edges&nbsp;EP = {(v0,v1), (v1,v2), … (v(n-2), v(n-1))} exists and the summation of costs of all elements e&nbsp;∈ EP is the smallest possible.</p>
@@ -214,6 +222,7 @@
 <span class="k">return </span>prev</code></pre></div>
 
 
+        </div>
           <div class="pure-g post-footer">
           <div class="pure-u-1-2">
               <a class="read-more" href="../../2014/04/shortest-path-part-i-dijkstras-algorithm.html">
@@ -247,7 +256,7 @@
         </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 <a class="h-card" href="https://lbrito1.github.io/blog/about.html">Leonardo Brito</a> · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>
