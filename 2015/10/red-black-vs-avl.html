@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2015/10/red-black-vs-avl.html">
@@ -48,19 +48,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -68,18 +68,23 @@
 
       </div>
       
+  <a class="u-url" href="https://lbrito1.github.io/blog/2015/10/red-black-vs-avl.html" style="display: none;">https://lbrito1.github.io/blog/2015/10/red-black-vs-avl.html</a>
   <div class="post-show">
     <h2>Trees, part IV - Benchmarking Red-black and AVL trees</h2>
 
     
 
-    <aside>Posted Oct 07, 2015</aside>
+    <aside>
+      <time class="dt-published" datetime="2015-10-07 23:02:35">
+        Posted Oct 07, 2015
+      </time>
+    </aside>
     <aside>Tagged: 
     </aside>
-    <article class="text">
-      <p>In our previous installments we implemented two of the most well-known self-balancing binary search trees: <a href="%7B%%20link%20_posts/2014-04-21-trees-part-ii-avl-tree.markdown%20%%7D">AVL</a> and <a href="%7B%%20link%20_posts/2015-10-01-trees-part-iii-red-black-tree.markdown%20%%7D">Red-black</a> <a href="%7B%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%%7D">trees</a>.</p>
+    <article class="text h-entry e-content">
+      <p>In our previous installments we implemented two of the most well-known self-balancing binary search trees: <a href="{%%20link%20_posts/2014-04-21-trees-part-ii-avl-tree.markdown%20%}">AVL</a> and <a href="{%%20link%20_posts/2015-10-01-trees-part-iii-red-black-tree.markdown%20%}">Red-black</a> <a href="{%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%}">trees</a>.</p>
 
-<p>We had a few classes on AVL trees in our basic data structures &amp; algorithms class back in college, which made its implementation far less of a challenge than the Red-black tree. So besides the fundamental guidance of CLRS I had to do quite some googling to get it working. While googling I noticed there were quite a lot of questions about which (AVL or RB) tree was “better” in some sense, be it insertion, search time, deletion time, etc. Most textbooks and articles dismiss this question just by stating the factor differences in either trees’ worst case heights, <a href="%7B%%20link%20_posts/2015-10-01-trees-part-iii-red-black-tree.markdown%20%%7D">as we briefly mentioned</a> in the past installment. If you’re anything like me, however, you’ll want to see some comparisons where the trees are <em>actually</em> tested. So I decided to do some simple benchmarking to test those theoretical worst-cases. Here’s what I found out.</p>
+<p>We had a few classes on AVL trees in our basic data structures &amp; algorithms class back in college, which made its implementation far less of a challenge than the Red-black tree. So besides the fundamental guidance of CLRS I had to do quite some googling to get it working. While googling I noticed there were quite a lot of questions about which (AVL or RB) tree was “better” in some sense, be it insertion, search time, deletion time, etc. Most textbooks and articles dismiss this question just by stating the factor differences in either trees’ worst case heights, <a href="{%%20link%20_posts/2015-10-01-trees-part-iii-red-black-tree.markdown%20%}">as we briefly mentioned</a> in the past installment. If you’re anything like me, however, you’ll want to see some comparisons where the trees are <em>actually</em> tested. So I decided to do some simple benchmarking to test those theoretical worst-cases. Here’s what I found out.</p>
 
 <!-- more -->
 
@@ -127,7 +132,7 @@
 
 <p>Figure 2</p>
 
-<p>Figure 2 reminds us why self-balancing trees were invented. BST quickly degenerated into a $latex O(n)$-time <a href="%7B%%20link%20_posts/2014-02-14-3.markdown%20%%7D%7D">linked list</a>, which made the other two trees’ performance invisible. Let’s use a log plot to see how well R&amp;B and AVL performed:</p>
+<p>Figure 2 reminds us why self-balancing trees were invented. BST quickly degenerated into a $latex O(n)$-time <a href="{%%20link%20_posts/2014-02-14-3.markdown%20%}}">linked list</a>, which made the other two trees’ performance invisible. Let’s use a log plot to see how well R&amp;B and AVL performed:</p>
 
 <p>:————————-:|:————————-:</p>
 <div class="image-box stretch">
@@ -223,11 +228,11 @@
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>

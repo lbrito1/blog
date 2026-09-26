@@ -5,7 +5,7 @@
   <meta name="description" content="A programmer's blog with posts about Ruby, web development, algorithms and data structure.">
   <meta name="author" content="Leonardo Brito">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Nanoc 4.11.16">
+  <meta name="generator" content="Nanoc 4.14.7">
   <meta property="og:type" content="website">
   
   <meta property="og:url" content="https://lbrito1.github.io/blog/2014/04/trees-part-ii-avl-tree.html">
@@ -45,19 +45,19 @@
           <div class="pure-u-1-4">
             <div class="contact">
               <span>
-                <a class="links-icon" href="https://github.com/lbrito1" download="">
+                <link rel="me" class="links-icon" href="https://github.com/lbrito1" download="">
                   <img src="../../assets/icons/github.svg" alt="Github icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
+                <link rel="me" class="links-icon" href="https://www.linkedin.com/in/leonardo-mendes-brito/">
                   <img src="../../assets/icons/linkedin.svg" alt="LinkedIn icon">
-                </a>
+                
               </span>
               <span>
-                <a class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
+                <link rel="me" class="links-icon" href="https://lbrito1.github.io/blog/feed.xml">
                   <img src="../../assets/icons/rss.svg" alt="RSS icon">
-                </a>
+                
               </span>
             </div>
           </div>
@@ -65,12 +65,17 @@
 
       </div>
       
+  <a class="u-url" href="https://lbrito1.github.io/blog/2014/04/trees-part-ii-avl-tree.html" style="display: none;">https://lbrito1.github.io/blog/2014/04/trees-part-ii-avl-tree.html</a>
   <div class="post-show">
     <h2>Trees, Part II: AVL Tree</h2>
 
     
 
-    <aside>Posted Apr 21, 2014</aside>
+    <aside>
+      <time class="dt-published" datetime="2014-04-21 19:37:30">
+        Posted Apr 21, 2014
+      </time>
+    </aside>
     <aside>Tagged: 
       <a class="" href="../../tags/avl">avl</a>
       
@@ -83,14 +88,14 @@
       <a class="" href="../../tags/tree">tree</a>
       
     </aside>
-    <article class="text">
+    <article class="text h-entry e-content">
       <p>Masters classes started a few weeks ago, taking their&nbsp;toll on my productivity here. Sorry about that!</p>
 
-<p>So we (pardon the&nbsp;<a href="http://en.wikipedia.org/wiki/Nosism">nosism</a>, but I think it sounds less egocentric&nbsp;than writing “I” all the time) hinted at AVL trees back on our <a href="%7B%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%%7D">Trees, Part I</a>&nbsp;post. Specifically, we learned that:</p>
+<p>So we (pardon the&nbsp;<a href="http://en.wikipedia.org/wiki/Nosism">nosism</a>, but I think it sounds less egocentric&nbsp;than writing “I” all the time) hinted at AVL trees back on our <a href="{%%20link%20_posts/2014-03-31-trees-part-i.markdown%20%}">Trees, Part I</a>&nbsp;post. Specifically, we learned that:</p>
 
 <blockquote>a binary search tree (BST), provides O(h) time search, insert and delete operations (h is the tree height.</blockquote>
 
-<p>Linear time (O(h)) doesn’t sound very good - if h is close to n, we’ll have the same performance as a <a href="%7B%%20link%20_posts/2014-02-14-3.markdown%20%%7D%7D">linked list</a>.&nbsp;What if there were a way to&nbsp;bound the tree height&nbsp;to some sub-linear factor? As it turns out, there are several ways to do so, and the general idea of somehow&nbsp;keeping the tree height limited to a certain factor of the number of elements it holds is called height&nbsp;<strong>balancing</strong>. Ergo we’ll want to look into (height)&nbsp;<strong>balanced/self-balancing binary search trees **(BBST)</strong>.&nbsp;**</p>
+<p>Linear time (O(h)) doesn’t sound very good - if h is close to n, we’ll have the same performance as a <a href="{%%20link%20_posts/2014-02-14-3.markdown%20%}}">linked list</a>.&nbsp;What if there were a way to&nbsp;bound the tree height&nbsp;to some sub-linear factor? As it turns out, there are several ways to do so, and the general idea of somehow&nbsp;keeping the tree height limited to a certain factor of the number of elements it holds is called height&nbsp;<strong>balancing</strong>. Ergo we’ll want to look into (height)&nbsp;<strong>balanced/self-balancing binary search trees **(BBST)</strong>.&nbsp;**</p>
 
 <div class="highlight"><pre><code class="language-bash">                      Burger
 
@@ -438,7 +443,7 @@ AFTER
       <span class="p">}</span>
 <span class="p">}</span></code></pre></div>
 
-<p>The main while loop starts at the inserted node (leaf) and repeats until it reaches the tree root.&nbsp;The most important thing done here is updating each node’s height, which makes it possible to calculate node balance factor later. This is done in the first and second if, respectively. After the new balance factor is calculated, the node is passed to the rotate function, which decides based on its balance factor if it needs any of the four rotations. After the rotation, the tree root might have changed, so we make sure we keep the correct root (node* new_subtree_root and the subsequent while loop). Finally, if debugging is defined, we print the tree using <a href="%7B%%20link%20_posts/2014-03-18-burgergfx-simple-2d-graphics.markdown%20%%7D">BurgerGFX</a>&nbsp;and increment the loop (i.e. next = next-&gt;parent and branch_height++).</p>
+<p>The main while loop starts at the inserted node (leaf) and repeats until it reaches the tree root.&nbsp;The most important thing done here is updating each node’s height, which makes it possible to calculate node balance factor later. This is done in the first and second if, respectively. After the new balance factor is calculated, the node is passed to the rotate function, which decides based on its balance factor if it needs any of the four rotations. After the rotation, the tree root might have changed, so we make sure we keep the correct root (node* new_subtree_root and the subsequent while loop). Finally, if debugging is defined, we print the tree using <a href="{%%20link%20_posts/2014-03-18-burgergfx-simple-2d-graphics.markdown%20%}">BurgerGFX</a>&nbsp;and increment the loop (i.e. next = next-&gt;parent and branch_height++).</p>
 
 <p>You can see how this works by using the debug flags. For example, in the right-right rotation we showed above (inserting ‘T’ into the tree), here’s the console output which shows us what’s going on in the rebalance function:</p>
 
@@ -499,11 +504,11 @@ Finished checking node 79 <span class="o">(</span>O<span class="o">)</span>, now
             <p>
               <a href="https://buttondown.email" target="_blank">Powered by Buttondown.</a>
             </p>
-          </div></form>
-        
+          </div>
+        </form>
       </div>
       <div class="final">
-        2026 Leonardo Brito · Powered by <a href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
+        2026 Leonardo Brito · Powered by <a class="h-card" rel="me" href="https://github.com/lbrito1/sane-blog-builder">sane blog builder</a>
       </div>
     </div>
   </div>
