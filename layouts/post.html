@@ -1,5 +1,6 @@
 <% render '/default.*' do %>
   <div class='post-show h-entry'>
+    <a href="https://news.indieweb.org/en" class="u-category">#indienews</a>
     <a class="u-url" href="<%= og_url(item) %>" style="display: none;"><%= og_url(item) %></a>
     <h2 class="p-name"><%= item[:title] %></h2>
 
@@ -16,6 +17,11 @@
     <aside>Tagged: <% item[:tags]&.each do |tag| %>
       <a class="p-category" href="/tags/<%= tag %>"><%= tag %></a>
       <% end %>
+    </aside>
+    <aside>
+      <a href="https://news.indieweb.org/en" class="u-syndication">
+        Also posted on IndieNews
+      </a>
     </aside>
     <article class="text e-content">
       <%= yield %>
